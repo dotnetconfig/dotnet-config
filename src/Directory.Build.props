@@ -38,9 +38,9 @@
 
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/kzu/dotnet-vs</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/kzu/dotnet-config</PackageProjectUrl>
     <PackageIcon>icon-128.png</PackageIcon>
-    <PackageTags>dotnet vs</PackageTags>
+    <PackageTags>dotnet config</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup>

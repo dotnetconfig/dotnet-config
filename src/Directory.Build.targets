@@ -16,7 +16,7 @@
 
   <Target Name="Version" DependsOnTargets="SetVersions" AfterTargets="SetVersions">
     <Message Importance="high" Text="PackageVersion=$(PackageVersion)" />
-    <Message Condition="$(CI)" Importance="high" Text="##vso[build.updatebuildnumber]$(BuildVersion)"/>
+    <Message Condition="$(CI) And '$(BuildVersion)' != ''" Importance="high" Text="##vso[build.updatebuildnumber]$(BuildVersion)"/>
   </Target>
 
   <Target Name="SetVersions"
@@ -72,9 +72,9 @@
 
     <PropertyGroup Condition="$(CI)">
       <!-- Update package description so it contains metadata too. -->
-      <Description>A global tool for managing Visual Studio installations
+      <Description>$(Description)
 
-Built by https://build.azdo.io/kzu/oss/$(BUILD_BUILDID)
+Built by https://build.azdo.io/kzu/oss/$(BUILD_BUILDID) from $(PackageProjectUrl)/tree/$(GitCommit)
 </Description>
     </PropertyGroup>
 
