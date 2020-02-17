@@ -1,0 +1,125 @@
+<Project>
+
+  <PropertyGroup>
+    <!-- The Sdks\NuGet.Build.Tasks.Pack\build\NuGet.Build.Tasks.Pack.targets unconditionally sets 
+        PackageId=AssemblyName if no PackageId is provided, and then defaults IsPackable=true if 
+        a PackageId is set (?!), meaning that by default everything is packable in Sdk-style 
+        projects. 
+
+        The Directory.Build.targets are imported after the user's project properties have been 
+        read, and therefore gives us a chance to inspect if an explicit PackageId was provided, 
+        before the NuGet SDK target is imported and defaults it. At this point, we can give 
+        IsPackable a more sensible default, making it false if no PackageId was provided at this 
+        point. -->
+    <IsPackable Condition="'$(PackageId)' == ''">false</IsPackable>
+  </PropertyGroup>
+
+  <Target Name="Version" DependsOnTargets="SetVersions" AfterTargets="SetVersions">
+    <Message Importance="high" Text="PackageVersion=$(PackageVersion)" />
+    <Message Condition="$(CI)" Importance="high" Text="##vso[build.updatebuildnumber]$(BuildVersion)"/>
+  </Target>
+
+  <Target Name="SetVersions"
+          BeforeTargets="PrepareForBuild;GetAssemblyVersion;GenerateNuspec;Pack"
+          DependsOnTargets="GitVersion"
+          Returns="$(Version)"
+          Condition="'$(GitInfoImported)' == 'true' And '$(ExcludeRestorePackageImports)' != 'true'">
+          
+    <PropertyGroup>
+      <GitBranch>$(GitBranch.Replace('/', '-'))</GitBranch>
+      <!-- We don't build stable versions from non-master branches. But when the version came from the branch, we leave it as-is. -->
+      <GitSemVerDashLabel Condition="'$(GitBranch)' != 'master' and '$(GitSemVerDashLabel)' == '' and '$(GitSemVerSource)' != 'Branch'">-$(GitBranch)</GitSemVerDashLabel>
+      <IncludeBuildMetadata>$(PR)</IncludeBuildMetadata>
+      <!-- Build metadata always present for non-master branches, unless the existing label matches the branch.
+           For a versioned branch, it doesn't make sense either. -->
+      <IncludeBuildMetadata Condition="'$(GitBranch)' != 'master' and '$(GitSemVerSource)' != 'Branch' and '$(GitSemVerDashLabel)' != '-$(GitBranch)'"></IncludeBuildMetadata>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <VersionMetadata Include="$(GitBranch)" />
+      <VersionMetadata Condition="'$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)' != ''"
+                       Include="pr.$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)"/>
+      <VersionMetadata Include="sha.$(GitCommit)" Condition="'$(GitCommit)' != ''"/>
+      <VersionMetadata Condition="$(CI)"
+                       Include="azdo.$(BUILD_BUILDID)"/>
+    </ItemGroup>
+
+    <PropertyGroup>
+      <VersionMetadataLabel>@(VersionMetadata -> '%(Identity)', '-')</VersionMetadataLabel>
+      <VersionMetadataPlusLabel Condition="'$(VersionMetadataLabel)' != ''">+$(VersionMetadataLabel)</VersionMetadataPlusLabel>
+      <GitSemVerDashLabel Condition="'$(GitSemVerDashLabel)' != '' and '$(GitCommits)' != '0'">$(GitSemVerDashLabel).$(GitCommits)</GitSemVerDashLabel>
+
+      <BuildVersion>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)$(VersionMetadataPlusLabel)</BuildVersion>
+      <PackageVersion>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)</PackageVersion>
+      <PackageVersion Condition="$(IncludeBuildMetadata)">$(BuildVersion)</PackageVersion>
+      <Version>$(BuildVersion)</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>Version</_Parameter1>
+        <_Parameter2>$(Version)</_Parameter2>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>PackageVersion</_Parameter1>
+        <_Parameter2>$(PackageVersion)</_Parameter2>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>BuildVersion</_Parameter1>
+        <_Parameter2>$(BuildVersion)</_Parameter2>
+      </AssemblyAttribute>
+    </ItemGroup>
+
+    <PropertyGroup Condition="$(CI)">
+      <!-- Update package description so it contains metadata too. -->
+      <Description>A global tool for managing Visual Studio installations
+
+Built by https://build.azdo.io/kzu/oss/$(BUILD_BUILDID)
+</Description>
+    </PropertyGroup>
+
+  </Target>
+
+  <Target Name="AddVersionMetadata" DependsOnTargets="GetAssemblyVersion" BeforeTargets="GenerateThisAssemblyMetadata">
+    <ItemGroup>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>AssemblyVersion</_Parameter1>
+        <_Parameter2>$(AssemblyVersion)</_Parameter2>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>FileVersion</_Parameter1>
+        <_Parameter2>$(FileVersion)</_Parameter2>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata">
+        <_Parameter1>InformationalVersion</_Parameter1>
+        <_Parameter2>$(InformationalVersion)</_Parameter2>
+      </AssemblyAttribute>
+    </ItemGroup>
+  </Target>
+
+  <Target Name="AddAssemblyAttributes" BeforeTargets="GetAssemblyAttributes">
+    <ItemGroup>
+      <AssemblyAttribute Include="System.Reflection.AssemblyMetadata" Condition="%(AssemblyMetadata.Identity) != ''">
+        <_Parameter1>%(AssemblyMetadata.Identity)</_Parameter1>
+        <_Parameter2>%(AssemblyMetadata.Value)</_Parameter2>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo" Condition="%(InternalsVisibleTo.Identity) != ''">
+        <_Parameter1 Condition="'%(InternalsVisibleTo.Key)' != ''">%(InternalsVisibleTo.Identity), PublicKey=%(InternalsVisibleTo.Key)</_Parameter1>
+        <_Parameter1 Condition="'%(InternalsVisibleTo.Key)' == '' and '$(PublicKey)' != ''">%(InternalsVisibleTo.Identity), PublicKey=$(PublicKey)</_Parameter1>
+        <_Parameter1 Condition="'%(InternalsVisibleTo.Key)' == '' and '$(PublicKey)' == ''">%(InternalsVisibleTo.Identity)</_Parameter1>
+      </AssemblyAttribute>
+    </ItemGroup>
+  </Target>
+  
+  <!-- If a package is produced delete restored packages with the matching id
+       so that re-installing latest will automatically pick up this newest package.
+  -->
+  <Target Name="ClearNuGetRestoreCache" Condition="!$(CI)" AfterTargets="Pack">
+    <Exec Command='rd /s/q "$(NuGetPackageRoot)$(PackageId.ToLowerInvariant())"' Condition="$(OS) == 'Windows_NT' And Exists('$(NuGetPackageRoot)$(PackageId.ToLowerInvariant())')"/>
+    <Exec Command='xargs rm -rf "$(NuGetPackageRoot)$(PackageId.ToLowerInvariant())"' Condition="$(OS) != 'Windows_NT' And Exists('$(NuGetPackageRoot)$(PackageId.ToLowerInvariant())')"/>
+  </Target>
+
+  <!-- Import [project].targets if it exists -->
+	<Import Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).targets"
+          Condition="'$(MSBuildProjectExtension)' != '.targets' And Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).targets')" />
+</Project>

@@ -1,0 +1,70 @@
+<Project>
+
+  <PropertyGroup Label="CI" Condition="'$(CI)' == ''">
+    <CI>false</CI>
+    <CI Condition="'$(TF_BUILD)' == 'true'">true</CI>
+  </PropertyGroup>
+
+  <PropertyGroup Label="CI" Condition="'$(PR)' == ''">
+    <PR>false</PR>
+    <PR Condition="'$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)' != ''">true</PR>
+  </PropertyGroup>
+
+  <PropertyGroup Label="GitInfo">
+    <GitSkipCache>$(CI)</GitSkipCache>
+    <GitIgnoreBranchVersion>true</GitIgnoreBranchVersion>
+    <GitIgnoreTagVersion>true</GitIgnoreTagVersion>
+
+    <GitBranch Condition="'$(SYSTEM_PULLREQUEST_SOURCEBRANCH)' != ''">$(SYSTEM_PULLREQUEST_SOURCEBRANCH)</GitBranch>
+    <GitBranch Condition="'$(SYSTEM_PULLREQUEST_TARGETBRANCH)' == '' and '$(BUILD_SOURCEBRANCH)' != ''">$(BUILD_SOURCEBRANCH)</GitBranch>
+    <GitBranch Condition="$(GitBranch.StartsWith('refs/heads'))">$(GitBranch.Substring(11))</GitBranch>
+    <!-- Simply rel/xxx => xxx. Allows using rel/v1.0.0, say, to group versioned branches/releases -->
+    <GitBranch Condition="$(GitBranch.StartsWith('rel/'))">$(GitBranch.Substring(4))</GitBranch>
+    <GitBranch>$(GitBranch.Replace('/', '-'))</GitBranch>
+  </PropertyGroup>
+
+  <PropertyGroup Label="CI" Condition="'$(BUILD_SOURCEVERSION)' != ''">
+    <GitSha>$(BUILD_SOURCEVERSION)</GitSha>
+    <GitCommit>$(GitSha.Substring(0, 9))</GitCommit>
+  </PropertyGroup>
+
+  <PropertyGroup Label="CI" Condition="'$(SYSTEM_PULLREQUEST_SOURCECOMMITID)' != ''">
+    <GitSha>$(SYSTEM_PULLREQUEST_SOURCECOMMITID)</GitSha>
+    <GitCommit>$(GitSha.Substring(0, 9))</GitCommit>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>kzu</Authors>
+
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/kzu/dotnet-vs</PackageProjectUrl>
+    <PackageIcon>icon-128.png</PackageIcon>
+    <PackageTags>dotnet vs</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+    <LangVersion>Latest</LangVersion>
+
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    <NoWarn>NU5105;$(NoWarn)</NoWarn>
+
+    <!-- Because it's sooo much better than GeneratePackageOnBuild! -->
+    <PackOnBuild Condition="$(CI) or '$(BuildingInsideVisualStudio)' != 'true'">true</PackOnBuild>
+
+    <GeneratePackageOnBuild>$(PackOnBuild)</GeneratePackageOnBuild>
+    <PackageOutputPath Condition="'$(PackOnBuild)' == 'true' And '$(PackageOutputPath)' == ''">$(MSBuildThisFileDirectory)..\bin</PackageOutputPath>
+    <DefaultItemExcludes>$(DefaultExcludeItems);*.binlog</DefaultItemExcludes>
+  </PropertyGroup>
+  
+  <!-- This target is replaced by GitInfo when restored -->
+  <Target Name="GitVersion" />
+
+  <!-- Import [project].props if it exists -->
+  <Import Project="$(MSBuildProjectDirectory)\$(MSBuildProjectName).props"
+          Condition="'$(MSBuildProjectExtension)' != '.props' And Exists('$(MSBuildProjectDirectory)\$(MSBuildProjectName).props')" />
+</Project>

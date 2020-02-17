@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Source-based APIs for handling dotnet-config compatible settings for any dotnet tool.</Description>
+
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <PackageId>dotnet-config-api</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
+    <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\docs\img\icon-128.png" Link="icon-128.png" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

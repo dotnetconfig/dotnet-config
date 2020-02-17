@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
+
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <AssemblyName>config</AssemblyName>
+    <RootNamespace>Config</RootNamespace>
+
+    <PackageId>dotnet-config</PackageId>
+    <ToolCommandName>config</ToolCommandName>
+    <PackAsTool>true</PackAsTool>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
+    <PackageReference Include="Mono.Options" Version="6.6.0.161" />
+    <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\docs\img\icon-128.png" Link="icon-128.png" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="%(Filename)%(Extension)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>AssemblyName</_Parameter1>
+      <_Parameter2>$(AssemblyName)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
