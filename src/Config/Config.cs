@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Dynamic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -53,34 +51,12 @@ internal abstract class Config
     {
         { typeof(bool), (Func<string, bool>)ConvertBoolean },
         { typeof(DateTime), new Func<string, DateTime>((value) => DateTime.Parse(value ?? throw new ArgumentNullException(nameof(value)), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind)) },
-        // Integral types, see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/integral-numeric-types
-        { typeof(sbyte), new Func<string, sbyte>((value) => sbyte.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(byte), new Func<string, byte>((value) => byte.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(short), new Func<string, short>((value) => short.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(ushort), new Func<string, ushort>((value) => ushort.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
         { typeof(int), new Func<string, int>((value) => int.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(uint), new Func<string, uint>((value) => uint.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(long), new Func<string, long>((value) => long.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(ulong), new Func<string, ulong>((value) => ulong.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        // Floating-point types, see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types
-        { typeof(float), new Func<string, float>((value) => float.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(double), new Func<string, double>((value) => double.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(decimal), new Func<string, decimal>((value) => decimal.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
 
         // Nullable versions
         { typeof(bool?), (Func<string, bool?>)ConvertNullableBoolean },
         { typeof(DateTime?), new Func<string, DateTime?>((value) => DateTime.Parse(value ?? throw new ArgumentNullException(nameof(value)), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind)) },
-        { typeof(sbyte?), new Func<string, sbyte?>((value) => sbyte.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(byte?), new Func<string, byte?>((value) => byte.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(short?), new Func<string, short?>((value) => short.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(ushort?), new Func<string, ushort?>((value) => ushort.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
         { typeof(int?), new Func<string, int?>((value) => int.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(uint?), new Func<string, uint?>((value) => uint.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(long?), new Func<string, long?>((value) => long.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(ulong?), new Func<string, ulong?>((value) => ulong.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(float?), new Func<string, float?>((value) => float.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(double?), new Func<string, double?>((value) => double.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
-        { typeof(decimal?), new Func<string, decimal?>((value) => decimal.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
     };
 
     /// <summary>

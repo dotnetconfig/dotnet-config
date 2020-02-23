@@ -86,45 +86,12 @@ public class ConfigTests
     }
 
     [Fact]
-    public void can_read_decimal()
+    public void can_read_int()
     {
         var config = Mock.Of<Config>();
 
-        Assert.Equal((decimal)Math.PI, config.ConvertTo<decimal>(Math.PI.ToString()));
-        Assert.Equal((decimal)Math.PI, config.ConvertTo<decimal?>(Math.PI.ToString()));
-    }
-
-    [Theory]
-    // Integral types
-    [InlineData("1", (byte)1)]
-    [InlineData("1", (sbyte)1)]
-    [InlineData("1", (short)1)]
-    [InlineData("1", (ushort)1)]
-    [InlineData("1", (int)1)]
-    [InlineData("1", (uint)1)]
-    [InlineData("1", (long)1)]
-    [InlineData("1", (ulong)1)]
-    // Floating-point types
-    [InlineData("1.1", (float)1.1)]
-    [InlineData("1.1", (double)1.1)]
-    //[InlineData("1.1", (decimal)1.1)] Decimal as literal in attribute doesn't work
-    public void can_read_supported_types(string value, object expected)
-    {
-        var config = Mock.Of<Config>();
-
-        var actual = typeof(Config)
-            .GetMethod("ConvertTo", BindingFlags.Instance | BindingFlags.NonPublic)
-            .MakeGenericMethod(expected.GetType())
-            .Invoke(config, new object[] { value });
-
-        Assert.Equal(expected, actual);
-
-        actual = typeof(Config)
-            .GetMethod("ConvertTo", BindingFlags.Instance | BindingFlags.NonPublic)
-            .MakeGenericMethod(typeof(Nullable<>).MakeGenericType(expected.GetType()))
-            .Invoke(config, new object[] { value });
-
-        Assert.Equal(expected, actual);
+        Assert.Equal(10, config.ConvertTo<int>("10"));
+        Assert.Equal(10, config.ConvertTo<int?>("10"));
     }
 
     [Fact]
