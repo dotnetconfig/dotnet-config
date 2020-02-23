@@ -4,13 +4,14 @@
     <Description>Source-based APIs for handling dotnet-config compatible settings for any dotnet tool.</Description>
 
     <TargetFramework>netstandard2.0</TargetFramework>
-
     <PackageId>dotnet-config-api</PackageId>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
     <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
+    <PackageReference Include="Superpower" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>

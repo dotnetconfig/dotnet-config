@@ -1,0 +1,4 @@
+﻿[http]
+	sslVerify
+[core]
+    system = yes
