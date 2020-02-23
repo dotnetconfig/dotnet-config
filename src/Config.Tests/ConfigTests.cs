@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using Moq;
 using Superpower;
 using Xunit;
@@ -13,6 +12,7 @@ public class ConfigTests
     {
         Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
         Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
+        CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
     }
 
     [Theory]
