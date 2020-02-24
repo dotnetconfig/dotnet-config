@@ -16,7 +16,7 @@ to manage settings for all tools.
 `dotnet-config` provides the following:
 * A well-documented file format than can be hand-edited in any text editor.
 * A dotnet global tool to manage the configuration files (much like `git config`).
-* An API for dotnet tool authors to manage settings programmatically
+* An API for dotnet tool authors to read/write settings.
 
 By default, configuration files are named `.netconfig` and support three storage levels: 
 * Local: current directory and any ancestor directories
@@ -81,7 +81,7 @@ specific types and there are rules as to how to spell them.
 
 * *integer*
 
-	The value for many variables that specify various sizes can be suffixed with `k``, `M`, `G` or `T` 
+	The value for many variables that specify various sizes can be suffixed with `k`, `M`, `G` or `T` 
 	to mean	"scale the number by 1024", "by 1024x1024", "by 1024x1024x1024" or "by 1024x1024x1024x1024"
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`. 
     If the result of scaling the value exceeds the size of an integer, it can be read as a `long` (int64).
