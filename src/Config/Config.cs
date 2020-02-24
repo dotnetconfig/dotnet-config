@@ -29,13 +29,14 @@ internal abstract class Config
     public static string SystemLocation { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), FileName);
 
     internal static TextParser<(string section, string subsection)> SectionParser { get; } =
-        from section in Character.EqualTo('[').IgnoreThen(Identifier.CStyle.AtLeastOnceDelimitedBy(Character.EqualTo('.')))
-        from name in Character.WhiteSpace.IgnoreThen(QuotedString.CStyle).OptionalOrDefault()
+        from section in Character.EqualTo('[').IgnoreThen(Character.Matching(c => char.IsLetterOrDigit(c) || c == '-' || c == '.', "alphanumeric, '-' or '.'").Many())
+        from subsection in Character.WhiteSpace.IgnoreThen(QuotedString.CStyle).OptionalOrDefault()
         from _ in Character.EqualTo(']')
-        select (string.Join(".", section.Select(x => x.ToStringValue())), name);
+        select (new string(section), subsection);
 
     internal static TextParser<(string name, string value)> VariableParser { get; } =
-        from name in Character.WhiteSpace.IgnoreMany().IgnoreThen(Identifier.CStyle)
+        from name in Character.WhiteSpace.IgnoreMany().IgnoreThen(
+            Span.MatchedBy(Character.Letter.IgnoreThen(Character.LetterOrDigit.Or(Character.EqualTo('-')).IgnoreMany())))
         from value in
                 Character.WhiteSpace.IgnoreMany().IgnoreThen(
 #pragma warning disable CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
@@ -43,7 +44,7 @@ internal abstract class Config
                 Character.EqualTo('=').IgnoreThen(
                 Character.WhiteSpace.IgnoreMany().IgnoreThen(
                 QuotedString.CStyle.Or(
-                    Character.ExceptIn('#', ';', ' ').Many().Select(x => new string(x))))).OptionalOrDefault())
+                    Character.ExceptIn('#', ';').Many().Select(x => new string(x).Trim())))).OptionalOrDefault())
 #pragma warning restore CS8620 // Argument cannot be used for parameter due to differences in the nullability of reference types.
         select (name.ToStringValue(), value);
 
@@ -51,12 +52,14 @@ internal abstract class Config
     {
         { typeof(bool), (Func<string, bool>)ConvertBoolean },
         { typeof(DateTime), new Func<string, DateTime>((value) => DateTime.Parse(value ?? throw new ArgumentNullException(nameof(value)), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind)) },
-        { typeof(int), new Func<string, int>((value) => int.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
+        { typeof(int), (Func<string, int>)ConvertInt },
+        { typeof(long), (Func<string, long>)ConvertLong },
 
         // Nullable versions
         { typeof(bool?), (Func<string, bool?>)ConvertNullableBoolean },
         { typeof(DateTime?), new Func<string, DateTime?>((value) => DateTime.Parse(value ?? throw new ArgumentNullException(nameof(value)), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind)) },
-        { typeof(int?), new Func<string, int?>((value) => int.Parse(value ?? throw new ArgumentNullException(nameof(value)))) },
+        { typeof(int?), (Func<string, int?>)ConvertNullableInt },
+        { typeof(long?), (Func<string, long?>)ConvertNullableLong },
     };
 
     /// <summary>
@@ -131,4 +134,39 @@ internal abstract class Config
     };
 
     static bool? ConvertNullableBoolean(string value) => ConvertBoolean(value);
+
+    static int ConvertInt(string value) => (int)ConvertLong(value);
+
+    static int? ConvertNullableInt(string value) => (int?)ConvertLong(value);
+
+    const long KB = 1024;
+
+    static long ConvertLong(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+            throw new ArgumentException("Cannot convert null or empty string to an integer.");
+
+        var parser = from number in Character.Numeric.Many()
+                     from suffix in Character.In('k', 'K', 'm', 'M', 'g', 'G', 'T', 't').Optional()
+                     select (number, suffix);
+
+        var result = parser.Parse(value);
+        var multiplier = result.suffix switch
+        {
+            'k' => KB,
+            'K' => KB,
+            'm' => KB * KB,
+            'M' => KB * KB,
+            'g' => KB * KB * KB,
+            'G' => KB * KB * KB,
+            't' => KB * KB * KB * KB,
+            'T' => KB * KB * KB * KB,
+            _ => 1
+        };
+
+        return int.Parse(new string(result.number)) * multiplier;
+    }
+
+    static long? ConvertNullableLong(string value) => ConvertLong(value);
+
 }
