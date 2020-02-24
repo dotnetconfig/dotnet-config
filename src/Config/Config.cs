@@ -93,7 +93,24 @@ internal abstract class Config
     /// </summary>
     public static Config Read(ConfigLevel store)
     {
-        return null;
+        if (store == ConfigLevel.Global)
+            return Read(GlobalLocation);
+        else if (store == ConfigLevel.System)
+            return Read(SystemLocation);
+
+        var configs = new List<Config>();
+        var dir = new DirectoryInfo(Directory.GetCurrentDirectory());
+
+        while (dir != null && dir.Exists)
+        {
+            var file = Path.Combine(dir.FullName, FileName);
+            if (File.Exists(file))
+                configs.Add(Read(file));
+
+            dir = dir.Parent;
+        }
+
+        return new AggregateConfig(configs);
     }
 
     /// <summary>

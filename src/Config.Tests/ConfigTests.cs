@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using System.Reflection;
 using Moq;
 using Superpower;
 using Superpower.Model;
@@ -55,14 +54,6 @@ public class ConfigTests
             Assert.Equal(key, result.Value.name);
             Assert.Equal(expected, result.Value.value);
         }
-    }
-
-    [Fact]
-    public void can_read_value_from_file()
-    {
-        var config = Config.Read(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
-
-        Assert.True(config.Get<bool>("core", "filemode"));
     }
 
     [Theory]
@@ -148,17 +139,55 @@ public class ConfigTests
     }
 
     [Fact]
-    public void can_match_identifier()
+    public void can_read_system()
     {
-        var identifier = Identifier.CStyle(new Superpower.Model.TextSpan("asdf")).Value.ToStringValue();
+        var config = Config.Read(ConfigLevel.System);
 
-        Assert.Equal("asdf", identifier);
+        Assert.False(config.Get<bool>("core", "local"));
+        Assert.False(config.Get<bool>("core", "parent"));
+        Assert.False(config.Get<bool>("core", "global"));
+        Assert.True(config.Get<bool>("core", "system"));
+    }
 
-        var parser = Span.MatchedBy(Character.Letter.IgnoreThen(Character.LetterOrDigit.Or(Character.EqualTo('-')).IgnoreMany()));
-        
-        Assert.False(parser(new TextSpan("1foo")).HasValue);
-        Assert.False(parser(new TextSpan("_foo")).HasValue);
-        Assert.True(parser(new TextSpan("f1-oo")).HasValue);
-        Assert.Equal("foo-bar-2", parser(new TextSpan("foo-bar-2")).Value.ToStringValue());
+    [Fact]
+    public void can_read_global()
+    {
+        var config = Config.Read(ConfigLevel.Global);
+
+        Assert.False(config.Get<bool>("core", "local"));
+        Assert.False(config.Get<bool>("core", "parent"));
+        Assert.True(config.Get<bool>("core", "global"));
+        Assert.False(config.Get<bool>("core", "system"));
+    }
+
+    [Fact]
+    public void can_read_local()
+    {
+        var dir = Directory.GetCurrentDirectory();
+        try
+        {
+            Directory.SetCurrentDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
+            var config = Config.Read(ConfigLevel.Local);
+
+            Assert.True(config.Get<bool>("core", "local"));
+            Assert.True(config.Get<bool>("core", "parent"));
+            Assert.False(config.Get<bool>("core", "global"));
+            Assert.False(config.Get<bool>("core", "system"));
+        }
+        finally
+        {
+            Directory.SetCurrentDirectory(dir);
+        }
+    }
+
+    [Fact]
+    public void can_read_file()
+    {
+        var config = Config.Read(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+        Assert.True(config.Get<bool>("core", "local"));
+        Assert.False(config.Get<bool>("core", "parent"));
+        Assert.False(config.Get<bool>("core", "global"));
+        Assert.False(config.Get<bool>("core", "system"));
     }
 }
