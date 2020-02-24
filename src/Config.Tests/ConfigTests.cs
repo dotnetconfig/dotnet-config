@@ -65,24 +65,38 @@ public class ConfigTests
         Assert.True(config.Get<bool>("core", "filemode"));
     }
 
-    [Fact]
-    public void can_read_bool()
+    [Theory]
+    [InlineData(null, true)]
+    [InlineData("1", true)]
+    [InlineData("true", true)]
+    [InlineData("True", true)]
+    [InlineData("TRUE", true)]
+    [InlineData("yes", true)]
+    [InlineData("Yes", true)]
+    [InlineData("YES", true)]
+    [InlineData("on", true)]
+    [InlineData("On", true)]
+    [InlineData("ON", true)]
+    [InlineData("0", false)]
+    [InlineData("false", false)]
+    [InlineData("False", false)]
+    [InlineData("FALSE", false)]
+    [InlineData("no", false)]
+    [InlineData("No", false)]
+    [InlineData("NO", false)]
+    [InlineData("off", false)]
+    [InlineData("Off", false)]
+    [InlineData("OFF", false)]
+    public void can_read_bool(string input, bool value)
     {
         var config = Mock.Of<Config>();
 
-        Assert.True(config.ConvertTo<bool>(null));
-        Assert.True(config.ConvertTo<bool>("true"));
-        Assert.True(config.ConvertTo<bool>("yes"));
-        Assert.True(config.ConvertTo<bool>("on"));
-        Assert.True(config.ConvertTo<bool>("1"));
-
-        Assert.False(config.ConvertTo<bool>("false"));
-        Assert.False(config.ConvertTo<bool>("no"));
-        Assert.False(config.ConvertTo<bool>("off"));
-        Assert.False(config.ConvertTo<bool>("0"));
-
-        Assert.Throws<ArgumentException>(() => config.ConvertTo<bool>("foo"));
+        Assert.Equal(value, config.ConvertTo<bool>(input));
+        Assert.Equal(value, config.ConvertTo<bool?>(input));
     }
+
+    [Fact]
+    public void throws_invalid_bool() => Assert.Throws<ArgumentException>(() => Mock.Of<Config>().ConvertTo<bool>("foo"));
 
     [Theory]
     [InlineData("10", 10)]

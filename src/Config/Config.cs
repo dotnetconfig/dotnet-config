@@ -119,19 +119,22 @@ internal abstract class Config
         }
     }
 
-    static bool ConvertBoolean(string value) => value switch
+    static bool ConvertBoolean(string value)
     {
-        null => true,
-        "true" => true,
-        "yes" => true,
-        "on" => true,
-        "1" => true,
-        "false" => false,
-        "no" => false,
-        "off" => false,
-        "0" => false,
-        _ => throw new ArgumentException($"Unsupported boolean value {value}", nameof(value))
-    };
+        if (value == "1" || value == null || 
+            value.Equals("true", StringComparison.OrdinalIgnoreCase) || 
+            value.Equals("on", StringComparison.OrdinalIgnoreCase) || 
+            value.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (value == "0" ||
+            value.Equals("false", StringComparison.OrdinalIgnoreCase) ||
+            value.Equals("off", StringComparison.OrdinalIgnoreCase) ||
+            value.Equals("no", StringComparison.OrdinalIgnoreCase))
+            return false;
+
+        throw new ArgumentException($"Unsupported boolean value {value}", nameof(value));
+    }
 
     static bool? ConvertNullableBoolean(string value) => ConvertBoolean(value);
 
