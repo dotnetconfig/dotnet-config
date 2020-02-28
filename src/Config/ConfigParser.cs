@@ -102,7 +102,7 @@ namespace Microsoft.DotNet
             select (Line)new VariableLine((string)name, value == null ? null : value.ToString(), ReferenceEquals(NullString, comment) ? null : comment);
 
         // Try allows us to backtrack and attempt the shortcut version
-        static TokenListParser<ConfigToken, Line> Variable { get; } = FullVariable.Try().Or(ShortcutTrueVariable.AtEnd());
+        static TokenListParser<ConfigToken, Line> Variable { get; } = FullVariable.Try().Or(ShortcutTrueVariable).AtEnd();
 
         static TokenListParser<ConfigToken, Line> CommentLine { get; } =
             from comment in Comment

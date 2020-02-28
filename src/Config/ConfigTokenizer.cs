@@ -45,6 +45,8 @@ namespace Microsoft.DotNet
                  .Match(IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
                  .Match(StringToken, ConfigToken.String, requireDelimiters: true)
                  .Match(QuotedStringToken, ConfigToken.String, requireDelimiters: true)
+                 .Match(Character.EqualTo('"'), ConfigToken.Quote)
+                 .Match(Character.EqualTo('\\'), ConfigToken.Backslash)
                  .Match(Character.AnyChar.AtLeastOnce(), ConfigToken.AnyString, requireDelimiters: true)
                  .Build();
     }

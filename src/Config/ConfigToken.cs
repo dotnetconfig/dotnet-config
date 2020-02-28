@@ -20,6 +20,12 @@ namespace Microsoft.DotNet
         [Token(Example = "=")]
         Equal,
 
+        [Token(Category = "character", Example = "\"")]
+        Quote,
+
+        [Token(Category = "character", Example = "\\")]
+        Backslash,
+
         Identifier,
 
         DottedIdentifier,

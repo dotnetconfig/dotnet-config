@@ -1,11 +1,17 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Microsoft.DotNet.Tests
 {
     public class ConfigParserTests
     {
+        ITestOutputHelper output;
+
+        public ConfigParserTests(ITestOutputHelper output) => this.output = output;
+
         [Theory]
         [InlineData("[foo\\bar]")]
         [InlineData("[foo\"]")]
@@ -111,9 +117,11 @@ namespace Microsoft.DotNet.Tests
         [InlineData("must-quote-backslash = \\")]
         [InlineData("missing-value = ")]
         [InlineData("1variable=1")]
+        [InlineData("foo= value \"has single quote  ")]
+        [InlineData("foo= value \\has backslash")]
         public void cannot_parse_invalid_variable(string input)
         {
-            Assert.False(ConfigParser.TryParseVariable(input, out var _, out var __, out var ___));
+            Assert.False(ConfigParser.TryParseVariable(input, out _, out _, out _));
         }
 
         [Theory]
