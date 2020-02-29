@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Microsoft.DotNet
 {
@@ -18,26 +19,17 @@ namespace Microsoft.DotNet
             value = default;
 #pragma warning restore CS8601 // Possible null reference assignment.
 
-            SectionLine? currentSection = default;
-            foreach (var line in doc)
-            {
-                if (line is SectionLine sectionLine)
-                {
-                    currentSection = sectionLine;
-                    continue;
-                }
-                else if (line is VariableLine variableLine)
-                {
-                    if (string.Equals(section, currentSection.Section, StringComparison.OrdinalIgnoreCase) &&
-                        string.Equals(currentSection.Subsection, subsection) &&
-                        variable.Equals(variableLine.Name))
-                    {
-                        value = ConvertTo<T>(variableLine.Value);
-                        return true;
-                    }
-                }
-            }
+            var entry = doc.FirstOrDefault(x =>
+                string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
+                string.Equals(x.Subsection, subsection) &&
+                variable.Equals(x.Name));
 
+            if (entry != null)
+            {
+                value = ConvertTo<T>(entry.Value);
+                return true;
+            }
+            
             return false;
         }
     }

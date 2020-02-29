@@ -2,26 +2,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Superpower;
 
 namespace Microsoft.DotNet
 {
-    public class ConfigDocument : IEnumerable<Line>
+    public class ConfigDocument : IEnumerable<ConfigEntry>
     {
         string filePath;
+        ConfigLevel level;
         List<Line> lines = new List<Line>();
 
-        ConfigDocument(string filePath)
+        ConfigDocument(string filePath, ConfigLevel? level = null)
         {
             this.filePath = filePath;
             if (File.Exists(filePath))
                 Load();
+
+            if (level == null)
+            {
+                if (filePath == Config.GlobalLocation)
+                    level = ConfigLevel.Global;
+                else if (filePath == Config.SystemLocation)
+                    level = ConfigLevel.System;
+                else
+                    level = ConfigLevel.Local;
+            }
+
+            this.level = level.Value;
         }
 
-        public static ConfigDocument FromFile(string filePath)
-        {
-            return new ConfigDocument(filePath);
-        }
+        public static ConfigDocument FromFile(string filePath) => new ConfigDocument(filePath);
+
+        public static ConfigDocument FromFile(string filePath, ConfigLevel level) => new ConfigDocument(filePath, level);
+
+        public List<Line> Lines => lines;
 
         public void Save()
         {
@@ -54,7 +69,19 @@ namespace Microsoft.DotNet
             }
         }
 
-        public IEnumerator<Line> GetEnumerator() => lines.AsReadOnly().GetEnumerator();
+        public IEnumerator<ConfigEntry> GetEnumerator() => GetEntries().GetEnumerator();
+
+        IEnumerable<ConfigEntry> GetEntries()
+        {
+            SectionLine? section = null;
+            foreach (var line in lines)
+            {
+                if (line is SectionLine sl)
+                    section = sl;
+                else if (line is VariableLine vl && section != null)
+                    yield return new ConfigEntry(section.Section, section.Subsection, vl.Name, vl.Value ?? null, level);
+            }
+        }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

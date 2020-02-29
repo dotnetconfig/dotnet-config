@@ -18,9 +18,9 @@ namespace Microsoft.DotNet
 
             var doc = ConfigDocument.FromFile(path);
 
-            Assert.Single(doc.OfType<SectionLine>());
-            Assert.Single(doc.OfType<VariableLine>());
-            Assert.Equal(2, doc.Where(line => line.GetType() == typeof(Line)).Count());
+            Assert.Single(doc.Lines.OfType<SectionLine>());
+            Assert.Single(doc.Lines.OfType<VariableLine>());
+            Assert.Equal(2, doc.Lines.Where(line => line.GetType() == typeof(Line)).Count());
         }
     }
 }
