@@ -1,0 +1,9 @@
+﻿[foo.bar "works on c:\\ \"baz\""] ; some / "comment can ; have # anything \" in it.
+  foo = bar ; this is a comment
+  # pure comment line
+  bar = "a \"quoted\" value"
+  path="c:\\root\\path\\"
+  timeout=120
+  length=60kb
+  enabled = true
+  valueless

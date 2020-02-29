@@ -1,53 +1,44 @@
 ﻿using System;
-using System.IO;
-using Superpower;
 
-class FileConfig : Config
+namespace Microsoft.DotNet
 {
-    string filePath;
-
-    public FileConfig(string filePath)
+    internal class FileConfig : Config
     {
-        this.filePath = filePath;
-    }
+        ConfigDocument doc;
 
-    public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
-    {
-#pragma warning disable CS8601 // Possible null reference assignment.
-        value = default;
-#pragma warning restore CS8601 // Possible null reference assignment.
-        string? currentSection = default;
-        string? currentSubsection = default;
-        using (var stream = File.OpenRead(filePath))
-        using (var reader = new StreamReader(stream))
+        public FileConfig(string filePath) => doc = ConfigDocument.FromFile(filePath);
+
+        public override void Set<T>(string section, string? subsection, string variable, T value)
         {
-            string? line = default;
-            while (!reader.EndOfStream && (line = reader.ReadLine()?.Trim()) != null)
+        }
+
+        public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
+        {
+#pragma warning disable CS8601 // Possible null reference assignment.
+            value = default;
+#pragma warning restore CS8601 // Possible null reference assignment.
+
+            SectionLine? currentSection = default;
+            foreach (var line in doc)
             {
-                if (line.Length == 0)
+                if (line is SectionLine sectionLine)
+                {
+                    currentSection = sectionLine;
                     continue;
-
-                var sectionResult = SectionParser.TryParse(line);
-                var variableResult = VariableParser.TryParse(line);
-
-                if (sectionResult.HasValue)
-                {
-                    currentSection = sectionResult.Value.section;
-                    currentSubsection = sectionResult.Value.subsection;
                 }
-                else if (variableResult.HasValue)
+                else if (line is VariableLine variableLine)
                 {
-                    if (string.Equals(section, currentSection, StringComparison.OrdinalIgnoreCase) && 
-                        string.Equals(currentSubsection, subsection) &&
-                        variable.Equals(variableResult.Value.name))
+                    if (string.Equals(section, currentSection.Section, StringComparison.OrdinalIgnoreCase) &&
+                        string.Equals(currentSection.Subsection, subsection) &&
+                        variable.Equals(variableLine.Name))
                     {
-                        value = ConvertTo<T>(variableResult.Value.value);
+                        value = ConvertTo<T>(variableLine.Value);
                         return true;
                     }
                 }
             }
-        }
 
-        return false;
+            return false;
+        }
     }
 }

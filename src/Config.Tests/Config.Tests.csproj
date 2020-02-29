@@ -2,28 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
+    <AssemblyName>Microsoft.DotNet.Config.Tests</AssemblyName>
+    <RootNamespace>Microsoft.DotNet</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Content\.netconfig" />
-    <None Remove="Content\global.netconfig" />
-    <None Remove="Content\local\.netconfig" />
-    <None Remove="Content\system.netconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Content\global.netconfig">
+    <None Update="Content\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\local\.netconfig">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\.netconfig">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\system.netconfig">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
