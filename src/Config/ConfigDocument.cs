@@ -7,11 +7,10 @@ using Superpower;
 
 namespace Microsoft.DotNet
 {
-    public class ConfigDocument : IEnumerable<ConfigEntry>
+    internal class ConfigDocument : IEnumerable<ConfigEntry>
     {
         string filePath;
         ConfigLevel level;
-        List<Line> lines = new List<Line>();
 
         ConfigDocument(string filePath, ConfigLevel? level = null)
         {
@@ -36,7 +35,7 @@ namespace Microsoft.DotNet
 
         public static ConfigDocument FromFile(string filePath, ConfigLevel level) => new ConfigDocument(filePath, level);
 
-        public List<Line> Lines => lines;
+        public List<Line> Lines { get; } = new List<Line>();
 
         public void Save()
         {
@@ -54,13 +53,13 @@ namespace Microsoft.DotNet
                     index++;
                     if (line.Length == 0)
                     {
-                        lines.Add(new Line(""));
+                        Lines.Add(new Line(""));
                         continue;
                     }
 
                     if (ConfigParser.TryParse(line, out var result, out var error, out var errorPosition) && result != null)
                     {
-                        lines.Add(result);
+                        Lines.Add(result);
                         continue;
                     }
 
@@ -74,7 +73,7 @@ namespace Microsoft.DotNet
         IEnumerable<ConfigEntry> GetEntries()
         {
             SectionLine? section = null;
-            foreach (var line in lines)
+            foreach (var line in Lines)
             {
                 if (line is SectionLine sl)
                     section = sl;

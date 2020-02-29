@@ -33,30 +33,6 @@ namespace Microsoft.DotNet.Tests
             Assert.Equal(subsection, result.Value.subsection);
         }
 
-        [Theory]
-        [InlineData("switch", "switch", null)]
-        [InlineData("switch=true", "switch", "true")]
-        [InlineData("quoted=\"this is an \\\"example\\\" of a nested quote\"", "quoted", "this is an \"example\" of a nested quote")]
-        [InlineData("switch # should just set the switch to true if no value", "switch", null)]
-        [InlineData("  key = value  # this is a comment", "key", "value")]
-        [InlineData("\tkey=value;this is a comment", "key", "value")]
-        [InlineData("1key=value", null, null, false)]
-        [InlineData("key=value", "key", "value")]
-        [InlineData("    key-bar= value has spaces  ", "key-bar", "value has spaces")]
-        [InlineData("key-bar = \"value has spaces  \" ", "key-bar", "value has spaces  ")]
-        public void can_parse_variable(string input, string key, string expected, bool matched = true)
-        {
-            var result = ConfigParser.VariableParser.TryParse(input);
-
-            Assert.Equal(matched, result.HasValue);
-
-            if (result.HasValue)
-            {
-                Assert.Equal(key, result.Value.name);
-                Assert.Equal(expected, result.Value.value);
-            }
-        }
-
         [Fact]
         public void can_read_datetime()
         {

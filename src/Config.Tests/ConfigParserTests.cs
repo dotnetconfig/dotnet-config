@@ -45,6 +45,11 @@ namespace Microsoft.DotNet.Tests
         [InlineData("foo = \"with spaces\"", "foo", "with spaces")]
         [InlineData("  foo    =    bar", "foo", "bar")]
         [InlineData("\tfoo=bar", "foo", "bar")]
+        [InlineData("foo= value has spaces  ", "foo", "value has spaces")]
+        [InlineData("quoted=\"this is an \\\"example\\\" of a nested quote\"", "quoted", "this is an \"example\" of a nested quote")]
+        [InlineData("  key = value  # this is a comment", "key", "value")]
+        [InlineData("\tkey=value;this is a comment", "key", "value")]
+        [InlineData("key= \"value has spaces  \" ", "key", "value has spaces  ")]
         [InlineData("enabled=1", "enabled", "true")]
         [InlineData("enabled=true", "enabled", "true")]
         [InlineData("enabled=True", "enabled", "true")]
@@ -105,6 +110,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("missing-end-quote = \"")]
         [InlineData("must-quote-backslash = \\")]
         [InlineData("missing-value = ")]
+        [InlineData("1variable=1")]
         public void cannot_parse_invalid_variable(string input)
         {
             Assert.False(ConfigParser.TryParseVariable(input, out var _, out var __, out var ___));

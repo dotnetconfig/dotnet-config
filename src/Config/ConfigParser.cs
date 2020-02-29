@@ -14,12 +14,6 @@ namespace Microsoft.DotNet
         internal static TextParser<TextSpan> IdentifierParser { get; } =
             Span.MatchedBy(Character.Letter.IgnoreThen(Character.LetterOrDigit.Or(Character.EqualTo('-')).IgnoreMany()));
 
-        internal static TextParser<string> CommentParser { get; } =
-            from _ in Character.ExceptIn('#', ';').IgnoreMany()
-            from start in Character.In('#', ';')
-            from comment in Character.AnyChar.Many()
-            select new string(comment);
-
         internal static TextParser<(string section, string? subsection)> SectionParser { get; } =
             from section in Character.EqualTo('[').IgnoreThen(Character.Matching(c => char.IsLetterOrDigit(c) || c == '-' || c == '.', "alphanumeric, '-' or '.'").Many())
             from subsection in Character.WhiteSpace.IgnoreThen(QuotedString.CStyle).OptionalOrDefault()
@@ -101,7 +95,9 @@ namespace Microsoft.DotNet
         static TokenListParser<ConfigToken, Line> FullVariable { get; } =
             from name in Token.EqualTo(ConfigToken.Identifier).Apply(ConfigTextParsers.String)
             from equal in Token.EqualTo(ConfigToken.Equal)
-            from value in True.Or(False).Or(Number).Or(Identifier).Or(String)
+            from value in True.Or(False).Or(Number).Or(String)
+                // The tokenizer may match a value with spaces as multiple identifiers
+                .Or(Identifier.AtLeastOnce().Select(v => (object)string.Join(" ", v)))
             from comment in Comment.OptionalOrDefault(NullString).Try()
             select (Line)new VariableLine((string)name, value == null ? null : value.ToString(), ReferenceEquals(NullString, comment) ? null : comment);
 
