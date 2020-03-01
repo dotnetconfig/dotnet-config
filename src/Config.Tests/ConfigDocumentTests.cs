@@ -24,6 +24,7 @@ namespace Microsoft.DotNet
             Assert.Equal(2, doc.Lines.OfType<CommentLine>().Count());
         }
 
+
         [Fact]
         public void can_set_new_variable_new_section()
         {
@@ -250,6 +251,63 @@ namespace Microsoft.DotNet
             var saved = ConfigDocument.FromFile(path);
 
             Assert.Single(saved.Lines.OfType<SectionLine>());
+        }
+
+        [Fact]
+        public void can_unset_all_with_regex_filter()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    source = https://github.com/kzu
+    source = https://github.com/xamarin
+    source = https://github.com/microsoft
+    source = https://microsoft.com/kzu
+    source = https://nuget.org/kzu");
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.UnSetAll("foo", default, "source", "github\\.com");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Empty(saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("github")));
+        }
+
+        [Fact]
+        public void can_set_all_with_regex_filter()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    source = https://github.com/kzu
+    source = https://github.com/xamarin
+    source = https://github.com/microsoft
+    source = https://microsoft.com/kzu
+    source = https://nuget.org/kzu");
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.SetAll("foo", default, "source", "https://dev.azure.com" , "github\\.com");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Empty(saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("github")));
+            Assert.Equal(3, saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("dev.azure.com")).Count());
+        }
+
+        [Fact]
+        public void find_multivalue_with_regex()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    source = https://github.com/kzu
+    source = https://github.com/xamarin
+    source = https://github.com/microsoft
+    source = https://microsoft.com/kzu
+    source = https://nuget.org/kzu");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            Assert.Equal(3, doc.Find("foo", null, "source", "github\\.com").Count());
         }
     }
 }

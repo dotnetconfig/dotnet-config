@@ -48,6 +48,18 @@ namespace Microsoft.DotNet
             }
         }
 
+        public IEnumerable<ConfigEntry> Find(string section, string? subsection, string name, string? valueRegex = null)
+        {
+            var matches = valueRegex == null ? _ => true :
+                valueRegex[0] == '!' ?
+                    new Func<string?, bool>(v => !Regex.IsMatch(v, valueRegex.Substring(1))) :
+                    new Func<string?, bool>(v => Regex.IsMatch(v, valueRegex));
+
+            return FindVariables(section, subsection, name)
+                .Where(x => matches(x.Item2.Value))
+                .Select(x => new ConfigEntry(section, subsection, x.Item2.Name, x.Item2.Value, level));
+        }
+
         public void Add(string section, string? subsection, string name, string? value)
         {
             var sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection));
