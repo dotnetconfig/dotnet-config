@@ -60,12 +60,8 @@ namespace Microsoft.DotNet
 
         static TokenListParser<ConfigToken, string> Comment { get; } =
             from begin in Token.EqualTo(ConfigToken.Hash).Or(Token.EqualTo(ConfigToken.Semicolon))
-            from comment in
-                Token.EqualTo(ConfigToken.Identifier)
-                .Or(Token.EqualTo(ConfigToken.Number))
-                .Or(Token.EqualTo(ConfigToken.String))
-                .Or(Token.EqualTo(ConfigToken.AnyString))
-                .Many()
+            // Basically anything is accepted after the comment start
+            from comment in new TokenListParser<ConfigToken, Token<ConfigToken>>(input => input.ConsumeToken()).Many()
             select string.Join(" ", comment.Select(c => c.ToStringValue()));
 
         static readonly object NullValue = new object();
@@ -106,7 +102,7 @@ namespace Microsoft.DotNet
 
         static TokenListParser<ConfigToken, Line> CommentLine { get; } =
             from comment in Comment
-            select (Line)new Line(comment);
+            select (Line)new CommentLine(comment);
 
         static TokenListParser<ConfigToken, Line> Line { get; } =
             Section.AtEnd()

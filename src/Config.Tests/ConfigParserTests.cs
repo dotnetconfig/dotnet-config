@@ -30,7 +30,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("[foo \"bar\"]", "foo", "bar")]
         [InlineData("[foo.bar \"baz\"]", "foo.bar", "baz")]
         [InlineData("[foo.bar \"baz \\\"quoted\\\"\"]", "foo.bar", "baz \"quoted\"")]
-        public void can_parse_section(string input, string section, string? subsection)
+        public void can_parse_section(string input, string section, string subsection)
         {
             if (ConfigParser.TryParseSection(input, out var result, out var error, out var position))
             {
@@ -95,7 +95,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("size=2Tb", "size", "2199023255552")]
         [InlineData("size=2t", "size", "2199023255552")]
         [InlineData("size=2tb", "size", "2199023255552")]
-        public void can_parse_variable(string input, string name, string? value)
+        public void can_parse_variable(string input, string name, string value)
         {
             if (ConfigParser.TryParseVariable(input, out var result, out var error, out var position))
             {

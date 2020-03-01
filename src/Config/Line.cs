@@ -1,9 +1,15 @@
 ﻿namespace Microsoft.DotNet
 {
-    public class Line
+    public abstract class Line
     {
-        public Line(string? text) => Text = text ?? "";
+        string? text;
 
-        public string Text { get; internal set; }
+        protected Line(string? text) => this.text = text;
+
+        public string Text 
+        {
+            get => text ?? ToString();
+            internal set => text = value; 
+        }
     }
 }
