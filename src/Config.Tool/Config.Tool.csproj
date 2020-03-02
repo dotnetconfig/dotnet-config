@@ -10,7 +10,7 @@
     <RootNamespace>Config</RootNamespace>
 
     <PackageId>dotnet-config</PackageId>
-    <ToolCommandName>config</ToolCommandName>
+    <ToolCommandName>dotnet-config</ToolCommandName>
     <PackAsTool>true</PackAsTool>
   </PropertyGroup>
 
