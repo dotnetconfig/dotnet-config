@@ -9,7 +9,7 @@ variables:
 - name: SleetVersion
   value: 2.3.33
 - name: PowerShellVersion
-  value: 7.0.0-rc.2
+  value: 7.0.0-rc.3
 
 stages:
 
