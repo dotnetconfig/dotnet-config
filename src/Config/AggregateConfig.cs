@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Microsoft.DotNet
 {
@@ -8,6 +9,7 @@ namespace Microsoft.DotNet
         readonly List<Config> configs;
 
         public AggregateConfig(List<Config> configs)
+            : base(configs.First().FilePath)
         {
             this.configs = configs;
         }

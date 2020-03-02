@@ -8,13 +8,22 @@ using Microsoft.DotNet;
 
 namespace Microsoft.DotNet.Tests
 {
-    public class ConfigTests
+    public class ConfigTests : IDisposable
     {
+        string originalDir;
+
         public ConfigTests()
         {
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            originalDir = Directory.GetCurrentDirectory();
+        }
+
+        public void Dispose()
+        {
+            if (originalDir != Directory.GetCurrentDirectory())
+                Directory.SetCurrentDirectory(originalDir);
         }
 
         [Theory]
@@ -116,6 +125,38 @@ namespace Microsoft.DotNet.Tests
             Assert.Null(config.Get<string>("core", "string"));
             Assert.Equal(0, config.Get<int>("core", "int"));
             Assert.Null(config.Get<int?>("core", "int"));
+        }
+
+        [Fact]
+        public void when_build_single_file_does_not_return_aggregate()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content"));
+
+            Assert.IsType<FileConfig>(config);
+        }
+
+        [Fact]
+        public void when_read_local_single_file_does_not_return_aggregate()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            Directory.SetCurrentDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Content"));
+
+            var config = Config.Read(ConfigLevel.Local);
+
+            Assert.IsType<FileConfig>(config);
+        }
+
+        [Fact]
+        public void when_build_hierarchical_filepath_is_first_local()
+        {
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
+
+            Assert.Equal(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", Config.FileName), config.FilePath);
         }
 
         [Fact]

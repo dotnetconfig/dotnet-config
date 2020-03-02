@@ -49,6 +49,9 @@ namespace Microsoft.DotNet
             if (File.Exists(SystemLocation))
                 configs.Add(FromFile(SystemLocation));
 
+            if (configs.Count == 1)
+                return configs[0];
+
             return new AggregateConfig(configs);
         }
 
@@ -83,8 +86,19 @@ namespace Microsoft.DotNet
                 dir = dir.Parent;
             }
 
+            if (configs.Count == 1)
+                return configs[0];
+
             return new AggregateConfig(configs);
         }
+
+        protected Config(string filePath) => FilePath = filePath;
+
+        /// <summary>
+        /// Path to the file that will be used to save values when writing 
+        /// changes to disk.
+        /// </summary>
+        public string FilePath { get; private set; }
 
         /// <summary>
         /// Gets the value from a variable in the given section and optional subsection.

@@ -8,7 +8,7 @@ namespace Microsoft.DotNet
         static readonly ValueSerializer serializer = new ValueSerializer();
         ConfigDocument doc;
 
-        public FileConfig(string filePath) => doc = ConfigDocument.FromFile(filePath);
+        public FileConfig(string filePath) : base(filePath) => doc = ConfigDocument.FromFile(filePath);
 
         public override void Set<T>(string section, string? subsection, string variable, T value)
         {
