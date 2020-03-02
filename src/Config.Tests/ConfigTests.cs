@@ -34,12 +34,12 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void can_read_datetime()
+        public void can_deserialize_datetime()
         {
-            var config = Mock.Of<Config>();
+            var serializer = new ValueSerializer();
 
-            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), config.ConvertTo<DateTime>("2008 -09-22T14:01:54.9571247Z"));
-            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), config.ConvertTo<DateTime?>("2008 -09-22T14:01:54.9571247Z"));
+            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), serializer.Deserialize<DateTime>("2008 -09-22T14:01:54.9571247Z"));
+            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), serializer.Deserialize<DateTime?>("2008 -09-22T14:01:54.9571247Z"));
         }
 
         [Fact]
@@ -118,7 +118,7 @@ namespace Microsoft.DotNet.Tests
             Assert.Null(config.Get<int?>("core", "int"));
         }
 
-        [Fact(Skip = "not implemented yet")]
+        [Fact]
         public void can_write_new_file()
         {
             var file = Path.GetTempFileName();

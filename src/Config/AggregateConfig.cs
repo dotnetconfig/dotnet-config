@@ -13,9 +13,7 @@ namespace Microsoft.DotNet
         }
 
         public override void Set<T>(string section, string? subsection, string variable, T value)
-        {
-            throw new NotSupportedException();
-        }
+            => throw new NotSupportedException("Cannot set variable across multiple files.");
 
         public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
         {
@@ -24,7 +22,7 @@ namespace Microsoft.DotNet
 #pragma warning restore CS8601 // Possible null reference assignment.
             foreach (var config in configs)
             {
-                if (config.TryGet<T>(section, subsection, variable, out value))
+                if (config.TryGet(section, subsection, variable, out value))
                     return true;
             }
 

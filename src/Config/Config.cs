@@ -9,8 +9,6 @@ namespace Microsoft.DotNet
     /// </summary>
     public abstract class Config
     {
-        static readonly ValueSerializer serializer = new ValueSerializer();
-
         /// <summary>
         /// Default filename, equal to '.netconfig'.
         /// </summary>
@@ -89,17 +87,6 @@ namespace Microsoft.DotNet
         }
 
         /// <summary>
-        /// Tries to retrieve a variable value from configuration.
-        /// </summary>
-        /// <typeparam name="T">The type of value to retrieve.</typeparam>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="subsection">Optional subsection containing the variable.</param>
-        /// <param name="variable">The variable to retrieve.</param>
-        /// <param name="value">The variable value if found.</param>
-        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
-        public abstract bool TryGet<T>(string section, string? subsection, string variable, out T value);
-
-        /// <summary>
         /// Gets the value from a variable in the given section and optional subsection.
         /// </summary>
         /// <typeparam name="T">Type of value to return.</typeparam>
@@ -113,6 +100,17 @@ namespace Microsoft.DotNet
             => TryGet<T>(section, subsection, variable, out var value) ? value : defaultValue;
 
         /// <summary>
+        /// Tries to retrieve a variable value from configuration.
+        /// </summary>
+        /// <typeparam name="T">The type of value to retrieve.</typeparam>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to retrieve.</param>
+        /// <param name="value">The variable value if found.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public abstract bool TryGet<T>(string section, string? subsection, string variable, out T value);
+
+        /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
         /// </summary>
         /// <param name="section">The section containing the variable.</param>
@@ -120,7 +118,5 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         public abstract void Set<T>(string section, string? subsection, string variable, T value);
-
-        protected internal T ConvertTo<T>(string? value) => serializer.Deserialize<T>(value);
     }
 }
