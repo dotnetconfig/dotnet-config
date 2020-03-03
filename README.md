@@ -6,6 +6,18 @@ using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
 [![Build Status](https://dev.azure.com/kzu/oss/_apis/build/status/dotnet-config?branchName=master)](https://dev.azure.com/kzu/oss/_build/latest?definitionId=33&branchName=master)
 
+Installing or updating (same command for both):
+
+```
+dotnet tool update -g dotnet-config
+```
+
+To get the CI version:
+
+```
+dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
+```
+
 ## Overview
 
 [.NET Core tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) may need 
@@ -86,3 +98,38 @@ specific types and there are rules as to how to spell them.
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`. 
     If the result of scaling the value exceeds the size of an integer, it can be read as a `long` (int64).
 
+### CLI
+
+Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/mono.options) so 
+all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, `--flag=value`, 
+`/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, `--flag value`, `/flag value`.
+
+Current output for supported options from `dotnet config -?`:
+
+```
+Usage: dotnet config [options]
+
+Config file location
+      --global               use global config file
+      --system               use system config file
+      --local                use current directory config file
+  -f, --file[=VALUE]         use given config file
+
+Action
+      --get                  get value: name [value-regex]
+      --get-all              get all values: key [value-regex]
+      --get-regexp           get values for regexp: name-regex [value-regex]
+      --set                  set value: name value [value-regex]
+      --set-all              replace all matching variables: name value [value_regex]
+      --add                  add a new variable: name value
+      --unset                remove a variable: name [value-regex]
+      --unset-all            remove all matches: name [value-regex]
+  -l, --list                 list all
+
+Other
+      --default[=VALUE]      with --get, use default value when missing entry
+  -d, --directory[=VALUE]    use given directory for configuration file
+      --name-only            show variable names only
+      --type[=VALUE]         value is given this type, either 'bool' or 'int'
+  -?, -h, --help             Display this help
+```
