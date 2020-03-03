@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Mono.Options;
 
@@ -33,11 +34,11 @@ namespace Microsoft.DotNet
                 { "Action" },
                 { "get", "get value: name [value-regex]", _ => action = ConfigAction.Get },
                 { "get-all", "get all values: key [value-regex]", _ => action = ConfigAction.GetAll },
+                { "get-regexp", "get values for regexp: name-regex [value-regex]", _ => action = ConfigAction.GetRegexp },
                 { "set", "set value: name value [value-regex]", _ => action = ConfigAction.Set },
                 { "set-all", "replace all matching variables: name value [value_regex]", _ => action = ConfigAction.SetAll },
-                { "replace-all", "replace all matching variables: name value [value_regex]", _ => action = ConfigAction.SetAll },
+                { "replace-all", "replace all matching variables: name value [value_regex]", _ => action = ConfigAction.SetAll, true },
 
-                { "get-regexp", "get values for regexp: name-regex [value-regex]", _ => action = ConfigAction.GetRegexp },
                 //{ "get-urlmatch", "get value specific for the URL: section[.var] URL", _ => action = ConfigAction.Get },
                 { "add", "add a new variable: name value", _ => action = ConfigAction.Add },
                 { "unset", "remove a variable: name [value-regex]", _ => action = ConfigAction.Unset },
@@ -127,7 +128,30 @@ namespace Microsoft.DotNet
                         else
                             write = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
 
-                        foreach (var entry in config.GetAll<string>(section, subsection, variable, regex))
+                        foreach (var entry in config.GetAll(section, subsection, variable, regex))
+                        {
+                            write(entry);
+                        }
+
+                        break;
+                    }
+                case ConfigAction.GetRegexp:
+                    {
+                        if (extraArgs.Count == 0 || extraArgs.Count > 2)
+                            return ShowHelp(options);
+
+                        string nameRegex = extraArgs[0];
+                        string? valueRegex = default;
+                        if (extraArgs.Count > 1)
+                            valueRegex = extraArgs[1];
+
+                        Action<ConfigEntry> write;
+                        if (nameOnly)
+                            write = e => Console.WriteLine(e.Key);
+                        else
+                            write = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
+
+                        foreach (var entry in config.GetRegex(nameRegex, valueRegex))
                         {
                             write(entry);
                         }
@@ -200,7 +224,6 @@ namespace Microsoft.DotNet
                         break;
                     }
                 case ConfigAction.Edit:
-                case ConfigAction.GetRegexp:
                 case ConfigAction.RenameSection:
                 case ConfigAction.RemoveSection:
                     Console.WriteLine("Not supported yet.");

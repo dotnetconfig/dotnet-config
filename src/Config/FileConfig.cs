@@ -31,8 +31,11 @@ namespace Microsoft.DotNet
             }
         }
 
-        public override IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null)
-            => doc.Find(section, subsection, variable, valueRegex);
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null)
+            => doc.GetAll(section, subsection, variable, valueRegex);
+
+        public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
+            => doc.GetAll(nameRegex, valueRegex);
 
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
         {

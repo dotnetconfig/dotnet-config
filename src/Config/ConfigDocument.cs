@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Xml;
 
 namespace Microsoft.DotNet
 {
@@ -49,7 +50,15 @@ namespace Microsoft.DotNet
             }
         }
 
-        public IEnumerable<ConfigEntry> Find(string section, string? subsection, string name, string? valueRegex = null)
+        public IEnumerable<ConfigEntry> GetAll(string nameRegex, string? valueRegex = null)
+        {
+            var nameMatches = Matches(nameRegex);
+            var valueMatches = Matches(valueRegex);
+
+            return GetEntries().Where(x => nameMatches(x.Key) && valueMatches(x.Value));
+        }
+
+        public IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string name, string? valueRegex = null)
         {
             var matches = valueRegex == null ? _ => true :
                 valueRegex[0] == '!' ?

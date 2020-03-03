@@ -3,12 +3,12 @@
     enum ConfigAction
     {
         None,
+        Add,
         Get,
         GetAll,
-        // aka Replace-All
-        SetAll,
+        GetRegexp,
         Set,
-        Add,
+        SetAll, // aka Replace-All
         Unset,
         UnsetAll,
 
@@ -16,7 +16,6 @@
         Edit,
 
         // TODO:
-        GetRegexp,
         RenameSection,
         RemoveSection,
         /*

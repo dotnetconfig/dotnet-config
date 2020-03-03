@@ -17,8 +17,11 @@ namespace Microsoft.DotNet
         public override void Add<T>(string section, string? subsection, string variable, T value)
             => configs.First().Add(section, subsection, variable, value);
 
-        public override IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null)
-            => configs.SelectMany(x => x.GetAll<T>(section, subsection, variable, valueRegex));
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null)
+            => configs.SelectMany(x => x.GetAll(section, subsection, variable, valueRegex));
+
+        public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
+            => configs.SelectMany(x => x.GetRegex(nameRegex, valueRegex));
 
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
             => configs.First().Set(section, subsection, variable, value, valueRegex);

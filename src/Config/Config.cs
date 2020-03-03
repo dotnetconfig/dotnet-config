@@ -135,7 +135,16 @@ namespace Microsoft.DotNet
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
         /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
-        public abstract IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null);
+        public abstract IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null);
+
+        /// <summary>
+        /// Gets all values where the key (section plus subsection and variable name) match 
+        /// the <paramref name="nameRegex"/> and optionally also the <paramref name="valueRegex"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of value to return.</typeparam>
+        /// <param name="nameRegex">Regular expression to match against the key (section plus subsection and variable name).</param>
+        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
+        public abstract IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.

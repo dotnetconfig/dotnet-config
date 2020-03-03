@@ -24,6 +24,24 @@ namespace Microsoft.DotNet
             Assert.Equal(2, doc.Lines.OfType<CommentLine>().Count());
         }
 
+        [Fact]
+        public void can_get_variables_by_regex()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+  hello = first
+  hell = second
+  bar = none
+  elle = third
+");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            Assert.Equal(3, doc.GetAll("el").Count());
+            Assert.Single(doc.GetAll("el", "on"));
+            Assert.Equal(2, doc.GetAll("!hel").Count());
+            Assert.Single(doc.GetAll("!hel", "!on"));
+        }
 
         [Fact]
         public void can_set_new_variable_new_section()
@@ -377,7 +395,7 @@ namespace Microsoft.DotNet
 
             var doc = ConfigDocument.FromFile(path);
 
-            Assert.Equal(3, doc.Find("foo", null, "source", "github\\.com").Count());
+            Assert.Equal(3, doc.GetAll("foo", null, "source", "github\\.com").Count());
         }
     }
 }
