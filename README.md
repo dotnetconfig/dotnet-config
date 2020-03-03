@@ -104,7 +104,7 @@ Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/
 all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, `--flag=value`, 
 `/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, `--flag value`, `/flag value`.
 
-Current output for supported options from `dotnet config -?`:
+Current output from `dotnet config -?`:
 
 ```
 Usage: dotnet config [options]
@@ -124,7 +124,10 @@ Action
       --add                  add a new variable: name value
       --unset                remove a variable: name [value-regex]
       --unset-all            remove all matches: name [value-regex]
+      --remove-section       remove a section: name
+      --rename-section       rename section: old-name new-name
   -l, --list                 list all
+  -e, --edit                 open an editor
 
 Other
       --default[=VALUE]      with --get, use default value when missing entry
