@@ -14,8 +14,17 @@ namespace Microsoft.DotNet
             this.configs = configs;
         }
 
-        public override void Set<T>(string section, string? subsection, string variable, T value)
-            => throw new NotSupportedException("Cannot set variable across multiple files.");
+        public override void Add<T>(string section, string? subsection, string variable, T value)
+            => configs.First().Add(section, subsection, variable, value);
+
+        public override IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null)
+            => configs.SelectMany(x => x.GetAll<T>(section, subsection, variable, valueRegex));
+
+        public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+            => configs.First().Set(section, subsection, variable, value, valueRegex);
+
+        public override void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+            => configs.First().SetAll(section, subsection, variable, value, valueRegex);
 
         public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
         {
@@ -30,5 +39,13 @@ namespace Microsoft.DotNet
 
             return false;
         }
+
+        public override void Unset(string section, string? subsection, string variable)
+            => configs.First().Unset(section, subsection, variable);
+
+        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex)
+            => configs.First().UnsetAll(section, subsection, variable, valueRegex);
+
+        protected override IEnumerable<ConfigEntry> GetEntries() => configs.SelectMany(x => x);
     }
 }

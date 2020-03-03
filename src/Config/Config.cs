@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -7,7 +8,7 @@ namespace Microsoft.DotNet
     /// <summary>
     /// Provides access to .netconfig configuration options.
     /// </summary>
-    public abstract class Config
+    public abstract class Config : IEnumerable<ConfigEntry>
     {
         /// <summary>
         /// Default filename, equal to '.netconfig'.
@@ -43,6 +44,9 @@ namespace Microsoft.DotNet
 
                 dir = dir.Parent;
             }
+
+            if (configs.Count == 0)
+                configs.Add(FromFile(Path.Combine(directory ?? Directory.GetCurrentDirectory(), FileName)));
 
             if (File.Exists(GlobalLocation))
                 configs.Add(FromFile(GlobalLocation));
@@ -101,6 +105,15 @@ namespace Microsoft.DotNet
         public string FilePath { get; private set; }
 
         /// <summary>
+        /// Adds a value to a multi-valued variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value add to the variable.</param>
+        public abstract void Add<T>(string section, string? subsection, string variable, T value);
+
+        /// <summary>
         /// Gets the value from a variable in the given section and optional subsection.
         /// </summary>
         /// <typeparam name="T">Type of value to return.</typeparam>
@@ -114,6 +127,38 @@ namespace Microsoft.DotNet
             => TryGet<T>(section, subsection, variable, out var value) ? value : defaultValue;
 
         /// <summary>
+        /// Gets all values from a multi-valued variable from the given section and optional subsection, 
+        /// which optionally match the given value regular expression.
+        /// </summary>
+        /// <typeparam name="T">The type of value to return.</typeparam>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to remove.</param>
+        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
+        public abstract IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null);
+
+        /// <summary>
+        /// Sets the value of a variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the variable.</param>
+        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
+        public abstract void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null);
+
+        /// <summary>
+        /// Sets the value of all matching variables in the given section and optional subsection,
+        /// which optionally match the given value regular expression.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the matching variables.</param>
+        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
+        public abstract void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null);
+
+        /// <summary>
         /// Tries to retrieve a variable value from configuration.
         /// </summary>
         /// <typeparam name="T">The type of value to retrieve.</typeparam>
@@ -125,12 +170,32 @@ namespace Microsoft.DotNet
         public abstract bool TryGet<T>(string section, string? subsection, string variable, out T value);
 
         /// <summary>
-        /// Sets the value of a variable in the given section and optional subsection.
+        /// Removes a variable from the given section and optional subsection.
         /// </summary>
+        /// <typeparam name="T">The type of value to remove.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
-        /// <param name="variable">The variable to assign.</param>
-        /// <param name="value">Value to assign to the variable.</param>
-        public abstract void Set<T>(string section, string? subsection, string variable, T value);
+        /// <param name="variable">The variable to remove.</param>
+        public abstract void Unset(string section, string? subsection, string variable);
+
+        /// <summary>
+        /// Removes all values from a multi-valued variable from the given section and optional subsection, 
+        /// which optionally match the given value regular expression.
+        /// </summary>
+        /// <typeparam name="T">The type of value to remove.</typeparam>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to remove.</param>
+        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
+        public abstract void UnsetAll(string section, string? subsection, string variable, string? valueRegex = null);
+
+        /// <summary>
+        /// Gets the configuration entries in the current configuration.
+        /// </summary>
+        protected abstract IEnumerable<ConfigEntry> GetEntries();
+
+        IEnumerator<ConfigEntry> IEnumerable<ConfigEntry>.GetEnumerator() => GetEntries().GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEntries().GetEnumerator();
     }
 }

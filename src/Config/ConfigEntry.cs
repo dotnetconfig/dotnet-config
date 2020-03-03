@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 
 namespace Microsoft.DotNet
 {
@@ -53,6 +54,24 @@ namespace Microsoft.DotNet
 
         public string? Comment { get; set; }
 
-        string DebuggerDisplay => $"{Section + (Subsection == null ? "" : ".\"" + Subsection + "\"")}.{Name} = {Value}";
+        public string Key
+        {
+            get
+            {
+                var sb = new StringBuilder(Section);
+                if (Subsection != null)
+                {
+                    sb = sb.Append('.');
+                    if (Subsection.Contains(" "))
+                        sb = sb.Append('"').Append(Subsection).Append('"');
+                    else
+                        sb = sb.Append(Subsection);
+                }
+
+                return sb.Append('.').Append(Name).ToString();
+            }
+        }
+
+        string DebuggerDisplay => $"{Key}={Value}";
     }
 }

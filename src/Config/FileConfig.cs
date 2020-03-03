@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Microsoft.DotNet
@@ -8,19 +9,57 @@ namespace Microsoft.DotNet
         static readonly ValueSerializer serializer = new ValueSerializer();
         ConfigDocument doc;
 
-        public FileConfig(string filePath) : base(filePath) => doc = ConfigDocument.FromFile(filePath);
+        public FileConfig(string filePath) : base(filePath)
+        {
+            doc = ConfigDocument.FromFile(filePath);
+        }
 
-        public override void Set<T>(string section, string? subsection, string variable, T value)
+        public ConfigLevel Level => doc.Level;
+
+        public override void Add<T>(string section, string? subsection, string variable, T value)
         {
             if (value is bool b && b == true)
             {
                 // Shortcut notation.
-                doc.Set(section, subsection, variable, null);
+                doc.Add(section, subsection, variable, null);
                 doc.Save();
             }
             else
             {
-                doc.Set(section, subsection, variable, serializer.Serialize(value));
+                doc.Add(section, subsection, variable, serializer.Serialize(value));
+                doc.Save();
+            }
+        }
+
+        public override IEnumerable<ConfigEntry> GetAll<T>(string section, string? subsection, string variable, string? valueRegex = null)
+            => doc.Find(section, subsection, variable, valueRegex);
+
+        public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+        {
+            if (value is bool b && b == true)
+            {
+                // Shortcut notation.
+                doc.Set(section, subsection, variable, null, valueRegex);
+                doc.Save();
+            }
+            else
+            {
+                doc.Set(section, subsection, variable, serializer.Serialize(value), valueRegex);
+                doc.Save();
+            }
+        }
+
+        public override void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+        {
+            if (value is bool b && b == true)
+            {
+                // Shortcut notation.
+                doc.SetAll(section, subsection, variable, null, valueRegex);
+                doc.Save();
+            }
+            else
+            {
+                doc.SetAll(section, subsection, variable, serializer.Serialize(value), valueRegex);
                 doc.Save();
             }
         }
@@ -44,5 +83,19 @@ namespace Microsoft.DotNet
             
             return false;
         }
+
+        public override void Unset(string section, string? subsection, string variable)
+        {
+            doc.Unset(section, subsection, variable);
+            doc.Save();
+        }
+
+        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex = null)
+        {
+            doc.UnsetAll(section, subsection, variable, valueRegex);
+            doc.Save();
+        }
+
+        protected override IEnumerable<ConfigEntry> GetEntries() => doc;
     }
 }

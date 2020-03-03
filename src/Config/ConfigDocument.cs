@@ -10,7 +10,6 @@ namespace Microsoft.DotNet
     internal class ConfigDocument : IEnumerable<ConfigEntry>
     {
         string filePath;
-        ConfigLevel level;
 
         ConfigDocument(string filePath, ConfigLevel? level = null)
         {
@@ -28,12 +27,14 @@ namespace Microsoft.DotNet
                     level = ConfigLevel.Local;
             }
 
-            this.level = level.Value;
+            Level = level.Value;
         }
 
         public static ConfigDocument FromFile(string filePath) => new ConfigDocument(filePath);
 
         public static ConfigDocument FromFile(string filePath, ConfigLevel level) => new ConfigDocument(filePath, level);
+
+        public ConfigLevel Level { get; }
 
         public List<Line> Lines { get; } = new List<Line>();
 
@@ -56,8 +57,8 @@ namespace Microsoft.DotNet
                     new Func<string?, bool>(v => Regex.IsMatch(v, valueRegex));
 
             return FindVariables(section, subsection, name)
-                .Where(x => matches(x.Item2.Value))
-                .Select(x => new ConfigEntry(section, subsection, x.Item2.Name, x.Item2.Value, level));
+                .Where(x => x.Item2 != null && matches(x.Item2.Value))
+                .Select(x => new ConfigEntry(section, subsection, x.Item2!.Name, x.Item2.Value, Level));
         }
 
         public void Add(string section, string? subsection, string name, string? value)
@@ -96,15 +97,17 @@ namespace Microsoft.DotNet
             Lines.Insert(index, new VariableLine(name, value));
         }
 
-        public void Set(string section, string? subsection, string name, string? value)
+        public void Set(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
-            (SectionLine? sl, VariableLine? vl) = FindVariables(section, subsection, name).FirstOrDefault();
+            // Cannot modify multiple with this method. Use SetAll instead.
+            if (FindVariables(section, subsection, name).Skip(1).Any())
+                throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
+
+            var matches = Matches(valueRegex);
+            (SectionLine? sl, VariableLine? vl) = FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)).FirstOrDefault();
 
             if (vl != null)
             {
-                // Cannot modify multiple with this method. Use SetAll instead.
-                if (FindVariables(section, subsection, name).Skip(1).Any())
-                    throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
 
                 vl.Value = value;
                 return;
@@ -135,7 +138,7 @@ namespace Microsoft.DotNet
             Lines.Insert(varIndex, vl);
         }
 
-        public void UnSet(string section, string? subsection, string name)
+        public void Unset(string section, string? subsection, string name)
         {
             (SectionLine? sl, VariableLine? vl) = FindVariables(section, subsection, name).FirstOrDefault();
 
@@ -143,7 +146,7 @@ namespace Microsoft.DotNet
             {
                 // Cannot modify multiple with this method. Use SetAll instead.
                 if (FindVariables(section, subsection, name).Skip(1).Any())
-                    throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(UnSetAll)} instead.");
+                    throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(UnsetAll)} instead.");
 
                 Lines.RemoveAt(Lines.IndexOf(vl));
 
@@ -178,29 +181,21 @@ namespace Microsoft.DotNet
 
         public void SetAll(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
-            var matches = valueRegex == null ? _ => true :
-                valueRegex[0] == '!' ?
-                    new Func<string?, bool>(v => !Regex.IsMatch(v, valueRegex.Substring(1))) :
-                    new Func<string?, bool>(v => Regex.IsMatch(v, valueRegex));
-
-            foreach (var variable in FindVariables(section, subsection, name).Where(x => matches(x.Item2.Value)))
+            var matches = Matches(valueRegex);
+            foreach (var variable in FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)))
             {
-                variable.Item2.Value = value;
+                variable.Item2!.Value = value;
             }
         }
 
-        public void UnSetAll(string section, string? subsection, string name, string? valueRegex = null)
+        public void UnsetAll(string section, string? subsection, string name, string? valueRegex = null)
         {
-            var matches = valueRegex == null ? _ => true :
-                valueRegex[0] == '!' ?
-                    new Func<string?, bool>(v => !Regex.IsMatch(v, valueRegex.Substring(1))) :
-                    new Func<string?, bool>(v => Regex.IsMatch(v, valueRegex));
-
-            var lines = FindVariables(section, subsection, name).Where(x => matches(x.Item2.Value)).ToArray();
+            var matches = Matches(valueRegex);
+            var lines = FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)).ToArray();
 
             foreach (var variable in lines)
             {
-                Lines.Remove(variable.Item2);
+                Lines.Remove(variable.Item2!);
             }
 
             var sections = lines.Select(x => x.Item1).Distinct();
@@ -265,31 +260,48 @@ namespace Microsoft.DotNet
             }
         }
 
-        IEnumerable<(SectionLine, VariableLine)> FindVariables(string section, string? subsection, string? name)
+        IEnumerable<(SectionLine, VariableLine?)> FindVariables(string section, string? subsection, string? name)
         {
             SectionLine? currentSection = null;
+            VariableLine? currentVariable = null;
             foreach (var line in Lines)
             {
                 switch (line)
                 {
                     case SectionLine sl:
-                        currentSection = sl;
+                        if (string.Equals(section, sl.Section, StringComparison.OrdinalIgnoreCase) &&
+                            string.Equals(sl.Subsection, subsection))
+                        {
+                            currentSection = sl;
+                        }
                         break;
                     case VariableLine vl:
                         if (currentSection != null && 
                             string.Equals(section, currentSection.Section, StringComparison.OrdinalIgnoreCase) &&
                             string.Equals(currentSection.Subsection, subsection) &&
                             (name == null || string.Equals(vl.Name, name)))
+                        {
+                            currentVariable = vl;
                             yield return (currentSection, vl);
+                        }
                         break;
                     default:
                         break;
                 }
             }
+
+            if (currentSection != null && currentVariable == null)
+                yield return (currentSection, currentVariable);
         }
 
         Func<SectionLine, bool> Equal(string section, string? subsection) =>
             x => string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) && string.Equals(x.Subsection, subsection);
+
+        Func<string?, bool> Matches(string? regex)
+            => regex == null ? _ => true :
+                regex[0] == '!' ?
+                    new Func<string?, bool>(v => !Regex.IsMatch(v, regex.Substring(1))) :
+                    new Func<string?, bool>(v => Regex.IsMatch(v, regex));
 
         public IEnumerator<ConfigEntry> GetEnumerator() => GetEntries().GetEnumerator();
 
@@ -301,7 +313,7 @@ namespace Microsoft.DotNet
                 if (line is SectionLine sl)
                     section = sl;
                 else if (line is VariableLine variable && section != null)
-                    yield return new ConfigEntry(section.Section, section.Subsection, variable.Name, variable.Value ?? null, level);
+                    yield return new ConfigEntry(section.Section, section.Subsection, variable.Name, variable.Value ?? null, Level);
             }
         }
 

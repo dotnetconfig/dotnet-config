@@ -116,6 +116,15 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
+        public void can_build_no_config()
+        {
+            var dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var config = Config.Build(dir);
+
+            Assert.Equal(Path.Combine(dir, Config.FileName), config.FilePath);
+        }
+
+        [Fact]
         public void can_read_non_existent_file()
         {
             var config = Config.FromFile(Path.GetTempFileName());

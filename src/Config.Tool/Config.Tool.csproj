@@ -7,11 +7,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <AssemblyName>config</AssemblyName>
-    <RootNamespace>Config</RootNamespace>
+    <RootNamespace>Microsoft.DotNet</RootNamespace>
 
     <PackageId>dotnet-config</PackageId>
     <ToolCommandName>dotnet-config</ToolCommandName>
     <PackAsTool>true</PackAsTool>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

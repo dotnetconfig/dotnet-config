@@ -63,6 +63,76 @@ namespace Microsoft.DotNet
         }
 
         [Fact]
+        public void can_set_many_variables_section()
+        {
+            var path = Path.GetTempFileName();
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.Set("foo", null, "bar", "false");
+            doc.Save();
+            doc.Set("foo", null, "baz", "true");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Single(saved.Lines.OfType<SectionLine>());
+            Assert.Equal(2, saved.Lines.OfType<VariableLine>().Count());
+        }
+
+        [Fact]
+        public void can_set_variable_matching_regex()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    bar = hi
+    baz = bye");
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.Set("foo", null, "baz", "hi", "y");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Equal("hi", saved.Where(x => x.Name == "baz").First().Value);
+        }
+
+        [Fact]
+        public void can_set_all_variables_matching_regex()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    source = github.com/kzu
+    source = microsoft.com/kzu
+    source = github.com/vga
+    source = microsoft.com/vga");
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.SetAll("foo", null, "source", "none", "github\\.com");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Equal(2, saved.Where(x => x.Value == "none").Count());
+        }
+
+        [Fact]
+        public void does_not_set_variable_not_matching_regex()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    bar = hi
+    baz = bye");
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.Set("foo", null, "baz", "hi", "blah");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+
+            Assert.Equal("bye", saved.Where(x => x.Name == "baz").First().Value);
+        }
+
+        [Fact]
         public void can_set_existing_variable()
         {
             var path = Path.GetTempFileName();
@@ -121,7 +191,7 @@ namespace Microsoft.DotNet
     baz = false");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSet("foo", null, "bar");
+            doc.Unset("foo", null, "bar");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -138,7 +208,7 @@ namespace Microsoft.DotNet
     bar = world");
             var doc = ConfigDocument.FromFile(path);
 
-            Assert.Throws<NotSupportedException>(() => doc.UnSet("foo", null, "bar"));
+            Assert.Throws<NotSupportedException>(() => doc.Unset("foo", null, "bar"));
         }
 
         [Fact]
@@ -149,7 +219,7 @@ namespace Microsoft.DotNet
     bar = true");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSet("foo", null, "bar");
+            doc.Unset("foo", null, "bar");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -165,7 +235,7 @@ namespace Microsoft.DotNet
     bar = true");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSet("foo", null, "baz");
+            doc.Unset("foo", null, "baz");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -224,7 +294,7 @@ namespace Microsoft.DotNet
     # comment");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSetAll("foo", default, "bar");
+            doc.UnsetAll("foo", default, "bar");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -245,7 +315,7 @@ namespace Microsoft.DotNet
     yet = another");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSetAll("foo", default, "bar");
+            doc.UnsetAll("foo", default, "bar");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -265,7 +335,7 @@ namespace Microsoft.DotNet
     source = https://nuget.org/kzu");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnSetAll("foo", default, "source", "github\\.com");
+            doc.UnsetAll("foo", default, "source", "github\\.com");
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);

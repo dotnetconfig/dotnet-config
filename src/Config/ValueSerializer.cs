@@ -22,6 +22,9 @@ namespace Microsoft.DotNet
 
         public T Deserialize<T>(string? value)
         {
+            if (typeof(T) == typeof(string))
+                return (T)(object)(value ?? "");
+
             if (deserializers.TryGetValue(typeof(T), out var @delegate) &&
                 @delegate is Func<string?, T> deserializer)
             {
@@ -33,9 +36,21 @@ namespace Microsoft.DotNet
             }
         }
 
-        public string Serialize<T>(T value)
+        public string? Serialize<T>(T value)
         {
-            return "";
+            switch (value)
+            {
+                case bool b:
+                    return b.ToString().ToLowerInvariant();
+                case int i:
+                    return i.ToString();
+                case long l:
+                    return l.ToString();
+                case string s:
+                    return s;
+                default:
+                    return value?.ToString();
+            }
         }
     }
 }
