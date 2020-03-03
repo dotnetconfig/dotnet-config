@@ -397,5 +397,34 @@ namespace Microsoft.DotNet
 
             Assert.Equal(3, doc.GetAll("foo", null, "source", "github\\.com").Count());
         }
+
+        [Fact]
+        public void can_remove_section()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    bar = baz
+    enabled
+    # comment
+
+    [bar]
+    enabled = false
+    ; comment
+
+    [foo]
+    # comment
+    other = value
+    ; comment
+");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.RemoveSection("foo");
+
+            Assert.Single(doc.Lines.OfType<SectionLine>());
+            Assert.Single(doc.Lines.OfType<CommentLine>());
+            Assert.IsNotType<EmptyLine>(doc.Lines.First());
+            Assert.IsNotType<EmptyLine>(doc.Lines.Last());
+        }
     }
 }

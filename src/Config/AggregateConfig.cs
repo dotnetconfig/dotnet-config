@@ -23,6 +23,9 @@ namespace Microsoft.DotNet
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => configs.SelectMany(x => x.GetRegex(nameRegex, valueRegex));
 
+        public override void RemoveSection(string section, string? subsection = null)
+            => configs.First().RemoveSection(section, subsection);
+
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
             => configs.First().Set(section, subsection, variable, value, valueRegex);
 

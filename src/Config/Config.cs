@@ -199,6 +199,13 @@ namespace Microsoft.DotNet
         public abstract void UnsetAll(string section, string? subsection, string variable, string? valueRegex = null);
 
         /// <summary>
+        /// Remove the given section from the configuration file.
+        /// </summary>
+        /// <param name="section">The section to remove.</param>
+        /// <param name="subsection">Optional subsection to remove.</param>
+        public abstract void RemoveSection(string section, string? subsection = null);
+
+        /// <summary>
         /// Gets the configuration entries in the current configuration.
         /// </summary>
         protected abstract IEnumerable<ConfigEntry> GetEntries();

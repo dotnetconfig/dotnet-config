@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using Mono.Options;
 
 namespace Microsoft.DotNet
@@ -46,8 +47,8 @@ namespace Microsoft.DotNet
                 { "unset", "remove a variable: name [value-regex]", _ => action = ConfigAction.Unset },
                 { "unset-all", "remove all matches: name [value-regex]", _ => action = ConfigAction.UnsetAll },
 
-                { "rename-section", "rename section: old-name new-name", _ => action = ConfigAction.List },
-                { "remove-section", "remove a section: name", _ => action = ConfigAction.List },
+                { "remove-section", "remove a section: name", _ => action = ConfigAction.RemoveSection },
+                { "rename-section", "rename section: old-name new-name", _ => action = ConfigAction.RenameSection },
 
                 { "l|list", "list all", _ => action = ConfigAction.List },
                 { "e|edit", "open an editor", _ => action = ConfigAction.Edit },
@@ -55,7 +56,7 @@ namespace Microsoft.DotNet
                 { Environment.NewLine },
                 { "Other" },
                 { "default:", "with --get, use default value when missing entry", v => defaultValue = v },
-                { "d|directory:", "use given directory for configuration file", v => defaultValue = v },
+                { "d|directory:", "use given directory for configuration file", d => directory = d },
                 { "name-only", "show variable names only", _ => nameOnly = true },
                 { "type:", "value is given this type, either 'bool' or 'int'", t => type = t },
 
@@ -89,6 +90,13 @@ namespace Microsoft.DotNet
                 else
                     return ShowHelp(options);
             }
+
+
+            Action<ConfigEntry> entryWriter;
+            if (nameOnly)
+                entryWriter = e => Console.WriteLine(e.Key);
+            else
+                entryWriter = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
 
             switch (action)
             {
@@ -124,15 +132,9 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 1)
                             regex = extraArgs[1];
 
-                        Action<ConfigEntry> write;
-                        if (nameOnly)
-                            write = e => Console.WriteLine(e.Key);
-                        else
-                            write = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
-
                         foreach (var entry in config.GetAll(section, subsection, variable, regex))
                         {
-                            write(entry);
+                            entryWriter(entry);
                         }
 
                         break;
@@ -147,15 +149,9 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 1)
                             valueRegex = extraArgs[1];
 
-                        Action<ConfigEntry> write;
-                        if (nameOnly)
-                            write = e => Console.WriteLine(e.Key);
-                        else
-                            write = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
-
                         foreach (var entry in config.GetRegex(nameRegex, valueRegex))
                         {
-                            write(entry);
+                            entryWriter(entry);
                         }
 
                         break;
@@ -211,42 +207,36 @@ namespace Microsoft.DotNet
                         break;
                     }
                 case ConfigAction.List:
+                    foreach (var entry in config)
                     {
-                        Action<ConfigEntry> write;
-                        if (nameOnly)
-                            write = e => Console.WriteLine(e.Key);
-                        else
-                            write = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
-
-                        foreach (var entry in config)
-                        {
-                            write(entry);
-                        }
-
-                        break;
+                        entryWriter(entry);
                     }
+
+                    break;
                 case ConfigAction.Edit:
+                    if (!Config.Build(directory).TryGet<string>("core", null, "editor", out var editor))
                     {
-                        if (!Config.Build(directory).TryGet<string>("core", null, "editor", out var editor))
-                        {
-                            var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
-                            var code = Environment.OSVersion.Platform == PlatformID.Unix ? "code" : "code.cmd";
-                            editor = Process.Start(new ProcessStartInfo(cmd, code) { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
-                        }
-
-                        if (!string.IsNullOrEmpty(editor))
-                        {
-                            Process.Start(editor, config.FilePath);
-                        }
-                        else
-                        {
-                            Process.Start(new ProcessStartInfo(config.FilePath) { UseShellExecute = true });
-                        }
-
-                        break;
+                        var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
+                        var code = Environment.OSVersion.Platform == PlatformID.Unix ? "code" : "code.cmd";
+                        editor = Process.Start(new ProcessStartInfo(cmd, code) { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
                     }
-                case ConfigAction.RenameSection:
+
+                    if (!string.IsNullOrEmpty(editor))
+                    {
+                        Process.Start(editor, config.FilePath);
+                    }
+                    else
+                    {
+                        Process.Start(new ProcessStartInfo(config.FilePath) { UseShellExecute = true });
+                    }
+
+                    break;
                 case ConfigAction.RemoveSection:
+                    if (extraArgs.Count != 1)
+                        return ShowHelp(options);
+                    config.RemoveSection(extraArgs[0]);
+                    break;
+                case ConfigAction.RenameSection:
                     Console.WriteLine("Not supported yet.");
                     break;
                 default:

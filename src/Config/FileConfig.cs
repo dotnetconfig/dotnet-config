@@ -37,6 +37,12 @@ namespace Microsoft.DotNet
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => doc.GetAll(nameRegex, valueRegex);
 
+        public override void RemoveSection(string section, string? subsection)
+        {
+            doc.RemoveSection(section, subsection);
+            doc.Save();
+        }
+
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
         {
             if (value is bool b && b == true)

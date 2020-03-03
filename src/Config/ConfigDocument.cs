@@ -50,6 +50,45 @@ namespace Microsoft.DotNet
             }
         }
 
+        public void RemoveSection(string section, string? subsection = null)
+        {
+            SectionLine sl;
+            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection))) != null)
+            {
+                var index = Lines.IndexOf(sl);
+                var count = 0;
+                void FindEnd()
+                {
+                    while (index + ++count < Lines.Count)
+                    {
+                        var next = Lines[index + count];
+                        switch (next)
+                        {
+                            case EmptyLine _:
+                                return;
+                            case SectionLine _:
+                                return;
+                            default:
+                                break;
+                        }
+                    }
+                };
+
+                FindEnd();
+                Lines.RemoveRange(index, count);
+            }
+
+            while (Lines.Count > 0 && Lines[0] is EmptyLine)
+            {
+                Lines.RemoveAt(0);
+            }
+
+            while (Lines.Count > 0 && Lines[Lines.Count - 1] is EmptyLine)
+            {
+                Lines.RemoveAt(Lines.Count -1);
+            }
+        }
+
         public IEnumerable<ConfigEntry> GetAll(string nameRegex, string? valueRegex = null)
         {
             var nameMatches = Matches(nameRegex);
