@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using Mono.Options;
 
@@ -18,6 +19,7 @@ namespace Microsoft.DotNet
             string? filePath = default;
             bool nameOnly = false;
             string? defaultValue = default;
+            string? directory = default;
             string? type = default;
 
             var options = new OptionSet
@@ -75,7 +77,7 @@ namespace Microsoft.DotNet
             else if (filePath != null)
                 config = Config.FromFile(filePath);
             else
-                config = Config.Build();
+                config = Config.Build(directory);
 
             // Can be a get or a set, depending on whether a value is provided.
             if (action == ConfigAction.None)
@@ -224,6 +226,25 @@ namespace Microsoft.DotNet
                         break;
                     }
                 case ConfigAction.Edit:
+                    {
+                        if (!Config.Build(directory).TryGet<string>("core", null, "editor", out var editor))
+                        {
+                            var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
+                            var code = Environment.OSVersion.Platform == PlatformID.Unix ? "code" : "code.cmd";
+                            editor = Process.Start(new ProcessStartInfo(cmd, code) { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
+                        }
+
+                        if (!string.IsNullOrEmpty(editor))
+                        {
+                            Process.Start(editor, config.FilePath);
+                        }
+                        else
+                        {
+                            Process.Start(new ProcessStartInfo(config.FilePath) { UseShellExecute = true });
+                        }
+
+                        break;
+                    }
                 case ConfigAction.RenameSection:
                 case ConfigAction.RemoveSection:
                     Console.WriteLine("Not supported yet.");

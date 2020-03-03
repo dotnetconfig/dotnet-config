@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Config.Tool": {
+      "commandName": "Project",
+      "commandLineArgs": "-e"
+    }
+  }
+}
