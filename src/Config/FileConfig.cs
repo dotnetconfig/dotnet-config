@@ -43,6 +43,12 @@ namespace Microsoft.DotNet
             doc.Save();
         }
 
+        public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+        {
+            doc.RenameSection(oldSection, oldSubsection, newSection, newSubsection);
+            doc.Save();
+        }
+
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
         {
             if (value is bool b && b == true)

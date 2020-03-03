@@ -206,6 +206,11 @@ namespace Microsoft.DotNet
         public abstract void RemoveSection(string section, string? subsection = null);
 
         /// <summary>
+        /// Renames a section and optional subsection.
+        /// </summary>
+        public abstract void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection);
+
+        /// <summary>
         /// Gets the configuration entries in the current configuration.
         /// </summary>
         protected abstract IEnumerable<ConfigEntry> GetEntries();

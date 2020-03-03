@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using System.Xml;
 
@@ -86,6 +87,16 @@ namespace Microsoft.DotNet
             while (Lines.Count > 0 && Lines[Lines.Count - 1] is EmptyLine)
             {
                 Lines.RemoveAt(Lines.Count -1);
+            }
+        }
+
+        public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+        {
+            SectionLine sl;
+            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(oldSection, oldSubsection))) != null)
+            {
+                sl.Section = newSection;
+                sl.Subsection = newSubsection;
             }
         }
 

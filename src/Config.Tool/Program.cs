@@ -234,10 +234,17 @@ namespace Microsoft.DotNet
                 case ConfigAction.RemoveSection:
                     if (extraArgs.Count != 1)
                         return ShowHelp(options);
+
                     config.RemoveSection(extraArgs[0]);
                     break;
                 case ConfigAction.RenameSection:
-                    Console.WriteLine("Not supported yet.");
+                    if (extraArgs.Count != 2)
+                        return ShowHelp(options);
+
+                    var (oldSection, oldSubsection) = ParseSection(extraArgs[0]);
+                    var (newSection, newSubsection) = ParseSection(extraArgs[1]);
+
+                    config.RenameSection(oldSection, oldSubsection, newSection, newSubsection);
                     break;
                 default:
                     return ShowHelp(options);
@@ -263,6 +270,24 @@ namespace Microsoft.DotNet
             }
 
             return (section, subsection, variable);
+        }
+
+        static (string section, string? subsection) ParseSection(string arg)
+        {
+            var parts = arg.Split('.');
+            string? section = null;
+            string? subsection = default;
+            if (parts.Length > 1)
+            {
+                section = string.Join('.', parts[0..^1]);
+                subsection = parts[^1];
+            }
+            else if (parts.Length == 1)
+            {
+                section = parts[0];
+            }
+
+            return (section!, subsection);
         }
 
         static int ShowHelp(OptionSet options)

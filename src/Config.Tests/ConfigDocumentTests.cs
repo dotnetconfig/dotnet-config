@@ -426,5 +426,52 @@ namespace Microsoft.DotNet
             Assert.IsNotType<EmptyLine>(doc.Lines.First());
             Assert.IsNotType<EmptyLine>(doc.Lines.Last());
         }
+
+        [Fact]
+        public void can_rename_section()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    bar = baz
+    enabled
+    # comment
+");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.RenameSection("foo", null, "bar", null);
+
+            Assert.Single(doc.Lines.OfType<SectionLine>());
+            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Section);
+
+            doc.RenameSection("bar", null, "bar", "foo or baz");
+
+            Assert.Single(doc.Lines.OfType<SectionLine>());
+            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Section);
+            Assert.Equal("foo or baz", doc.Lines.OfType<SectionLine>().First().Subsection);
+
+            doc.RenameSection("bar", "foo or baz", "foo", "bar");
+
+            Assert.Equal("foo", doc.Lines.OfType<SectionLine>().First().Section);
+            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Subsection);
+        }
+
+        [Fact]
+        public void can_rename_multiple_section()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo]
+    bar = baz
+
+    [foo]
+    enabled
+");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.RenameSection("foo", null, "bar", null);
+
+            Assert.All(doc.Lines.OfType<SectionLine>(), x => Assert.Equal("bar", x.Section));
+        }
     }
 }

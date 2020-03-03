@@ -26,6 +26,9 @@ namespace Microsoft.DotNet
         public override void RemoveSection(string section, string? subsection = null)
             => configs.First().RemoveSection(section, subsection);
 
+        public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+            => configs.First().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
+
         public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
             => configs.First().Set(section, subsection, variable, value, valueRegex);
 
