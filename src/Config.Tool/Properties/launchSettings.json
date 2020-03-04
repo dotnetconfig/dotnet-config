@@ -2,7 +2,7 @@
   "profiles": {
     "Config.Tool": {
       "commandName": "Project",
-      "commandLineArgs": "-e"
+      "commandLineArgs": "file.\"azure_pipelines"
     }
   }
 }

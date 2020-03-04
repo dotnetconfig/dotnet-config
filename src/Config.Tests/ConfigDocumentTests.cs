@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Superpower;
 using Xunit;
 
 namespace Microsoft.DotNet
@@ -472,6 +473,19 @@ namespace Microsoft.DotNet
             doc.RenameSection("foo", null, "bar", null);
 
             Assert.All(doc.Lines.OfType<SectionLine>(), x => Assert.Equal("bar", x.Section));
+        }
+
+        [Fact]
+        public void throws_if_invalid_arguments()
+        {
+            var doc = ConfigDocument.FromFile(Path.GetTempFileName());
+
+            Assert.Throws<ParseException>(() => doc.Add("foo_bar", null, "baz", "hello"));
+            Assert.Throws<ParseException>(() => doc.Set("foo", null, "1baz", "hello"));
+            Assert.Throws<ParseException>(() => doc.SetAll("foo_bar", null, "baz", "hello"));
+            Assert.Throws<ParseException>(() => doc.SetAll("foo", null, "1baz", "hello"));
+            Assert.Throws<ParseException>(() => doc.RenameSection("foo_bar", null, "baz", null));
+            Assert.Throws<ParseException>(() => doc.RenameSection("foo", null, "baz_baz", null));
         }
     }
 }

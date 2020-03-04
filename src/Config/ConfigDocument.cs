@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Superpower;
 
 namespace Microsoft.DotNet
 {
@@ -51,55 +52,6 @@ namespace Microsoft.DotNet
             }
         }
 
-        public void RemoveSection(string section, string? subsection = null)
-        {
-            SectionLine sl;
-            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection))) != null)
-            {
-                var index = Lines.IndexOf(sl);
-                var count = 0;
-                void FindEnd()
-                {
-                    while (index + ++count < Lines.Count)
-                    {
-                        var next = Lines[index + count];
-                        switch (next)
-                        {
-                            case EmptyLine _:
-                                return;
-                            case SectionLine _:
-                                return;
-                            default:
-                                break;
-                        }
-                    }
-                };
-
-                FindEnd();
-                Lines.RemoveRange(index, count);
-            }
-
-            while (Lines.Count > 0 && Lines[0] is EmptyLine)
-            {
-                Lines.RemoveAt(0);
-            }
-
-            while (Lines.Count > 0 && Lines[Lines.Count - 1] is EmptyLine)
-            {
-                Lines.RemoveAt(Lines.Count -1);
-            }
-        }
-
-        public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
-        {
-            SectionLine sl;
-            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(oldSection, oldSubsection))) != null)
-            {
-                sl.Section = newSection;
-                sl.Subsection = newSubsection;
-            }
-        }
-
         public IEnumerable<ConfigEntry> GetAll(string nameRegex, string? valueRegex = null)
         {
             var nameMatches = Matches(nameRegex);
@@ -122,6 +74,9 @@ namespace Microsoft.DotNet
 
         public void Add(string section, string? subsection, string name, string? value)
         {
+            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+
             var sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection));
             int index;
             if (sl == null)
@@ -158,6 +113,9 @@ namespace Microsoft.DotNet
 
         public void Set(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
+            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+
             // Cannot modify multiple with this method. Use SetAll instead.
             if (FindVariables(section, subsection, name).Skip(1).Any())
                 throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
@@ -240,6 +198,9 @@ namespace Microsoft.DotNet
 
         public void SetAll(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
+            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+
             var matches = Matches(valueRegex);
             foreach (var variable in FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)))
             {
@@ -289,6 +250,58 @@ namespace Microsoft.DotNet
                     };
                     RemoveEmpty(index);
                 }
+            }
+        }
+
+        public void RemoveSection(string section, string? subsection = null)
+        {
+            SectionLine sl;
+            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection))) != null)
+            {
+                var index = Lines.IndexOf(sl);
+                var count = 0;
+                void FindEnd()
+                {
+                    while (index + ++count < Lines.Count)
+                    {
+                        var next = Lines[index + count];
+                        switch (next)
+                        {
+                            case EmptyLine _:
+                                return;
+                            case SectionLine _:
+                                return;
+                            default:
+                                break;
+                        }
+                    }
+                };
+
+                FindEnd();
+                Lines.RemoveRange(index, count);
+            }
+
+            while (Lines.Count > 0 && Lines[0] is EmptyLine)
+            {
+                Lines.RemoveAt(0);
+            }
+
+            while (Lines.Count > 0 && Lines[Lines.Count - 1] is EmptyLine)
+            {
+                Lines.RemoveAt(Lines.Count - 1);
+            }
+        }
+
+        public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+        {
+            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(oldSection));
+            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(newSection));
+
+            SectionLine sl;
+            while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(oldSection, oldSubsection))) != null)
+            {
+                sl.Section = newSection;
+                sl.Subsection = newSubsection;
             }
         }
 

@@ -26,22 +26,6 @@ namespace Microsoft.DotNet.Tests
                 Directory.SetCurrentDirectory(originalDir);
         }
 
-        [Theory]
-        [InlineData("[core.option]", "core.option", null)]
-        [InlineData("[core.option \"sub section\"] # this is a comment", "core.option", "sub section")]
-        [InlineData("[core-option]", "core-option", null)]
-        public void can_parse_section(string input, string name, string subsection)
-        {
-            var result = ConfigParser.SectionParser.TryParse(input);
-
-            if (!result.HasValue)
-                Assert.Equal("", result.FormatErrorMessageFragment());
-
-            Assert.True(result.HasValue);
-            Assert.Equal(name, result.Value.section);
-            Assert.Equal(subsection, result.Value.subsection);
-        }
-
         [Fact]
         public void can_deserialize_datetime()
         {
