@@ -4,7 +4,9 @@
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TieredCompilation>false</TieredCompilation>
+    <TieredCompilationQuickJit>false</TieredCompilationQuickJit>
 
     <AssemblyName>config</AssemblyName>
     <RootNamespace>Microsoft.DotNet</RootNamespace>
@@ -30,6 +32,10 @@
       <_Parameter1>AssemblyName</_Parameter1>
       <_Parameter2>$(AssemblyName)</_Parameter2>
     </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Config\Range.cs" Link="Range.cs" />
   </ItemGroup>
 
   <ItemGroup>

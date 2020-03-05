@@ -3,6 +3,7 @@ using System.Linq;
 using Superpower;
 using Superpower.Model;
 using Superpower.Parsers;
+using Superpower.Tokenizers;
 
 namespace Microsoft.DotNet
 {
@@ -100,7 +101,7 @@ namespace Microsoft.DotNet
 
         static bool TryParse(TokenListParser<ConfigToken, Line> parser, string line, out Line? result, out string? error, out Position errorPosition)
         {
-            var tokens = ConfigTokenizer.Instance.TryTokenize(line);
+            var tokens = ConfigTokenizer.Line.TryTokenize(line);
             if (!tokens.HasValue)
             {
                 result = null;
@@ -126,7 +127,7 @@ namespace Microsoft.DotNet
             return true;
         }
 
-        internal static bool TryParseSection(string line, out SectionLine? section, out string? error, out Position errorPosition)
+        internal static bool TryParseSectionLine(string line, out SectionLine? section, out string? error, out Position errorPosition)
         {
             section = null;
             var success = TryParse(SectionLine, line, out var result, out error, out errorPosition);
@@ -138,7 +139,7 @@ namespace Microsoft.DotNet
             return success;
         }
 
-        internal static bool TryParseVariable(string line, out VariableLine? variable, out string? error, out Position errorPosition)
+        internal static bool TryParseVariableLine(string line, out VariableLine? variable, out string? error, out Position errorPosition)
         {
             variable = null;
             var success = TryParse(VariableLine, line, out var result, out error, out errorPosition);
@@ -149,8 +150,97 @@ namespace Microsoft.DotNet
 
             return success;
         }
-
-        internal static bool TryParseComment(string line, out Line? comment, out string? error, out Position errorPosition)
+         
+        internal static bool TryParseCommentLine(string line, out Line? comment, out string? error, out Position errorPosition)
             => TryParse(CommentLine, line, out comment, out error, out errorPosition);
+
+        internal static bool TryParseKey(string key, out string? section, out string? subsection, out string? variable)
+        {
+            section = null;
+            subsection = null;
+            variable = null;
+
+            var tokenizer = new TokenizerBuilder<ConfigToken>()
+                .Ignore(Span.WhiteSpace)
+                .Match(ConfigTokenizer.IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
+                .Match(ConfigTokenizer.IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
+                .Ignore(Character.EqualTo('.'))
+                .Match(ConfigTokenizer.StringToken, ConfigToken.String, requireDelimiters: true)
+                .Match(ConfigTokenizer.QuotedStringToken, ConfigToken.String, requireDelimiters: true)
+                .Build();
+
+            var tokens = tokenizer.TryTokenize(key);
+            if (!tokens.HasValue)
+            {
+                return false;
+            }
+
+            var parsed = (from sec in Identifier.AtLeastOnce()
+                          from subsec in String.OptionalOrDefault(NullString)
+                          from name in Identifier.OptionalOrDefault(NullString)
+                          select (sec, subsec, name))
+                         .TryParse(tokens.Value);
+
+            if (!parsed.HasValue)
+            {
+                return false;
+            }
+
+            var parsedSection = parsed.Value.sec.Cast<string>().ToArray();
+            var parsedSubsection = (string)parsed.Value.subsec == NullString ? null : (string)parsed.Value.subsec;
+            var parsedName = (string)parsed.Value.name == NullString ? null : (string)parsed.Value.name;
+
+            if (parsedName == null && parsedSection.Length > 1)
+            {
+                parsedName = parsedSection[^1];
+                parsedSection = parsedSection[0..^1];
+            }
+
+            if (parsedSubsection == null && parsedSection.Length > 1)
+            {
+                parsedSubsection = parsedSection[^1];
+                parsedSection = parsedSection[0..^1];
+            }
+
+            section = string.Join(".", parsedSection);
+            subsection = parsedSubsection;
+            variable = parsedName;
+
+            return true;
+        }
+
+        internal static bool TryParseSection(string key, out string? section, out string? subsection)
+        {
+            section = null;
+            subsection = null;
+            var tokens = ConfigTokenizer.Key.TryTokenize(key);
+            if (!tokens.HasValue)
+            {
+                return false;
+            }
+
+            var parsed = (from sec in Identifier.AtLeastOnce()
+                          from subsec in String.OptionalOrDefault(NullString)
+                          select (sec, subsec))
+                         .TryParse(tokens.Value);
+
+            if (!parsed.HasValue)
+            {
+                return false;
+            }
+
+            var parsedSection = parsed.Value.sec.Cast<string>().ToArray();
+            subsection = (string)parsed.Value.subsec == NullString ? null : (string)parsed.Value.subsec;
+
+            if (subsection == null && parsedSection.Length > 1)
+            {
+                subsection = parsedSection[^1];
+                parsedSection = parsedSection[0..^1];
+            }
+
+            section = string.Join(".", parsedSection);
+
+            return true;
+        }
     }
 }

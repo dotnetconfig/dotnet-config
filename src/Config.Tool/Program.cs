@@ -22,6 +22,7 @@ namespace Microsoft.DotNet
             string? defaultValue = default;
             string? directory = default;
             string? type = default;
+            bool debug = false;
 
             var options = new OptionSet
             {
@@ -59,11 +60,18 @@ namespace Microsoft.DotNet
                 { "d|directory:", "use given directory for configuration file", d => directory = d },
                 { "name-only", "show variable names only", _ => nameOnly = true },
                 { "type:", "value is given this type, either 'bool' or 'int'", t => type = t },
+                { "debug", "add some extra logging for troubleshooting purposes", _ => debug = true, true },
 
                 { "?|h|help", "Display this help", h => help = h != null },
             };
 
             var extraArgs = options.Parse(args);
+
+            if (debug)
+            {
+                Console.WriteLine($"::debug::args[{args.Length}]:: {string.Join(" ", args.Select(x => x.IndexOf(' ') != -1 ? $"\"{x}\"" : x))}");
+                Console.WriteLine($"::debug::extraargs[{extraArgs.Count}]:: {string.Join(" ", extraArgs.Select(x => x.IndexOf(' ') != -1 ? $"\"{x}\"" : x))}");
+            }
 
             if (args.Length == 1 && help)
                 return ShowHelp(options);
@@ -91,7 +99,6 @@ namespace Microsoft.DotNet
                     return ShowHelp(options);
             }
 
-
             Action<ConfigEntry> entryWriter;
             if (nameOnly)
                 entryWriter = e => Console.WriteLine(e.Key);
@@ -102,37 +109,34 @@ namespace Microsoft.DotNet
             {
                 case ConfigAction.Add:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        config.Add(section, subsection, variable, extraArgs[1]);
+                        config.Add(section!, subsection, variable!, extraArgs[1]);
                         break;
                     }
                 case ConfigAction.Get:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
                         if (defaultValue == null)
-                            Console.WriteLine(config.Get<string>(section, subsection, variable));
+                            Console.WriteLine(config.Get<string>(section!, subsection, variable!));
                         else
-                            Console.WriteLine(config.Get(section, subsection, variable, defaultValue));
+                            Console.WriteLine(config.Get(section!, subsection, variable!, defaultValue));
 
                         break;
                     }
                 case ConfigAction.GetAll:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
                         string? regex = default;
                         if (extraArgs.Count > 1)
                             regex = extraArgs[1];
 
-                        foreach (var entry in config.GetAll(section, subsection, variable, regex))
+                        foreach (var entry in config.GetAll(section!, subsection, variable!, regex))
                         {
                             entryWriter(entry);
                         }
@@ -158,22 +162,24 @@ namespace Microsoft.DotNet
                     }
                 case ConfigAction.Set:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
+                        {
+                            Console.WriteLine($"Can't parse: {extraArgs[0]}");
                             return ShowHelp(options);
+                        }
 
                         var value = string.Join(' ', extraArgs.Skip(1)).Trim();
                         // Common mistake to do 'config key = value', so just remove it.
                         if (value.StartsWith('='))
                             value = new string(value[1..]).Trim();
 
-                        config.Set(section, subsection, variable, value);
+                        config.Set(section!, subsection, variable!, value);
                         break;
                     }
                 case ConfigAction.SetAll:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null || extraArgs.Count < 2 || extraArgs.Count > 3)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable) ||
+                            extraArgs.Count < 2 || extraArgs.Count > 3)
                             return ShowHelp(options);
 
                         var value = extraArgs[1];
@@ -181,29 +187,27 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 2)
                             regex = extraArgs[2];
 
-                        config.SetAll(section, subsection, variable, value);
+                        config.SetAll(section!, subsection, variable!, value);
                         break;
                     }
                 case ConfigAction.Unset:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        config.Unset(section, subsection, variable);
+                        config.Unset(section!, subsection, variable!);
                         break;
                     }
                 case ConfigAction.UnsetAll:
                     {
-                        var (section, subsection, variable) = ParseKey(extraArgs[0]);
-                        if (section == null)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
                         string? regex = default;
                         if (extraArgs.Count > 1)
                             regex = extraArgs[1];
 
-                        config.UnsetAll(section, subsection, variable, regex);
+                        config.UnsetAll(section!, subsection, variable!, regex);
                         break;
                     }
                 case ConfigAction.List:
@@ -241,10 +245,20 @@ namespace Microsoft.DotNet
                     if (extraArgs.Count != 2)
                         return ShowHelp(options);
 
-                    var (oldSection, oldSubsection) = ParseSection(extraArgs[0]);
-                    var (newSection, newSubsection) = ParseSection(extraArgs[1]);
+                    if (!ConfigParser.TryParseSection(extraArgs[0], out var oldSection, out var oldSubsection))
+                    {
+                        Console.WriteLine($"Can't parse: {extraArgs[0]}");
+                        return ShowHelp(options);
+                    }
 
-                    config.RenameSection(oldSection, oldSubsection, newSection, newSubsection);
+
+                    if (!ConfigParser.TryParseSection(extraArgs[1], out var newSection, out var newSubsection))
+                    {
+                        Console.WriteLine($"Can't parse: {extraArgs[1]}");
+                        return ShowHelp(options);
+                    }
+
+                    config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection);
                     break;
                 default:
                     return ShowHelp(options);
@@ -253,46 +267,11 @@ namespace Microsoft.DotNet
             return 0;
         }
 
-        static (string? section, string? subsection, string name) ParseKey(string arg)
-        {
-            var parts = arg.Split('.');
-            var variable = parts[^1];
-            string? section = default;
-            string? subsection = default;
-            if (parts.Length > 2)
-            {
-                section = string.Join('.', parts[0..^2]);
-                subsection = parts[^2];
-            }
-            else if (parts.Length == 2)
-            {
-                section = parts[0];
-            }
-
-            return (section, subsection, variable);
-        }
-
-        static (string section, string? subsection) ParseSection(string arg)
-        {
-            var parts = arg.Split('.');
-            string? section = null;
-            string? subsection = default;
-            if (parts.Length > 1)
-            {
-                section = string.Join('.', parts[0..^1]);
-                subsection = parts[^1];
-            }
-            else if (parts.Length == 1)
-            {
-                section = parts[0];
-            }
-
-            return (section!, subsection);
-        }
-
         static int ShowHelp(OptionSet options)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             Console.Write($"Usage: dotnet {ThisAssembly.Metadata.AssemblyName} [options]");
+#pragma warning restore CS0436 // Type conflicts with imported type
             options.WriteOptionDescriptions(Console.Out);
             return 0;
         }

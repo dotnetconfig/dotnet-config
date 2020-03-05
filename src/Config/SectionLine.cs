@@ -93,7 +93,7 @@ namespace Microsoft.DotNet
 
         string Serialize(string value)
         {
-            if (value.IndexOfAny(new[] { ' ', '\\', '"' }) == -1)
+            if (value.IndexOfAny(new[] { ' ', '\\', '"', '.' }) == -1)
                 return value;
 
             return "\"" + value.Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";

@@ -458,6 +458,23 @@ namespace Microsoft.DotNet
         }
 
         [Fact]
+        public void can_rename_section_with_spaces()
+        {
+            var path = Path.GetTempFileName();
+            File.WriteAllText(path, @"[foo ""bar or baz""]
+    url = https
+");
+
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.RenameSection("foo", "bar or baz", "foo", "bar");
+
+            Assert.Single(doc.Lines.OfType<SectionLine>());
+            Assert.Equal("foo", doc.Lines.OfType<SectionLine>().First().Section);
+            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Subsection);
+        }
+
+        [Fact]
         public void can_rename_multiple_section()
         {
             var path = Path.GetTempFileName();

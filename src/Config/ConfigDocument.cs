@@ -74,8 +74,8 @@ namespace Microsoft.DotNet
 
         public void Add(string section, string? subsection, string name, string? value)
         {
-            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
-            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+            ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             var sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(section, subsection));
             int index;
@@ -113,8 +113,8 @@ namespace Microsoft.DotNet
 
         public void Set(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
-            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
-            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+            ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             // Cannot modify multiple with this method. Use SetAll instead.
             if (FindVariables(section, subsection, name).Skip(1).Any())
@@ -198,8 +198,8 @@ namespace Microsoft.DotNet
 
         public void SetAll(string section, string? subsection, string name, string? value, string? valueRegex = null)
         {
-            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(section));
-            ConfigParser.Variable.Parse(ConfigTokenizer.Instance.Tokenize(name));
+            ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
+            ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             var matches = Matches(valueRegex);
             foreach (var variable in FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)))
@@ -294,8 +294,8 @@ namespace Microsoft.DotNet
 
         public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
         {
-            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(oldSection));
-            ConfigParser.Section.Parse(ConfigTokenizer.Instance.Tokenize(newSection));
+            ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(oldSection));
+            ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(newSection));
 
             SectionLine sl;
             while ((sl = Lines.OfType<SectionLine>().FirstOrDefault(Equal(oldSection, oldSubsection))) != null)

@@ -62,10 +62,10 @@ namespace Microsoft.DotNet
                 if (Subsection != null)
                 {
                     sb = sb.Append('.');
-                    if (Subsection.Contains(" "))
-                        sb = sb.Append('"').Append(Subsection).Append('"');
-                    else
+                    if (Subsection.IndexOfAny(new[] { ' ', '\\', '"', '.' }) == -1)
                         sb = sb.Append(Subsection);
+                    else
+                        sb = sb.Append("\"").Append(Subsection.Replace("\\", "\\\\").Replace("\"", "\\\"")).Append("\"");
                 }
 
                 return sb.Append('.').Append(Name).ToString();

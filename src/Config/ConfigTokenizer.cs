@@ -8,12 +8,12 @@ namespace Microsoft.DotNet
 {
     static class ConfigTokenizer
     {
-        static readonly TextParser<Unit> IdentifierToken =
+        internal static readonly TextParser<Unit> IdentifierToken =
             Span.MatchedBy(Character.Letter.IgnoreThen(Character.LetterOrDigit.Or(Character.EqualTo('-')).IgnoreMany())).Value(Unit.Value);
 
-        static readonly TextParser<Unit> StringToken = Character.ExceptIn('"', '\\', '\r', '\n', '#', ';').AtLeastOnce().Value(Unit.Value);
+        internal static readonly TextParser<Unit> StringToken = Character.ExceptIn('"', '\\', '\r', '\n', '#', ';').AtLeastOnce().Value(Unit.Value);
 
-        static TextParser<Unit> QuotedStringToken { get; } =
+        internal static TextParser<Unit> QuotedStringToken { get; } =
             from open in Character.EqualTo('"')
             from content in Span.EqualTo("\\\"").Value(Unit.Value).Try()
                 .Or(Span.EqualTo("\\\\").Value(Unit.Value).Try())
@@ -25,14 +25,24 @@ namespace Microsoft.DotNet
         // Like the string parser, the number version is permissive - it's just looking 
         // for a chunk of input that looks something like a JSON number, and not
         // necessarily a valid one.
-        static TextParser<Unit> NumberToken { get; } =
+        internal static TextParser<Unit> NumberToken { get; } =
             from first in Character.Digit
             from rest in Character.Digit.IgnoreMany()
             from suffix in Character.Letter.Optional()
             from b in Character.Letter.Optional()
             select Unit.Value;
 
-        public static Tokenizer<ConfigToken> Instance { get; } =
+        public static Tokenizer<ConfigToken> Key { get; } =
+            new TokenizerBuilder<ConfigToken>()
+                .Ignore(Span.WhiteSpace)
+                .Match(ConfigTokenizer.IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
+                .Match(ConfigTokenizer.IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
+                .Ignore(Character.EqualTo('.'))
+                .Match(ConfigTokenizer.StringToken, ConfigToken.String, requireDelimiters: true)
+                .Match(ConfigTokenizer.QuotedStringToken, ConfigToken.String, requireDelimiters: true)
+                .Build();
+
+        public static Tokenizer<ConfigToken> Line { get; } =
              new TokenizerBuilder<ConfigToken>()
                  .Ignore(Span.WhiteSpace)
                  .Match(Character.EqualTo('['), ConfigToken.LBracket)

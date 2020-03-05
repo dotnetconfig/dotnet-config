@@ -18,7 +18,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("[foo")]
         public void cannot_parse_invalid_section(string input)
         {
-            Assert.False(ConfigParser.TryParseSection(input, out var _, out var __, out var ___));
+            Assert.False(ConfigParser.TryParseSectionLine(input, out var _, out var __, out var ___));
         }
 
         [Theory]
@@ -32,7 +32,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("[foo.bar \"baz \\\"quoted\\\"\"]", "foo.bar", "baz \"quoted\"")]
         public void can_parse_section(string input, string section, string subsection)
         {
-            if (ConfigParser.TryParseSection(input, out var result, out var error, out var position))
+            if (ConfigParser.TryParseSectionLine(input, out var result, out var error, out var position))
             {
                 Assert.Equal(section, result.Section);
                 Assert.Equal(subsection, result.Subsection);
@@ -97,7 +97,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("size=2tb", "size", "2199023255552")]
         public void can_parse_variable(string input, string name, string value)
         {
-            if (ConfigParser.TryParseVariable(input, out var result, out var error, out var position))
+            if (ConfigParser.TryParseVariableLine(input, out var result, out var error, out var position))
             {
                 Assert.Equal(name, result.Name);
                 Assert.Equal(value, result.Value);
@@ -121,7 +121,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("foo= value \\has backslash")]
         public void cannot_parse_invalid_variable(string input)
         {
-            Assert.False(ConfigParser.TryParseVariable(input, out _, out _, out _));
+            Assert.False(ConfigParser.TryParseVariableLine(input, out _, out _, out _));
         }
 
         [Theory]
@@ -133,7 +133,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("\t\t; this is a comment")]
         public void can_parse_comment(string input)
         {
-            if (ConfigParser.TryParseComment(input, out var result, out var error, out var position))
+            if (ConfigParser.TryParseCommentLine(input, out var result, out var error, out var position))
             {
                 Assert.Equal(input, result.Text);
             }
@@ -146,38 +146,32 @@ namespace Microsoft.DotNet.Tests
         [Fact]
         public void cannot_parse_non_comment()
         {
-            Assert.False(ConfigParser.TryParseComment("not a comment", out _, out _, out _));
+            Assert.False(ConfigParser.TryParseCommentLine("not a comment", out _, out _, out _));
         }
 
-        [Fact]
-        public void can_parse_tokens()
+        [Theory]
+        [InlineData("file.app.config.url", "file.app", "config", "url")]
+        [InlineData("file.url", "file", null, "url")]
+        [InlineData("file.\"app.config\".url", "file", "app.config", "url")]
+        [InlineData("file.\"with spaces\".url", "file", "with spaces", "url")]
+        public void can_parse_key(string key, string section, string subsection, string variable)
         {
-            foreach (var line in File.ReadAllLines($"Content\\ConfigParserTests.txt"))
-            {
-                {
-                    if (ConfigParser.TryParseSection(line, out var section, out var error, out var position))
-                    {
-                        Console.WriteLine(section.ToString());
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{position.Column}: {error}");
-                    }
-                }
-                {
-                    if (ConfigParser.TryParseVariable(line, out var variable, out var error, out var position))
-                    {
-                        Console.WriteLine($"{variable.Name}={variable.Value}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{position.Column}: {error}");
-                    }
-                }
+            Assert.True(ConfigParser.TryParseKey(key, out var s, out var ss, out var v));
+            Assert.Equal(section, section);
+            Assert.Equal(subsection, ss);
+            Assert.Equal(variable, v);
+        }
 
-                var tokens = ConfigTokenizer.Instance.TryTokenize(line);
-                Console.WriteLine(tokens);
-            }
+        [Theory]
+        [InlineData("file.app.config", "file.app", "config")]
+        [InlineData("file", "file", null)]
+        [InlineData("file.\"app.config\"", "file", "app.config")]
+        [InlineData("foo.\"bar or baz\"", "file", "bar or baz")]
+        public void can_parse_section_key(string key, string section, string subsection)
+        {
+            Assert.True(ConfigParser.TryParseSection(key, out var s, out var ss));
+            Assert.Equal(section, section);
+            Assert.Equal(subsection, ss);
         }
     }
 }
