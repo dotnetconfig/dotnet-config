@@ -111,7 +111,7 @@ namespace Microsoft.DotNet
             Lines.Insert(index, new VariableLine(name, value));
         }
 
-        public void Set(string section, string? subsection, string name, string? value, string? valueRegex = null)
+        public void Set(string section, string? subsection, string name, string? value = null, string? valueRegex = null)
         {
             ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
@@ -130,29 +130,40 @@ namespace Microsoft.DotNet
                 return;
             }
 
-            int sectionIndex;
+            int index;
 
-            // We didn't find an existing variable
+            // We didn't find an existing section
             if (sl == null)
             {
-                sectionIndex = Lines.Count;
+                index = Lines.Count;
                 sl = new SectionLine(section, subsection);
                 Lines.Add(sl);
             }
             else
             {
-                sectionIndex = Lines.IndexOf(sl);
+                index = Lines.IndexOf(sl);
             }
 
-            var varIndex = sectionIndex + 1;
-            var lastSectionLine = Lines.Skip(sectionIndex + 1).Where(l => !(l is SectionLine)).FirstOrDefault();
-            if (lastSectionLine != null)
+            var count = 0;
+            void FindEnd()
             {
-                varIndex = Lines.IndexOf(lastSectionLine) + 1;
-            }
+                while (index + ++count < Lines.Count)
+                {
+                    var next = Lines[index + count];
+                    switch (next)
+                    {
+                        case EmptyLine _:
+                            return;
+                        case SectionLine _:
+                            return;
+                        default:
+                            break;
+                    }
+                }
+            };
 
-            vl = new VariableLine(name, value);
-            Lines.Insert(varIndex, vl);
+            FindEnd();
+            Lines.Insert(index + count, new VariableLine(name, value));
         }
 
         public void Unset(string section, string? subsection, string name)

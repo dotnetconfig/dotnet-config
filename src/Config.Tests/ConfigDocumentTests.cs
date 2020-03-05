@@ -91,11 +91,25 @@ namespace Microsoft.DotNet
             doc.Save();
             doc.Set("foo", null, "baz", "true");
             doc.Save();
+            doc.Set("foo", null, "weak");
+            doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
 
             Assert.Single(saved.Lines.OfType<SectionLine>());
-            Assert.Equal(2, saved.Lines.OfType<VariableLine>().Count());
+            Assert.Equal(3, saved.Lines.OfType<VariableLine>().Count());
+            Assert.Equal("weak", saved.Lines.OfType<VariableLine>().Last().Name);
+        }
+
+        [Theory]
+        [InlineData("file", null, "[file]")]
+        [InlineData("file", "app.config", "[file \"app.config\"]")]
+        [InlineData("file", "with spaces", "[file \"with spaces\"]")]
+        [InlineData("file", "with \\ slash", "[file \"with \\\\ slash\"]")]
+        [InlineData("file", "with \" quote", "[file \"with \\\" quote\"]")]
+        public void render_section(string section, string subsection, string expected)
+        {
+            Assert.Equal(expected, new SectionLine(section, subsection).Text);
         }
 
         [Fact]
