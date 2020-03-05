@@ -5,7 +5,7 @@ A global tool and accompanying API for managing hierarchical configurations for 
 using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
 [![Build Status](https://dev.azure.com/kzu/oss/_apis/build/status/dotnet-config?branchName=master)](https://dev.azure.com/kzu/oss/_build/latest?definitionId=33&branchName=master)
-[![Version](https://img.shields.io/nuget/vpre/dotnet-config.svg)](https://www.nuget.org/dotnet-config/dotnet-config)
+[![Version](https://img.shields.io/nuget/pre/dotnet-config.svg)](https://www.nuget.org/packages/dotnet-config)
 [![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg)](https://www.nuget.org/packages/dotnet-config)
 [![License](https://img.shields.io/github/license/kzu/dotnet-config.svg?color=blue)](https://github.com/kzu/dotnet-config/blob/master/LICENSE)
 
