@@ -6,6 +6,8 @@ namespace Microsoft.DotNet
     {
         string? value;
 
+        internal static VariableLine Null { get; } = new VariableLine("null", null);
+
         public VariableLine(string name, string? value, string? comment = null, string? text = null)
             : base(text)
         {

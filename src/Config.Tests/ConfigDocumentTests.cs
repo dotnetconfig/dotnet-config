@@ -518,5 +518,22 @@ namespace Microsoft.DotNet
             Assert.Throws<ParseException>(() => doc.RenameSection("foo_bar", null, "baz", null));
             Assert.Throws<ParseException>(() => doc.RenameSection("foo", null, "baz_baz", null));
         }
+
+        [Fact]
+        public void can_set_value_in_specific_section()
+        {
+            var temp = Path.GetTempFileName();
+            File.WriteAllText(temp, @"[file bar]
+	etag = asdfasdfasdf
+[file baz]
+	url = https://foo/app.config
+[file last]
+	weak
+	etag = 7d4fe7db35e
+");
+
+            var doc = ConfigDocument.FromFile(temp);
+            doc.Set("file", "bar", "etag", "asdfafd");
+        }
     }
 }
