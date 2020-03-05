@@ -76,7 +76,7 @@ namespace Microsoft.DotNet
         {
             var sb = new StringBuilder("[" + Section);
             if (Subsection != null)
-                sb = sb.Append(Serialize(Subsection));
+                sb = sb.Append(" ").Append(Serialize(Subsection));
 
             sb = sb.Append("]");
 

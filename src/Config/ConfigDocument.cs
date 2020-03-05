@@ -68,7 +68,7 @@ namespace Microsoft.DotNet
                     new Func<string?, bool>(v => Regex.IsMatch(v, valueRegex));
 
             return FindVariables(section, subsection, name)
-                .Where(x => x.Item2 != null && matches(x.Item2.Value))
+                .Where(x => matches(x.Item2?.Value))
                 .Select(x => new ConfigEntry(section, subsection, x.Item2!.Name, x.Item2.Value, Level));
         }
 
@@ -121,7 +121,7 @@ namespace Microsoft.DotNet
                 throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
 
             var matches = Matches(valueRegex);
-            (SectionLine? sl, VariableLine? vl) = FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)).FirstOrDefault();
+            (SectionLine? sl, VariableLine? vl) = FindVariables(section, subsection, name).Where(x => matches(x.Item2?.Value)).FirstOrDefault();
 
             if (vl != null)
             {
@@ -202,7 +202,7 @@ namespace Microsoft.DotNet
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             var matches = Matches(valueRegex);
-            foreach (var variable in FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)))
+            foreach (var variable in FindVariables(section, subsection, name).Where(x => matches(x.Item2?.Value)))
             {
                 variable.Item2!.Value = value;
             }
@@ -211,7 +211,7 @@ namespace Microsoft.DotNet
         public void UnsetAll(string section, string? subsection, string name, string? valueRegex = null)
         {
             var matches = Matches(valueRegex);
-            var lines = FindVariables(section, subsection, name).Where(x => x.Item2 != null && matches(x.Item2.Value)).ToArray();
+            var lines = FindVariables(section, subsection, name).Where(x => matches(x.Item2?.Value)).ToArray();
 
             foreach (var variable in lines)
             {
