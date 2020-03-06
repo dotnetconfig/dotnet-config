@@ -63,6 +63,30 @@ namespace Microsoft.DotNet
         }
 
         [Fact]
+        public void set_variable_null_reads_as_boolean_true()
+        {
+            var path = Path.GetTempFileName();
+            var doc = ConfigDocument.FromFile(path);
+
+            doc.Set("foo", "bar", "baz", "value");
+            doc.Save();
+
+            var saved = ConfigDocument.FromFile(path);
+            doc.Set("foo", "bar", "baz", null);
+
+            // TODO: if we don't save and reload, there's an issue in updating 
+            // the value
+            doc.Save();
+            saved = ConfigDocument.FromFile(path);
+
+            Assert.Single(saved);
+            Assert.Equal("foo", saved.Single().Section);
+            Assert.Equal("bar", saved.Single().Subsection);
+            Assert.Equal("baz", saved.Single().Name);
+            Assert.Equal("true", saved.Single().Value);
+        }
+
+        [Fact]
         public void can_set_new_variable_existing_section()
         {
             var path = Path.GetTempFileName();
@@ -523,11 +547,11 @@ namespace Microsoft.DotNet
         public void can_set_value_in_specific_section()
         {
             var temp = Path.GetTempFileName();
-            File.WriteAllText(temp, @"[file bar]
+            File.WriteAllText(temp, @"[file ""bar""]
 	etag = asdfasdfasdf
-[file baz]
+[file ""baz""]
 	url = https://foo/app.config
-[file last]
+[file ""last""]
 	weak
 	etag = 7d4fe7db35e
 ");

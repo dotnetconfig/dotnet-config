@@ -30,6 +30,8 @@ namespace Microsoft.DotNet
 
         DottedIdentifier,
 
+        QuotedString,
+
         String,
 
         AnyString,

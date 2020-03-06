@@ -35,11 +35,11 @@ namespace Microsoft.DotNet
         public static Tokenizer<ConfigToken> Key { get; } =
             new TokenizerBuilder<ConfigToken>()
                 .Ignore(Span.WhiteSpace)
-                .Match(ConfigTokenizer.IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
-                .Match(ConfigTokenizer.IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
+                .Match(IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
+                .Match(IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
                 .Ignore(Character.EqualTo('.'))
-                .Match(ConfigTokenizer.StringToken, ConfigToken.String, requireDelimiters: true)
-                .Match(ConfigTokenizer.QuotedStringToken, ConfigToken.String, requireDelimiters: true)
+                .Match(StringToken, ConfigToken.String, requireDelimiters: true)
+                .Match(QuotedStringToken, ConfigToken.String, requireDelimiters: true)
                 .Build();
 
         public static Tokenizer<ConfigToken> Line { get; } =
@@ -54,7 +54,7 @@ namespace Microsoft.DotNet
                  .Match(IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
                  .Match(IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
                  .Match(StringToken, ConfigToken.String, requireDelimiters: true)
-                 .Match(QuotedStringToken, ConfigToken.String, requireDelimiters: true)
+                 .Match(QuotedStringToken, ConfigToken.QuotedString, requireDelimiters: true)
                  .Match(Character.EqualTo('"'), ConfigToken.Quote)
                  .Match(Character.EqualTo('\\'), ConfigToken.Backslash)
                  .Match(Character.AnyChar.AtLeastOnce(), ConfigToken.AnyString, requireDelimiters: true)

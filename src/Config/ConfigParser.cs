@@ -17,7 +17,7 @@ namespace Microsoft.DotNet
             .Apply(ConfigTextParsers.String);
 
         static TokenListParser<ConfigToken, object> String { get; } = Token
-            .EqualTo(ConfigToken.String)
+            .EqualTo(ConfigToken.String).Or(Token.EqualTo(ConfigToken.QuotedString))
             .Apply(ConfigTextParsers.String);
 
         static TokenListParser<ConfigToken, object> Number { get; } = Token
@@ -50,11 +50,11 @@ namespace Microsoft.DotNet
             .Apply(ConfigTextParsers.String);
 
         internal static TokenListParser<ConfigToken, object> Subsection { get; } =
-            Token.EqualTo(ConfigToken.Identifier)
-            .Or(Token.EqualTo(ConfigToken.DottedIdentifier))
-            .Or(Token.EqualTo(ConfigToken.String))
-            .Apply(ConfigTextParsers.String)
-            .OptionalOrDefault(NullValue);
+            Token.EqualTo(ConfigToken.QuotedString).Apply(ConfigTextParsers.String).OptionalOrDefault(NullValue);
+            //Token.EqualTo(ConfigToken.Identifier)
+            //.Or(Token.EqualTo(ConfigToken.DottedIdentifier))
+            //.Or(Token.EqualTo(ConfigToken.String))
+            //.Apply(ConfigTextParsers.String).OptionalOrDefault(NullValue);
 
         internal static TokenListParser<ConfigToken, object> Variable { get; } =
             Token.EqualTo(ConfigToken.Identifier).Apply(ConfigTextParsers.String);

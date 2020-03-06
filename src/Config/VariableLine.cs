@@ -25,8 +25,9 @@ namespace Microsoft.DotNet
             {
                 if (value != this.value)
                 {
-                    // If previous value was null, we need to write out entire line
+                    // If either the previous or the new value is null, we need to write out entire line
                     if (this.value == null || 
+                        value == null ||
                         // If it wasn't null, it will depend
                         (Text.IndexOf(this.value) is int index && 
                             // On whether we can't find the value again (that would be an anomaly anyway)
@@ -40,7 +41,7 @@ namespace Microsoft.DotNet
                     {
                         // Replace in Text, preserves existing line formatting in the majority 
                         // of cases.
-                        Text = Text.Replace(this.value, Serialize(value!));
+                        Text = Text.Replace(this.value, Serialize(value));
                         this.value = value;
                     }
                 }

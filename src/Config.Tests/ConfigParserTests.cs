@@ -15,7 +15,7 @@ namespace Microsoft.DotNet.Tests
         [Theory]
         [InlineData("[foo\\bar]")]
         [InlineData("[foo\"]")]
-        [InlineData("[foo")]
+        [InlineData("[foo bar")]
         public void cannot_parse_invalid_section(string input)
         {
             Assert.False(ConfigParser.TryParseSectionLine(input, out var _, out var __, out var ___));
@@ -24,10 +24,9 @@ namespace Microsoft.DotNet.Tests
         [Theory]
         [InlineData("[foo]", "foo", null)]
         [InlineData("[foo.bar]", "foo.bar", null)]
-        [InlineData("[foo bar]", "foo", "bar")]
-        [InlineData("[foo-bar]", "foo-bar", null)]
-        [InlineData("[foo bar-baz]", "foo", "bar-baz")]
         [InlineData("[foo \"bar\"]", "foo", "bar")]
+        [InlineData("[foo-bar]", "foo-bar", null)]
+        [InlineData("[foo \"bar-baz\"]", "foo", "bar-baz")]
         [InlineData("[foo.bar \"baz\"]", "foo.bar", "baz")]
         [InlineData("[foo.bar \"baz \\\"quoted\\\"\"]", "foo.bar", "baz \"quoted\"")]
         public void can_parse_section(string input, string section, string subsection)
