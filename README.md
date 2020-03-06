@@ -9,8 +9,8 @@ using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
 dotnet-config | dotnet-config-lib
 :------------ | :------------:
-[![Version](https://img.shields.io/nuget/v/dotnet-config.svg)](https://www.nuget.org/packages/dotnet-config)|[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg)](https://www.nuget.org/packages/dotnet-config-lib)
-[![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg)](https://www.nuget.org/packages/dotnet-config)|[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg)](https://www.nuget.org/packages/dotnet-config-lib)
+[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)|[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
+[![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)|[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
 
 Installing or updating (same command for both):
 
