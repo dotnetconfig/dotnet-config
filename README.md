@@ -1,4 +1,4 @@
-![Icon](https://raw.github.com/kzu/dotnet-config/master/docs/img/icon-32.png) dotnet-config
+![Icon](https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png) dotnet-config
 ============
 
 A global tool and accompanying API for managing hierarchical configurations for dotnet tools, 
