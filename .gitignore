@@ -4,9 +4,6 @@ artifacts
 pack
 .vs
 .vscode
-_provisionator
-provisionator.msbuild.props
-/build/*.zip
 
 *.suo
 *.sdf
