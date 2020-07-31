@@ -1,15 +1,8 @@
 variables:
-- group: Sleet
 - name: Configuration
   value: Release
 - name: PackageOutputPath
   value: $(Build.ArtifactStagingDirectory)
-- name: DotNetVersion
-  value: 3.1.x
-- name: SleetVersion
-  value: 2.3.33
-- name: PowerShellVersion
-  value: 7.0.0-rc.3
 
 stages:
 
@@ -44,27 +37,3 @@ stages:
         PathtoPublish: $(Build.ArtifactStagingDirectory)
         ArtifactName: package
         ArtifactType: Container
-
-    - task: UseDotNet@2
-      displayName: 'Use .NETCore $(DotNetVersion)'
-      inputs:
-        packageType: runtime
-        version: $(DotNetVersion)
-        performMultiLevelLookup: true
-
-    - script: dotnet tool update -g --version $(PowerShellVersion) PowerShell >nul || dotnet tool list -g
-      displayName: 'Use PowerShell $(PowerShellVersion)'
-
-    - pwsh: |
-        if ((dotnet tool list -g | select-string sleet) -ne $null) {
-          if ((dotnet tool list -g | select-string sleet | select-string $(SleetVersion)) -eq $null) {
-            dotnet tool uninstall -g sleet
-          } else {
-            return
-          }
-        }
-        dotnet tool install -g Sleet --version $(SleetVersion)
-      displayName: 'Use Sleet $(SleetVersion)'
-
-    - script: 'sleet push --config none $(Build.ArtifactStagingDirectory) -f --verbose -p "SLEET_FEED_CONNECTIONSTRING=$(SLEET_FEED_CONNECTIONSTRING)"'
-      displayName: 'Push Package'
