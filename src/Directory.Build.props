@@ -52,6 +52,7 @@
     
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
     <NoWarn>NU5105;$(NoWarn)</NoWarn>
+    <WarningsAsErrors Condition="$(CI) or '$(Configuration)' == 'Release'">true</WarningsAsErrors>
 
     <!-- Because it's sooo much better than GeneratePackageOnBuild! -->
     <PackOnBuild Condition="$(CI) or '$(BuildingInsideVisualStudio)' != 'true'">true</PackOnBuild>

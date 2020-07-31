@@ -60,12 +60,12 @@ namespace Microsoft.DotNet
             return GetEntries().Where(x => nameMatches(x.Key) && valueMatches(x.Value));
         }
 
-        public IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string name, string? valueRegex = null)
+        public IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string name, ValueMatcher? valueMatcher = null)
         {
-            var matches = Matches(valueRegex);
+            var matcher = valueMatcher ?? ValueMatcher.All;
             return FindVariables(section, subsection, name)
                 .SelectMany(x => x.Item2
-                    .Where(v => v != VariableLine.Null && matches(v.Value))
+                    .Where(v => v != VariableLine.Null && matcher.Matches(v.Value))
                     .Select(v => new ConfigEntry(section, subsection, v.Name, v.Value, Level)));
         }
 
@@ -108,7 +108,7 @@ namespace Microsoft.DotNet
             Lines.Insert(index, new VariableLine(name, value));
         }
 
-        public void Set(string section, string? subsection, string name, string? value = null, string? valueRegex = null)
+        public void Set(string section, string? subsection, string name, string? value = null, ValueMatcher? valueMatcher = null)
         {
             ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
@@ -117,10 +117,11 @@ namespace Microsoft.DotNet
             if (FindVariables(section, subsection, name).SelectMany(s => s.Item2.Where(v => v != VariableLine.Null).Select(v => (s, v))).Skip(1).Any())
                 throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
 
-            var matches = Matches(valueRegex);
+            var matcher = valueMatcher ?? ValueMatcher.All;
+
             (SectionLine sl, VariableLine vl) = FindVariables(section, subsection, name)
                 .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
-                .Where(x => matches(x.variable.Value)).FirstOrDefault();
+                .Where(x => matcher.Matches(x.variable.Value)).FirstOrDefault();
 
             if (vl != VariableLine.Null && vl != null)
             {
@@ -210,26 +211,26 @@ namespace Microsoft.DotNet
             }
         }
 
-        public void SetAll(string section, string? subsection, string name, string? value, string? valueRegex = null)
+        public void SetAll(string section, string? subsection, string name, string? value, ValueMatcher? valueMatcher = null)
         {
             ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
-            var matches = Matches(valueRegex);
+            var matcher = valueMatcher ?? ValueMatcher.All;
             foreach (var variable in FindVariables(section, subsection, name)
                 .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
-                .Where(x => matches(x.variable.Value)))
+                .Where(x => matcher.Matches(x.variable.Value)))
             {
                 variable.variable.Value = value;
             }
         }
 
-        public void UnsetAll(string section, string? subsection, string name, string? valueRegex = null)
+        public void UnsetAll(string section, string? subsection, string name, ValueMatcher? valueMatcher = null)
         {
-            var matches = Matches(valueRegex);
+            var matcher = valueMatcher ?? ValueMatcher.All;
             var lines = FindVariables(section, subsection, name)
                 .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
-                .Where(x => matches(x.variable.Value)).ToArray();
+                .Where(x => matcher.Matches(x.variable.Value)).ToArray();
 
             foreach (var variable in lines)
             {

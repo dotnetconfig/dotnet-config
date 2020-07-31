@@ -31,8 +31,8 @@ namespace Microsoft.DotNet
             }
         }
 
-        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null)
-            => doc.GetAll(section, subsection, variable, valueRegex);
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
+            => doc.GetAll(section, subsection, variable, valueMatcher);
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => doc.GetAll(nameRegex, valueRegex);
@@ -49,32 +49,32 @@ namespace Microsoft.DotNet
             doc.Save();
         }
 
-        public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+        public override void Set<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
         {
             if (value is bool b && b == true)
             {
                 // Shortcut notation.
-                doc.Set(section, subsection, variable, null, valueRegex);
+                doc.Set(section, subsection, variable, null, valueMatcher);
                 doc.Save();
             }
             else
             {
-                doc.Set(section, subsection, variable, serializer.Serialize(value), valueRegex);
+                doc.Set(section, subsection, variable, serializer.Serialize(value), valueMatcher);
                 doc.Save();
             }
         }
 
-        public override void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
+        public override void SetAll<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
         {
             if (value is bool b && b == true)
             {
                 // Shortcut notation.
-                doc.SetAll(section, subsection, variable, null, valueRegex);
+                doc.SetAll(section, subsection, variable, null, valueMatcher);
                 doc.Save();
             }
             else
             {
-                doc.SetAll(section, subsection, variable, serializer.Serialize(value), valueRegex);
+                doc.SetAll(section, subsection, variable, serializer.Serialize(value), valueMatcher);
                 doc.Save();
             }
         }
@@ -105,9 +105,9 @@ namespace Microsoft.DotNet
             doc.Save();
         }
 
-        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex = null)
+        public override void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
         {
-            doc.UnsetAll(section, subsection, variable, valueRegex);
+            doc.UnsetAll(section, subsection, variable, valueMatcher);
             doc.Save();
         }
 

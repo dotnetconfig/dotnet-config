@@ -121,7 +121,7 @@ namespace Microsoft.DotNet
                             return ShowHelp(options);
 
                         if (defaultValue == null)
-                            Console.WriteLine(config.Get<string>(section!, subsection, variable!));
+                            Console.WriteLine(config.Get<string?>(section!, subsection, variable!, default));
                         else
                             Console.WriteLine(config.Get(section!, subsection, variable!, defaultValue));
 
@@ -136,7 +136,7 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 1)
                             regex = extraArgs[1];
 
-                        foreach (var entry in config.GetAll(section!, subsection, variable!, regex))
+                        foreach (var entry in config.GetAll(section!, subsection, variable!))
                         {
                             entryWriter(entry);
                         }

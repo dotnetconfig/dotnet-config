@@ -105,14 +105,6 @@ namespace Microsoft.DotNet
         public string FilePath { get; private set; }
 
         /// <summary>
-        /// Adds a value to a multi-valued variable in the given section.
-        /// </summary>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to assign.</param>
-        /// <param name="value">Value add to the variable.</param>
-        public void Add<T>(string section, string variable, T value) => Add(section, null, variable, value);
-
-        /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.
         /// </summary>
         /// <param name="section">The section containing the variable.</param>
@@ -122,40 +114,6 @@ namespace Microsoft.DotNet
         public abstract void Add<T>(string section, string? subsection, string variable, T value);
 
         /// <summary>
-        /// Gets the value from a variable in the given section.
-        /// </summary>
-        /// <typeparam name="T">Type of value to return.</typeparam>
-        /// <param name="config">The configuration accessor.</param>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to retrieve.</param>
-        /// <param name="defaultValue">Default value to return if the variable is not found.</param>
-        /// <returns>The variable value or <paramref name="defaultValue"/> if not found.</returns>
-        public T Get<T>(string section, string variable, T defaultValue = default) => Get(section, null, variable, defaultValue);
-
-        /// <summary>
-        /// Gets the value from a variable in the given section and optional subsection.
-        /// </summary>
-        /// <typeparam name="T">Type of value to return.</typeparam>
-        /// <param name="config">The configuration accessor.</param>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="subsection">Optional subsection containing the variable.</param>
-        /// <param name="variable">The variable to retrieve.</param>
-        /// <param name="defaultValue">Default value to return if the variable is not found.</param>
-        /// <returns>The variable value or <paramref name="defaultValue"/> if not found.</returns>
-        public T Get<T>(string section, string? subsection, string variable, T defaultValue = default)
-            => TryGet<T>(section, subsection, variable, out var value) ? value : defaultValue;
-
-        /// <summary>
-        /// Gets all values from a multi-valued variable from the given section, 
-        /// which optionally match the given value regular expression.
-        /// </summary>
-        /// <typeparam name="T">The type of value to return.</typeparam>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
-        public IEnumerable<ConfigEntry> GetAll(string section, string variable, string? valueRegex = null) => GetAll(section, null, variable, valueRegex);
-
-        /// <summary>
         /// Gets all values from a multi-valued variable from the given section and optional subsection, 
         /// which optionally match the given value regular expression.
         /// </summary>
@@ -163,8 +121,8 @@ namespace Microsoft.DotNet
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
-        public abstract IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null);
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher);
 
         /// <summary>
         /// Gets all values where the key (section plus subsection and variable name) match 
@@ -176,54 +134,24 @@ namespace Microsoft.DotNet
         public abstract IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null);
 
         /// <summary>
-        /// Sets the value of a variable in the given section.
-        /// </summary>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to assign.</param>
-        /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
-        public void Set<T>(string section, string variable, T value, string? valueRegex = null) => Set(section, null, variable, value, valueRegex);
-
-        /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
         /// </summary>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
-        public abstract void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null);
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void Set<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher);
 
         /// <summary>
-        /// Sets the value of all matching variables in the given section,
-        /// which optionally match the given value regular expression.
-        /// </summary>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to assign.</param>
-        /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
-        public void SetAll<T>(string section, string variable, T value, string? valueRegex = null) => SetAll(section, null, variable, value, valueRegex);
-
-        /// <summary>
-        /// Sets the value of all matching variables in the given section and optional subsection,
-        /// which optionally match the given value regular expression.
+        /// Sets the value of all matching variables in the given section and optional subsection.
         /// </summary>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable value.</param>
-        public abstract void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null);
-
-        /// <summary>
-        /// Tries to retrieve a variable value from configuration.
-        /// </summary>
-        /// <typeparam name="T">The type of value to retrieve.</typeparam>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to retrieve.</param>
-        /// <param name="value">The variable value if found.</param>
-        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
-        public bool TryGet<T>(string section, string variable, out T value) => TryGet(section, null, variable, out value);
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetAll<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher);
 
         /// <summary>
         /// Tries to retrieve a variable value from configuration.
@@ -237,14 +165,6 @@ namespace Microsoft.DotNet
         public abstract bool TryGet<T>(string section, string? subsection, string variable, out T value);
 
         /// <summary>
-        /// Removes a variable from the given section.
-        /// </summary>
-        /// <typeparam name="T">The type of value to remove.</typeparam>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to remove.</param>
-        public void Unset(string section, string variable) => Unset(section, null, variable);
-
-        /// <summary>
         /// Removes a variable from the given section and optional subsection.
         /// </summary>
         /// <typeparam name="T">The type of value to remove.</typeparam>
@@ -254,25 +174,14 @@ namespace Microsoft.DotNet
         public abstract void Unset(string section, string? subsection, string variable);
 
         /// <summary>
-        /// Removes all values from a multi-valued variable from the given section, 
-        /// which optionally match the given value regular expression.
-        /// </summary>
-        /// <typeparam name="T">The type of value to remove.</typeparam>
-        /// <param name="section">The section containing the variable.</param>
-        /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
-        public void UnsetAll(string section, string variable, string? valueRegex = null) => UnsetAll(section, null, variable, valueRegex);
-
-        /// <summary>
-        /// Removes all values from a multi-valued variable from the given section and optional subsection, 
-        /// which optionally match the given value regular expression.
+        /// Removes all values from a multi-valued variable from the given section and optional subsection.
         /// </summary>
         /// <typeparam name="T">The type of value to remove.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
-        public abstract void UnsetAll(string section, string? subsection, string variable, string? valueRegex = null);
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher);
 
         /// <summary>
         /// Remove the given section from the configuration file.

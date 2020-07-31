@@ -145,7 +145,7 @@ namespace Microsoft.DotNet
     baz = bye");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "baz", "hi", "y");
+            doc.Set("foo", null, "baz", "hi", ValueMatcher.From("y"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -164,7 +164,7 @@ namespace Microsoft.DotNet
     source = microsoft.com/vga");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", null, "source", "none", "github\\.com");
+            doc.SetAll("foo", null, "source", "none", ValueMatcher.From("github\\.com"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -181,7 +181,7 @@ namespace Microsoft.DotNet
     baz = bye");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "baz", "hi", "blah");
+            doc.Set("foo", null, "baz", "hi", ValueMatcher.From("blah"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -392,7 +392,7 @@ namespace Microsoft.DotNet
     source = https://nuget.org/kzu");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.UnsetAll("foo", default, "source", "github\\.com");
+            doc.UnsetAll("foo", default, "source", ValueMatcher.From("github\\.com"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -412,7 +412,7 @@ namespace Microsoft.DotNet
     source = https://nuget.org/kzu");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", default, "source", "https://dev.azure.com" , "github\\.com");
+            doc.SetAll("foo", default, "source", "https://dev.azure.com" , ValueMatcher.From("github\\.com"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
@@ -434,7 +434,7 @@ namespace Microsoft.DotNet
 
             var doc = ConfigDocument.FromFile(path);
 
-            Assert.Equal(3, doc.GetAll("foo", null, "source", "github\\.com").Count());
+            Assert.Equal(3, doc.GetAll("foo", null, "source", ValueMatcher.From("github\\.com")).Count());
         }
 
         [Fact]

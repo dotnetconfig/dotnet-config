@@ -17,8 +17,8 @@ namespace Microsoft.DotNet
         public override void Add<T>(string section, string? subsection, string variable, T value)
             => configs.First().Add(section, subsection, variable, value);
 
-        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex = null)
-            => configs.SelectMany(x => x.GetAll(section, subsection, variable, valueRegex));
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
+            => configs.SelectMany(x => x.GetAll(section, subsection, variable, valueMatcher));
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => configs.SelectMany(x => x.GetRegex(nameRegex, valueRegex));
@@ -29,11 +29,11 @@ namespace Microsoft.DotNet
         public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
             => configs.First().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
 
-        public override void Set<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
-            => configs.First().Set(section, subsection, variable, value, valueRegex);
+        public override void Set<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
+            => configs.First().Set(section, subsection, variable, value, valueMatcher);
 
-        public override void SetAll<T>(string section, string? subsection, string variable, T value, string? valueRegex = null)
-            => configs.First().SetAll(section, subsection, variable, value, valueRegex);
+        public override void SetAll<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
+            => configs.First().SetAll(section, subsection, variable, value, valueMatcher);
 
         public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
         {
@@ -52,8 +52,8 @@ namespace Microsoft.DotNet
         public override void Unset(string section, string? subsection, string variable)
             => configs.First().Unset(section, subsection, variable);
 
-        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex)
-            => configs.First().UnsetAll(section, subsection, variable, valueRegex);
+        public override void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
+            => configs.First().UnsetAll(section, subsection, variable, valueMatcher);
 
         protected override IEnumerable<ConfigEntry> GetEntries() => configs.SelectMany(x => x);
     }
