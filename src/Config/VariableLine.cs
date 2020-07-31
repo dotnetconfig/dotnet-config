@@ -2,7 +2,7 @@
 
 namespace Microsoft.DotNet
 {
-    public class VariableLine : Line
+    internal class VariableLine : Line
     {
         string? value;
 

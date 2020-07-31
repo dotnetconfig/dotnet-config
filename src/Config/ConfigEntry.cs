@@ -6,7 +6,6 @@ namespace Microsoft.DotNet
     /// <summary>
     /// Represents a configuration option.
     /// </summary>
-    /// <typeparam name="T">The configuration value type.</typeparam>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     public class ConfigEntry
     {
@@ -28,32 +27,38 @@ namespace Microsoft.DotNet
         }
 
         /// <summary>
-        /// The section containing the entry.
+        /// Gets the section containing the entry.
         /// </summary>
         public string Section { get; }
 
         /// <summary>
-        /// Optional subsection containing the entry.
+        /// Gets the optional subsection containing the entry.
         /// </summary>
         public string? Subsection { get; }
 
         /// <summary>
-        /// The variable name.
+        /// Gets the variable name.
         /// </summary>
         public string Name { get; }
 
         /// <summary>
-        /// The variable value.
+        /// Gets the variable value.
         /// </summary>
         public string? Value { get; }
 
         /// <summary>
-        /// The origin store.
+        /// Gets the origin store.
         /// </summary>
         public ConfigLevel Level { get; }
 
+        /// <summary>
+        /// Gets or sets the optional comment.
+        /// </summary>
         public string? Comment { get; set; }
 
+        /// <summary>
+        /// Gets the key for the entry.
+        /// </summary>
         public string Key
         {
             get

@@ -3,7 +3,7 @@ using Superpower.Parsers;
 
 namespace Microsoft.DotNet
 {
-    public class SectionLine : Line
+    internal class SectionLine : Line
     {
         string section;
         string? subsection;

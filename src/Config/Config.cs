@@ -17,13 +17,13 @@ namespace Microsoft.DotNet
 
         /// <summary>
         /// Default global location, equal to <see cref="Environment.SpecialFolder.UserProfile"/> plus 
-        /// <see cref="DefaultFileName"/>.
+        /// <see cref="FileName"/>.
         /// </summary>
         public static string GlobalLocation { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), FileName);
 
         /// <summary>
         /// Default system location, equal to <see cref="Environment.SpecialFolder.System"/> plus 
-        /// <see cref="DefaultFileName"/>.
+        /// <see cref="FileName"/>.
         /// </summary>
         public static string SystemLocation { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), FileName);
 
@@ -96,6 +96,10 @@ namespace Microsoft.DotNet
             return new AggregateConfig(configs);
         }
 
+        /// <summary>
+        /// Creates the <see cref="Config"/> and sets <see cref="FilePath"/> to the given <paramref name="filePath"/>.
+        /// </summary>
+        /// <param name="filePath"></param>
         protected Config(string filePath) => FilePath = filePath;
 
         /// <summary>
@@ -117,7 +121,6 @@ namespace Microsoft.DotNet
         /// Gets all values from a multi-valued variable from the given section and optional subsection, 
         /// which optionally match the given value regular expression.
         /// </summary>
-        /// <typeparam name="T">The type of value to return.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
@@ -128,7 +131,6 @@ namespace Microsoft.DotNet
         /// Gets all values where the key (section plus subsection and variable name) match 
         /// the <paramref name="nameRegex"/> and optionally also the <paramref name="valueRegex"/>.
         /// </summary>
-        /// <typeparam name="T">The type of value to return.</typeparam>
         /// <param name="nameRegex">Regular expression to match against the key (section plus subsection and variable name).</param>
         /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
         public abstract IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null);
@@ -167,7 +169,6 @@ namespace Microsoft.DotNet
         /// <summary>
         /// Removes a variable from the given section and optional subsection.
         /// </summary>
-        /// <typeparam name="T">The type of value to remove.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
@@ -176,7 +177,6 @@ namespace Microsoft.DotNet
         /// <summary>
         /// Removes all values from a multi-valued variable from the given section and optional subsection.
         /// </summary>
-        /// <typeparam name="T">The type of value to remove.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>

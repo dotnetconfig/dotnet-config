@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.DotNet
 {
-    public class CommentLine : Line
+    class CommentLine : Line
     {
         public CommentLine(string comment, string? text = null)
             : base(text)

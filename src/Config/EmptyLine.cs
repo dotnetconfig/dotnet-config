@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.DotNet
 {
-    public class EmptyLine : Line
+    internal class EmptyLine : Line
     {
         public EmptyLine() : base("") { }
     }

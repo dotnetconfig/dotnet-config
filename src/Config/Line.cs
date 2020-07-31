@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.DotNet
 {
-    public abstract class Line
+    internal abstract class Line
     {
         string? text;
 

@@ -207,7 +207,7 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 1)
                             regex = extraArgs[1];
 
-                        config.UnsetAll(section!, subsection, variable!, regex);
+                        config.UnsetAll(section!, subsection, variable!, string.IsNullOrEmpty(regex) ? ValueMatcher.All : ValueMatcher.From(regex));
                         break;
                     }
                 case ConfigAction.List:
