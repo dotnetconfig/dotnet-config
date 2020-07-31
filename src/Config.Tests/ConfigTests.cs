@@ -126,7 +126,12 @@ namespace Microsoft.DotNet.Tests
             Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
             Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
 
-            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content"));
+            var path = Path.Combine(
+                Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName,
+                ".netconfig");
+            File.WriteAllText(path, "");
+
+            var config = Config.Build(path);
 
             Assert.IsType<FileConfig>(config);
         }
@@ -137,7 +142,10 @@ namespace Microsoft.DotNet.Tests
             Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
             Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
 
-            Directory.SetCurrentDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Content"));
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            File.WriteAllText(Path.Combine(path, ".netconfig"), "");
+
+            Directory.SetCurrentDirectory(path);
 
             var config = Config.Read(ConfigLevel.Local);
 
