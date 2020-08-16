@@ -1,12 +1,23 @@
 ![Icon](https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png) dotnet-config
 ============
-
 A global tool and accompanying API for managing hierarchical configurations for dotnet tools, 
 using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/3sEqMMB)
 [![License](https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue)](https://github.com/dotnetconfig/dotnet-config/blob/master/LICENSE)
 [![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=master)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
+
+------
+<p>
+<b><a href="#overview">Overview</a></b>
+|
+<b><a href="#format">Format</a></b>
+|
+<b><a href="#api">API</a></b>
+|
+<b><a href="#cli">CLI</a></b>
+</p>
+
 
 dotnet-config | dotnet-config-lib
 :------------: | :------------:
@@ -105,7 +116,14 @@ specific types and there are rules as to how to spell them.
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`. 
     If the result of scaling the value exceeds the size of an integer, it can be read as a `long` (int64).
 
-### CLI
+## API
+
+The [dotnet-config-lib](https://www.nuget.org/packages/dotnet-config-lib) package provides the main API 
+used to interact with config files from your dotnet core tool. 
+
+// TODO
+
+## CLI
 
 Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/mono.options) so 
 all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, `--flag=value`, 
