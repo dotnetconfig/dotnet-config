@@ -5,7 +5,7 @@ namespace Microsoft.DotNet
     /// <summary>
     /// Usability overloads for <see cref="Config"/>.
     /// </summary>
-    internal static class ConfigExtensions
+    public static class ConfigExtensions
     {
         /// <summary>
         /// Adds a value to a multi-valued variable in the given section.
