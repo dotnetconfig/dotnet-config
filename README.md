@@ -4,15 +4,15 @@
 A global tool and accompanying API for managing hierarchical configurations for dotnet tools, 
 using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
-[![Build Status](https://dev.azure.com/kzu/oss/_apis/build/status/dotnet-config?branchName=master)](https://dev.azure.com/kzu/oss/_build/latest?definitionId=33&branchName=master)
-[![License](https://img.shields.io/github/license/kzu/dotnet-config.svg?color=blue)](https://github.com/kzu/dotnet-config/blob/master/LICENSE)
+[![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=master)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
+[![License](https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue)](https://github.com/dotnetconfig/dotnet-config/blob/master/LICENSE)
 
 dotnet-config | dotnet-config-lib
 :------------: | :------------:
 [![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)|[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
 [![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)|[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
 
-Installing or updating (same command for both):
+Installing or updating (same command can be used for both):
 
 ```
 dotnet tool update -g dotnet-config
