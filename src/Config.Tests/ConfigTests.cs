@@ -51,9 +51,9 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.Read(ConfigLevel.System);
 
-            Assert.False(config.GetBoolean("core", "local"));
-            Assert.False(config.GetBoolean("core", "parent"));
-            Assert.False(config.GetBoolean("core", "global"));
+            Assert.Null(config.GetBoolean("core", "local"));
+            Assert.Null(config.GetBoolean("core", "parent"));
+            Assert.Null(config.GetBoolean("core", "global"));
             Assert.True(config.GetBoolean("core", "system"));
         }
 
@@ -62,14 +62,14 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.Read(ConfigLevel.Global);
 
-            Assert.False(config.GetBoolean("core", "local"));
-            Assert.False(config.GetBoolean("core", "parent"));
+            Assert.Null(config.GetBoolean("core", "local"));
+            Assert.Null(config.GetBoolean("core", "parent"));
             Assert.True(config.GetBoolean("core", "global"));
-            Assert.False(config.GetBoolean("core", "system"));
+            Assert.Null(config.GetBoolean("core", "system"));
         }
 
         [Fact]
-        public void can_read_local()
+        public void can_read_local_only()
         {
             var dir = Directory.GetCurrentDirectory();
             try
@@ -79,8 +79,8 @@ namespace Microsoft.DotNet.Tests
 
                 Assert.True(config.GetBoolean("core", "local"));
                 Assert.True(config.GetBoolean("core", "parent"));
-                Assert.False(config.GetBoolean("core", "global"));
-                Assert.False(config.GetBoolean("core", "system"));
+                Assert.Null(config.GetBoolean("core", "global"));
+                Assert.Null(config.GetBoolean("core", "system"));
             }
             finally
             {
@@ -89,18 +89,39 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void can_read_file()
+        public void can_read_local_file()
         {
             var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
 
             Assert.True(config.GetBoolean("core", "local"));
-            Assert.False(config.GetBoolean("core", "parent"));
-            Assert.False(config.GetBoolean("core", "global"));
-            Assert.False(config.GetBoolean("core", "system"));
         }
 
         [Fact]
-        public void can_build_no_config()
+        public void when_reading_local_file_parent_variable_is_null()
+        {
+            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.Null(config.GetBoolean("core", "parent"));
+        }
+
+        [Fact]
+        public void when_reading_local_file_global_variable_is_null()
+        {
+            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.Null(config.GetBoolean("core", "global"));
+        }
+
+        [Fact]
+        public void when_reading_local_file_system_variable_is_null()
+        {
+            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.Null(config.GetBoolean("core", "system"));
+        }
+
+        [Fact]
+        public void when_building_config_then_file_can_be_missing()
         {
             var dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             var config = Config.Build(dir);
@@ -109,14 +130,14 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void can_read_non_existent_file()
+        public void when_reading_non_existent_file_then_values_are_null()
         {
             var config = Config.FromFile(Path.GetTempFileName());
 
-            Assert.False(config.GetBoolean("core", "bool"));
+            Assert.Null(config.GetBoolean("core", "bool"));
             Assert.Null(config.GetBoolean("core", "bool"));
             Assert.Null(config.GetString("core", "string"));
-            Assert.Equal(0, config.GetNumber("core", "int"));
+            Assert.Null(config.GetNumber("core", "int"));
             Assert.Null(config.GetNumber("core", "int"));
         }
 
