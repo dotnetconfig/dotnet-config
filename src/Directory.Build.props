@@ -48,7 +48,7 @@
     <DebugType>embedded</DebugType>
     
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
-    <LangVersion>Preview</LangVersion>
+    <LangVersion>Latest</LangVersion>
 
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>

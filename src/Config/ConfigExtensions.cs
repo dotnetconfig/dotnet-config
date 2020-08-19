@@ -53,7 +53,7 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to retrieve.</param>
         /// <returns>The value or <see langword="null"/> if not found.</returns>
         public static bool? GetBoolean(this Config config, string section, string? subsection, string variable)
-            => config.TryGetBoolean(section, subsection, variable, out var value) ? value : null;
+            => config.TryGetBoolean(section, subsection, variable, out var value) ? (bool?)value : null;
 
         /// <summary>
         /// Retrieves a variable value from configuration.
@@ -73,7 +73,7 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to retrieve.</param>
         /// <returns>The value or <see langword="null"/> if not found.</returns>
         public static DateTime? GetDateTime(this Config config, string section, string? subsection, string variable)
-            => config.TryGetDateTime(section, subsection, variable, out var value) ? value : null;
+            => config.TryGetDateTime(section, subsection, variable, out var value) ? (DateTime?)value : null;
 
         /// <summary>
         /// Retrieves a variable value from configuration.
@@ -93,7 +93,7 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to retrieve.</param>
         /// <returns>The value or <see langword="null"/> if not found.</returns>
         public static long? GetNumber(this Config config, string section, string? subsection, string variable)
-            => config.TryGetNumber(section, subsection, variable, out var value) ? value : null;
+            => config.TryGetNumber(section, subsection, variable, out var value) ? (long?)value : null;
 
         /// <summary>
         /// Retrieves a variable value from configuration.
