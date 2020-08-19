@@ -40,10 +40,10 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
 
-            Assert.True(config.Get<bool>("core", "local"));
-            Assert.True(config.Get<bool>("core", "parent"));
-            Assert.True(config.Get<bool>("core", "global"));
-            Assert.True(config.Get<bool>("core", "system"));
+            Assert.True(config.GetBoolean("core", "local"));
+            Assert.True(config.GetBoolean("core", "parent"));
+            Assert.True(config.GetBoolean("core", "global"));
+            Assert.True(config.GetBoolean("core", "system"));
         }
 
         [Fact]
@@ -51,10 +51,10 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.Read(ConfigLevel.System);
 
-            Assert.False(config.Get<bool>("core", "local"));
-            Assert.False(config.Get<bool>("core", "parent"));
-            Assert.False(config.Get<bool>("core", "global"));
-            Assert.True(config.Get<bool>("core", "system"));
+            Assert.False(config.GetBoolean("core", "local"));
+            Assert.False(config.GetBoolean("core", "parent"));
+            Assert.False(config.GetBoolean("core", "global"));
+            Assert.True(config.GetBoolean("core", "system"));
         }
 
         [Fact]
@@ -62,10 +62,10 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.Read(ConfigLevel.Global);
 
-            Assert.False(config.Get<bool>("core", "local"));
-            Assert.False(config.Get<bool>("core", "parent"));
-            Assert.True(config.Get<bool>("core", "global"));
-            Assert.False(config.Get<bool>("core", "system"));
+            Assert.False(config.GetBoolean("core", "local"));
+            Assert.False(config.GetBoolean("core", "parent"));
+            Assert.True(config.GetBoolean("core", "global"));
+            Assert.False(config.GetBoolean("core", "system"));
         }
 
         [Fact]
@@ -77,10 +77,10 @@ namespace Microsoft.DotNet.Tests
                 Directory.SetCurrentDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
                 var config = Config.Read(ConfigLevel.Local);
 
-                Assert.True(config.Get<bool>("core", "local"));
-                Assert.True(config.Get<bool>("core", "parent"));
-                Assert.False(config.Get<bool>("core", "global"));
-                Assert.False(config.Get<bool>("core", "system"));
+                Assert.True(config.GetBoolean("core", "local"));
+                Assert.True(config.GetBoolean("core", "parent"));
+                Assert.False(config.GetBoolean("core", "global"));
+                Assert.False(config.GetBoolean("core", "system"));
             }
             finally
             {
@@ -93,10 +93,10 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
 
-            Assert.True(config.Get<bool>("core", "local"));
-            Assert.False(config.Get<bool>("core", "parent"));
-            Assert.False(config.Get<bool>("core", "global"));
-            Assert.False(config.Get<bool>("core", "system"));
+            Assert.True(config.GetBoolean("core", "local"));
+            Assert.False(config.GetBoolean("core", "parent"));
+            Assert.False(config.GetBoolean("core", "global"));
+            Assert.False(config.GetBoolean("core", "system"));
         }
 
         [Fact]
@@ -113,11 +113,11 @@ namespace Microsoft.DotNet.Tests
         {
             var config = Config.FromFile(Path.GetTempFileName());
 
-            Assert.False(config.Get<bool>("core", "bool"));
-            Assert.Null(config.Get<bool?>("core", "bool"));
-            Assert.Null(config.Get<string>("core", "string"));
-            Assert.Equal(0, config.Get<int>("core", "int"));
-            Assert.Null(config.Get<int?>("core", "int"));
+            Assert.False(config.GetBoolean("core", "bool"));
+            Assert.Null(config.GetBoolean("core", "bool"));
+            Assert.Null(config.GetString("core", "string"));
+            Assert.Equal(0, config.GetNumber("core", "int"));
+            Assert.Null(config.GetNumber("core", "int"));
         }
 
         [Fact]
@@ -166,9 +166,22 @@ namespace Microsoft.DotNet.Tests
             var file = Path.GetTempFileName();
             var config = Config.FromFile(file);
 
-            config.Set("section", "subsection", "bool", true);
+            config.SetBoolean("section", "subsection", "bool", true);
 
-            Assert.True(config.Get<bool>("section", "subsection", "bool"));
+            Assert.True(config.GetBoolean("section", "subsection", "bool"));
+        }
+
+        [Fact]
+        public void can_roundtrip()
+        {
+            var file = Path.GetTempFileName();
+            var config = Config.FromFile(file);
+
+            config.SetString("section", "subsection", "foo", "bar");
+
+            var value = Config.FromFile(file).GetString("section", "subsection", "foo");
+
+            Assert.Equal("bar", value);
         }
     }
 }

@@ -54,7 +54,7 @@ By default, configuration files are named `.netconfig` and support three storage
 * System: system-wide directory, from `System.Environment.SpecialFolder.System`.
 
 The files are read in the order given above, with first value found taking precedence. 
-When multiple values are taken then all values of a key from all files will be used.
+When multiple values are read then all values of a key from all files will be returned.
 
 
 ## Format
@@ -109,12 +109,15 @@ specific types and there are rules as to how to spell them.
 
 	* *false*: boolean false literals are `no`, `off`, `false`, `0` and the empty string.
 
-* *integer*
+* *datetime*
+
+	Variables of this type are always parsed/written using ISO 8601 (or [round-trip](https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier)) format.
+
+* *number*
 
 	The value for many variables that specify various sizes can be suffixed with `k`, `M`, `G` or `T` 
 	to mean	"scale the number by 1024", "by 1024x1024", "by 1024x1024x1024" or "by 1024x1024x1024x1024"
-	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`. 
-    If the result of scaling the value exceeds the size of an integer, it can be read as a `long` (int64).
+	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`.
 
 ## API
 
@@ -158,6 +161,6 @@ Other
       --default[=VALUE]      with --get, use default value when missing entry
   -d, --directory[=VALUE]    use given directory for configuration file
       --name-only            show variable names only
-      --type[=VALUE]         value is given this type, either 'bool' or 'int'
+      --type[=VALUE]         value is given this type, either 'boolean' or 'number'
   -?, -h, --help             Display this help
 ```

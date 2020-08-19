@@ -3,16 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text.RegularExpressions;
-using System.Xml;
 using Superpower;
 
 namespace Microsoft.DotNet
 {
     internal class ConfigDocument : IEnumerable<ConfigEntry>
     {
-        string filePath;
+        readonly string filePath;
 
         ConfigDocument(string filePath, ConfigLevel? level = null)
         {
@@ -43,13 +41,9 @@ namespace Microsoft.DotNet
 
         public void Save()
         {
-            using (var writer = new StreamWriter(filePath, false))
-            {
-                foreach (var line in Lines)
-                {
-                    writer.WriteLine(line.Text);
-                }
-            }
+            using var writer = new StreamWriter(filePath, false);
+            foreach (var line in Lines)
+                writer.WriteLine(line.Text);
         }
 
         public IEnumerable<ConfigEntry> GetAll(string nameRegex, string? valueRegex = null)
@@ -64,7 +58,7 @@ namespace Microsoft.DotNet
         {
             var matcher = valueMatcher ?? ValueMatcher.All;
             return FindVariables(section, subsection, name)
-                .SelectMany(x => x.Item2
+                .SelectMany(x => x.Variables
                     .Where(v => v != VariableLine.Null && matcher.Matches(v.Value))
                     .Select(v => new ConfigEntry(section, subsection, v.Name, v.Value, Level)));
         }
@@ -114,13 +108,13 @@ namespace Microsoft.DotNet
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             // Cannot modify multiple with this method. Use SetAll instead.
-            if (FindVariables(section, subsection, name).SelectMany(s => s.Item2.Where(v => v != VariableLine.Null).Select(v => (s, v))).Skip(1).Any())
+            if (FindVariables(section, subsection, name).SelectMany(s => s.Variables.Where(v => v != VariableLine.Null).Select(v => (s, v))).Skip(1).Any())
                 throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(SetAll)} instead.");
 
             var matcher = valueMatcher ?? ValueMatcher.All;
 
             (SectionLine sl, VariableLine vl) = FindVariables(section, subsection, name)
-                .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
+                .SelectMany(s => s.Variables.Select(v => (section: s.Section, variable: v)))
                 .Where(x => matcher.Matches(x.variable.Value)).FirstOrDefault();
 
             if (vl != VariableLine.Null && vl != null)
@@ -171,11 +165,11 @@ namespace Microsoft.DotNet
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
 
             // Cannot modify multiple with this method. Use SetAll instead.
-            if (FindVariables(section, subsection, name).SelectMany(s => s.Item2.Where(v => v != VariableLine.Null).Select(v => (s, v))).Skip(1).Any())
+            if (FindVariables(section, subsection, name).SelectMany(s => s.Variables.Where(v => v != VariableLine.Null).Select(v => (s, v))).Skip(1).Any())
                 throw new NotSupportedException($"Multi-valued property '{new SectionLine(section, subsection)} {name}' found. Use {nameof(UnsetAll)} instead.");
 
             (SectionLine sl, VariableLine vl) = FindVariables(section, subsection, name)
-                .SelectMany(s => s.Item2.Where(v => v != VariableLine.Null).Select(v => (section: s.Item1, variable: v)))
+                .SelectMany(s => s.Variables.Where(v => v != VariableLine.Null).Select(v => (section: s.Section, variable: v)))
                 .FirstOrDefault();
 
             if (vl != null)
@@ -218,7 +212,7 @@ namespace Microsoft.DotNet
 
             var matcher = valueMatcher ?? ValueMatcher.All;
             foreach (var variable in FindVariables(section, subsection, name)
-                .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
+                .SelectMany(s => s.Variables.Select(v => (section: s.Section, variable: v)))
                 .Where(x => matcher.Matches(x.variable.Value)))
             {
                 variable.variable.Value = value;
@@ -229,7 +223,7 @@ namespace Microsoft.DotNet
         {
             var matcher = valueMatcher ?? ValueMatcher.All;
             var lines = FindVariables(section, subsection, name)
-                .SelectMany(s => s.Item2.Select(v => (section: s.Item1, variable: v)))
+                .SelectMany(s => s.Variables.Select(v => (section: s.Section, variable: v)))
                 .Where(x => matcher.Matches(x.variable.Value)).ToArray();
 
             foreach (var variable in lines)
@@ -301,14 +295,10 @@ namespace Microsoft.DotNet
             }
 
             while (Lines.Count > 0 && Lines[0] is EmptyLine)
-            {
                 Lines.RemoveAt(0);
-            }
 
-            while (Lines.Count > 0 && Lines[Lines.Count - 1] is EmptyLine)
-            {
+            while (Lines.Count > 0 && Lines[^1] is EmptyLine)
                 Lines.RemoveAt(Lines.Count - 1);
-            }
         }
 
         public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
@@ -326,32 +316,30 @@ namespace Microsoft.DotNet
 
         void Load()
         {
-            using (var stream = File.OpenRead(filePath))
-            using (var reader = new StreamReader(stream))
+            using var stream = File.OpenRead(filePath);
+            using var reader = new StreamReader(stream);
+            string? line = default;
+            var index = -1;
+            while (!reader.EndOfStream && (line = reader.ReadLine()) != null)
             {
-                string? line = default;
-                int index = -1;
-                while (!reader.EndOfStream && (line = reader.ReadLine()) != null)
+                index++;
+                if (line.Length == 0)
                 {
-                    index++;
-                    if (line.Length == 0)
-                    {
-                        Lines.Add(new EmptyLine());
-                        continue;
-                    }
-
-                    if (ConfigParser.TryParse(line, out var result, out var error, out var errorPosition) && result != null)
-                    {
-                        Lines.Add(result);
-                        continue;
-                    }
-
-                    throw new ArgumentException($"{filePath}({line},{errorPosition.Column}): {error}");
+                    Lines.Add(new EmptyLine());
+                    continue;
                 }
+
+                if (ConfigParser.TryParse(line, out var result, out var error, out var errorPosition) && result != null)
+                {
+                    Lines.Add(result);
+                    continue;
+                }
+
+                throw new ArgumentException($"{filePath}({line},{errorPosition.Column}): {error}");
             }
         }
 
-        IEnumerable<(SectionLine, IEnumerable<VariableLine>)> FindVariables(string section, string? subsection, string? name)
+        IEnumerable<(SectionLine Section, IEnumerable<VariableLine> Variables)> FindVariables(string section, string? subsection, string? name)
         {
             SectionLine? currentSection = null;
             List<VariableLine>? variables = default;

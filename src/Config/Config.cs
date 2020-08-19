@@ -60,7 +60,7 @@ namespace Microsoft.DotNet
         }
 
         /// <summary>
-        /// Access configuration from a specific file.
+        /// Access configuration from a specific file, which allows write-access to it.
         /// </summary>
         /// <remarks>
         /// If the file does not exist, it is considered empty. When writing 
@@ -115,7 +115,34 @@ namespace Microsoft.DotNet
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public abstract void Add<T>(string section, string? subsection, string variable, T value);
+        public abstract void AddBoolean(string section, string? subsection, string variable, bool value);
+
+        /// <summary>
+        /// Adds a value to a multi-valued variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value add to the variable.</param>
+        public abstract void AddDateTime(string section, string? subsection, string variable, DateTime value);
+
+        /// <summary>
+        /// Adds a value to a multi-valued variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value add to the variable.</param>
+        public abstract void AddNumber(string section, string? subsection, string variable, long value);
+
+        /// <summary>
+        /// Adds a value to a multi-valued variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value add to the variable.</param>
+        public abstract void AddString(string section, string? subsection, string variable, string value);
 
         /// <summary>
         /// Gets all values from a multi-valued variable from the given section and optional subsection, 
@@ -143,7 +170,37 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void Set<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher);
+        public abstract void SetBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of a variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the variable.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of a variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the variable.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of a variable in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the variable.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -153,18 +210,77 @@ namespace Microsoft.DotNet
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetAll<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher);
+        public abstract void SetAllBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of all matching variables in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the matching variables.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetAllDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of all matching variables in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the matching variables.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetAllNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher);
+
+        /// <summary>
+        /// Sets the value of all matching variables in the given section and optional subsection.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to assign.</param>
+        /// <param name="value">Value to assign to the matching variables.</param>
+        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
+        public abstract void SetAllString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher);
 
         /// <summary>
         /// Tries to retrieve a variable value from configuration.
         /// </summary>
-        /// <typeparam name="T">The type of value to retrieve.</typeparam>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to retrieve.</param>
         /// <param name="value">The variable value if found.</param>
         /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
-        public abstract bool TryGet<T>(string section, string? subsection, string variable, out T value);
+        public abstract bool TryGetBoolean(string section, string? subsection, string variable, out bool value);
+
+        /// <summary>
+        /// Tries to retrieve a variable value from configuration.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to retrieve.</param>
+        /// <param name="value">The variable value if found.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public abstract bool TryGetDateTime(string section, string? subsection, string variable, out DateTime value);
+
+        /// <summary>
+        /// Tries to retrieve a variable value from configuration.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to retrieve.</param>
+        /// <param name="value">The variable value if found.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public abstract bool TryGetNumber(string section, string? subsection, string variable, out long value);
+
+        /// <summary>
+        /// Tries to retrieve a variable value from configuration.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to retrieve.</param>
+        /// <param name="value">The variable value if found.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public abstract bool TryGetString(string section, string? subsection, string variable, out string value);
 
         /// <summary>
         /// Removes a variable from the given section and optional subsection.
@@ -191,13 +307,12 @@ namespace Microsoft.DotNet
         public abstract void RemoveSection(string section, string? subsection = null);
 
         /// <summary>
-        /// Renames a section.
-        /// </summary>
-        public void RenameSection(string oldSection, string newSection) => RenameSection(oldSection, null, newSection, null);
-
-        /// <summary>
         /// Renames a section and optional subsection.
         /// </summary>
+        /// <param name="oldSection">The old section name to rename.</param>
+        /// <param name="oldSubsection">The optional old subsection to rename.</param>
+        /// <param name="newSection">The new section name to use.</param>
+        /// <param name="newSubsection">The optional new subsection to use.</param>
         public abstract void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection);
 
         /// <summary>

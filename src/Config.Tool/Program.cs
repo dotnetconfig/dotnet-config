@@ -59,7 +59,7 @@ namespace Microsoft.DotNet
                 { "default:", "with --get, use default value when missing entry", v => defaultValue = v },
                 { "d|directory:", "use given directory for configuration file", d => directory = d },
                 { "name-only", "show variable names only", _ => nameOnly = true },
-                { "type:", "value is given this type, either 'bool' or 'int'", t => type = t },
+                { "type:", "value is given this type, can be 'boolean', 'datetime' or 'number'", t => type = t },
                 { "debug", "add some extra logging for troubleshooting purposes", _ => debug = true, true },
 
                 { "?|h|help", "Display this help", h => help = h != null },
@@ -105,6 +105,18 @@ namespace Microsoft.DotNet
             else
                 entryWriter = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
 
+            if (type == "date")
+                type = "datetime";
+            if (type == "bool")
+                type = "boolean";
+
+            var kind = ValueKind.String;
+            if (type != null && !Enum.TryParse(type, out kind))
+            {
+                Console.Write($"Error: invalid type '{type}'. Expected one of: 'boolean', 'bool', 'datetime', 'date' or 'number'.");
+                return -1;
+            }
+
             switch (action)
             {
                 case ConfigAction.Add:
@@ -112,7 +124,7 @@ namespace Microsoft.DotNet
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        config.Add(section!, subsection, variable!, extraArgs[1]);
+                        config.AddString(section!, subsection, variable!, extraArgs[1]);
                         break;
                     }
                 case ConfigAction.Get:
@@ -120,11 +132,8 @@ namespace Microsoft.DotNet
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        if (defaultValue == null)
-                            Console.WriteLine(config.Get<string?>(section!, subsection, variable!, default));
-                        else
-                            Console.WriteLine(config.Get(section!, subsection, variable!, defaultValue));
-
+                        var value = config.GetString(section!, subsection, variable!);
+                        Console.WriteLine(value ?? defaultValue ?? "");
                         break;
                     }
                 case ConfigAction.GetAll:
@@ -132,15 +141,14 @@ namespace Microsoft.DotNet
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        string? regex = default;
+                        var matcher = ValueMatcher.All;
                         if (extraArgs.Count > 1)
-                            regex = extraArgs[1];
+                            matcher = ValueMatcher.From(extraArgs[1]);
 
-                        foreach (var entry in config.GetAll(section!, subsection, variable!))
+                        foreach (var entry in config.GetAll(section!, subsection, variable!, matcher))
                         {
                             entryWriter(entry);
                         }
-
                         break;
                     }
                 case ConfigAction.GetRegexp:
@@ -157,7 +165,6 @@ namespace Microsoft.DotNet
                         {
                             entryWriter(entry);
                         }
-
                         break;
                     }
                 case ConfigAction.Set:
@@ -169,11 +176,11 @@ namespace Microsoft.DotNet
                         }
 
                         var value = string.Join(' ', extraArgs.Skip(1)).Trim();
-                        // Common mistake to do 'config key = value', so just remove it.
+                        // It's a common mistake to do 'config key = value', so just remove it.
                         if (value.StartsWith('='))
                             value = new string(value[1..]).Trim();
 
-                        config.Set(section!, subsection, variable!, value);
+                        config.SetString(section!, subsection, variable!, value);
                         break;
                     }
                 case ConfigAction.SetAll:
@@ -183,11 +190,11 @@ namespace Microsoft.DotNet
                             return ShowHelp(options);
 
                         var value = extraArgs[1];
-                        string? regex = default;
+                        var matcher = ValueMatcher.All;
                         if (extraArgs.Count > 2)
-                            regex = extraArgs[2];
+                            matcher = ValueMatcher.From(extraArgs[2]);
 
-                        config.SetAll(section!, subsection, variable!, value);
+                        config.SetAllString(section!, subsection, variable!, value, matcher);
                         break;
                     }
                 case ConfigAction.Unset:
@@ -203,11 +210,11 @@ namespace Microsoft.DotNet
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
                             return ShowHelp(options);
 
-                        string? regex = default;
+                        var matcher = ValueMatcher.All;
                         if (extraArgs.Count > 1)
-                            regex = extraArgs[1];
+                            matcher = ValueMatcher.From(extraArgs[1]);
 
-                        config.UnsetAll(section!, subsection, variable!, string.IsNullOrEmpty(regex) ? ValueMatcher.All : ValueMatcher.From(regex));
+                        config.UnsetAll(section!, subsection, variable!, matcher);
                         break;
                     }
                 case ConfigAction.List:
@@ -215,24 +222,18 @@ namespace Microsoft.DotNet
                     {
                         entryWriter(entry);
                     }
-
                     break;
                 case ConfigAction.Edit:
-                    if (!Config.Build(directory).TryGet<string>("core", null, "editor", out var editor))
+                    if (!Config.Build(directory).TryGetString("core", null, "editor", out var editor))
                     {
                         var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
-                        var code = Environment.OSVersion.Platform == PlatformID.Unix ? "code" : "code.cmd";
-                        editor = Process.Start(new ProcessStartInfo(cmd, code) { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
+                        editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
                     }
 
                     if (!string.IsNullOrEmpty(editor))
-                    {
                         Process.Start(editor, config.FilePath);
-                    }
                     else
-                    {
                         Process.Start(new ProcessStartInfo(config.FilePath) { UseShellExecute = true });
-                    }
 
                     break;
                 case ConfigAction.RemoveSection:

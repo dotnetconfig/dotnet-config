@@ -14,8 +14,17 @@ namespace Microsoft.DotNet
             this.configs = configs;
         }
 
-        public override void Add<T>(string section, string? subsection, string variable, T value)
-            => configs.First().Add(section, subsection, variable, value);
+        public override void AddBoolean(string section, string? subsection, string variable, bool value)
+            => configs.First().AddBoolean(section, subsection, variable, value);
+
+        public override void AddDateTime(string section, string? subsection, string variable, DateTime value)
+            => configs.First().AddDateTime(section, subsection, variable, value);
+
+        public override void AddNumber(string section, string? subsection, string variable, long value)
+            => configs.First().AddNumber(section, subsection, variable, value);
+
+        public override void AddString(string section, string? subsection, string variable, string value)
+            => configs.First().AddString(section, subsection, variable, value);
 
         public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
             => configs.SelectMany(x => x.GetAll(section, subsection, variable, valueMatcher));
@@ -29,23 +38,75 @@ namespace Microsoft.DotNet
         public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
             => configs.First().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
 
-        public override void Set<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
-            => configs.First().Set(section, subsection, variable, value, valueMatcher);
+        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
+            => configs.First().SetAllBoolean(section, subsection, variable, value, valueMatcher);
 
-        public override void SetAll<T>(string section, string? subsection, string variable, T value, ValueMatcher valueMatcher)
-            => configs.First().SetAll(section, subsection, variable, value, valueMatcher);
+        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
+            => configs.First().SetAllDateTime(section, subsection, variable, value, valueMatcher);
 
-        public override bool TryGet<T>(string section, string? subsection, string variable, out T value)
+        public override void SetAllNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
+            => configs.First().SetAllNumber(section, subsection, variable, value, valueMatcher);
+
+        public override void SetAllString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
+            => configs.First().SetAllString(section, subsection, variable, value, valueMatcher);
+
+        public override void SetBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
+            => configs.First().SetBoolean(section, subsection, variable, value, valueMatcher);
+
+        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
+            => configs.First().SetDateTime(section, subsection, variable, value, valueMatcher);
+
+        public override void SetNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
+            => configs.First().SetNumber(section, subsection, variable, value, valueMatcher);
+
+        public override void SetString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
+            => configs.First().SetString(section, subsection, variable, value, valueMatcher);
+
+        public override bool TryGetBoolean(string section, string? subsection, string variable, out bool value)
         {
-#pragma warning disable CS8601 // Possible null reference assignment.
-            value = default;
-#pragma warning restore CS8601 // Possible null reference assignment.
             foreach (var config in configs)
             {
-                if (config.TryGet(section, subsection, variable, out value))
+                if (config.TryGetBoolean(section, subsection, variable, out value))
                     return true;
             }
 
+            value = false;
+            return false;
+        }
+
+        public override bool TryGetDateTime(string section, string? subsection, string variable, out DateTime value)
+        {
+            foreach (var config in configs)
+            {
+                if (config.TryGetDateTime(section, subsection, variable, out value))
+                    return true;
+            }
+
+            value = DateTime.MinValue;
+            return false;
+        }
+
+        public override bool TryGetNumber(string section, string? subsection, string variable, out long value)
+        {
+            foreach (var config in configs)
+            {
+                if (config.TryGetNumber(section, subsection, variable, out value))
+                    return true;
+            }
+
+            value = 0;
+            return false;
+        }
+
+        public override bool TryGetString(string section, string? subsection, string variable, out string value)
+        {
+            foreach (var config in configs)
+            {
+                if (config.TryGetString(section, subsection, variable, out value))
+                    return true;
+            }
+
+            value = "";
             return false;
         }
 
