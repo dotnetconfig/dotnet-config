@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -28,10 +29,10 @@ namespace Microsoft.DotNet
             {
                 { Environment.NewLine },
                 { Environment.NewLine },
-                { "Config file location" },
+                { "Location (uses all locations by default)" },
                 { "global", "use global config file", _ => globalLocation = true },
                 { "system", "use system config file", _ => systemLocation = true },
-                { "local", "use current directory config file", _ => localLocation = true },
+                { "local", "aggregate config file in current and ancestor directories", _ => localLocation = true },
                 { "f|file:", "use given config file", f => filePath = f },
 
                 { Environment.NewLine },
@@ -52,7 +53,7 @@ namespace Microsoft.DotNet
                 { "rename-section", "rename section: old-name new-name", _ => action = ConfigAction.RenameSection },
 
                 { "l|list", "list all", _ => action = ConfigAction.List },
-                { "e|edit", "open an editor", _ => action = ConfigAction.Edit },
+                { "e|edit", "edit the config file in an editor", _ => action = ConfigAction.Edit },
 
                 { Environment.NewLine },
                 { "Other" },
@@ -111,26 +112,42 @@ namespace Microsoft.DotNet
                 type = "boolean";
 
             var kind = ValueKind.String;
-            if (type != null && !Enum.TryParse(type, out kind))
+            if (type != null && !Enum.TryParse(type, true, out kind))
             {
-                Console.Write($"Error: invalid type '{type}'. Expected one of: 'boolean', 'bool', 'datetime', 'date' or 'number'.");
+                Console.Error.WriteLine($"Error: invalid type '{type}'. Expected one of: 'boolean', 'bool', 'datetime', 'date' or 'number'.");
                 return -1;
             }
+
+            string? error = default;
 
             switch (action)
             {
                 case ConfigAction.Add:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
+
+                        if (extraArgs.Count != 2)
                             return ShowHelp(options);
+
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(extraArgs[1]) && !ConfigParser.TryParseBoolean(extraArgs[1], out error)) || 
+                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(extraArgs[1], out error)) || 
+                            kind == ValueKind.DateTime && !DateTime.TryParse(extraArgs[1], CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
+                        {
+                            if (error != null)
+                                return ShowError(error);
+
+                            Console.Error.WriteLine($"unexpected datetime value `{extraArgs[1]}`, expected ISO 8601 (aka round-trip) format.");
+                            return -1;
+                        }
 
                         config.AddString(section!, subsection, variable!, extraArgs[1]);
                         break;
                     }
                 case ConfigAction.Get:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
-                            return ShowHelp(options);
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
 
                         var value = config.GetString(section!, subsection, variable!);
                         Console.WriteLine(value ?? defaultValue ?? "");
@@ -138,8 +155,8 @@ namespace Microsoft.DotNet
                     }
                 case ConfigAction.GetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
-                            return ShowHelp(options);
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
 
                         var matcher = ValueMatcher.All;
                         if (extraArgs.Count > 1)
@@ -169,24 +186,34 @@ namespace Microsoft.DotNet
                     }
                 case ConfigAction.Set:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
-                        {
-                            Console.WriteLine($"Can't parse: {extraArgs[0]}");
-                            return ShowHelp(options);
-                        }
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
 
                         var value = string.Join(' ', extraArgs.Skip(1)).Trim();
                         // It's a common mistake to do 'config key = value', so just remove it.
                         if (value.StartsWith('='))
                             value = new string(value[1..]).Trim();
 
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !ConfigParser.TryParseBoolean(value, out error)) ||
+                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(value, out error)) ||
+                            kind == ValueKind.DateTime && !DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
+                        {
+                            if (error != null)
+                                return ShowError(error);
+
+                            Console.Error.WriteLine($"unexpected datetime value `{value}`, expected ISO 8601 (aka round-trip) format.");
+                            return -1;
+                        }
+
                         config.SetString(section!, subsection, variable!, value);
                         break;
                     }
                 case ConfigAction.SetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable) ||
-                            extraArgs.Count < 2 || extraArgs.Count > 3)
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
+
+                        if (extraArgs.Count < 2 || extraArgs.Count > 3)
                             return ShowHelp(options);
 
                         var value = extraArgs[1];
@@ -194,21 +221,33 @@ namespace Microsoft.DotNet
                         if (extraArgs.Count > 2)
                             matcher = ValueMatcher.From(extraArgs[2]);
 
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !ConfigParser.TryParseBoolean(value, out error)) ||
+                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(value, out error)) ||
+                            kind == ValueKind.DateTime && !DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
+                        {
+                            if (error != null)
+                                return ShowError(error);
+
+                            Console.Error.WriteLine($"unexpected datetime value `{value}`, expected ISO 8601 (aka round-trip) format.");
+                            return -1;
+                        }
+
                         config.SetAllString(section!, subsection, variable!, value, matcher);
                         break;
                     }
                 case ConfigAction.Unset:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
-                            return ShowHelp(options);
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
+
 
                         config.Unset(section!, subsection, variable!);
                         break;
                     }
                 case ConfigAction.UnsetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable))
-                            return ShowHelp(options);
+                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
+                            return ShowError(error);
 
                         var matcher = ValueMatcher.All;
                         if (extraArgs.Count > 1)
@@ -246,18 +285,11 @@ namespace Microsoft.DotNet
                     if (extraArgs.Count != 2)
                         return ShowHelp(options);
 
-                    if (!ConfigParser.TryParseSection(extraArgs[0], out var oldSection, out var oldSubsection))
-                    {
-                        Console.WriteLine($"Can't parse: {extraArgs[0]}");
-                        return ShowHelp(options);
-                    }
+                    if (!ConfigParser.TryParseSection(extraArgs[0], out var oldSection, out var oldSubsection, out error))
+                        return ShowError(error);
 
-
-                    if (!ConfigParser.TryParseSection(extraArgs[1], out var newSection, out var newSubsection))
-                    {
-                        Console.WriteLine($"Can't parse: {extraArgs[1]}");
-                        return ShowHelp(options);
-                    }
+                    if (!ConfigParser.TryParseSection(extraArgs[1], out var newSection, out var newSubsection, out error))
+                        return ShowError(error);
 
                     config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection);
                     break;
@@ -266,6 +298,20 @@ namespace Microsoft.DotNet
             }
 
             return 0;
+        }
+
+        static int ShowError(string? error)
+        {
+            if (error == null)
+                return -1;
+
+            var colon = error.IndexOf(':');
+            if (colon != -1)
+                Console.Error.WriteLine(error[++colon..].Trim());
+            else
+                Console.Error.WriteLine(error.Trim());
+
+            return -1;
         }
 
         static int ShowHelp(OptionSet options)

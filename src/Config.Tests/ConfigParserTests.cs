@@ -155,7 +155,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("file.\"with spaces\".url", "file", "with spaces", "url")]
         public void can_parse_key(string key, string section, string subsection, string variable)
         {
-            Assert.True(ConfigParser.TryParseKey(key, out var s, out var ss, out var v));
+            Assert.True(ConfigParser.TryParseKey(key, out var s, out var ss, out var v, out _));
             Assert.Equal(section, section);
             Assert.Equal(subsection, ss);
             Assert.Equal(variable, v);
@@ -168,7 +168,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("foo.\"bar or baz\"", "file", "bar or baz")]
         public void can_parse_section_key(string key, string section, string subsection)
         {
-            Assert.True(ConfigParser.TryParseSection(key, out var s, out var ss));
+            Assert.True(ConfigParser.TryParseSection(key, out var s, out var ss, out _));
             Assert.Equal(section, section);
             Assert.Equal(subsection, ss);
         }
