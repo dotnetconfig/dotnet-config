@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 using Superpower;
+using Superpower.Display;
 using Superpower.Model;
 using Superpower.Parsers;
 using Superpower.Tokenizers;
@@ -99,14 +101,14 @@ namespace Microsoft.DotNet
         public static bool TryParse(string line, out Line? result, out string? error, out Position errorPosition)
             => TryParse(Line, line, out result, out error, out errorPosition);
 
-        static bool TryParse(TokenListParser<ConfigToken, Line> parser, string line, out Line? result, out string? error, out Position errorPosition)
+        static bool TryParse(TokenListParser<ConfigToken, Line> parser, string line, out Line? result, out string? error, out Position position)
         {
             var tokens = ConfigTokenizer.Line.TryTokenize(line);
             if (!tokens.HasValue)
             {
                 result = null;
                 error = tokens.ToString();
-                errorPosition = tokens.ErrorPosition;
+                position = tokens.ErrorPosition;
                 return false;
             }
 
@@ -115,7 +117,7 @@ namespace Microsoft.DotNet
             {
                 result = null;
                 error = parsed.ToString();
-                errorPosition = parsed.ErrorPosition;
+                position = parsed.ErrorPosition;
                 return false;
             }
 
@@ -123,14 +125,14 @@ namespace Microsoft.DotNet
             // Preserve the line verbatim to maintain all formatting when writing out unchanged lines.
             result.Text = line;
             error = null;
-            errorPosition = Position.Empty;
+            position = Position.Empty;
             return true;
         }
 
-        internal static bool TryParseSectionLine(string line, out SectionLine? section, out string? error, out Position errorPosition)
+        internal static bool TryParseSectionLine(string line, out SectionLine? section, out string? error, out Position position)
         {
             section = null;
-            var success = TryParse(SectionLine, line, out var result, out error, out errorPosition);
+            var success = TryParse(SectionLine, line, out var result, out error, out position);
             if (success && result != null)
             {
                 section = (SectionLine)result;
@@ -139,10 +141,59 @@ namespace Microsoft.DotNet
             return success;
         }
 
-        internal static bool TryParseVariableLine(string line, out VariableLine? variable, out string? error, out Position errorPosition)
+        internal static bool TryParseBoolean(string value, out string? error)
+        {
+            var tokenizer = new TokenizerBuilder<ConfigToken>()
+                 .Match(ConfigTokenizer.NumberToken, ConfigToken.Number)
+                 .Match(ConfigTokenizer.IdentifierToken, ConfigToken.Identifier)
+                 .Build();
+
+            var tokens = tokenizer.TryTokenize(value);
+            if (!tokens.HasValue)
+            {
+                error = tokens.ToString();
+                return false;
+            }
+
+            var parsed = True.Or(False).TryParse(tokens.Value);
+            if (!parsed.HasValue)
+            {
+                error = parsed.ToString();
+                return false;
+            }
+
+            error = null;
+            return true;
+        }
+
+        internal static bool TryParseNumber(string value, out string? error)
+        {
+            var tokenizer = new TokenizerBuilder<ConfigToken>()
+                 .Match(ConfigTokenizer.NumberToken, ConfigToken.Number)
+                 .Build();
+
+            var tokens = tokenizer.TryTokenize(value);
+            if (!tokens.HasValue)
+            {
+                error = tokens.ToString();
+                return false;
+            }
+
+            var parsed = Number.TryParse(tokens.Value);
+            if (!parsed.HasValue)
+            {
+                error = parsed.ToString();
+                return false;
+            }
+
+            error = null;
+            return true;
+        }
+
+        internal static bool TryParseVariableLine(string line, out VariableLine? variable, out string? error, out Position position)
         {
             variable = null;
-            var success = TryParse(VariableLine, line, out var result, out error, out errorPosition);
+            var success = TryParse(VariableLine, line, out var result, out error, out position);
             if (success && result != null)
             {
                 variable = (VariableLine)result;
@@ -151,10 +202,10 @@ namespace Microsoft.DotNet
             return success;
         }
          
-        internal static bool TryParseCommentLine(string line, out Line? comment, out string? error, out Position errorPosition)
-            => TryParse(CommentLine, line, out comment, out error, out errorPosition);
+        internal static bool TryParseCommentLine(string line, out Line? comment, out string? error, out Position position)
+            => TryParse(CommentLine, line, out comment, out error, out position);
 
-        internal static bool TryParseKey(string key, out string? section, out string? subsection, out string? variable)
+        internal static bool TryParseKey(string key, out string? section, out string? subsection, out string? variable, out string? error)
         {
             section = null;
             subsection = null;
@@ -172,6 +223,7 @@ namespace Microsoft.DotNet
             var tokens = tokenizer.TryTokenize(key);
             if (!tokens.HasValue)
             {
+                error = tokens.ToString();
                 return false;
             }
 
@@ -183,6 +235,7 @@ namespace Microsoft.DotNet
 
             if (!parsed.HasValue)
             {
+                error = parsed.ToString();
                 return false;
             }
 
@@ -202,20 +255,53 @@ namespace Microsoft.DotNet
                 parsedSection = parsedSection[0..^1];
             }
 
-            section = string.Join(".", parsedSection);
+            section = string.Join(".", parsedSection);            
             subsection = parsedSubsection;
             variable = parsedName;
 
+            // If we got a subsection but no variable, assume the subsection was actually the variable, 
+            // since the section is optional, whereas the variable is not.
+            if (subsection != null && variable == null)
+            {
+                tokenizer = new TokenizerBuilder<ConfigToken>()
+                     .Match(ConfigTokenizer.IdentifierToken, ConfigToken.Identifier)
+                     .Build();
+
+                tokens = tokenizer.TryTokenize(subsection);
+                if (!tokens.HasValue)
+                {
+                    error = tokens.ToString();
+                    if (tokens.Expectations == null)
+                        error = error.TrimEnd('.') + " in `" + subsection + "`, expected " + typeof(ConfigToken).GetField(nameof(ConfigToken.Identifier)).GetCustomAttribute<TokenAttribute>().Description + ".";
+
+                    return false;
+                }
+
+                var parsedVar = Variable.TryParse(tokens.Value);
+                if (!parsedVar.HasValue)
+                {
+                    error = parsedVar.ToString();
+                    return false;
+                }
+
+                variable = subsection;
+                // re-parse since the rules for variables are more strict than 
+                // for subsection, which can be any string
+                subsection = null;
+            }
+
+            error = default;
             return true;
         }
 
-        internal static bool TryParseSection(string key, out string? section, out string? subsection)
+        internal static bool TryParseSection(string key, out string? section, out string? subsection, out string? error)
         {
             section = null;
             subsection = null;
             var tokens = ConfigTokenizer.Key.TryTokenize(key);
             if (!tokens.HasValue)
             {
+                error = tokens.ToString();
                 return false;
             }
 
@@ -226,6 +312,7 @@ namespace Microsoft.DotNet
 
             if (!parsed.HasValue)
             {
+                error = parsed.ToString();
                 return false;
             }
 
@@ -239,6 +326,7 @@ namespace Microsoft.DotNet
             }
 
             section = string.Join(".", parsedSection);
+            error = default;
 
             return true;
         }
