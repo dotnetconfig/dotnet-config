@@ -6,12 +6,7 @@
     public enum ConfigLevel
     {
         /// <summary>
-        /// The local .netconfig of the current directory or an ancestor directory.
-        /// </summary>
-        Local,
-
-        /// <summary>
-        /// The global ~/.netconfig of the current user.
+        /// The global ~/.netconfig for the current user.
         /// </summary>
         Global,
         

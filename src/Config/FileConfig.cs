@@ -11,7 +11,7 @@ namespace Microsoft.DotNet
 
         public FileConfig(string filePath) : base(filePath) => doc = ConfigDocument.FromFile(filePath);
 
-        public ConfigLevel Level => doc.Level;
+        public ConfigLevel? Level => doc.Level;
 
         public override void AddBoolean(string section, string? subsection, string variable, bool value)
         {

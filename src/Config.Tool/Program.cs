@@ -17,11 +17,9 @@ namespace Microsoft.DotNet
             var action = ConfigAction.None;
             var systemLocation = false;
             var globalLocation = false;
-            var localLocation = false;
-            string? filePath = default;
+            string? path = Directory.GetCurrentDirectory();
             bool nameOnly = false;
             string? defaultValue = default;
-            string? directory = default;
             string? type = default;
             bool debug = false;
 
@@ -32,8 +30,7 @@ namespace Microsoft.DotNet
                 { "Location (uses all locations by default)" },
                 { "global", "use global config file", _ => globalLocation = true },
                 { "system", "use system config file", _ => systemLocation = true },
-                { "local", "aggregate config file in current and ancestor directories", _ => localLocation = true },
-                { "f|file:", "use given config file", f => filePath = f },
+                { "path:", "use given config file or directory", f => path = f },
 
                 { Environment.NewLine },
                 { "Action" },
@@ -58,7 +55,6 @@ namespace Microsoft.DotNet
                 { Environment.NewLine },
                 { "Other" },
                 { "default:", "with --get, use default value when missing entry", v => defaultValue = v },
-                { "d|directory:", "use given directory for configuration file", d => directory = d },
                 { "name-only", "show variable names only", _ => nameOnly = true },
                 { "type:", "value is given this type, can be 'boolean', 'datetime' or 'number'", t => type = t },
                 { "debug", "add some extra logging for troubleshooting purposes", _ => debug = true, true },
@@ -79,15 +75,11 @@ namespace Microsoft.DotNet
 
             Config config;
             if (globalLocation)
-                config = Config.Read(ConfigLevel.Global);
+                config = Config.Build(ConfigLevel.Global);
             else if (systemLocation)
-                config = Config.Read(ConfigLevel.System);
-            else if (localLocation)
-                config = Config.Read(ConfigLevel.Local);
-            else if (filePath != null)
-                config = Config.FromFile(filePath);
-            else
-                config = Config.Build(directory);
+                config = Config.Build(ConfigLevel.System);
+            else 
+                config = Config.Build(path);
 
             // Can be a get or a set, depending on whether a value is provided.
             if (action == ConfigAction.None)
@@ -263,7 +255,7 @@ namespace Microsoft.DotNet
                     }
                     break;
                 case ConfigAction.Edit:
-                    if (!Config.Build(directory).TryGetString("core", null, "editor", out var editor))
+                    if (!Config.Build(path).TryGetString("core", null, "editor", out var editor))
                     {
                         var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
                         editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";

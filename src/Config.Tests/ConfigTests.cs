@@ -49,7 +49,7 @@ namespace Microsoft.DotNet.Tests
         [Fact]
         public void can_read_system()
         {
-            var config = Config.Read(ConfigLevel.System);
+            var config = Config.Build(ConfigLevel.System);
 
             Assert.Null(config.GetBoolean("core", "local"));
             Assert.Null(config.GetBoolean("core", "parent"));
@@ -60,64 +60,86 @@ namespace Microsoft.DotNet.Tests
         [Fact]
         public void can_read_global()
         {
-            var config = Config.Read(ConfigLevel.Global);
+            var config = Config.Build(ConfigLevel.Global);
 
             Assert.Null(config.GetBoolean("core", "local"));
             Assert.Null(config.GetBoolean("core", "parent"));
             Assert.True(config.GetBoolean("core", "global"));
-            Assert.Null(config.GetBoolean("core", "system"));
-        }
-
-        [Fact]
-        public void can_read_local_only()
-        {
-            var dir = Directory.GetCurrentDirectory();
-            try
-            {
-                Directory.SetCurrentDirectory(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
-                var config = Config.Read(ConfigLevel.Local);
-
-                Assert.True(config.GetBoolean("core", "local"));
-                Assert.True(config.GetBoolean("core", "parent"));
-                Assert.Null(config.GetBoolean("core", "global"));
-                Assert.Null(config.GetBoolean("core", "system"));
-            }
-            finally
-            {
-                Directory.SetCurrentDirectory(dir);
-            }
+            Assert.True(config.GetBoolean("core", "system"));
         }
 
         [Fact]
         public void can_read_local_file()
         {
-            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
 
             Assert.True(config.GetBoolean("core", "local"));
         }
 
         [Fact]
-        public void when_reading_local_file_parent_variable_is_null()
+        public void when_reading_local_file_with_root_parent_variable_is_null()
         {
-            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+            var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
+            Directory.CreateDirectory(path);
+            var config = Config.Build(path);
+            config.SetBoolean("config", "root", true);
 
-            Assert.Null(config.GetBoolean("core", "parent"));
+            // Reload after the value was set.
+            config = Config.Build(path);
+
+            Assert.Null(config.GetBoolean("config", "parent"));
         }
 
         [Fact]
-        public void when_reading_local_file_global_variable_is_null()
+        public void when_reading_local_file_with_global_false_system_variable_is_null()
         {
-            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+            var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
+            Directory.CreateDirectory(path);
+            var config = Config.Build(path);
+            config.SetBoolean("config", "global", false);
+
+            // Reload after the value was set.
+            config = Config.Build(path);
 
             Assert.Null(config.GetBoolean("core", "global"));
         }
 
         [Fact]
-        public void when_reading_local_file_system_variable_is_null()
+        public void when_reading_local_file_with_system_false_system_variable_is_null()
         {
-            var config = Config.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+            var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
+            Directory.CreateDirectory(path);
+            var config = Config.Build(path);
+            config.SetBoolean("config", "system", false);
+
+            // Reload after the value was set.
+            config = Config.Build(path);
 
             Assert.Null(config.GetBoolean("core", "system"));
+        }
+
+        [Fact]
+        public void when_reading_local_file_parent_variable_is_set()
+        {
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.True(config.GetBoolean("core", "parent"));
+        }
+
+        [Fact]
+        public void when_reading_local_file_global_variable_is_set()
+        {
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.True(config.GetBoolean("core", "global"));
+        }
+
+        [Fact]
+        public void when_reading_local_file_system_variable_is_set()
+        {
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.True(config.GetBoolean("core", "system"));
         }
 
         [Fact]
@@ -132,7 +154,7 @@ namespace Microsoft.DotNet.Tests
         [Fact]
         public void when_reading_non_existent_file_then_values_are_null()
         {
-            var config = Config.FromFile(Path.GetTempFileName());
+            var config = Config.Build(Path.GetTempFileName());
 
             Assert.Null(config.GetBoolean("core", "bool"));
             Assert.Null(config.GetBoolean("core", "bool"));
@@ -168,7 +190,7 @@ namespace Microsoft.DotNet.Tests
 
             Directory.SetCurrentDirectory(path);
 
-            var config = Config.Read(ConfigLevel.Local);
+            var config = Config.Build(path);
 
             Assert.IsType<FileConfig>(config);
         }
@@ -185,7 +207,7 @@ namespace Microsoft.DotNet.Tests
         public void can_write_new_file()
         {
             var file = Path.GetTempFileName();
-            var config = Config.FromFile(file);
+            var config = Config.Build(file);
 
             config.SetBoolean("section", "subsection", "bool", true);
 
@@ -196,11 +218,11 @@ namespace Microsoft.DotNet.Tests
         public void can_roundtrip()
         {
             var file = Path.GetTempFileName();
-            var config = Config.FromFile(file);
+            var config = Config.Build(file);
 
             config.SetString("section", "subsection", "foo", "bar");
 
-            var value = Config.FromFile(file).GetString("section", "subsection", "foo");
+            var value = Config.Build(file).GetString("section", "subsection", "foo");
 
             Assert.Equal("bar", value);
         }

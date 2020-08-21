@@ -11,10 +11,20 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>  
   </PropertyGroup>
 
+  <PropertyGroup Label="docfx">
+    <DocfxConfigFile>../../docs/docfx.json</DocfxConfigFile>
+    <MetadataOutputFolder>../..</MetadataOutputFolder>
+    <PreviewOutputFolder>../../docs/_site</PreviewOutputFolder>
+    <LogFile>$(MSBuildProjectExtensionsPath)/obj/docfx.log</LogFile>
+    <LogLevel>Info</LogLevel>
+    <BuildDocFx Condition="'$(BuildDocFx)' == ''">false</BuildDocFx>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
     <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
     <PackageReference Include="Superpower" Version="2.3.0" />
+    <PackageReference Include="docfx.console" Version="2.56.0" PrivateAssets="all"/>
   </ItemGroup>
 
   <ItemGroup>
