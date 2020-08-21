@@ -7,10 +7,13 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.x
       - name: Build 🔧
         run: dotnet build -p:BuildDocFx=true
       - name: Deploy 🚀
