@@ -17,7 +17,7 @@ namespace Microsoft.DotNet
         /// <param name="name">The variable name.</param>
         /// <param name="value">The variable value.</param>
         /// <param name="level">The origin store.</param>
-        public ConfigEntry(string section, string? subsection, string name, string? value, ConfigLevel level)
+        public ConfigEntry(string section, string? subsection, string name, string? value, ConfigLevel? level)
         {
             Section = section;
             Subsection = subsection;
@@ -47,9 +47,10 @@ namespace Microsoft.DotNet
         public string? Value { get; }
 
         /// <summary>
-        /// Gets the origin store.
+        /// Gets the origin store. <see langword="null"/> if not either <see cref="ConfigLevel.Global"/> 
+        /// or <see cref="ConfigLevel.System"/>.
         /// </summary>
-        public ConfigLevel Level { get; }
+        public ConfigLevel? Level { get; }
 
         /// <summary>
         /// Gets or sets the optional comment.

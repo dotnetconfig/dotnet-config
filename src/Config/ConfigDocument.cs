@@ -24,18 +24,16 @@ namespace Microsoft.DotNet
                     level = ConfigLevel.Global;
                 else if (filePath == Config.SystemLocation)
                     level = ConfigLevel.System;
-                else
-                    level = ConfigLevel.Local;
             }
 
-            Level = level.Value;
+            Level = level;
         }
 
         public static ConfigDocument FromFile(string filePath) => new ConfigDocument(filePath);
 
         public static ConfigDocument FromFile(string filePath, ConfigLevel level) => new ConfigDocument(filePath, level);
 
-        public ConfigLevel Level { get; }
+        public ConfigLevel? Level { get; }
 
         public List<Line> Lines { get; } = new List<Line>();
 

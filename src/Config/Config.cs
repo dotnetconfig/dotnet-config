@@ -28,73 +28,70 @@ namespace Microsoft.DotNet
         public static string SystemLocation { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), FileName);
 
         /// <summary>
-        /// Access the hierarchical configuration from the local, global and system locations.
+        /// Builds configuration from the given path, which can be a directory or a file path.
         /// </summary>
-        /// <param name="directory">Optional directory to use to read the local configuration from. Defaults to the current directory.</param>
-        public static Config Build(string? directory = null)
+        /// <remarks>
+        /// <para>
+        /// The returned configuration will contain the aggregate hierarchical configuration 
+        /// from the given directory (or file) and any ancestor directories, plus 
+        /// <see cref="ConfigLevel.Global"/> and <see cref="ConfigLevel.System"/> locations.
+        /// </para>
+        /// </remarks>
+        public static Config Build(string path)
         {
-            var configs = new List<Config>();
-            var dir = new DirectoryInfo(directory ?? Directory.GetCurrentDirectory());
+            AggregateConfig configs;
+            DirectoryInfo dir;
 
-            while (dir != null && dir.Exists)
+            if (Directory.Exists(path) || !Path.HasExtension(path))
+            {
+                // First entry is always a file in the given path, even if it's missing.
+                // This allows writing to the specified directory.
+                configs = new AggregateConfig(new FileConfig(Path.Combine(path, FileName)));
+                dir = new DirectoryInfo(path).Parent;
+            }
+            else
+            {
+                // If the path does not point to an existing directory
+                // we consider it a file path.
+                configs = new AggregateConfig(new FileConfig(path));
+                dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
+            }
+
+            // [config] root = true stops the directory walking
+            while (configs.GetBoolean("config", "root") != true && dir != null && dir.Exists)
             {
                 var file = Path.Combine(dir.FullName, FileName);
                 if (File.Exists(file))
-                    configs.Add(FromFile(file));
+                    configs.Files.Add(new FileConfig(file));
 
                 dir = dir.Parent;
             }
 
-            if (configs.Count == 0)
-                configs.Add(FromFile(Path.Combine(directory ?? Directory.GetCurrentDirectory(), FileName)));
+            // But global+system configs are still always added.
+            // TODO: maybe we could offer a way to opt-out of those too?
 
-            if (File.Exists(GlobalLocation))
-                configs.Add(FromFile(GlobalLocation));
-            if (File.Exists(SystemLocation))
-                configs.Add(FromFile(SystemLocation));
+            // Don't read the global location if we're building the system location or it's been opted out explicitly
+            if (SystemLocation != path && GlobalLocation != path && File.Exists(GlobalLocation) && configs.GetBoolean("config", "global") != false)
+                configs.Files.Add(new FileConfig(GlobalLocation));
+            if (SystemLocation != path && File.Exists(SystemLocation) && configs.GetBoolean("config", "system") != false)
+                configs.Files.Add(new FileConfig(SystemLocation));
 
-            if (configs.Count == 1)
-                return configs[0];
+            if (configs.Files.Count == 1)
+                return configs.Files[0];
 
             return new AggregateConfig(configs);
         }
-
-        /// <summary>
-        /// Access configuration from a specific file, which allows write-access to it.
-        /// </summary>
-        /// <remarks>
-        /// If the file does not exist, it is considered empty. When writing 
-        /// variables, it will be created automatically in that case.
-        /// </remarks>
-        public static Config FromFile(string filePath) => new FileConfig(filePath);
 
         /// <summary>
         /// Access the configuration from a specific store.
         /// </summary>
-        public static Config Read(ConfigLevel store)
-        {
-            if (store == ConfigLevel.Global)
-                return FromFile(GlobalLocation);
-            else if (store == ConfigLevel.System)
-                return FromFile(SystemLocation);
-
-            var configs = new List<Config>();
-            var dir = new DirectoryInfo(Directory.GetCurrentDirectory());
-
-            while (dir != null && dir.Exists)
+        public static Config Build(ConfigLevel store) => 
+            store switch 
             {
-                var file = Path.Combine(dir.FullName, FileName);
-                if (File.Exists(file))
-                    configs.Add(FromFile(file));
-
-                dir = dir.Parent;
-            }
-
-            if (configs.Count == 1)
-                return configs[0];
-
-            return new AggregateConfig(configs);
-        }
+                ConfigLevel.Global => Build(GlobalLocation),
+                ConfigLevel.System => Build(SystemLocation),
+                _ => throw new ArgumentException(nameof(store))
+            };
 
         /// <summary>
         /// Creates the <see cref="Config"/> and sets <see cref="FilePath"/> to the given <paramref name="filePath"/>.
