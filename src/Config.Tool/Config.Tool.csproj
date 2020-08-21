@@ -4,7 +4,7 @@
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <TieredCompilation>false</TieredCompilation>
     <TieredCompilationQuickJit>false</TieredCompilationQuickJit>
 
