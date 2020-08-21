@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		src\Directory.Build.targets = src\Directory.Build.targets
 		src\GitInfo.txt = src\GitInfo.txt
 		src\NuGet.Config = src\NuGet.Config
+		.github\workflows\pages.yml = .github\workflows\pages.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
