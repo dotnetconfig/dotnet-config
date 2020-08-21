@@ -4,6 +4,7 @@ artifacts
 pack
 .vs
 .vscode
+_site
 
 *.suo
 *.sdf

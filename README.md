@@ -1,15 +1,16 @@
 ![Icon](https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png) dotnet-config
 ============
-A global tool and accompanying API for managing hierarchical configurations for dotnet tools, 
-using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/3sEqMMB)
 [![License](https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue)](https://github.com/dotnetconfig/dotnet-config/blob/master/LICENSE)
 [![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=master)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
 
-------
 <p>
-<b><a href="#overview">Overview</a></b>
+<b><a href="#why">Why</a></b>
+|
+<b><a href="#what">What</a></b>
+|
+<b><a href="#how">How</a></b>
 |
 <b><a href="#format">Format</a></b>
 |
@@ -18,46 +19,62 @@ using (mostly) [git config](https://git-scm.com/docs/git-config) format.
 <b><a href="#cli">CLI</a></b>
 </p>
 
+# Why
 
-dotnet-config | dotnet-config-lib
-:------------: | :------------:
-[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)|[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
-[![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)|[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
+`dotnet-config` (or `.netconfig`) provides a uniform mechanism for 
+[.NET Core tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) to store and 
+read configuration values in a predictable format which can be manipulated through a command 
+line tool, an API and also manually in any text editor by the user.
 
-Installing or updating (same command can be used for both):
+Just like [git config](https://git-scm.com/docs/git-config) provides a uniform way of storing 
+settings for all git commands, the goal of `dotnet-config` is to foster the same level of 
+consistency across all .NET tools. The format is (mostly) compatible with it too and therefore 
+leverages the learnings of the git community around configuration for arbitrary tools.
 
-```
-dotnet tool update -g dotnet-config
-```
-
-To get the CI version:
-
-```
-dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
-```
-
-## Overview
-
-[.NET Core tools](https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools) may need 
-to provide configuration options for users to customize their behavior. There is no built-in 
-configuration mechanism for them, however, so this project aims to provide a uniform way 
-to manage settings for all tools.
+# What
 
 `dotnet-config` provides the following:
 * A well-documented file format than can be hand-edited in any text editor.
-* A dotnet global tool to manage the configuration files (much like `git config`).
+* A dotnet global tool to manage the configuration files (much like [git config](https://git-scm.com/docs/git-config)).
 * An API for dotnet tool authors to read/write settings.
 
 By default, configuration files are named `.netconfig` and support three storage levels: 
 * Local: current directory and any ancestor directories
-* Global: user profile directory, from `System.Environment.SpecialFolder.UserProfile`.
-* System: system-wide directory, from `System.Environment.SpecialFolder.System`.
+* Global: user profile directory, from [System.Environment.SpecialFolder.UserProfile](https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields).
+* System: system-wide directory, from [System.Environment.SpecialFolder.System](https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields).
 
 The files are read in the order given above, with first value found taking precedence. 
 When multiple values are read then all values of a key from all files will be returned.
 
+# How
 
 ## Format
+
+Example file:
+
+```
+# .netconfig is awesome: https://dotnetconfig.org
+
+[vs "alias"]                    # dotnet-vs global tool aliases
+	comexp = run|community|exp
+	preexp = run|preview|exp
+
+# dotnet-file GH repo/file download/sync sections
+[file.github]
+  # example of multi-valued variables
+	url = https://github.com/dotnet/runtime/tree/master/docs/design/features
+	url = https://github.com/dotnet/aspnetcore/tree/master/docs
+
+; semi-colon too for comments
+; subsections allow grouping variables
+[file "docs/design/features/code-versioning.md"]
+	url = https://github.com/dotnet/runtime/blob/master/docs/design/features/code-versioning.md
+	etag = 74055672d93c79d517c6e5cbad968204100e805a9f87ffa777b617f68f0e4951
+
+[file "docs/APIReviewProcess.md"]
+	url = https://github.com/dotnet/aspnetcore/blob/master/docs/APIReviewProcess.md
+	etag = 1e4acd7e1ac446f0c6d397e1ed517c54507700b85826f64745559dfb50f2acbd
+```
 
 The syntax follows closely the [git-config syntax](https://git-scm.com/docs/git-config#_syntax). 
 The `#` and `;` characters begin comments to the end of line, blank lines are ignored.
@@ -93,7 +110,6 @@ Internal whitespaces within the value are retained verbatim.
 Inside double quotes, double quote `"` and backslash `\` characters must be escaped just like in a 
 subsection, with `\"` and `\\`, respectively. 
 
-
 ### Values
 
 Values of many variables are treated as a simple string, but there are variables that take values of 
@@ -119,7 +135,20 @@ specific types and there are rules as to how to spell them.
 	to mean	"scale the number by 1024", "by 1024x1024", "by 1024x1024x1024" or "by 1024x1024x1024x1024"
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`.
 
+
+> Note: if this section looks familiar, it's because it follows quite closely the 
+> [git config](https://git-scm.com/docs/git-config) documentation itself 😉
+
 ## API
+
+[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
+[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
+
+There is a CI feed in case you are working on a feature branch or a PR:
+
+```
+ <add key="kzu" value="https://pkg.kzu.io/index.json" />
+```
 
 The [dotnet-config-lib](https://www.nuget.org/packages/dotnet-config-lib) package provides the main API 
 used to interact with config files from your dotnet core tool. 
@@ -128,20 +157,34 @@ used to interact with config files from your dotnet core tool.
 
 ## CLI
 
-Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/mono.options) so 
-all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, `--flag=value`, 
-`/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, `--flag value`, `/flag value`.
+[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)
+[![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
+
+The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
+Installation is the same as for any other dotnet tool: 
+
+```
+dotnet tool update -g dotnet-config
+```
+
+(update will also install if it's not installed already)
+
+There is a CI feed in case you are working on a feature branch or a PR:
+
+```
+dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
+```
 
 Current output from `dotnet config -?`:
 
 ```
 Usage: dotnet config [options]
 
-Config file location
-      --global               use global config file
-      --system               use system config file
-      --local                use current directory config file
-  -f, --file[=VALUE]         use given config file
+Location (uses all locations by default)
+      --local                aggregate config file in current and ancestor directories
+      --global               use only global config file
+      --system               use only system config file
+  -f, --file[=VALUE]         use only given config file
 
 Action
       --get                  get value: name [value-regex]
@@ -155,12 +198,18 @@ Action
       --remove-section       remove a section: name
       --rename-section       rename section: old-name new-name
   -l, --list                 list all
-  -e, --edit                 open an editor
+  -e, --edit                 edit the config file in an editor
 
 Other
       --default[=VALUE]      with --get, use default value when missing entry
   -d, --directory[=VALUE]    use given directory for configuration file
       --name-only            show variable names only
-      --type[=VALUE]         value is given this type, either 'boolean' or 'number'
+      --type[=VALUE]         value is given this type, can be 'boolean', 'datetime' or 'number'
   -?, -h, --help             Display this help
 ```
+
+Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/mono.options) so 
+all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, 
+`--flag=value`, `/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, 
+`--flag value`, `/flag value`.
+
