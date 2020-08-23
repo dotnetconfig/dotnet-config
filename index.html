@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title> dotnet-config | .netconfig </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content=" dotnet-config | .netconfig ">
+    <meta name="generator" content="docfx 2.56.0.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="iconhttpsgithubcomkzudotnet-configrawmasterdocsimgicon-32png-dotnet-config"><img src="https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png" alt="Icon"> dotnet-config</h1>
+
+<p><a href="https://discord.gg/3sEqMMB"><img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat"></a>
+<a href="https://github.com/dotnetconfig/dotnet-config/blob/master/LICENSE"><img src="https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue" alt="License"></a>
+<a href="https://build.azdo.io/dotnetconfig/dotnetconfig/1"><img src="https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=master" alt="Build Status"></a></p>
+<p>
+<b><a href="#why">Why</a></b>
+|
+<b><a href="#what">What</a></b>
+|
+<b><a href="#how">How</a></b>
+|
+<b><a href="#format">Format</a></b>
+|
+<b><a href="#api">API</a></b>
+|
+<b><a href="#cli">CLI</a></b>
+</p>
+
+<h1 id="why">Why</h1>
+<p><code>dotnet-config</code> (or <code>.netconfig</code>) provides a uniform mechanism for 
+<a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">.NET Core tools</a> to store and 
+read configuration values in a predictable format which can be manipulated through a command 
+line tool, an API and also manually in any text editor by the user.</p>
+<p>Just like <a href="https://git-scm.com/docs/git-config">git config</a> provides a uniform way of storing 
+settings for all git commands, the goal of <code>dotnet-config</code> is to foster the same level of 
+consistency across all .NET tools. The format is (mostly) compatible with it too and therefore 
+leverages the learnings of the git community around configuration for arbitrary tools.</p>
+<h1 id="what">What</h1>
+<p><code>dotnet-config</code> provides the following:</p>
+<ul>
+<li>A well-documented file format than can be hand-edited in any text editor.</li>
+<li>A dotnet global tool to manage the configuration files (much like <a href="https://git-scm.com/docs/git-config">git config</a>).</li>
+<li>An API for dotnet tool authors to read/write settings.</li>
+</ul>
+<p>By default, configuration files are named <code>.netconfig</code> and support three storage levels: </p>
+<ul>
+<li>Local: current directory and any ancestor directories</li>
+<li>Global: user profile directory, from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields">System.Environment.SpecialFolder.UserProfile</a>.</li>
+<li>System: system-wide directory, from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields">System.Environment.SpecialFolder.System</a>.</li>
+</ul>
+<p>The files are read in the order given above, with first value found taking precedence. 
+When multiple values are read then all values of a key from all files will be returned.</p>
+<h1 id="how">How</h1>
+<h2 id="format">Format</h2>
+<p>Example file:</p>
+<pre><code># .netconfig is awesome: https://dotnetconfig.org
+
+[vs &quot;alias&quot;]                    # dotnet-vs global tool aliases
+    comexp = run|community|exp
+    preexp = run|preview|exp
+
+# dotnet-file GH repo/file download/sync sections
+[file.github]
+  # example of multi-valued variables
+    url = https://github.com/dotnet/runtime/tree/master/docs/design/features
+    url = https://github.com/dotnet/aspnetcore/tree/master/docs
+
+; semi-colon too for comments
+; subsections allow grouping variables
+[file &quot;docs/design/features/code-versioning.md&quot;]
+    url = https://github.com/dotnet/runtime/blob/master/docs/design/features/code-versioning.md
+    etag = 74055672d93c79d517c6e5cbad968204100e805a9f87ffa777b617f68f0e4951
+
+[file &quot;docs/APIReviewProcess.md&quot;]
+    url = https://github.com/dotnet/aspnetcore/blob/master/docs/APIReviewProcess.md
+    etag = 1e4acd7e1ac446f0c6d397e1ed517c54507700b85826f64745559dfb50f2acbd
+</code></pre><p>The syntax follows closely the <a href="https://git-scm.com/docs/git-config#_syntax">git-config syntax</a>. 
+The <code>#</code> and <code>;</code> characters begin comments to the end of line, blank lines are ignored.</p>
+<p>The file consists of <strong>sections</strong> and <strong>variables</strong>. A section begins with the name of the section in 
+square brackets and continues until the next section begins. Section names are case-insensitive. 
+Only alphanumeric characters, <code>-</code> and <code>.</code> are allowed in section names. Each variable must belong 
+to some section, which means that there must be a section header before the first setting of a 
+variable.</p>
+<p>Sections can be further divided into <strong>subsections</strong>. To begin a subsection put its name in double 
+quotes, separated by space from the section name, in the section header, like in the example below:</p>
+<pre><code>    [section &quot;subsection&quot;]
+</code></pre><p>Subsection names are case sensitive and can contain any characters except newline. Doublequote <code>&quot;</code> 
+and backslash <code>\</code> can be included by escaping them as <code>\&quot;</code> and <code>\\</code>, respectively. </p>
+<p>Section headers cannot span multiple lines. Variables may belong directly to a section 
+or to a given subsection. You can have <code>[section]</code> if you have <code>[section &quot;subsection&quot;]</code>, but you 
+don&#39;t need to.</p>
+<p>All the other lines are recognized as setting <strong>variables</strong>, in the form <code>name = value</code> (or just <code>name</code>, 
+which is a short-hand to say that the variable is the boolean <code>true</code>). Variable names are case-insensitive, 
+allow only alphanumeric characters and <code>-</code>, and must start with an alphabetic character.</p>
+<p>Leading whitespaces after <code>name =</code>, the remainder of the line after the first comment character <code>#</code> 
+or <code>;</code>, and trailing whitespaces of the line are discarded unless they are enclosed in double quotes. 
+Internal whitespaces within the value are retained verbatim.</p>
+<p>Inside double quotes, double quote <code>&quot;</code> and backslash <code>\</code> characters must be escaped just like in a 
+subsection, with <code>\&quot;</code> and <code>\\</code>, respectively. </p>
+<h3 id="values">Values</h3>
+<p>Values of many variables are treated as a simple string, but there are variables that take values of 
+specific types and there are rules as to how to spell them.</p>
+<ul>
+<li><p><em>boolean</em></p>
+<p>  When a variable is said to take a <em>boolean</em> value, many synonyms are accepted for <code>true</code> and 
+  <code>false</code>; these are all case-insensitive.</p>
+<ul>
+<li><p><em>true</em>: boolean true literals are <code>yes</code>, <code>on</code>, <code>true</code>, and <code>1</code>. Also, a variable defined without 
+<code>=&lt;value&gt;</code> is taken as <code>true</code>.</p>
+</li>
+<li><p><em>false</em>: boolean false literals are <code>no</code>, <code>off</code>, <code>false</code>, <code>0</code> and the empty string.</p>
+</li>
+</ul>
+</li>
+<li><p><em>datetime</em></p>
+<p>  Variables of this type are always parsed/written using ISO 8601 (or <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings#the-round-trip-o-o-format-specifier">round-trip</a>) format.</p>
+</li>
+<li><p><em>number</em></p>
+<p>  The value for many variables that specify various sizes can be suffixed with <code>k</code>, <code>M</code>, <code>G</code> or <code>T</code> 
+  to mean &quot;scale the number by 1024&quot;, &quot;by 1024x1024&quot;, &quot;by 1024x1024x1024&quot; or &quot;by 1024x1024x1024x1024&quot;
+  respectively. The suffix is case insensitive, and can also include the <code>b</code>, as in <code>kb</code> or <code>MB</code>.</p>
+</li>
+</ul>
+<blockquote><p>Note: if this section looks familiar, it&#39;s because it follows quite closely the 
+<a href="https://git-scm.com/docs/git-config">git config</a> documentation itself 😉</p>
+</blockquote>
+<h2 id="api">API</h2>
+<p><a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue" alt="Version"></a>
+<a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta" alt="Downloads"></a></p>
+<p>There is a CI feed in case you are working on a feature branch or a PR:</p>
+<pre><code> &lt;add key=&quot;kzu&quot; value=&quot;https://pkg.kzu.io/index.json&quot; /&gt;
+</code></pre><p>The <a href="https://www.nuget.org/packages/dotnet-config-lib">dotnet-config-lib</a> package provides the main API 
+used to interact with config files from your dotnet core tool. </p>
+<p>// TODO</p>
+<h2 id="cli">CLI</h2>
+<p><a href="https://www.nuget.org/packages/dotnet-config"><img src="https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue" alt="Version"></a>
+<a href="https://www.nuget.org/packages/dotnet-config"><img src="https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta" alt="Downloads"></a></p>
+<p>The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
+Installation is the same as for any other dotnet tool: </p>
+<pre><code>dotnet tool update -g dotnet-config
+</code></pre><p>(update will also install if it&#39;s not installed already)</p>
+<p>There is a CI feed in case you are working on a feature branch or a PR:</p>
+<pre><code>dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
+</code></pre><p>Current output from <code>dotnet config -?</code>:</p>
+<pre><code>Usage: dotnet config [options]
+
+Location (uses all locations by default)
+      --local                aggregate config file in current and ancestor directories
+      --global               use only global config file
+      --system               use only system config file
+  -f, --file[=VALUE]         use only given config file
+
+Action
+      --get                  get value: name [value-regex]
+      --get-all              get all values: key [value-regex]
+      --get-regexp           get values for regexp: name-regex [value-regex]
+      --set                  set value: name value [value-regex]
+      --set-all              replace all matching variables: name value [value_regex]
+      --add                  add a new variable: name value
+      --unset                remove a variable: name [value-regex]
+      --unset-all            remove all matches: name [value-regex]
+      --remove-section       remove a section: name
+      --rename-section       rename section: old-name new-name
+  -l, --list                 list all
+  -e, --edit                 edit the config file in an editor
+
+Other
+      --default[=VALUE]      with --get, use default value when missing entry
+  -d, --directory[=VALUE]    use given directory for configuration file
+      --name-only            show variable names only
+      --type[=VALUE]         value is given this type, can be &#39;boolean&#39;, &#39;datetime&#39; or &#39;number&#39;
+  -?, -h, --help             Display this help
+</code></pre><p>Command line parsing is done with <a href="https://www.nuget.org/packages/mono.options">Mono.Options</a> so 
+all the following variants for arguments are supported: <code>-flag</code>, <code>--flag</code>, <code>/flag</code>, <code>-flag=value</code>, 
+<code>--flag=value</code>, <code>/flag=value</code>, <code>-flag:value</code>, <code>--flag:value</code>, <code>/flag:value</code>, <code>-flag value</code>, 
+<code>--flag value</code>, <code>/flag value</code>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/master/docs/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
