@@ -168,36 +168,6 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void when_build_single_file_does_not_return_aggregate()
-        {
-            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
-            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
-
-            var path = Path.Combine(
-                Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName,
-                ".netconfig");
-            File.WriteAllText(path, "");
-
-            var config = Config.Build(path);
-
-            Assert.IsType<FileConfig>(config);
-        }
-
-        [Fact]
-        public void when_read_local_single_file_does_not_return_aggregate()
-        {
-            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
-            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
-
-            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
-            File.WriteAllText(Path.Combine(path, ".netconfig"), "");
-
-            var config = Config.Build(path);
-
-            Assert.IsType<FileConfig>(config);
-        }
-
-        [Fact]
         public void when_build_hierarchical_filepath_is_first_local()
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
