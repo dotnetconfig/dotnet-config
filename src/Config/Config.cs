@@ -28,7 +28,8 @@ namespace Microsoft.DotNet
         public static string SystemLocation { get; internal set; } = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.System), FileName);
 
         /// <summary>
-        /// Builds configuration from the given path, which can be a directory or a file path.
+        /// Builds configuration from the given path, which can be a directory or a file path. 
+        /// If ommited, the <see cref="Directory.GetCurrentDirectory"/> will be used.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -37,10 +38,13 @@ namespace Microsoft.DotNet
         /// <see cref="ConfigLevel.Global"/> and <see cref="ConfigLevel.System"/> locations.
         /// </para>
         /// </remarks>
-        public static Config Build(string path)
+        public static Config Build(string? path = null)
         {
             AggregateConfig configs;
             DirectoryInfo dir;
+
+            if (string.IsNullOrEmpty(path))
+                path = Path.Combine(Directory.GetCurrentDirectory(), FileName);
 
             if (Directory.Exists(path) || !Path.HasExtension(path))
             {
@@ -53,7 +57,7 @@ namespace Microsoft.DotNet
             {
                 // If the path does not point to an existing directory
                 // we consider it a file path.
-                configs = new AggregateConfig(new FileConfig(path));
+                configs = new AggregateConfig(new FileConfig(path!));
                 dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
             }
 
