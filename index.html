@@ -261,7 +261,14 @@ Installation is the same as for any other dotnet tool: </p>
 <pre><code>&gt; dotnet tool install -g dotnet-config
 </code></pre><p>There is a CI feed in case you are working on a feature branch or a PR:</p>
 <pre><code>&gt; dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
-</code></pre><p>Current output from <code>dotnet config -?</code>:</p>
+</code></pre><p>Reading and writing variables don&#39;t require any special options. The following lines first 
+write a variable value and then retrieve its value:</p>
+<pre><code>&gt; dotnet config mytool.myvariable myvalue
+&gt; dotnet config mytool.myvariable
+myvalue
+</code></pre><p>The value is returned verbatim via the standard output, so you can assign it directly to a 
+variable, for example.</p>
+<p>All current options from running <code>dotnet config -?</code> are:</p>
 <pre><code>Usage: dotnet config [options]
 
 Location (uses all locations by default)
