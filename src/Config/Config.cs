@@ -71,15 +71,15 @@ namespace Microsoft.DotNet
             // TODO: maybe we could offer a way to opt-out of those too?
 
             // Don't read the global location if we're building the system location or it's been opted out explicitly
-            if (SystemLocation != path && GlobalLocation != path && File.Exists(GlobalLocation) && configs.GetBoolean("config", "global") != false)
+            if (SystemLocation != path && GlobalLocation != path && configs.GetBoolean("config", "global") != false)
                 configs.Files.Add(new FileConfig(GlobalLocation));
-            if (SystemLocation != path && File.Exists(SystemLocation) && configs.GetBoolean("config", "system") != false)
+            if (SystemLocation != path && configs.GetBoolean("config", "system") != false)
                 configs.Files.Add(new FileConfig(SystemLocation));
 
             if (configs.Files.Count == 1)
                 return configs.Files[0];
 
-            return new AggregateConfig(configs);
+            return configs;
         }
 
         /// <summary>
@@ -104,6 +104,16 @@ namespace Microsoft.DotNet
         /// changes to disk.
         /// </summary>
         public string FilePath { get; private set; }
+
+        /// <summary>
+        /// Gets the optional configuration level for this config. 
+        /// <see langword="null"/> unless the <see cref="FilePath"/> equals 
+        /// <see cref="GlobalLocation"/> or <see cref="SystemLocation"/>.
+        /// </summary>
+        public ConfigLevel? Level => 
+            this is AggregateConfig ? null :
+            FilePath == GlobalLocation ? (ConfigLevel?)ConfigLevel.Global : 
+            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System : null;
 
         /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.

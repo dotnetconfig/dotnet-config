@@ -39,6 +39,9 @@ namespace Microsoft.DotNet
 
         public void Save()
         {
+            if (!Directory.Exists(Path.GetDirectoryName(filePath)))
+                Directory.CreateDirectory(Path.GetDirectoryName(filePath));
+
             using var writer = new StreamWriter(filePath, false);
             foreach (var line in Lines)
                 writer.WriteLine(line.Text);

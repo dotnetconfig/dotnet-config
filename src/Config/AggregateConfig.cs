@@ -8,9 +8,7 @@ namespace Microsoft.DotNet
     {
         public AggregateConfig(params Config[] configs)
             : base(configs.FirstOrDefault()?.FilePath ?? throw new ArgumentException())
-        {
-            this.Files = configs.ToList();
-        }
+            => Files = configs.ToList();
 
         public List<Config> Files { get; }
 

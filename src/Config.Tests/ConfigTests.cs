@@ -1,29 +1,17 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
-using Moq;
-using Superpower;
 using Xunit;
-using Microsoft.DotNet;
 
 namespace Microsoft.DotNet.Tests
 {
-    public class ConfigTests : IDisposable
+    public class ConfigTests
     {
-        string originalDir;
-
         public ConfigTests()
         {
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            originalDir = Directory.GetCurrentDirectory();
-        }
-
-        public void Dispose()
-        {
-            if (originalDir != Directory.GetCurrentDirectory())
-                Directory.SetCurrentDirectory(originalDir);
         }
 
         [Fact]
@@ -77,7 +65,7 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void when_reading_local_file_with_root_parent_variable_is_null()
+        public void when_reading_local_file_as_root_then_parent_variable_is_null()
         {
             var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
             Directory.CreateDirectory(path);
@@ -91,7 +79,7 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void when_reading_local_file_with_global_false_system_variable_is_null()
+        public void when_reading_local_file_with_global_false_then_system_variable_is_null()
         {
             var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
             Directory.CreateDirectory(path);
@@ -105,7 +93,7 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void when_reading_local_file_with_system_false_system_variable_is_null()
+        public void when_reading_local_file_with_system_false_then_system_variable_is_null()
         {
             var path = Path.Combine(Path.Combine(Directory.GetCurrentDirectory(), "Content", Guid.NewGuid().ToString()));
             Directory.CreateDirectory(path);
@@ -188,8 +176,6 @@ namespace Microsoft.DotNet.Tests
             var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
             File.WriteAllText(Path.Combine(path, ".netconfig"), "");
 
-            Directory.SetCurrentDirectory(path);
-
             var config = Config.Build(path);
 
             Assert.IsType<FileConfig>(config);
@@ -225,6 +211,42 @@ namespace Microsoft.DotNet.Tests
             var value = Config.Build(file).GetString("section", "subsection", "foo");
 
             Assert.Equal("bar", value);
+        }
+
+        [Fact]
+        public void when_setting_global_variable_then_writes_global_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            File.WriteAllText(Path.Combine(path, ".netconfig"), "");
+
+            var config = Config.Build(path);
+
+            config.AddBoolean("test", "var", true, ConfigLevel.Global);
+
+            var global = Config.Build(ConfigLevel.Global);
+
+            Assert.True(global.GetBoolean("test", "var"));
+        }
+
+        [Fact]
+        public void when_setting_system_variable_then_writes_global_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            File.WriteAllText(Path.Combine(path, ".netconfig"), "");
+
+            var config = Config.Build(path);
+
+            config.AddBoolean("test", "var", true, ConfigLevel.System);
+
+            var global = Config.Build(ConfigLevel.System);
+
+            Assert.True(global.GetBoolean("test", "var"));
         }
     }
 }
