@@ -4,9 +4,8 @@
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <TieredCompilation>false</TieredCompilation>
-    <TieredCompilationQuickJit>false</TieredCompilationQuickJit>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp3.1</TargetFrameworks>
+    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
 
     <AssemblyName>config</AssemblyName>
     <RootNamespace>Microsoft.DotNet</RootNamespace>
