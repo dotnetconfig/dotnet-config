@@ -37,7 +37,7 @@ stages:
     - script: dotnet restore -p:Configuration=$(Configuration)
       displayName: Restore
 
-    - script: dotnet build --no-restore -p:Configuration=$(Configuration)
+    - script: dotnet build --no-restore -m:1 -p:Configuration=$(Configuration)
       displayName: Build
 
     - script: dotnet test --no-restore -p:Configuration=$(Configuration)
