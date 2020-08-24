@@ -15,20 +15,17 @@ stages:
     - checkout: self
       submodules: recursive
       clean: true
+    - task: UseDotNet@2
+      inputs:
+        packageType: sdk
+        useGlobalJson: true
+        performMultiLevelLookup: true
 
-    - task: MSBuild@1
+    - script: dotnet build -p:Configuration=$(Configuration)
       displayName: Build
-      inputs:
-        configuration: $(Configuration)
-        msbuildArguments: -r
 
-    - task: VSTest@2
+    - script: dotnet test
       displayName: Test
-      inputs:
-        testAssemblyVer2: src/**/bin/**/*Tests.dll
-        runInParallel: true
-        codeCoverageEnabled: true
-        publishRunAttachments: true
 
     - task: PublishBuildArtifacts@1
       displayName: Upload
