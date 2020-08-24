@@ -256,7 +256,19 @@ There is a CI feed in case you are working on a feature branch or a PR:
 > dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
 ```
 
-Current output from `dotnet config -?`:
+Reading and writing variables don't require any special options. The following lines first 
+write a variable value and then retrieve its value:
+
+```
+> dotnet config mytool.myvariable myvalue
+> dotnet config mytool.myvariable
+myvalue
+```
+
+The value is returned verbatim via the standard output, so you can assign it directly to a 
+variable, for example.
+
+All current options from running `dotnet config -?` are:
 
 ```
 Usage: dotnet config [options]
