@@ -101,7 +101,7 @@ namespace Microsoft.DotNet
             Lines.Insert(index, new VariableLine(name, value));
         }
 
-        public void Set(string section, string? subsection, string name, string? value = null, ValueMatcher? valueMatcher = null)
+        public ConfigDocument Set(string section, string? subsection, string name, string? value = null, ValueMatcher? valueMatcher = null)
         {
             ConfigParser.Section.Parse(ConfigTokenizer.Line.Tokenize(section));
             ConfigParser.Variable.Parse(ConfigTokenizer.Line.Tokenize(name));
@@ -119,7 +119,7 @@ namespace Microsoft.DotNet
             if (vl != VariableLine.Null && vl != null)
             {
                 vl.Value = value;
-                return;
+                return this;
             }
 
             int index;
@@ -156,6 +156,7 @@ namespace Microsoft.DotNet
 
             FindEnd();
             Lines.Insert(index + count, new VariableLine(name, value));
+            return this;
         }
 
         public void Unset(string section, string? subsection, string name)

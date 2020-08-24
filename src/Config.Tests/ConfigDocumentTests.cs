@@ -559,5 +559,49 @@ namespace Microsoft.DotNet
             var doc = ConfigDocument.FromFile(temp);
             doc.Set("file", "bar", "etag", "asdfafd");
         }
+
+        [Fact]
+        public void when_saving_variable_with_whitespaces_then_does_not_add_quotes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "a title: nice")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.DoesNotContain("\"", line);
+        }
+
+        [Fact]
+        public void when_saving_variable_with_backslack_then_adds_quotes_and_escapes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "back \\ slash")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.Contains("\"", line);
+            Assert.Contains("\\\\", line);
+        }
+
+        [Fact]
+        public void when_saving_variable_with_quote_then_adds_quotes_and_escapes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "with \" quote")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.Contains("\"", line);
+            Assert.Contains("\\\"", line);
+        }
     }
 }
