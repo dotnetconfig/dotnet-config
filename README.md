@@ -55,12 +55,11 @@ Example file:
 ```
 # .netconfig is awesome: https://dotnetconfig.org
 
-[vs "alias"]                    # dotnet-vs global tool aliases
+[vs "alias"]                              # dotnet-vs global tool aliases
 	comexp = run|community|exp
 	preexp = run|preview|exp
 
-# dotnet-file GH repo/file download/sync sections
-[file.github]
+[file.github]                             # dotnet-file GH repo/file download/sync sections
   # example of multi-valued variables
 	url = https://github.com/dotnet/runtime/tree/master/docs/design/features
 	url = https://github.com/dotnet/aspnetcore/tree/master/docs
@@ -144,16 +143,100 @@ specific types and there are rules as to how to spell them.
 [![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
 [![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
 
+```
+PM> Install-Package dotnet-config-lib
+```
+
 There is a CI feed in case you are working on a feature branch or a PR:
 
 ```
  <add key="kzu" value="https://pkg.kzu.io/index.json" />
 ```
 
-The [dotnet-config-lib](https://www.nuget.org/packages/dotnet-config-lib) package provides the main API 
-used to interact with config files from your dotnet core tool. 
+The main usage for .NET tool authors consuming the [dotnet-config-lib](https://www.nuget.org/packages/dotnet-config-lib) 
+API is to first build a configuration from a specific path (will assume current directory 
+if omitted):
 
-// TODO
+```csharp
+var config = Config.Build();
+```
+
+The resulting configuration will contain the hierarchical variables set in the 
+current directory (or the given path), all its ancestor directories, plus global 
+and system locations.
+
+When getting values, the supported primitives are exposed as first-class methods 
+for `Add`, `Get` and `Set`, so you get quite a few usability overloads for 
+each of `Boolean`, `DateTime`, `Number` and `String`, such as `AddBoolean`, 
+`GetDateTime`, `GetString` or `SetNumber`:
+
+```csharp
+// reads from:
+// [mytool]
+//   enabled = true
+
+bool? enabled = config.GetBoolean("mytool", "enabled");
+
+// reads from:
+// [mytool.editor]
+//   path = code.exe
+
+string? path = config.GetString("mytool.editor", "path");
+
+
+// reads from:
+// [mytool "src/file.txt"]
+//   createdOn = 2020-08-23T12:00:00Z
+
+DateTime? created = config.GetDateTime("mytool", "src/file.txt", "createdOn");
+// If value was not found, set it to the current datetime
+if (created == null)
+    // Would create the section if it did not previously exist, and add the variable
+    config.SetDateTime("mytool", "src/file.txt", "createdOn", DateTime.Now);
+```
+
+Alternatively you can use the `TryGetXXX` methods instead, to avoid checking for 
+null return values in cases where the variable (in the requested section and 
+optional subsection) is not found:
+
+```csharp
+if (!config.TryGetDateTime("mytool", "src/file.txt", "createdOn", out created))
+    config.SetDateTime("mytool", "src/file.txt", "createdOn", DateTime.Now);
+```
+
+
+Since `.netconfig` supports multi-valued variables, you can retrieve them all 
+`ConfigEntry` and inspect or manipulate them granularly:
+
+```csharp
+foreach (ConfigEntry entry in config.GetAll("proxy", "url"))
+{
+    // entry.Level allows inspecting the location where the entry was read from
+    if (entry.Level == ConfigLevel.System)
+        // entry came from Environment.SpecialFolder.System
+    else if (entry.Level == ConfigLevel.Global)
+        // entry came from Environment.SpecialFolder.UserProfile
+    else
+        // local entry from current dir .netconfig or an ancestor directory
+
+    Console.WriteLine(entry.GetString());
+    // entry.GetBoolean(), entry.GetDateTime(), entry.GetNumber()
+}
+```
+
+When writing values (via `AddXXX` or `SetXXX`) you can optionally specify the 
+configuration level to use for persisting the value, by passing a `ConfigLevel`:
+
+```csharp
+// writes on the global .netconfig in the user's profile
+//[vs "alias"]
+//	comexp = run|community|exp
+
+config.AddString("vs", "alias", "comexp", "run|community|exp", ConfigLevel.Global);
+```
+
+You can explore the entire API in the [docs site](https://dotnetconfig.org/api/).
+
 
 ## CLI
 
@@ -164,15 +247,13 @@ The command line tool allows you to inspect and modify configuration files used 
 Installation is the same as for any other dotnet tool: 
 
 ```
-dotnet tool update -g dotnet-config
+> dotnet tool install -g dotnet-config
 ```
-
-(update will also install if it's not installed already)
 
 There is a CI feed in case you are working on a feature branch or a PR:
 
 ```
-dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
+> dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
 ```
 
 Current output from `dotnet config -?`:
