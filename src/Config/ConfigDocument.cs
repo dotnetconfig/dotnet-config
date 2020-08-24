@@ -334,7 +334,7 @@ namespace Microsoft.DotNet
                     continue;
                 }
 
-                throw new ArgumentException($"{filePath}({line},{errorPosition.Column}): {error}");
+                throw new ArgumentException($"{filePath}({index},{errorPosition.Column}): {error}");
             }
         }
 

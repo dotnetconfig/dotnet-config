@@ -19,7 +19,7 @@ namespace Microsoft.DotNet
             select (object)new string(chars);
 
         static TextParser<object> PlainString { get; } =
-            from chars in Character.ExceptIn('"', '\\', ' ', '#', ';').Many()
+            from chars in Character.ExceptIn('"', '\\', ' ', '#', ';').Or(Character.WhiteSpace).Many()
             select (object)new string(chars);
 
         public static TextParser<object> String { get; } = QuotedString.Try().Or(PlainString);

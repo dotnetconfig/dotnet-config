@@ -53,13 +53,8 @@ namespace Microsoft.DotNet
 
         internal static TokenListParser<ConfigToken, object> Subsection { get; } =
             Token.EqualTo(ConfigToken.QuotedString).Apply(ConfigTextParsers.String).OptionalOrDefault(NullValue);
-            //Token.EqualTo(ConfigToken.Identifier)
-            //.Or(Token.EqualTo(ConfigToken.DottedIdentifier))
-            //.Or(Token.EqualTo(ConfigToken.String))
-            //.Apply(ConfigTextParsers.String).OptionalOrDefault(NullValue);
 
-        internal static TokenListParser<ConfigToken, object> Variable { get; } =
-            Token.EqualTo(ConfigToken.Identifier).Apply(ConfigTextParsers.String);
+        internal static TokenListParser<ConfigToken, object> Variable { get; } = Identifier;
 
         static readonly object NullValue = new object();
         static readonly string NullString = Guid.NewGuid().ToString();

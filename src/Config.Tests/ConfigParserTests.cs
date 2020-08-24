@@ -51,6 +51,8 @@ namespace Microsoft.DotNet.Tests
         [InlineData("  foo    =    bar", "foo", "bar")]
         [InlineData("\tfoo=bar", "foo", "bar")]
         [InlineData("foo= value has spaces  ", "foo", "value has spaces")]
+        [InlineData("foo= value: has colon", "foo", "value: has colon")]
+        [InlineData("foo= .txt=text/plain", "foo", ".txt=text/plain")]
         [InlineData("quoted=\"this is an \\\"example\\\" of a nested quote\"", "quoted", "this is an \"example\" of a nested quote")]
         [InlineData("  key = value  # this is a comment", "key", "value")]
         [InlineData("\tkey=value;this is a comment", "key", "value")]
