@@ -58,8 +58,8 @@ namespace Microsoft.DotNet
             Assert.Single(saved);
             Assert.Equal("foo", saved.Single().Section);
             Assert.Equal("bar", saved.Single().Subsection);
-            Assert.Equal("baz", saved.Single().Name);
-            Assert.Equal("true", saved.Single().Value);
+            Assert.Equal("baz", saved.Single().Variable);
+            Assert.Equal("true", saved.Single().RawValue);
         }
 
         [Fact]
@@ -82,8 +82,8 @@ namespace Microsoft.DotNet
             Assert.Single(saved);
             Assert.Equal("foo", saved.Single().Section);
             Assert.Equal("bar", saved.Single().Subsection);
-            Assert.Equal("baz", saved.Single().Name);
-            Assert.Equal("true", saved.Single().Value);
+            Assert.Equal("baz", saved.Single().Variable);
+            Assert.Equal("true", saved.Single().RawValue);
         }
 
         [Fact]
@@ -101,8 +101,8 @@ namespace Microsoft.DotNet
 
             Assert.Single(saved.Skip(1));
             Assert.Equal("foo", saved.Skip(1).Single().Section);
-            Assert.Equal("baz", saved.Skip(1).Single().Name);
-            Assert.Equal("false", saved.Skip(1).Single().Value);
+            Assert.Equal("baz", saved.Skip(1).Single().Variable);
+            Assert.Equal("false", saved.Skip(1).Single().RawValue);
         }
 
         [Fact]
@@ -150,7 +150,7 @@ namespace Microsoft.DotNet
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Equal("hi", saved.Where(x => x.Name == "baz").First().Value);
+            Assert.Equal("hi", saved.Where(x => x.Variable == "baz").First().RawValue);
         }
 
         [Fact]
@@ -169,7 +169,7 @@ namespace Microsoft.DotNet
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Equal(2, saved.Where(x => x.Value == "none").Count());
+            Assert.Equal(2, saved.Where(x => x.RawValue == "none").Count());
         }
 
         [Fact]
@@ -186,7 +186,7 @@ namespace Microsoft.DotNet
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Equal("bye", saved.Where(x => x.Name == "baz").First().Value);
+            Assert.Equal("bye", saved.Where(x => x.Variable == "baz").First().RawValue);
         }
 
         [Fact]
@@ -204,8 +204,8 @@ namespace Microsoft.DotNet
 
             Assert.Single(saved);
             Assert.Equal("foo", saved.Single().Section);
-            Assert.Equal("bar", saved.Single().Name);
-            Assert.Equal("false", saved.Single().Value);
+            Assert.Equal("bar", saved.Single().Variable);
+            Assert.Equal("false", saved.Single().RawValue);
         }
 
         [Fact]
@@ -223,8 +223,8 @@ namespace Microsoft.DotNet
 
             Assert.Single(saved);
             Assert.Equal("foo", saved.Single().Section);
-            Assert.Equal("bar", saved.Single().Name);
-            Assert.Equal("false", saved.Single().Value);
+            Assert.Equal("bar", saved.Single().Variable);
+            Assert.Equal("false", saved.Single().RawValue);
         }
 
         [Fact]

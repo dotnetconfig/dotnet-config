@@ -76,9 +76,9 @@ namespace Microsoft.DotNet
 
             // Don't read the global location if we're building the system location or it's been opted out explicitly
             if (SystemLocation != path && GlobalLocation != path && configs.GetBoolean("config", "global") != false)
-                configs.Files.Add(new FileConfig(GlobalLocation));
+                configs.Files.Add(new FileConfig(GlobalLocation, ConfigLevel.Global));
             if (SystemLocation != path && configs.GetBoolean("config", "system") != false)
-                configs.Files.Add(new FileConfig(SystemLocation));
+                configs.Files.Add(new FileConfig(SystemLocation, ConfigLevel.System));
 
             if (configs.Files.Count == 1)
                 return configs.Files[0];

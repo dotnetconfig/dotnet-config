@@ -29,9 +29,7 @@ namespace Microsoft.DotNet
             Level = level;
         }
 
-        public static ConfigDocument FromFile(string filePath) => new ConfigDocument(filePath);
-
-        public static ConfigDocument FromFile(string filePath, ConfigLevel level) => new ConfigDocument(filePath, level);
+        public static ConfigDocument FromFile(string filePath, ConfigLevel? level = null) => new ConfigDocument(filePath, level);
 
         public ConfigLevel? Level { get; }
 
@@ -52,7 +50,7 @@ namespace Microsoft.DotNet
             var nameMatches = Matches(nameRegex);
             var valueMatches = Matches(valueRegex);
 
-            return GetEntries().Where(x => nameMatches(x.Key) && valueMatches(x.Value));
+            return GetEntries().Where(x => nameMatches(x.Key) && valueMatches(x.RawValue));
         }
 
         public IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string name, ValueMatcher? valueMatcher = null)

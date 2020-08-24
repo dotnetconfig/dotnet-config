@@ -96,7 +96,7 @@ namespace Microsoft.DotNet
             if (nameOnly)
                 entryWriter = e => Console.WriteLine(e.Key);
             else
-                entryWriter = e => Console.WriteLine($"{e.Key}={(e.Value == null ? "" : e.Value.Contains(' ') ? "\"" + e.Value + "\"" : e.Value)}");
+                entryWriter = e => Console.WriteLine($"{e.Key}={(e.RawValue == null ? "" : e.RawValue.Contains(' ') ? "\"" + e.RawValue + "\"" : e.RawValue)}");
 
             if (type == "date")
                 type = "datetime";

@@ -26,10 +26,35 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
+        public void can_read_hierarchical_with_config_entry_level()
+        {
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
+
+            foreach (var entry in config.GetRegex("core"))
+            {
+                switch (entry.Variable)
+                {
+                    case "local":
+                    case "parent":
+                        Assert.Null(entry.Level);
+                        break;
+                    case "global":
+                        Assert.Equal(ConfigLevel.Global, entry.Level);
+                        break;
+                    case "system":
+                        Assert.Equal(ConfigLevel.System, entry.Level);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        [Fact]
         public void can_read_system()
         {
             var config = Config.Build(ConfigLevel.System);
-
+            
             Assert.Null(config.GetBoolean("core", "local"));
             Assert.Null(config.GetBoolean("core", "parent"));
             Assert.Null(config.GetBoolean("core", "global"));

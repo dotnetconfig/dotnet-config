@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 
 namespace Microsoft.DotNet
@@ -21,8 +23,8 @@ namespace Microsoft.DotNet
         {
             Section = section;
             Subsection = subsection;
-            Name = name;
-            Value = value;
+            Variable = name;
+            RawValue = value;
             Level = level;
         }
 
@@ -39,12 +41,12 @@ namespace Microsoft.DotNet
         /// <summary>
         /// Gets the variable name.
         /// </summary>
-        public string Name { get; }
+        public string Variable { get; }
 
         /// <summary>
-        /// Gets the variable value.
+        /// Gets the variable raw value.
         /// </summary>
-        public string? Value { get; }
+        public string? RawValue { get; }
 
         /// <summary>
         /// Gets the origin store. <see langword="null"/> if not either <see cref="ConfigLevel.Global"/> 
@@ -74,10 +76,55 @@ namespace Microsoft.DotNet
                         sb = sb.Append("\"").Append(Subsection.Replace("\\", "\\\\").Replace("\"", "\\\"")).Append("\"");
                 }
 
-                return sb.Append('.').Append(Name).ToString();
+                return sb.Append('.').Append(Variable).ToString();
             }
         }
 
-        string DebuggerDisplay => $"{Key}={Value}";
+        /// <summary>
+        /// Gets the typed <see cref="bool"/> value for the entry.
+        /// </summary>
+        /// <returns>The <see cref="bool"/> corresponding to the <see cref="RawValue"/>.</returns>
+        /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="bool"/>.</exception>
+        public bool GetBoolean()
+        {
+            // Empty or null variable value is true for a boolean
+            if (string.IsNullOrWhiteSpace(RawValue))
+                return true;
+
+            // Regular bool parsing
+            if (bool.TryParse(RawValue, out var value))
+                return value;
+
+            // Special cases for common variants of boolean users can use.
+            return RawValue switch
+            {
+                "yes" or "on" or "1" => true,
+                "no" or "off" or "0" => false,
+                _ => throw new FormatException($"Value '{RawValue}' cannot be converted to boolean."),
+            };
+        }
+
+        /// <summary>
+        /// Gets the typed <see cref="DateTime"/> value for the entry.
+        /// </summary>
+        /// <returns>The <see cref="DateTime"/> corresponding to the <see cref="RawValue"/>.</returns>
+        /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="DateTime"/>.</exception>
+        public DateTime GetDateTime() => DateTime.Parse(RawValue ?? throw new FormatException(Key), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind);
+
+        /// <summary>
+        /// Gets the typed <see cref="long"/> value for the entry.
+        /// </summary>
+        /// <returns>The <see cref="long"/> corresponding to the <see cref="RawValue"/>.</returns>
+        /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="long"/>.</exception>
+        public long GetNumber() => long.Parse(RawValue ?? throw new FormatException(Key), CultureInfo.InvariantCulture);
+
+        /// <summary>
+        /// Gets the <see cref="string"/> value for the entry.
+        /// </summary>
+        /// <returns>The <see cref="string"/> from the <see cref="RawValue"/>.</returns>
+        /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="string"/>, because it does not have a value.</exception>
+        public string GetString() => RawValue ?? throw new FormatException(Key);
+
+        string DebuggerDisplay => $"{Key}={RawValue}";
     }
 }

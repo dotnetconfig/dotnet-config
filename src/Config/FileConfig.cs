@@ -9,9 +9,9 @@ namespace Microsoft.DotNet
     {
         ConfigDocument doc;
 
-        public FileConfig(string filePath) : base(filePath) => doc = ConfigDocument.FromFile(filePath);
-
-        public ConfigLevel? Level => doc.Level;
+        public FileConfig(string filePath, ConfigLevel? level = null) 
+            : base(filePath) 
+            => doc = ConfigDocument.FromFile(filePath, level);
 
         public override void AddBoolean(string section, string? subsection, string variable, bool value)
         {
@@ -135,7 +135,7 @@ namespace Microsoft.DotNet
             var entry = doc.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
-                variable.Equals(x.Name));
+                variable.Equals(x.Variable));
 
             if (entry == null)
             {
@@ -143,34 +143,8 @@ namespace Microsoft.DotNet
                 return false;
             }
 
-            // Empty or null variable value is true for a boolean
-            if (string.IsNullOrWhiteSpace(entry.Value))
-            {
-                value = true;
-                return true;
-            }
-
-            // Regular bool parsing
-            if (bool.TryParse(entry.Value, out value))
-                return true;
-
-            // Special cases for common variants of boolean users can use.
-            switch (entry.Value)
-            {
-                case "yes":
-                case "on":
-                case "1":
-                    value = true;
-                    return true;
-                case "no":
-                case "off":
-                case "0":
-                    value = false;
-                    return true;
-                default:
-                    value = false;
-                    return false;
-            }
+            value = entry.GetBoolean();
+            return true;
         }
 
         public override bool TryGetDateTime(string section, string? subsection, string variable, out DateTime value)
@@ -178,7 +152,7 @@ namespace Microsoft.DotNet
             var entry = doc.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
-                variable.Equals(x.Name));
+                variable.Equals(x.Variable));
 
             if (entry == null)
             {
@@ -186,7 +160,7 @@ namespace Microsoft.DotNet
                 return false;
             }
 
-            value = DateTime.Parse(entry.Value ?? throw new ArgumentNullException(entry.Key), CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind);
+            value = entry.GetDateTime();
             return true;
         }
 
@@ -195,7 +169,7 @@ namespace Microsoft.DotNet
             var entry = doc.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
-                variable.Equals(x.Name));
+                variable.Equals(x.Variable));
 
             if (entry == null)
             {
@@ -203,7 +177,7 @@ namespace Microsoft.DotNet
                 return false;
             }
 
-            value = int.Parse(entry.Value ?? throw new ArgumentNullException(entry.Key), CultureInfo.InvariantCulture);
+            value = entry.GetNumber();
             return true;
         }
 
@@ -212,7 +186,7 @@ namespace Microsoft.DotNet
             var entry = doc.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
-                variable.Equals(x.Name));
+                variable.Equals(x.Variable));
 
             if (entry == null)
             {
@@ -220,7 +194,7 @@ namespace Microsoft.DotNet
                 return false;
             }
 
-            value = entry.Value ?? throw new ArgumentNullException(entry.Key);
+            value = entry.RawValue ?? throw new ArgumentNullException(entry.Key);
             return true;
         }
 
