@@ -18,18 +18,6 @@ stages:
 
     - task: UseDotNet@2
       inputs:
-        version: 2.1.x
-        packageType: sdk
-        performMultiLevelLookup: true
-
-    - task: UseDotNet@2
-      inputs:
-        version: 3.1.x
-        packageType: sdk
-        performMultiLevelLookup: true
-
-    - task: UseDotNet@2
-      inputs:
         packageType: sdk
         useGlobalJson: true
         performMultiLevelLookup: true
