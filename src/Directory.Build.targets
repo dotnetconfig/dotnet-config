@@ -36,21 +36,26 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <VersionMetadata Include="$(GitBranch)" />
-      <VersionMetadata Condition="'$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)' != ''"
-                       Include="pr.$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)"/>
-      <VersionMetadata Include="sha.$(GitCommit)" Condition="'$(GitCommit)' != ''"/>
-      <VersionMetadata Condition="'$(BUILD_BUILDID)' != ''"
-                       Include="azdo.$(BUILD_BUILDID)"/>
+      <BuildMetadata Include="$(GitBranch)" />
+      <BuildMetadata Condition="'$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)' != ''"
+                     Include="pr.$(SYSTEM_PULLREQUEST_PULLREQUESTNUMBER)"/>
+      <BuildMetadata Include="sha.$(GitCommit)" Condition="'$(GitCommit)' != ''"/>
+      <BuildMetadata Condition="'$(BUILD_BUILDID)' != ''"
+                     Include="azdo.$(BUILD_BUILDID)"/>
     </ItemGroup>
 
     <PropertyGroup>
-      <VersionMetadataLabel>@(VersionMetadata -> '%(Identity)', '-')</VersionMetadataLabel>
-      <VersionMetadataPlusLabel Condition="'$(VersionMetadataLabel)' != ''">+$(VersionMetadataLabel)</VersionMetadataPlusLabel>
+      <BuildMetadataLabel>@(VersionMetadata -> '%(Identity)', '-')</BuildMetadataLabel>
+      <BuildMetadataPlusLabel Condition="'$(BuildMetadataLabel)' != ''">+$(BuildMetadataLabel)</BuildMetadataPlusLabel>
+
       <GitSemVerDashLabel Condition="'$(GitSemVerDashLabel)' != '' and '$(GitCommits)' != '0'">$(GitSemVerDashLabel).$(GitCommits)</GitSemVerDashLabel>
 
-      <BuildVersion>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)$(VersionMetadataPlusLabel)</BuildVersion>
-      <PackageVersion>$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)$(GitSemVerDashLabel)</PackageVersion>
+      <!-- Regular semver for stable package builds -->
+      <PackageVersion Condition="'$(GitSemVerDashLabel)' == ''">$(GitSemVerMajor).$(GitSemVerMinor).$(GitSemVerPatch)</PackageVersion>
+      <!-- Fixed prerelease version for non-stable builds -->
+      <PackageVersion Condition="'$(GitSemVerDashLabel)' != ''">$(GitBaseVersionMajor).$(GitBaseVersionMinor).$(GitBaseVersionPatch)$(GitSemVerDashLabel)</PackageVersion>
+
+      <BuildVersion>$(PackageVersion)$(BuildMetadataPlusLabel)</BuildVersion>
       <PackageVersion Condition="$(IncludeBuildMetadata)">$(BuildVersion)</PackageVersion>
       <Version>$(BuildVersion)</Version>
     </PropertyGroup>
