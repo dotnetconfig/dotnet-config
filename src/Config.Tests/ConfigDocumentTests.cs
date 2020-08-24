@@ -603,5 +603,36 @@ namespace Microsoft.DotNet
             Assert.Contains("\"", line);
             Assert.Contains("\\\"", line);
         }
+
+        [Fact]
+        public void when_saving_variable_with_semicolon_then_adds_quotes_and_escapes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "with;semicolon")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.Contains("\"", line);
+            Assert.Contains("\\\"", line);
+        }
+
+        [Fact]
+        public void when_saving_variable_with_hash_then_adds_quotes_and_escapes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "with#hash")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.Contains("\"", line);
+            Assert.Contains("\\\"", line);
+        }
+
     }
 }
