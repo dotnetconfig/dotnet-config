@@ -32,7 +32,7 @@
       <IncludeBuildMetadata>$(PR)</IncludeBuildMetadata>
       <!-- Build metadata always present for non-master branches, unless the existing label matches the branch.
            For a versioned branch, it doesn't make sense either. -->
-      <IncludeBuildMetadata Condition="'$(GitBranch)' != 'master' and '$(GitSemVerSource)' != 'Branch' and '$(GitSemVerDashLabel)' != '-$(GitBranch)'"></IncludeBuildMetadata>
+      <IncludeBuildMetadata Condition="'$(GitBranch)' != 'master' and '$(GitSemVerSource)' != 'Branch' and '$(GitSemVerDashLabel)' != '-$(GitBranch)'">true</IncludeBuildMetadata>
     </PropertyGroup>
 
     <ItemGroup>
@@ -56,7 +56,7 @@
       <PackageVersion Condition="'$(GitSemVerDashLabel)' != ''">$(GitBaseVersionMajor).$(GitBaseVersionMinor).$(GitBaseVersionPatch)$(GitSemVerDashLabel)</PackageVersion>
 
       <BuildVersion>$(PackageVersion)$(BuildMetadataPlusLabel)</BuildVersion>
-      <PackageVersion Condition="$(IncludeBuildMetadata)">$(BuildVersion)</PackageVersion>
+      <PackageVersion Condition="'$(IncludeBuildMetadata)' == 'true'">$(BuildVersion)</PackageVersion>
       <Version>$(BuildVersion)</Version>
     </PropertyGroup>
 
