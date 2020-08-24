@@ -1,4 +1,6 @@
-﻿namespace Microsoft.DotNet
+﻿using System;
+
+namespace Microsoft.DotNet
 {
     /// <summary>
     /// Specifies the level of configuration to use.
@@ -6,13 +8,17 @@
     public enum ConfigLevel
     {
         /// <summary>
-        /// The global ~/.netconfig for the current user.
+        /// The global ~/.netconfig for the current user, from the 
+        /// <see cref="Environment.SpecialFolder.UserProfile"/> location.
         /// </summary>
+        /// <seealso cref="Config.GlobalLocation"/>
         Global,
-        
+
         /// <summary>
-        /// The system wide .netconfig.
+        /// The system wide .netconfig, from the 
+        /// <see cref="Environment.SpecialFolder.System"/> location.
         /// </summary>
+        /// <seealso cref="Config.SystemLocation"/>
         System,
     }
 }
