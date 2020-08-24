@@ -15,15 +15,6 @@ namespace Microsoft.DotNet.Tests
         }
 
         [Fact]
-        public void can_deserialize_datetime()
-        {
-            var serializer = new ValueSerializer();
-
-            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), serializer.Deserialize<DateTime>("2008 -09-22T14:01:54.9571247Z"));
-            Assert.Equal(DateTime.Parse("2008-09-22T14:01:54.9571247Z", CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind), serializer.Deserialize<DateTime?>("2008 -09-22T14:01:54.9571247Z"));
-        }
-
-        [Fact]
         public void can_read_hierarchical()
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
