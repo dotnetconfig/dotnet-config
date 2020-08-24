@@ -259,14 +259,14 @@ or <a class="xref" href="Microsoft.DotNet.ConfigLevel.html#Microsoft_DotNet_Conf
   </table>
   
   
-  <a id="Microsoft_DotNet_ConfigEntry_Name_" data-uid="Microsoft.DotNet.ConfigEntry.Name*"></a>
-  <h4 id="Microsoft_DotNet_ConfigEntry_Name" data-uid="Microsoft.DotNet.ConfigEntry.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets the variable name.</p>
+  <a id="Microsoft_DotNet_ConfigEntry_RawValue_" data-uid="Microsoft.DotNet.ConfigEntry.RawValue*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_RawValue" data-uid="Microsoft.DotNet.ConfigEntry.RawValue">RawValue</h4>
+  <div class="markdown level1 summary"><p>Gets the variable raw value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Name { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string RawValue { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -337,14 +337,14 @@ or <a class="xref" href="Microsoft.DotNet.ConfigLevel.html#Microsoft_DotNet_Conf
   </table>
   
   
-  <a id="Microsoft_DotNet_ConfigEntry_Value_" data-uid="Microsoft.DotNet.ConfigEntry.Value*"></a>
-  <h4 id="Microsoft_DotNet_ConfigEntry_Value" data-uid="Microsoft.DotNet.ConfigEntry.Value">Value</h4>
-  <div class="markdown level1 summary"><p>Gets the variable value.</p>
+  <a id="Microsoft_DotNet_ConfigEntry_Variable_" data-uid="Microsoft.DotNet.ConfigEntry.Variable*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_Variable" data-uid="Microsoft.DotNet.ConfigEntry.Variable">Variable</h4>
+  <div class="markdown level1 summary"><p>Gets the variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Value { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Variable { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -358,6 +358,180 @@ or <a class="xref" href="Microsoft.DotNet.ConfigLevel.html#Microsoft_DotNet_Conf
       <tr>
         <td><span class="xref">System.String</span></td>
         <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Microsoft_DotNet_ConfigEntry_GetBoolean_" data-uid="Microsoft.DotNet.ConfigEntry.GetBoolean*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_GetBoolean" data-uid="Microsoft.DotNet.ConfigEntry.GetBoolean">GetBoolean()</h4>
+  <div class="markdown level1 summary"><p>Gets the typed <span class="xref">System.Boolean</span> value for the entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool GetBoolean()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>The <span class="xref">System.Boolean</span> corresponding to the <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.FormatException</span></td>
+        <td><p>The <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a> cannot be converted to <span class="xref">System.Boolean</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Microsoft_DotNet_ConfigEntry_GetDateTime_" data-uid="Microsoft.DotNet.ConfigEntry.GetDateTime*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_GetDateTime" data-uid="Microsoft.DotNet.ConfigEntry.GetDateTime">GetDateTime()</h4>
+  <div class="markdown level1 summary"><p>Gets the typed <span class="xref">System.DateTime</span> value for the entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTime GetDateTime()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><p>The <span class="xref">System.DateTime</span> corresponding to the <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.FormatException</span></td>
+        <td><p>The <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a> cannot be converted to <span class="xref">System.DateTime</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Microsoft_DotNet_ConfigEntry_GetNumber_" data-uid="Microsoft.DotNet.ConfigEntry.GetNumber*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_GetNumber" data-uid="Microsoft.DotNet.ConfigEntry.GetNumber">GetNumber()</h4>
+  <div class="markdown level1 summary"><p>Gets the typed <span class="xref">System.Int64</span> value for the entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long GetNumber()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><p>The <span class="xref">System.Int64</span> corresponding to the <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.FormatException</span></td>
+        <td><p>The <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a> cannot be converted to <span class="xref">System.Int64</span>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Microsoft_DotNet_ConfigEntry_GetString_" data-uid="Microsoft.DotNet.ConfigEntry.GetString*"></a>
+  <h4 id="Microsoft_DotNet_ConfigEntry_GetString" data-uid="Microsoft.DotNet.ConfigEntry.GetString">GetString()</h4>
+  <div class="markdown level1 summary"><p>Gets the <span class="xref">System.String</span> value for the entry.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The <span class="xref">System.String</span> from the <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.FormatException</span></td>
+        <td><p>The <a class="xref" href="Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue">RawValue</a> cannot be converted to <span class="xref">System.String</span>, because it does not have a value.</p>
+</td>
       </tr>
     </tbody>
   </table>

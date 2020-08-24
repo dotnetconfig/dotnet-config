@@ -241,6 +241,34 @@ changes to disk.</p>
   </table>
   
   
+  <a id="Microsoft_DotNet_Config_Level_" data-uid="Microsoft.DotNet.Config.Level*"></a>
+  <h4 id="Microsoft_DotNet_Config_Level" data-uid="Microsoft.DotNet.Config.Level">Level</h4>
+  <div class="markdown level1 summary"><p>Gets the optional configuration level for this config. 
+<span class="xref">null</span> unless the <a class="xref" href="Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_FilePath">FilePath</a> equals 
+<a class="xref" href="Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GlobalLocation">GlobalLocation</a> or <a class="xref" href="Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SystemLocation">SystemLocation</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConfigLevel? Level { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="Microsoft.DotNet.ConfigLevel.html">ConfigLevel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="Microsoft_DotNet_Config_SystemLocation_" data-uid="Microsoft.DotNet.Config.SystemLocation*"></a>
   <h4 id="Microsoft_DotNet_Config_SystemLocation" data-uid="Microsoft.DotNet.Config.SystemLocation">SystemLocation</h4>
   <div class="markdown level1 summary"><p>Default system location, equal to <span class="xref">System.Environment.SpecialFolder.System</span> plus 
@@ -503,12 +531,13 @@ changes to disk.</p>
   
   <a id="Microsoft_DotNet_Config_Build_" data-uid="Microsoft.DotNet.Config.Build*"></a>
   <h4 id="Microsoft_DotNet_Config_Build_System_String_" data-uid="Microsoft.DotNet.Config.Build(System.String)">Build(String)</h4>
-  <div class="markdown level1 summary"><p>Builds configuration from the given path, which can be a directory or a file path.</p>
+  <div class="markdown level1 summary"><p>Builds configuration from the given path, which can be a directory or a file path. 
+If ommited, the <see cref="!:Directory.GetCurrentDirectory"></see> will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Config Build(string path)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Config Build(string path = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
