@@ -55,24 +55,23 @@ Example file:
 ```
 # .netconfig is awesome: https://dotnetconfig.org
 
-[vs "alias"]                              # dotnet-vs global tool aliases
+[vs "alias"]
 	comexp = run|community|exp
 	preexp = run|preview|exp
 
-[file.github]                             # dotnet-file GH repo/file download/sync sections
-  # example of multi-valued variables
+[file.github]
+	# example of multi-valued variables
 	url = https://github.com/dotnet/runtime/tree/master/docs/design/features
 	url = https://github.com/dotnet/aspnetcore/tree/master/docs
 
-; semi-colon too for comments
 ; subsections allow grouping variables
 [file "docs/design/features/code-versioning.md"]
 	url = https://github.com/dotnet/runtime/blob/master/docs/design/features/code-versioning.md
-	etag = 74055672d93c79d517c6e5cbad968204100e805a9f87ffa777b617f68f0e4951
+	etag = 7405567...
 
 [file "docs/APIReviewProcess.md"]
 	url = https://github.com/dotnet/aspnetcore/blob/master/docs/APIReviewProcess.md
-	etag = 1e4acd7e1ac446f0c6d397e1ed517c54507700b85826f64745559dfb50f2acbd
+	etag = 1e4acd7...
 ```
 
 The syntax follows closely the [git-config syntax](https://git-scm.com/docs/git-config#_syntax). 
