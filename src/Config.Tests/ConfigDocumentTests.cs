@@ -605,7 +605,7 @@ namespace Microsoft.DotNet
         }
 
         [Fact]
-        public void when_saving_variable_with_semicolon_then_adds_quotes_and_escapes()
+        public void when_saving_variable_with_semicolon_then_adds_quotes()
         {
             var temp = Path.GetTempFileName();
             ConfigDocument
@@ -616,11 +616,10 @@ namespace Microsoft.DotNet
             var line = File.ReadAllLines(temp).Skip(1).First();
 
             Assert.Contains("\"", line);
-            Assert.Contains("\\\"", line);
         }
 
         [Fact]
-        public void when_saving_variable_with_hash_then_adds_quotes_and_escapes()
+        public void when_saving_variable_with_hash_then_adds_quotes()
         {
             var temp = Path.GetTempFileName();
             ConfigDocument
@@ -631,8 +630,6 @@ namespace Microsoft.DotNet
             var line = File.ReadAllLines(temp).Skip(1).First();
 
             Assert.Contains("\"", line);
-            Assert.Contains("\\\"", line);
         }
-
     }
 }
