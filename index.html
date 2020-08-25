@@ -157,8 +157,10 @@ allow only alphanumeric characters and <code>-</code>, and must start with an al
 <p>Leading whitespaces after <code>name =</code>, the remainder of the line after the first comment character <code>#</code> 
 or <code>;</code>, and trailing whitespaces of the line are discarded unless they are enclosed in double quotes. 
 Internal whitespaces within the value are retained verbatim.</p>
-<p>Inside double quotes, double quote <code>&quot;</code> and backslash <code>\</code> characters must be escaped just like in a 
-subsection, with <code>\&quot;</code> and <code>\\</code>, respectively. </p>
+<p>Backslash <code>\</code> characters must always be escaped with <code>\\</code>. Inside double quotes, double quote <code>&quot;</code> 
+must be escaped with <code>\&quot;</code>. </p>
+<blockquote><p>NOTE: when using the CLI or API, these escaping rules are applied automatically</p>
+</blockquote>
 <h3 id="values">Values</h3>
 <p>Values of many variables are treated as a simple string, but there are variables that take values of 
 specific types and there are rules as to how to spell them.</p>
@@ -183,9 +185,6 @@ specific types and there are rules as to how to spell them.</p>
   respectively. The suffix is case insensitive, and can also include the <code>b</code>, as in <code>kb</code> or <code>MB</code>.</p>
 </li>
 </ul>
-<blockquote><p>Note: if this section looks familiar, it&#39;s because it follows quite closely the 
-<a href="https://git-scm.com/docs/git-config">git config</a> documentation itself 😉</p>
-</blockquote>
 <h2 id="api">API</h2>
 <p><a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue" alt="Version"></a>
 <a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta" alt="Downloads"></a></p>
