@@ -575,7 +575,7 @@ namespace Microsoft.DotNet
         }
 
         [Fact]
-        public void when_saving_variable_with_backslack_then_adds_quotes_and_escapes()
+        public void when_saving_variable_with_backslack_then_escapes()
         {
             var temp = Path.GetTempFileName();
             ConfigDocument
@@ -585,7 +585,6 @@ namespace Microsoft.DotNet
 
             var line = File.ReadAllLines(temp).Skip(1).First();
 
-            Assert.Contains("\"", line);
             Assert.Contains("\\\\", line);
         }
 

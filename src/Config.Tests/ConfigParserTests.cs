@@ -54,6 +54,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("foo= value: has colon", "foo", "value: has colon")]
         [InlineData("foo=\"+A;-B\"", "foo", "+A;-B")]
         [InlineData("foo=\"A#B\"", "foo", "A#B")]
+        [InlineData("glob = targets\\\\*\\\\*.xml", "glob", "targets\\*\\*.xml")]
         [InlineData("file=a.xml", "file", "a.xml")]
         [InlineData("foo= .txt=text/plain", "foo", ".txt=text/plain")]
         [InlineData("quoted=\"this is an \\\"example\\\" of a nested quote\"", "quoted", "this is an \"example\" of a nested quote")]
@@ -158,6 +159,7 @@ namespace Microsoft.DotNet.Tests
         [InlineData("file.url", "file", null, "url")]
         [InlineData("file.\"app.config\".url", "file", "app.config", "url")]
         [InlineData("file.\"with spaces\".url", "file", "with spaces", "url")]
+        [InlineData("file.\"src\\\\app.config\".url", "file", "src\\app.config", "url")]
         public void can_parse_key(string key, string section, string subsection, string variable)
         {
             Assert.True(ConfigParser.TryParseKey(key, out var s, out var ss, out var v, out _));

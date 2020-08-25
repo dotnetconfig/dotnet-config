@@ -11,11 +11,16 @@ namespace Microsoft.DotNet
         internal static readonly TextParser<Unit> IdentifierToken =
             Span.MatchedBy(Character.Letter.IgnoreThen(Character.LetterOrDigit.Or(Character.EqualTo('-')).IgnoreMany())).Value(Unit.Value);
 
-        internal static readonly TextParser<Unit> StringToken = Character.ExceptIn('"', '\\', '\r', '\n', '#', ';').AtLeastOnce().Value(Unit.Value);
+        internal static TextParser<Unit> StringToken { get; } =
+            from content in Span
+                .EqualTo("\\\\").Value(Unit.Value)
+                .Or(Character.ExceptIn('"', '\\', '\r', '\n', '#', ';').AtLeastOnce().Value(Unit.Value))
+            select Unit.Value;
 
         internal static TextParser<Unit> QuotedStringToken { get; } =
             from open in Character.EqualTo('"')
-            from content in Span.EqualTo("\\\"").Value(Unit.Value).Try()
+            from content in Span
+                .EqualTo("\\\"").Value(Unit.Value).Try()
                 .Or(Span.EqualTo("\\\\").Value(Unit.Value).Try())
                 .Or(Character.ExceptIn('"', '\\', '\r', '\n').Value(Unit.Value))
                 .IgnoreMany()
@@ -54,6 +59,7 @@ namespace Microsoft.DotNet
                  .Match(IdentifierToken, ConfigToken.Identifier, requireDelimiters: true)
                  .Match(IdentifierToken.AtLeastOnceDelimitedBy(Character.EqualTo('.')), ConfigToken.DottedIdentifier, requireDelimiters: true)
                  .Match(StringToken, ConfigToken.String, requireDelimiters: true)
+                 .Match(StringToken.AtLeastOnce(), ConfigToken.String, requireDelimiters: true)
                  .Match(QuotedStringToken, ConfigToken.QuotedString, requireDelimiters: true)
                  .Match(Character.EqualTo('"'), ConfigToken.Quote)
                  .Match(Character.EqualTo('\\'), ConfigToken.Backslash)

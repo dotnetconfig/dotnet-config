@@ -10,8 +10,8 @@ namespace Microsoft.DotNet
 
         static TextParser<object> QuotedString { get; } =
             from open in Character.EqualTo('"')
-            from chars in Span
-                .EqualTo("\\\"").Value('"').Try()
+            from chars in 
+                Span.EqualTo("\\\"").Value('"').Try()
                 .Or(Span.EqualTo("\\\\").Value('\\').Try())
                 .Or(Character.ExceptIn('"', '\\'))
                 .Many()
@@ -19,7 +19,11 @@ namespace Microsoft.DotNet
             select (object)new string(chars);
 
         static TextParser<object> PlainString { get; } =
-            from chars in Character.ExceptIn('"', '\\', ' ', '#', ';').Or(Character.WhiteSpace).Many()
+            from chars in
+                // Unescape \\, which is valid in a plain string
+                Character.EqualTo('\\').Repeat(2).Select(_ => '\\')
+                .Or(Character.ExceptIn('"', '\\', '#', ';'))
+                .Many()
             select (object)new string(chars);
 
         public static TextParser<object> String { get; } = QuotedString.Try().Or(PlainString);

@@ -18,12 +18,12 @@ namespace Microsoft.DotNet
             .EqualTo(ConfigToken.Identifier)
             .Apply(ConfigTextParsers.String);
 
-        static TokenListParser<ConfigToken, object> DottedIdentifier { get; } = Token
-            .EqualTo(ConfigToken.DottedIdentifier)
-            .Apply(ConfigTextParsers.String);
-
         static TokenListParser<ConfigToken, object> String { get; } = Token
-            .EqualTo(ConfigToken.String).Or(Token.EqualTo(ConfigToken.QuotedString))
+            .EqualTo(ConfigToken.String)
+            .Or(Token.EqualTo(ConfigToken.Identifier))
+            .Or(Token.EqualTo(ConfigToken.DottedIdentifier))
+            .Or(Token.EqualTo(ConfigToken.QuotedString))
+            .Or(Token.EqualTo(ConfigToken.Backslash))
             .Apply(ConfigTextParsers.String);
 
         static TokenListParser<ConfigToken, object> Number { get; } = Token
@@ -79,9 +79,10 @@ namespace Microsoft.DotNet
         static TokenListParser<ConfigToken, Line> FullVariableLine { get; } =
             from name in Variable
             from equal in Token.EqualTo(ConfigToken.Equal)
-            from value in True.Or(False).Or(Number).Or(String).Or(DottedIdentifier)
+            from value in True.Or(False).Or(Number)
                 // The tokenizer may match a value with spaces as multiple identifiers
                 .Or(Identifier.AtLeastOnce().Select(v => (object)string.Join(" ", v)))
+                .Or(String)
             from comment in Comment.OptionalOrDefault(NullString).Try()
             select (Line)new VariableLine((string)name, value == null ? null : value.ToString(), ReferenceEquals(NullString, comment) ? null : comment);
 

@@ -106,8 +106,10 @@ Leading whitespaces after `name =`, the remainder of the line after the first co
 or `;`, and trailing whitespaces of the line are discarded unless they are enclosed in double quotes. 
 Internal whitespaces within the value are retained verbatim.
 
-Inside double quotes, double quote `"` and backslash `\` characters must be escaped just like in a 
-subsection, with `\"` and `\\`, respectively. 
+Backslash `\` characters must always be escaped with `\\`. Inside double quotes, double quote `"` 
+must be escaped with `\"`. 
+
+> NOTE: when using the CLI or API, these escaping rules are applied automatically
 
 ### Values
 
@@ -135,8 +137,6 @@ specific types and there are rules as to how to spell them.
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`.
 
 
-> Note: if this section looks familiar, it's because it follows quite closely the 
-> [git config](https://git-scm.com/docs/git-config) documentation itself 😉
 
 ## API
 

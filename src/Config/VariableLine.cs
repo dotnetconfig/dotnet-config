@@ -61,10 +61,15 @@ namespace Microsoft.DotNet
 
         string Serialize(string value)
         {
-            if (value.IndexOfAny(new[] { '#', ';', '\\', '"' }) == -1)
+            // Escaping backslashes is applied first since it does not 
+            // require adding quotes to the string.
+            if (value.IndexOf('\\') != -1)
+                value = value.Replace("\\", "\\\\");
+
+            if (value.IndexOfAny(new[] { '#', ';', '"' }) == -1)
                 return value;
 
-            return "\"" + value.Trim('"').Replace("\\", "\\\\").Replace("\"", "\\\"") + "\"";
+            return "\"" + value.Trim('"').Replace("\"", "\\\"") + "\"";
         }
     }
 }
