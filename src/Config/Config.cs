@@ -46,7 +46,12 @@ namespace Microsoft.DotNet
             if (string.IsNullOrEmpty(path))
                 path = Path.Combine(Directory.GetCurrentDirectory(), FileName);
 
-            if (Directory.Exists(path) || !Path.HasExtension(path))
+            if (File.Exists(path))
+            {
+                configs = new AggregateConfig(new FileConfig(path!));
+                dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
+            }
+            else if (Directory.Exists(path) || !Path.HasExtension(path))
             {
                 // First entry is always a file in the given path, even if it's missing.
                 // This allows writing to the specified directory.
@@ -56,7 +61,7 @@ namespace Microsoft.DotNet
             else
             {
                 // If the path does not point to an existing directory
-                // we consider it a file path.
+                // we consider it a file path as a fallback.
                 configs = new AggregateConfig(new FileConfig(path!));
                 dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
             }
