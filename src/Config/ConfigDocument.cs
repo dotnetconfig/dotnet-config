@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Superpower;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     internal class ConfigDocument : IEnumerable<ConfigEntry>
     {

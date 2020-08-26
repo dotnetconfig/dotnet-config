@@ -3,7 +3,7 @@ using System.Globalization;
 using System.IO;
 using Xunit;
 
-namespace Microsoft.DotNet.Tests
+namespace DotNetConfig.Tests
 {
     public class ConfigTests
     {

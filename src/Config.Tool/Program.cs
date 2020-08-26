@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using Mono.Options;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     class Program
     {

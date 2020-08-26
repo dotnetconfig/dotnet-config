@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     /// <summary>
     /// Specifies the level of configuration to use.

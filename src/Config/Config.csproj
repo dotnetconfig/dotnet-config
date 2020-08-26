@@ -4,8 +4,8 @@
     <Description>APIs for handling dotnet-config compatible settings for any dotnet tool.</Description>
 
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Microsoft.DotNet.Config</AssemblyName>
-    <RootNamespace>Microsoft.DotNet</RootNamespace>
+    <AssemblyName>DotNetConfig</AssemblyName>
+    <RootNamespace>DotNetConfig</RootNamespace>
     <PackageId>dotnet-config-lib</PackageId>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>  

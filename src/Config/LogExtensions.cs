@@ -2,7 +2,7 @@
 using Superpower;
 using Superpower.Model;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     internal static class LogExtensions
     {
