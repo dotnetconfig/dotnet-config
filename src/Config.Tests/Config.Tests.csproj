@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyName>Microsoft.DotNet.Config.Tests</AssemblyName>
-    <RootNamespace>Microsoft.DotNet</RootNamespace>
+    <AssemblyName>DotNetConfig.Tests</AssemblyName>
+    <RootNamespace>DotNetConfig</RootNamespace>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 

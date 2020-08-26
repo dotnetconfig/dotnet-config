@@ -4,7 +4,7 @@ using System.Linq;
 using Superpower;
 using Xunit;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     public class ConfigDocumentTests
     {

@@ -1,7 +1,7 @@
 ﻿using Superpower.Display;
 using Superpower.Parsers;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     enum ConfigToken
     {

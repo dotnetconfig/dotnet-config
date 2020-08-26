@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     /// <summary>
     /// Represents a configuration option.

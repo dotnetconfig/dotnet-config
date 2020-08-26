@@ -1,4 +1,4 @@
-﻿namespace Microsoft.DotNet
+﻿namespace DotNetConfig
 {
     class CommentLine : Line
     {

@@ -1,4 +1,4 @@
-﻿namespace Microsoft.DotNet
+﻿namespace DotNetConfig
 {
     enum ValueKind
     {

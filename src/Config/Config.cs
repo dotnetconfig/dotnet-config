@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     /// <summary>
     /// Provides access to .netconfig configuration options.

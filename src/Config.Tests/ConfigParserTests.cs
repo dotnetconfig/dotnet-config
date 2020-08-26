@@ -4,7 +4,7 @@ using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Microsoft.DotNet.Tests
+namespace DotNetConfig.Tests
 {
     public class ConfigParserTests
     {

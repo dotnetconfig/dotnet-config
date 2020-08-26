@@ -7,7 +7,7 @@ using Superpower.Model;
 using Superpower.Parsers;
 using Superpower.Tokenizers;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     /// <summary>
     /// Parses configuration lines with good error reporting.

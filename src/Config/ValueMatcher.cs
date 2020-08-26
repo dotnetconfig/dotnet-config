@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     /// <summary>
     /// Allows matching values by using a regular expression.

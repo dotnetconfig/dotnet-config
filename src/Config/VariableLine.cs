@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     internal class VariableLine : Line
     {

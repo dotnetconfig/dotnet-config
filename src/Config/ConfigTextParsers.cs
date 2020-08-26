@@ -2,7 +2,7 @@
 using Superpower;
 using Superpower.Parsers;
 
-namespace Microsoft.DotNet
+namespace DotNetConfig
 {
     static class ConfigTextParsers
     {

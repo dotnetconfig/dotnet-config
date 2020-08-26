@@ -2,7 +2,7 @@
   "profiles": {
     "Config.Tool": {
       "commandName": "Project",
-      "commandLineArgs": "file.app.config.url https://github.com/kzu/pipeline.yml"
+      "commandLineArgs": "--path=C:\\Code\\oss\\ReportGenerator\\.git\\config \"reportgenerator.\\\"sub section / spaces\\\""
     }
   }
 }
