@@ -1,1334 +1,1334 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
-- uid: Microsoft.DotNet
-  name: Microsoft.DotNet
-  href: api/Microsoft.DotNet.html
-  commentId: N:Microsoft.DotNet
-  fullName: Microsoft.DotNet
-  nameWithType: Microsoft.DotNet
-- uid: Microsoft.DotNet.Config
+- uid: DotNetConfig
+  name: DotNetConfig
+  href: api/DotNetConfig.html
+  commentId: N:DotNetConfig
+  fullName: DotNetConfig
+  nameWithType: DotNetConfig
+- uid: DotNetConfig.Config
   name: Config
-  href: api/Microsoft.DotNet.Config.html
-  commentId: T:Microsoft.DotNet.Config
-  fullName: Microsoft.DotNet.Config
+  href: api/DotNetConfig.Config.html
+  commentId: T:DotNetConfig.Config
+  fullName: DotNetConfig.Config
   nameWithType: Config
-- uid: Microsoft.DotNet.Config.#ctor(System.String)
+- uid: DotNetConfig.Config.#ctor(System.String)
   name: Config(String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config__ctor_System_String_
-  commentId: M:Microsoft.DotNet.Config.#ctor(System.String)
-  fullName: Microsoft.DotNet.Config.Config(System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config__ctor_System_String_
+  commentId: M:DotNetConfig.Config.#ctor(System.String)
+  fullName: DotNetConfig.Config.Config(System.String)
   nameWithType: Config.Config(String)
-- uid: Microsoft.DotNet.Config.#ctor*
+- uid: DotNetConfig.Config.#ctor*
   name: Config
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config__ctor_
-  commentId: Overload:Microsoft.DotNet.Config.#ctor
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config__ctor_
+  commentId: Overload:DotNetConfig.Config.#ctor
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.Config
+  fullName: DotNetConfig.Config.Config
   nameWithType: Config.Config
-- uid: Microsoft.DotNet.Config.AddBoolean(System.String,System.String,System.String,System.Boolean)
+- uid: DotNetConfig.Config.AddBoolean(System.String,System.String,System.String,System.Boolean)
   name: AddBoolean(String, String, String, Boolean)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddBoolean_System_String_System_String_System_String_System_Boolean_
-  commentId: M:Microsoft.DotNet.Config.AddBoolean(System.String,System.String,System.String,System.Boolean)
-  fullName: Microsoft.DotNet.Config.AddBoolean(System.String, System.String, System.String, System.Boolean)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddBoolean_System_String_System_String_System_String_System_Boolean_
+  commentId: M:DotNetConfig.Config.AddBoolean(System.String,System.String,System.String,System.Boolean)
+  fullName: DotNetConfig.Config.AddBoolean(System.String, System.String, System.String, System.Boolean)
   nameWithType: Config.AddBoolean(String, String, String, Boolean)
-- uid: Microsoft.DotNet.Config.AddBoolean*
+- uid: DotNetConfig.Config.AddBoolean*
   name: AddBoolean
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddBoolean_
-  commentId: Overload:Microsoft.DotNet.Config.AddBoolean
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddBoolean_
+  commentId: Overload:DotNetConfig.Config.AddBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.AddBoolean
+  fullName: DotNetConfig.Config.AddBoolean
   nameWithType: Config.AddBoolean
-- uid: Microsoft.DotNet.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
+- uid: DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
   name: AddDateTime(String, String, String, DateTime)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddDateTime_System_String_System_String_System_String_System_DateTime_
-  commentId: M:Microsoft.DotNet.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
-  fullName: Microsoft.DotNet.Config.AddDateTime(System.String, System.String, System.String, System.DateTime)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.Config.AddDateTime(System.String, System.String, System.String, System.DateTime)
   nameWithType: Config.AddDateTime(String, String, String, DateTime)
-- uid: Microsoft.DotNet.Config.AddDateTime*
+- uid: DotNetConfig.Config.AddDateTime*
   name: AddDateTime
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddDateTime_
-  commentId: Overload:Microsoft.DotNet.Config.AddDateTime
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddDateTime_
+  commentId: Overload:DotNetConfig.Config.AddDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.AddDateTime
+  fullName: DotNetConfig.Config.AddDateTime
   nameWithType: Config.AddDateTime
-- uid: Microsoft.DotNet.Config.AddNumber(System.String,System.String,System.String,System.Int64)
+- uid: DotNetConfig.Config.AddNumber(System.String,System.String,System.String,System.Int64)
   name: AddNumber(String, String, String, Int64)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddNumber_System_String_System_String_System_String_System_Int64_
-  commentId: M:Microsoft.DotNet.Config.AddNumber(System.String,System.String,System.String,System.Int64)
-  fullName: Microsoft.DotNet.Config.AddNumber(System.String, System.String, System.String, System.Int64)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddNumber_System_String_System_String_System_String_System_Int64_
+  commentId: M:DotNetConfig.Config.AddNumber(System.String,System.String,System.String,System.Int64)
+  fullName: DotNetConfig.Config.AddNumber(System.String, System.String, System.String, System.Int64)
   nameWithType: Config.AddNumber(String, String, String, Int64)
-- uid: Microsoft.DotNet.Config.AddNumber*
+- uid: DotNetConfig.Config.AddNumber*
   name: AddNumber
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddNumber_
-  commentId: Overload:Microsoft.DotNet.Config.AddNumber
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddNumber_
+  commentId: Overload:DotNetConfig.Config.AddNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.AddNumber
+  fullName: DotNetConfig.Config.AddNumber
   nameWithType: Config.AddNumber
-- uid: Microsoft.DotNet.Config.AddString(System.String,System.String,System.String,System.String)
+- uid: DotNetConfig.Config.AddString(System.String,System.String,System.String,System.String)
   name: AddString(String, String, String, String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddString_System_String_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.Config.AddString(System.String,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.Config.AddString(System.String, System.String, System.String, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddString_System_String_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.Config.AddString(System.String,System.String,System.String,System.String)
+  fullName: DotNetConfig.Config.AddString(System.String, System.String, System.String, System.String)
   nameWithType: Config.AddString(String, String, String, String)
-- uid: Microsoft.DotNet.Config.AddString*
+- uid: DotNetConfig.Config.AddString*
   name: AddString
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_AddString_
-  commentId: Overload:Microsoft.DotNet.Config.AddString
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddString_
+  commentId: Overload:DotNetConfig.Config.AddString
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.AddString
+  fullName: DotNetConfig.Config.AddString
   nameWithType: Config.AddString
-- uid: Microsoft.DotNet.Config.Build(Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.Config.Build(DotNetConfig.ConfigLevel)
   name: Build(ConfigLevel)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Build_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.Config.Build(Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.Config.Build(Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Build_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.Config.Build(DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.Config.Build(DotNetConfig.ConfigLevel)
   nameWithType: Config.Build(ConfigLevel)
-- uid: Microsoft.DotNet.Config.Build(System.String)
+- uid: DotNetConfig.Config.Build(System.String)
   name: Build(String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Build_System_String_
-  commentId: M:Microsoft.DotNet.Config.Build(System.String)
-  fullName: Microsoft.DotNet.Config.Build(System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Build_System_String_
+  commentId: M:DotNetConfig.Config.Build(System.String)
+  fullName: DotNetConfig.Config.Build(System.String)
   nameWithType: Config.Build(String)
-- uid: Microsoft.DotNet.Config.Build*
+- uid: DotNetConfig.Config.Build*
   name: Build
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Build_
-  commentId: Overload:Microsoft.DotNet.Config.Build
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Build_
+  commentId: Overload:DotNetConfig.Config.Build
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.Build
+  fullName: DotNetConfig.Config.Build
   nameWithType: Config.Build
-- uid: Microsoft.DotNet.Config.FileName
+- uid: DotNetConfig.Config.FileName
   name: FileName
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_FileName
-  commentId: F:Microsoft.DotNet.Config.FileName
-  fullName: Microsoft.DotNet.Config.FileName
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_FileName
+  commentId: F:DotNetConfig.Config.FileName
+  fullName: DotNetConfig.Config.FileName
   nameWithType: Config.FileName
-- uid: Microsoft.DotNet.Config.FilePath
+- uid: DotNetConfig.Config.FilePath
   name: FilePath
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_FilePath
-  commentId: P:Microsoft.DotNet.Config.FilePath
-  fullName: Microsoft.DotNet.Config.FilePath
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_FilePath
+  commentId: P:DotNetConfig.Config.FilePath
+  fullName: DotNetConfig.Config.FilePath
   nameWithType: Config.FilePath
-- uid: Microsoft.DotNet.Config.FilePath*
+- uid: DotNetConfig.Config.FilePath*
   name: FilePath
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_FilePath_
-  commentId: Overload:Microsoft.DotNet.Config.FilePath
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_FilePath_
+  commentId: Overload:DotNetConfig.Config.FilePath
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.FilePath
+  fullName: DotNetConfig.Config.FilePath
   nameWithType: Config.FilePath
-- uid: Microsoft.DotNet.Config.GetAll(System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.GetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: GetAll(String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetAll_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.GetAll(System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.GetAll(System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetAll_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.GetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.GetAll(System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: Config.GetAll(String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.Config.GetAll*
+- uid: DotNetConfig.Config.GetAll*
   name: GetAll
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetAll_
-  commentId: Overload:Microsoft.DotNet.Config.GetAll
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetAll_
+  commentId: Overload:DotNetConfig.Config.GetAll
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.GetAll
+  fullName: DotNetConfig.Config.GetAll
   nameWithType: Config.GetAll
-- uid: Microsoft.DotNet.Config.GetEntries
+- uid: DotNetConfig.Config.GetEntries
   name: GetEntries()
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetEntries
-  commentId: M:Microsoft.DotNet.Config.GetEntries
-  fullName: Microsoft.DotNet.Config.GetEntries()
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetEntries
+  commentId: M:DotNetConfig.Config.GetEntries
+  fullName: DotNetConfig.Config.GetEntries()
   nameWithType: Config.GetEntries()
-- uid: Microsoft.DotNet.Config.GetEntries*
+- uid: DotNetConfig.Config.GetEntries*
   name: GetEntries
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetEntries_
-  commentId: Overload:Microsoft.DotNet.Config.GetEntries
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetEntries_
+  commentId: Overload:DotNetConfig.Config.GetEntries
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.GetEntries
+  fullName: DotNetConfig.Config.GetEntries
   nameWithType: Config.GetEntries
-- uid: Microsoft.DotNet.Config.GetRegex(System.String,System.String)
+- uid: DotNetConfig.Config.GetRegex(System.String,System.String)
   name: GetRegex(String, String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetRegex_System_String_System_String_
-  commentId: M:Microsoft.DotNet.Config.GetRegex(System.String,System.String)
-  fullName: Microsoft.DotNet.Config.GetRegex(System.String, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetRegex_System_String_System_String_
+  commentId: M:DotNetConfig.Config.GetRegex(System.String,System.String)
+  fullName: DotNetConfig.Config.GetRegex(System.String, System.String)
   nameWithType: Config.GetRegex(String, String)
-- uid: Microsoft.DotNet.Config.GetRegex*
+- uid: DotNetConfig.Config.GetRegex*
   name: GetRegex
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GetRegex_
-  commentId: Overload:Microsoft.DotNet.Config.GetRegex
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetRegex_
+  commentId: Overload:DotNetConfig.Config.GetRegex
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.GetRegex
+  fullName: DotNetConfig.Config.GetRegex
   nameWithType: Config.GetRegex
-- uid: Microsoft.DotNet.Config.GlobalLocation
+- uid: DotNetConfig.Config.GlobalLocation
   name: GlobalLocation
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GlobalLocation
-  commentId: P:Microsoft.DotNet.Config.GlobalLocation
-  fullName: Microsoft.DotNet.Config.GlobalLocation
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GlobalLocation
+  commentId: P:DotNetConfig.Config.GlobalLocation
+  fullName: DotNetConfig.Config.GlobalLocation
   nameWithType: Config.GlobalLocation
-- uid: Microsoft.DotNet.Config.GlobalLocation*
+- uid: DotNetConfig.Config.GlobalLocation*
   name: GlobalLocation
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_GlobalLocation_
-  commentId: Overload:Microsoft.DotNet.Config.GlobalLocation
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GlobalLocation_
+  commentId: Overload:DotNetConfig.Config.GlobalLocation
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.GlobalLocation
+  fullName: DotNetConfig.Config.GlobalLocation
   nameWithType: Config.GlobalLocation
-- uid: Microsoft.DotNet.Config.Level
+- uid: DotNetConfig.Config.Level
   name: Level
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Level
-  commentId: P:Microsoft.DotNet.Config.Level
-  fullName: Microsoft.DotNet.Config.Level
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Level
+  commentId: P:DotNetConfig.Config.Level
+  fullName: DotNetConfig.Config.Level
   nameWithType: Config.Level
-- uid: Microsoft.DotNet.Config.Level*
+- uid: DotNetConfig.Config.Level*
   name: Level
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Level_
-  commentId: Overload:Microsoft.DotNet.Config.Level
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Level_
+  commentId: Overload:DotNetConfig.Config.Level
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.Level
+  fullName: DotNetConfig.Config.Level
   nameWithType: Config.Level
-- uid: Microsoft.DotNet.Config.RemoveSection(System.String,System.String)
+- uid: DotNetConfig.Config.RemoveSection(System.String,System.String)
   name: RemoveSection(String, String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_RemoveSection_System_String_System_String_
-  commentId: M:Microsoft.DotNet.Config.RemoveSection(System.String,System.String)
-  fullName: Microsoft.DotNet.Config.RemoveSection(System.String, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_RemoveSection_System_String_System_String_
+  commentId: M:DotNetConfig.Config.RemoveSection(System.String,System.String)
+  fullName: DotNetConfig.Config.RemoveSection(System.String, System.String)
   nameWithType: Config.RemoveSection(String, String)
-- uid: Microsoft.DotNet.Config.RemoveSection*
+- uid: DotNetConfig.Config.RemoveSection*
   name: RemoveSection
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_RemoveSection_
-  commentId: Overload:Microsoft.DotNet.Config.RemoveSection
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_RemoveSection_
+  commentId: Overload:DotNetConfig.Config.RemoveSection
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.RemoveSection
+  fullName: DotNetConfig.Config.RemoveSection
   nameWithType: Config.RemoveSection
-- uid: Microsoft.DotNet.Config.RenameSection(System.String,System.String,System.String,System.String)
+- uid: DotNetConfig.Config.RenameSection(System.String,System.String,System.String,System.String)
   name: RenameSection(String, String, String, String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_RenameSection_System_String_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.Config.RenameSection(System.String,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.Config.RenameSection(System.String, System.String, System.String, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_RenameSection_System_String_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.Config.RenameSection(System.String,System.String,System.String,System.String)
+  fullName: DotNetConfig.Config.RenameSection(System.String, System.String, System.String, System.String)
   nameWithType: Config.RenameSection(String, String, String, String)
-- uid: Microsoft.DotNet.Config.RenameSection*
+- uid: DotNetConfig.Config.RenameSection*
   name: RenameSection
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_RenameSection_
-  commentId: Overload:Microsoft.DotNet.Config.RenameSection
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_RenameSection_
+  commentId: Overload:DotNetConfig.Config.RenameSection
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.RenameSection
+  fullName: DotNetConfig.Config.RenameSection
   nameWithType: Config.RenameSection
-- uid: Microsoft.DotNet.Config.SetAllBoolean(System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetAllBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
   name: SetAllBoolean(String, String, String, Boolean, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllBoolean_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetAllBoolean(System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetAllBoolean(System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllBoolean_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetAllBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetAllBoolean(System.String, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetAllBoolean(String, String, String, Boolean, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetAllBoolean*
+- uid: DotNetConfig.Config.SetAllBoolean*
   name: SetAllBoolean
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllBoolean_
-  commentId: Overload:Microsoft.DotNet.Config.SetAllBoolean
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllBoolean_
+  commentId: Overload:DotNetConfig.Config.SetAllBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetAllBoolean
+  fullName: DotNetConfig.Config.SetAllBoolean
   nameWithType: Config.SetAllBoolean
-- uid: Microsoft.DotNet.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
   name: SetAllDateTime(String, String, String, DateTime, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllDateTime_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetAllDateTime(System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetAllDateTime(System.String, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetAllDateTime(String, String, String, DateTime, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetAllDateTime*
+- uid: DotNetConfig.Config.SetAllDateTime*
   name: SetAllDateTime
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllDateTime_
-  commentId: Overload:Microsoft.DotNet.Config.SetAllDateTime
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllDateTime_
+  commentId: Overload:DotNetConfig.Config.SetAllDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetAllDateTime
+  fullName: DotNetConfig.Config.SetAllDateTime
   nameWithType: Config.SetAllDateTime
-- uid: Microsoft.DotNet.Config.SetAllNumber(System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetAllNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
   name: SetAllNumber(String, String, String, Int64, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllNumber_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetAllNumber(System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetAllNumber(System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllNumber_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetAllNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetAllNumber(System.String, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetAllNumber(String, String, String, Int64, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetAllNumber*
+- uid: DotNetConfig.Config.SetAllNumber*
   name: SetAllNumber
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllNumber_
-  commentId: Overload:Microsoft.DotNet.Config.SetAllNumber
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllNumber_
+  commentId: Overload:DotNetConfig.Config.SetAllNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetAllNumber
+  fullName: DotNetConfig.Config.SetAllNumber
   nameWithType: Config.SetAllNumber
-- uid: Microsoft.DotNet.Config.SetAllString(System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetAllString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: SetAllString(String, String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllString_System_String_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetAllString(System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetAllString(System.String, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllString_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetAllString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetAllString(System.String, System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetAllString(String, String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetAllString*
+- uid: DotNetConfig.Config.SetAllString*
   name: SetAllString
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetAllString_
-  commentId: Overload:Microsoft.DotNet.Config.SetAllString
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllString_
+  commentId: Overload:DotNetConfig.Config.SetAllString
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetAllString
+  fullName: DotNetConfig.Config.SetAllString
   nameWithType: Config.SetAllString
-- uid: Microsoft.DotNet.Config.SetBoolean(System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
   name: SetBoolean(String, String, String, Boolean, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetBoolean_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetBoolean(System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetBoolean(System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetBoolean_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetBoolean(System.String, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetBoolean(String, String, String, Boolean, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetBoolean*
+- uid: DotNetConfig.Config.SetBoolean*
   name: SetBoolean
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetBoolean_
-  commentId: Overload:Microsoft.DotNet.Config.SetBoolean
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetBoolean_
+  commentId: Overload:DotNetConfig.Config.SetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetBoolean
+  fullName: DotNetConfig.Config.SetBoolean
   nameWithType: Config.SetBoolean
-- uid: Microsoft.DotNet.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
   name: SetDateTime(String, String, String, DateTime, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetDateTime_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetDateTime(System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetDateTime(System.String, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetDateTime(String, String, String, DateTime, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetDateTime*
+- uid: DotNetConfig.Config.SetDateTime*
   name: SetDateTime
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetDateTime_
-  commentId: Overload:Microsoft.DotNet.Config.SetDateTime
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetDateTime_
+  commentId: Overload:DotNetConfig.Config.SetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetDateTime
+  fullName: DotNetConfig.Config.SetDateTime
   nameWithType: Config.SetDateTime
-- uid: Microsoft.DotNet.Config.SetNumber(System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
   name: SetNumber(String, String, String, Int64, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetNumber_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetNumber(System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetNumber(System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetNumber_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetNumber(System.String, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetNumber(String, String, String, Int64, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetNumber*
+- uid: DotNetConfig.Config.SetNumber*
   name: SetNumber
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetNumber_
-  commentId: Overload:Microsoft.DotNet.Config.SetNumber
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetNumber_
+  commentId: Overload:DotNetConfig.Config.SetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetNumber
+  fullName: DotNetConfig.Config.SetNumber
   nameWithType: Config.SetNumber
-- uid: Microsoft.DotNet.Config.SetString(System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.SetString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: SetString(String, String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetString_System_String_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.SetString(System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.SetString(System.String, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetString_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.SetString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.SetString(System.String, System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: Config.SetString(String, String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.Config.SetString*
+- uid: DotNetConfig.Config.SetString*
   name: SetString
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SetString_
-  commentId: Overload:Microsoft.DotNet.Config.SetString
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetString_
+  commentId: Overload:DotNetConfig.Config.SetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SetString
+  fullName: DotNetConfig.Config.SetString
   nameWithType: Config.SetString
-- uid: Microsoft.DotNet.Config.System#Collections#Generic#IEnumerable{Microsoft#DotNet#ConfigEntry}#GetEnumerator
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
   name: IEnumerable<ConfigEntry>.GetEnumerator()
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_System_Collections_Generic_IEnumerable_Microsoft_DotNet_ConfigEntry__GetEnumerator
-  commentId: M:Microsoft.DotNet.Config.System#Collections#Generic#IEnumerable{Microsoft#DotNet#ConfigEntry}#GetEnumerator
-  name.vb: System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator()
-  fullName: Microsoft.DotNet.Config.System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator()
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator
+  commentId: M:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
   nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator()
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator()
-- uid: Microsoft.DotNet.Config.System#Collections#Generic#IEnumerable{Microsoft#DotNet#ConfigEntry}#GetEnumerator*
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*
   name: IEnumerable<ConfigEntry>.GetEnumerator
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_System_Collections_Generic_IEnumerable_Microsoft_DotNet_ConfigEntry__GetEnumerator_
-  commentId: Overload:Microsoft.DotNet.Config.System#Collections#Generic#IEnumerable{Microsoft#DotNet#ConfigEntry}#GetEnumerator
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_
+  commentId: Overload:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
   isSpec: "True"
-  name.vb: System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator
-  fullName: Microsoft.DotNet.Config.System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
   nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<Microsoft.DotNet.ConfigEntry>.GetEnumerator
-- uid: Microsoft.DotNet.Config.SystemLocation
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+- uid: DotNetConfig.Config.SystemLocation
   name: SystemLocation
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SystemLocation
-  commentId: P:Microsoft.DotNet.Config.SystemLocation
-  fullName: Microsoft.DotNet.Config.SystemLocation
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation
+  commentId: P:DotNetConfig.Config.SystemLocation
+  fullName: DotNetConfig.Config.SystemLocation
   nameWithType: Config.SystemLocation
-- uid: Microsoft.DotNet.Config.SystemLocation*
+- uid: DotNetConfig.Config.SystemLocation*
   name: SystemLocation
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_SystemLocation_
-  commentId: Overload:Microsoft.DotNet.Config.SystemLocation
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation_
+  commentId: Overload:DotNetConfig.Config.SystemLocation
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.SystemLocation
+  fullName: DotNetConfig.Config.SystemLocation
   nameWithType: Config.SystemLocation
-- uid: Microsoft.DotNet.Config.TryGetBoolean(System.String,System.String,System.String,System.Boolean@)
+- uid: DotNetConfig.Config.TryGetBoolean(System.String,System.String,System.String,System.Boolean@)
   name: TryGetBoolean(String, String, String, out Boolean)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetBoolean_System_String_System_String_System_String_System_Boolean__
-  commentId: M:Microsoft.DotNet.Config.TryGetBoolean(System.String,System.String,System.String,System.Boolean@)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetBoolean_System_String_System_String_System_String_System_Boolean__
+  commentId: M:DotNetConfig.Config.TryGetBoolean(System.String,System.String,System.String,System.Boolean@)
   name.vb: TryGetBoolean(String, String, String, ByRef Boolean)
-  fullName: Microsoft.DotNet.Config.TryGetBoolean(System.String, System.String, System.String, out System.Boolean)
-  fullName.vb: Microsoft.DotNet.Config.TryGetBoolean(System.String, System.String, System.String, ByRef System.Boolean)
+  fullName: DotNetConfig.Config.TryGetBoolean(System.String, System.String, System.String, out System.Boolean)
+  fullName.vb: DotNetConfig.Config.TryGetBoolean(System.String, System.String, System.String, ByRef System.Boolean)
   nameWithType: Config.TryGetBoolean(String, String, String, out Boolean)
   nameWithType.vb: Config.TryGetBoolean(String, String, String, ByRef Boolean)
-- uid: Microsoft.DotNet.Config.TryGetBoolean*
+- uid: DotNetConfig.Config.TryGetBoolean*
   name: TryGetBoolean
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetBoolean_
-  commentId: Overload:Microsoft.DotNet.Config.TryGetBoolean
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetBoolean_
+  commentId: Overload:DotNetConfig.Config.TryGetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.TryGetBoolean
+  fullName: DotNetConfig.Config.TryGetBoolean
   nameWithType: Config.TryGetBoolean
-- uid: Microsoft.DotNet.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
+- uid: DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
   name: TryGetDateTime(String, String, String, out DateTime)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetDateTime_System_String_System_String_System_String_System_DateTime__
-  commentId: M:Microsoft.DotNet.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_System_DateTime__
+  commentId: M:DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
   name.vb: TryGetDateTime(String, String, String, ByRef DateTime)
-  fullName: Microsoft.DotNet.Config.TryGetDateTime(System.String, System.String, System.String, out System.DateTime)
-  fullName.vb: Microsoft.DotNet.Config.TryGetDateTime(System.String, System.String, System.String, ByRef System.DateTime)
+  fullName: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, out System.DateTime)
+  fullName.vb: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, ByRef System.DateTime)
   nameWithType: Config.TryGetDateTime(String, String, String, out DateTime)
   nameWithType.vb: Config.TryGetDateTime(String, String, String, ByRef DateTime)
-- uid: Microsoft.DotNet.Config.TryGetDateTime*
+- uid: DotNetConfig.Config.TryGetDateTime*
   name: TryGetDateTime
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetDateTime_
-  commentId: Overload:Microsoft.DotNet.Config.TryGetDateTime
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetDateTime_
+  commentId: Overload:DotNetConfig.Config.TryGetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.TryGetDateTime
+  fullName: DotNetConfig.Config.TryGetDateTime
   nameWithType: Config.TryGetDateTime
-- uid: Microsoft.DotNet.Config.TryGetNumber(System.String,System.String,System.String,System.Int64@)
+- uid: DotNetConfig.Config.TryGetNumber(System.String,System.String,System.String,System.Int64@)
   name: TryGetNumber(String, String, String, out Int64)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetNumber_System_String_System_String_System_String_System_Int64__
-  commentId: M:Microsoft.DotNet.Config.TryGetNumber(System.String,System.String,System.String,System.Int64@)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetNumber_System_String_System_String_System_String_System_Int64__
+  commentId: M:DotNetConfig.Config.TryGetNumber(System.String,System.String,System.String,System.Int64@)
   name.vb: TryGetNumber(String, String, String, ByRef Int64)
-  fullName: Microsoft.DotNet.Config.TryGetNumber(System.String, System.String, System.String, out System.Int64)
-  fullName.vb: Microsoft.DotNet.Config.TryGetNumber(System.String, System.String, System.String, ByRef System.Int64)
+  fullName: DotNetConfig.Config.TryGetNumber(System.String, System.String, System.String, out System.Int64)
+  fullName.vb: DotNetConfig.Config.TryGetNumber(System.String, System.String, System.String, ByRef System.Int64)
   nameWithType: Config.TryGetNumber(String, String, String, out Int64)
   nameWithType.vb: Config.TryGetNumber(String, String, String, ByRef Int64)
-- uid: Microsoft.DotNet.Config.TryGetNumber*
+- uid: DotNetConfig.Config.TryGetNumber*
   name: TryGetNumber
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetNumber_
-  commentId: Overload:Microsoft.DotNet.Config.TryGetNumber
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetNumber_
+  commentId: Overload:DotNetConfig.Config.TryGetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.TryGetNumber
+  fullName: DotNetConfig.Config.TryGetNumber
   nameWithType: Config.TryGetNumber
-- uid: Microsoft.DotNet.Config.TryGetString(System.String,System.String,System.String,System.String@)
+- uid: DotNetConfig.Config.TryGetString(System.String,System.String,System.String,System.String@)
   name: TryGetString(String, String, String, out String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetString_System_String_System_String_System_String_System_String__
-  commentId: M:Microsoft.DotNet.Config.TryGetString(System.String,System.String,System.String,System.String@)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetString_System_String_System_String_System_String_System_String__
+  commentId: M:DotNetConfig.Config.TryGetString(System.String,System.String,System.String,System.String@)
   name.vb: TryGetString(String, String, String, ByRef String)
-  fullName: Microsoft.DotNet.Config.TryGetString(System.String, System.String, System.String, out System.String)
-  fullName.vb: Microsoft.DotNet.Config.TryGetString(System.String, System.String, System.String, ByRef System.String)
+  fullName: DotNetConfig.Config.TryGetString(System.String, System.String, System.String, out System.String)
+  fullName.vb: DotNetConfig.Config.TryGetString(System.String, System.String, System.String, ByRef System.String)
   nameWithType: Config.TryGetString(String, String, String, out String)
   nameWithType.vb: Config.TryGetString(String, String, String, ByRef String)
-- uid: Microsoft.DotNet.Config.TryGetString*
+- uid: DotNetConfig.Config.TryGetString*
   name: TryGetString
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_TryGetString_
-  commentId: Overload:Microsoft.DotNet.Config.TryGetString
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetString_
+  commentId: Overload:DotNetConfig.Config.TryGetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.TryGetString
+  fullName: DotNetConfig.Config.TryGetString
   nameWithType: Config.TryGetString
-- uid: Microsoft.DotNet.Config.Unset(System.String,System.String,System.String)
+- uid: DotNetConfig.Config.Unset(System.String,System.String,System.String)
   name: Unset(String, String, String)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Unset_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.Config.Unset(System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.Config.Unset(System.String, System.String, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Unset_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.Config.Unset(System.String,System.String,System.String)
+  fullName: DotNetConfig.Config.Unset(System.String, System.String, System.String)
   nameWithType: Config.Unset(String, String, String)
-- uid: Microsoft.DotNet.Config.Unset*
+- uid: DotNetConfig.Config.Unset*
   name: Unset
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_Unset_
-  commentId: Overload:Microsoft.DotNet.Config.Unset
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_Unset_
+  commentId: Overload:DotNetConfig.Config.Unset
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.Unset
+  fullName: DotNetConfig.Config.Unset
   nameWithType: Config.Unset
-- uid: Microsoft.DotNet.Config.UnsetAll(System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.Config.UnsetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: UnsetAll(String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_UnsetAll_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.Config.UnsetAll(System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.Config.UnsetAll(System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_UnsetAll_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.Config.UnsetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.Config.UnsetAll(System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: Config.UnsetAll(String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.Config.UnsetAll*
+- uid: DotNetConfig.Config.UnsetAll*
   name: UnsetAll
-  href: api/Microsoft.DotNet.Config.html#Microsoft_DotNet_Config_UnsetAll_
-  commentId: Overload:Microsoft.DotNet.Config.UnsetAll
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_UnsetAll_
+  commentId: Overload:DotNetConfig.Config.UnsetAll
   isSpec: "True"
-  fullName: Microsoft.DotNet.Config.UnsetAll
+  fullName: DotNetConfig.Config.UnsetAll
   nameWithType: Config.UnsetAll
-- uid: Microsoft.DotNet.ConfigEntry
+- uid: DotNetConfig.ConfigEntry
   name: ConfigEntry
-  href: api/Microsoft.DotNet.ConfigEntry.html
-  commentId: T:Microsoft.DotNet.ConfigEntry
-  fullName: Microsoft.DotNet.ConfigEntry
+  href: api/DotNetConfig.ConfigEntry.html
+  commentId: T:DotNetConfig.ConfigEntry
+  fullName: DotNetConfig.ConfigEntry
   nameWithType: ConfigEntry
-- uid: Microsoft.DotNet.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{Microsoft.DotNet.ConfigLevel})
+- uid: DotNetConfig.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{DotNetConfig.ConfigLevel})
   name: ConfigEntry(String, String, String, String, Nullable<ConfigLevel>)
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry__ctor_System_String_System_String_System_String_System_String_System_Nullable_Microsoft_DotNet_ConfigLevel__
-  commentId: M:Microsoft.DotNet.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{Microsoft.DotNet.ConfigLevel})
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry__ctor_System_String_System_String_System_String_System_String_System_Nullable_DotNetConfig_ConfigLevel__
+  commentId: M:DotNetConfig.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{DotNetConfig.ConfigLevel})
   name.vb: ConfigEntry(String, String, String, String, Nullable(Of ConfigLevel))
-  fullName: Microsoft.DotNet.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable<Microsoft.DotNet.ConfigLevel>)
-  fullName.vb: Microsoft.DotNet.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable(Of Microsoft.DotNet.ConfigLevel))
+  fullName: DotNetConfig.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable<DotNetConfig.ConfigLevel>)
+  fullName.vb: DotNetConfig.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable(Of DotNetConfig.ConfigLevel))
   nameWithType: ConfigEntry.ConfigEntry(String, String, String, String, Nullable<ConfigLevel>)
   nameWithType.vb: ConfigEntry.ConfigEntry(String, String, String, String, Nullable(Of ConfigLevel))
-- uid: Microsoft.DotNet.ConfigEntry.#ctor*
+- uid: DotNetConfig.ConfigEntry.#ctor*
   name: ConfigEntry
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry__ctor_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.#ctor
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry__ctor_
+  commentId: Overload:DotNetConfig.ConfigEntry.#ctor
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.ConfigEntry
+  fullName: DotNetConfig.ConfigEntry.ConfigEntry
   nameWithType: ConfigEntry.ConfigEntry
-- uid: Microsoft.DotNet.ConfigEntry.Comment
+- uid: DotNetConfig.ConfigEntry.Comment
   name: Comment
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Comment
-  commentId: P:Microsoft.DotNet.ConfigEntry.Comment
-  fullName: Microsoft.DotNet.ConfigEntry.Comment
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Comment
+  commentId: P:DotNetConfig.ConfigEntry.Comment
+  fullName: DotNetConfig.ConfigEntry.Comment
   nameWithType: ConfigEntry.Comment
-- uid: Microsoft.DotNet.ConfigEntry.Comment*
+- uid: DotNetConfig.ConfigEntry.Comment*
   name: Comment
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Comment_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Comment
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Comment_
+  commentId: Overload:DotNetConfig.ConfigEntry.Comment
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Comment
+  fullName: DotNetConfig.ConfigEntry.Comment
   nameWithType: ConfigEntry.Comment
-- uid: Microsoft.DotNet.ConfigEntry.GetBoolean
+- uid: DotNetConfig.ConfigEntry.GetBoolean
   name: GetBoolean()
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetBoolean
-  commentId: M:Microsoft.DotNet.ConfigEntry.GetBoolean
-  fullName: Microsoft.DotNet.ConfigEntry.GetBoolean()
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetBoolean
+  commentId: M:DotNetConfig.ConfigEntry.GetBoolean
+  fullName: DotNetConfig.ConfigEntry.GetBoolean()
   nameWithType: ConfigEntry.GetBoolean()
-- uid: Microsoft.DotNet.ConfigEntry.GetBoolean*
+- uid: DotNetConfig.ConfigEntry.GetBoolean*
   name: GetBoolean
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.GetBoolean
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetBoolean_
+  commentId: Overload:DotNetConfig.ConfigEntry.GetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.GetBoolean
+  fullName: DotNetConfig.ConfigEntry.GetBoolean
   nameWithType: ConfigEntry.GetBoolean
-- uid: Microsoft.DotNet.ConfigEntry.GetDateTime
+- uid: DotNetConfig.ConfigEntry.GetDateTime
   name: GetDateTime()
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetDateTime
-  commentId: M:Microsoft.DotNet.ConfigEntry.GetDateTime
-  fullName: Microsoft.DotNet.ConfigEntry.GetDateTime()
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetDateTime
+  commentId: M:DotNetConfig.ConfigEntry.GetDateTime
+  fullName: DotNetConfig.ConfigEntry.GetDateTime()
   nameWithType: ConfigEntry.GetDateTime()
-- uid: Microsoft.DotNet.ConfigEntry.GetDateTime*
+- uid: DotNetConfig.ConfigEntry.GetDateTime*
   name: GetDateTime
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.GetDateTime
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetDateTime_
+  commentId: Overload:DotNetConfig.ConfigEntry.GetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.GetDateTime
+  fullName: DotNetConfig.ConfigEntry.GetDateTime
   nameWithType: ConfigEntry.GetDateTime
-- uid: Microsoft.DotNet.ConfigEntry.GetNumber
+- uid: DotNetConfig.ConfigEntry.GetNumber
   name: GetNumber()
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetNumber
-  commentId: M:Microsoft.DotNet.ConfigEntry.GetNumber
-  fullName: Microsoft.DotNet.ConfigEntry.GetNumber()
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetNumber
+  commentId: M:DotNetConfig.ConfigEntry.GetNumber
+  fullName: DotNetConfig.ConfigEntry.GetNumber()
   nameWithType: ConfigEntry.GetNumber()
-- uid: Microsoft.DotNet.ConfigEntry.GetNumber*
+- uid: DotNetConfig.ConfigEntry.GetNumber*
   name: GetNumber
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.GetNumber
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetNumber_
+  commentId: Overload:DotNetConfig.ConfigEntry.GetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.GetNumber
+  fullName: DotNetConfig.ConfigEntry.GetNumber
   nameWithType: ConfigEntry.GetNumber
-- uid: Microsoft.DotNet.ConfigEntry.GetString
+- uid: DotNetConfig.ConfigEntry.GetString
   name: GetString()
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetString
-  commentId: M:Microsoft.DotNet.ConfigEntry.GetString
-  fullName: Microsoft.DotNet.ConfigEntry.GetString()
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetString
+  commentId: M:DotNetConfig.ConfigEntry.GetString
+  fullName: DotNetConfig.ConfigEntry.GetString()
   nameWithType: ConfigEntry.GetString()
-- uid: Microsoft.DotNet.ConfigEntry.GetString*
+- uid: DotNetConfig.ConfigEntry.GetString*
   name: GetString
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_GetString_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.GetString
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetString_
+  commentId: Overload:DotNetConfig.ConfigEntry.GetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.GetString
+  fullName: DotNetConfig.ConfigEntry.GetString
   nameWithType: ConfigEntry.GetString
-- uid: Microsoft.DotNet.ConfigEntry.Key
+- uid: DotNetConfig.ConfigEntry.Key
   name: Key
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Key
-  commentId: P:Microsoft.DotNet.ConfigEntry.Key
-  fullName: Microsoft.DotNet.ConfigEntry.Key
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Key
+  commentId: P:DotNetConfig.ConfigEntry.Key
+  fullName: DotNetConfig.ConfigEntry.Key
   nameWithType: ConfigEntry.Key
-- uid: Microsoft.DotNet.ConfigEntry.Key*
+- uid: DotNetConfig.ConfigEntry.Key*
   name: Key
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Key_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Key
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Key_
+  commentId: Overload:DotNetConfig.ConfigEntry.Key
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Key
+  fullName: DotNetConfig.ConfigEntry.Key
   nameWithType: ConfigEntry.Key
-- uid: Microsoft.DotNet.ConfigEntry.Level
+- uid: DotNetConfig.ConfigEntry.Level
   name: Level
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Level
-  commentId: P:Microsoft.DotNet.ConfigEntry.Level
-  fullName: Microsoft.DotNet.ConfigEntry.Level
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Level
+  commentId: P:DotNetConfig.ConfigEntry.Level
+  fullName: DotNetConfig.ConfigEntry.Level
   nameWithType: ConfigEntry.Level
-- uid: Microsoft.DotNet.ConfigEntry.Level*
+- uid: DotNetConfig.ConfigEntry.Level*
   name: Level
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Level_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Level
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Level_
+  commentId: Overload:DotNetConfig.ConfigEntry.Level
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Level
+  fullName: DotNetConfig.ConfigEntry.Level
   nameWithType: ConfigEntry.Level
-- uid: Microsoft.DotNet.ConfigEntry.RawValue
+- uid: DotNetConfig.ConfigEntry.RawValue
   name: RawValue
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue
-  commentId: P:Microsoft.DotNet.ConfigEntry.RawValue
-  fullName: Microsoft.DotNet.ConfigEntry.RawValue
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_RawValue
+  commentId: P:DotNetConfig.ConfigEntry.RawValue
+  fullName: DotNetConfig.ConfigEntry.RawValue
   nameWithType: ConfigEntry.RawValue
-- uid: Microsoft.DotNet.ConfigEntry.RawValue*
+- uid: DotNetConfig.ConfigEntry.RawValue*
   name: RawValue
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_RawValue_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.RawValue
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_RawValue_
+  commentId: Overload:DotNetConfig.ConfigEntry.RawValue
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.RawValue
+  fullName: DotNetConfig.ConfigEntry.RawValue
   nameWithType: ConfigEntry.RawValue
-- uid: Microsoft.DotNet.ConfigEntry.Section
+- uid: DotNetConfig.ConfigEntry.Section
   name: Section
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Section
-  commentId: P:Microsoft.DotNet.ConfigEntry.Section
-  fullName: Microsoft.DotNet.ConfigEntry.Section
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Section
+  commentId: P:DotNetConfig.ConfigEntry.Section
+  fullName: DotNetConfig.ConfigEntry.Section
   nameWithType: ConfigEntry.Section
-- uid: Microsoft.DotNet.ConfigEntry.Section*
+- uid: DotNetConfig.ConfigEntry.Section*
   name: Section
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Section_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Section
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Section_
+  commentId: Overload:DotNetConfig.ConfigEntry.Section
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Section
+  fullName: DotNetConfig.ConfigEntry.Section
   nameWithType: ConfigEntry.Section
-- uid: Microsoft.DotNet.ConfigEntry.Subsection
+- uid: DotNetConfig.ConfigEntry.Subsection
   name: Subsection
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Subsection
-  commentId: P:Microsoft.DotNet.ConfigEntry.Subsection
-  fullName: Microsoft.DotNet.ConfigEntry.Subsection
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Subsection
+  commentId: P:DotNetConfig.ConfigEntry.Subsection
+  fullName: DotNetConfig.ConfigEntry.Subsection
   nameWithType: ConfigEntry.Subsection
-- uid: Microsoft.DotNet.ConfigEntry.Subsection*
+- uid: DotNetConfig.ConfigEntry.Subsection*
   name: Subsection
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Subsection_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Subsection
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Subsection_
+  commentId: Overload:DotNetConfig.ConfigEntry.Subsection
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Subsection
+  fullName: DotNetConfig.ConfigEntry.Subsection
   nameWithType: ConfigEntry.Subsection
-- uid: Microsoft.DotNet.ConfigEntry.Variable
+- uid: DotNetConfig.ConfigEntry.Variable
   name: Variable
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Variable
-  commentId: P:Microsoft.DotNet.ConfigEntry.Variable
-  fullName: Microsoft.DotNet.ConfigEntry.Variable
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Variable
+  commentId: P:DotNetConfig.ConfigEntry.Variable
+  fullName: DotNetConfig.ConfigEntry.Variable
   nameWithType: ConfigEntry.Variable
-- uid: Microsoft.DotNet.ConfigEntry.Variable*
+- uid: DotNetConfig.ConfigEntry.Variable*
   name: Variable
-  href: api/Microsoft.DotNet.ConfigEntry.html#Microsoft_DotNet_ConfigEntry_Variable_
-  commentId: Overload:Microsoft.DotNet.ConfigEntry.Variable
+  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Variable_
+  commentId: Overload:DotNetConfig.ConfigEntry.Variable
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigEntry.Variable
+  fullName: DotNetConfig.ConfigEntry.Variable
   nameWithType: ConfigEntry.Variable
-- uid: Microsoft.DotNet.ConfigExtensions
+- uid: DotNetConfig.ConfigExtensions
   name: ConfigExtensions
-  href: api/Microsoft.DotNet.ConfigExtensions.html
-  commentId: T:Microsoft.DotNet.ConfigExtensions
-  fullName: Microsoft.DotNet.ConfigExtensions
+  href: api/DotNetConfig.ConfigExtensions.html
+  commentId: T:DotNetConfig.ConfigExtensions
+  fullName: DotNetConfig.ConfigExtensions
   nameWithType: ConfigExtensions
-- uid: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
+- uid: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
   name: AddBoolean(Config, String, String, Boolean)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_
+  commentId: M:DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
+  fullName: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean)
   nameWithType: ConfigExtensions.AddBoolean(Config, String, String, Boolean)
-- uid: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
   name: AddBoolean(Config, String, String, Boolean, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddBoolean(Config, String, String, Boolean, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
   name: AddBoolean(Config, String, String, String, Boolean, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddBoolean(DotNetConfig.Config, System.String, System.String, System.String, System.Boolean, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddBoolean(Config, String, String, String, Boolean, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddBoolean*
+- uid: DotNetConfig.ConfigExtensions.AddBoolean*
   name: AddBoolean
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.AddBoolean
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddBoolean_
+  commentId: Overload:DotNetConfig.ConfigExtensions.AddBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.AddBoolean
+  fullName: DotNetConfig.ConfigExtensions.AddBoolean
   nameWithType: ConfigExtensions.AddBoolean
-- uid: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: AddDateTime(Config, String, String, DateTime)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, DateTime)
-- uid: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: AddDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: AddDateTime(Config, String, String, String, DateTime, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, String, DateTime, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddDateTime*
+- uid: DotNetConfig.ConfigExtensions.AddDateTime*
   name: AddDateTime
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.AddDateTime
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_
+  commentId: Overload:DotNetConfig.ConfigExtensions.AddDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.AddDateTime
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime
   nameWithType: ConfigExtensions.AddDateTime
-- uid: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
+- uid: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
   name: AddNumber(Config, String, String, Int64)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddNumber_DotNetConfig_Config_System_String_System_String_System_Int64_
+  commentId: M:DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
+  fullName: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config, System.String, System.String, System.Int64)
   nameWithType: ConfigExtensions.AddNumber(Config, String, String, Int64)
-- uid: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
   name: AddNumber(Config, String, String, Int64, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddNumber(Config, String, String, Int64, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
   name: AddNumber(Config, String, String, String, Int64, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddNumber(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddNumber(DotNetConfig.Config, System.String, System.String, System.String, System.Int64, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddNumber(Config, String, String, String, Int64, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddNumber*
+- uid: DotNetConfig.ConfigExtensions.AddNumber*
   name: AddNumber
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.AddNumber
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddNumber_
+  commentId: Overload:DotNetConfig.ConfigExtensions.AddNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.AddNumber
+  fullName: DotNetConfig.ConfigExtensions.AddNumber
   nameWithType: ConfigExtensions.AddNumber
-- uid: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String)
   name: AddString(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddString_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddString_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.AddString(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
   name: AddString(Config, String, String, String, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddString(Config, String, String, String, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
   name: AddString(Config, String, String, String, String, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddString_Microsoft_DotNet_Config_System_String_System_String_System_String_System_String_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.AddString(Microsoft.DotNet.Config, System.String, System.String, System.String, System.String, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddString(DotNetConfig.Config, System.String, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddString(Config, String, String, String, String, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.AddString*
+- uid: DotNetConfig.ConfigExtensions.AddString*
   name: AddString
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_AddString_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.AddString
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddString_
+  commentId: Overload:DotNetConfig.ConfigExtensions.AddString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.AddString
+  fullName: DotNetConfig.ConfigExtensions.AddString
   nameWithType: ConfigExtensions.AddString
-- uid: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String)
   name: GetAll(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetAll_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetAll_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.GetAll(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)
   name: GetAll(Config, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetAll_Microsoft_DotNet_Config_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetAll_DotNetConfig_Config_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.GetAll(Config, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String,System.String)
   name: GetAll(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetAll_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetAll(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetAll_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.GetAll(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetAll*
+- uid: DotNetConfig.ConfigExtensions.GetAll*
   name: GetAll
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetAll_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.GetAll
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetAll_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetAll
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.GetAll
+  fullName: DotNetConfig.ConfigExtensions.GetAll
   nameWithType: ConfigExtensions.GetAll
-- uid: Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config,System.String,System.String)
   name: GetBoolean(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetBoolean_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetBoolean_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.GetBoolean(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config,System.String,System.String,System.String)
   name: GetBoolean(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetBoolean_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetBoolean(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.GetBoolean(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetBoolean*
+- uid: DotNetConfig.ConfigExtensions.GetBoolean*
   name: GetBoolean
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.GetBoolean
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetBoolean_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.GetBoolean
+  fullName: DotNetConfig.ConfigExtensions.GetBoolean
   nameWithType: ConfigExtensions.GetBoolean
-- uid: Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config,System.String,System.String)
   name: GetDateTime(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetDateTime_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetDateTime_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.GetDateTime(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config,System.String,System.String,System.String)
   name: GetDateTime(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetDateTime_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetDateTime(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.GetDateTime(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetDateTime*
+- uid: DotNetConfig.ConfigExtensions.GetDateTime*
   name: GetDateTime
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.GetDateTime
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetDateTime_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.GetDateTime
+  fullName: DotNetConfig.ConfigExtensions.GetDateTime
   nameWithType: ConfigExtensions.GetDateTime
-- uid: Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config,System.String,System.String)
   name: GetNumber(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetNumber_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNumber_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.GetNumber(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config,System.String,System.String,System.String)
   name: GetNumber(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetNumber(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNumber_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.GetNumber(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetNumber*
+- uid: DotNetConfig.ConfigExtensions.GetNumber*
   name: GetNumber
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.GetNumber
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNumber_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.GetNumber
+  fullName: DotNetConfig.ConfigExtensions.GetNumber
   nameWithType: ConfigExtensions.GetNumber
-- uid: Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config,System.String,System.String)
   name: GetString(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetString_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetString_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.GetString(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config,System.String,System.String,System.String)
   name: GetString(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetString_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.GetString(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetString_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetString(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.GetString(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.GetString*
+- uid: DotNetConfig.ConfigExtensions.GetString*
   name: GetString
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_GetString_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.GetString
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetString_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.GetString
+  fullName: DotNetConfig.ConfigExtensions.GetString
   nameWithType: ConfigExtensions.GetString
-- uid: Microsoft.DotNet.ConfigExtensions.RemoveSection(Microsoft.DotNet.Config,System.String)
+- uid: DotNetConfig.ConfigExtensions.RemoveSection(DotNetConfig.Config,System.String)
   name: RemoveSection(Config, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_RemoveSection_Microsoft_DotNet_Config_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.RemoveSection(Microsoft.DotNet.Config,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.RemoveSection(Microsoft.DotNet.Config, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RemoveSection_DotNetConfig_Config_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.RemoveSection(DotNetConfig.Config,System.String)
+  fullName: DotNetConfig.ConfigExtensions.RemoveSection(DotNetConfig.Config, System.String)
   nameWithType: ConfigExtensions.RemoveSection(Config, String)
-- uid: Microsoft.DotNet.ConfigExtensions.RemoveSection*
+- uid: DotNetConfig.ConfigExtensions.RemoveSection*
   name: RemoveSection
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_RemoveSection_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.RemoveSection
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RemoveSection_
+  commentId: Overload:DotNetConfig.ConfigExtensions.RemoveSection
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.RemoveSection
+  fullName: DotNetConfig.ConfigExtensions.RemoveSection
   nameWithType: ConfigExtensions.RemoveSection
-- uid: Microsoft.DotNet.ConfigExtensions.RenameSection(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String)
   name: RenameSection(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_RenameSection_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.RenameSection(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.RenameSection(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RenameSection_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.RenameSection(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.RenameSection*
+- uid: DotNetConfig.ConfigExtensions.RenameSection*
   name: RenameSection
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_RenameSection_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.RenameSection
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RenameSection_
+  commentId: Overload:DotNetConfig.ConfigExtensions.RenameSection
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.RenameSection
+  fullName: DotNetConfig.ConfigExtensions.RenameSection
   nameWithType: ConfigExtensions.RenameSection
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
   name: SetAllBoolean(Config, String, String, Boolean)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean)
   nameWithType: ConfigExtensions.SetAllBoolean(Config, String, String, Boolean)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
   name: SetAllBoolean(Config, String, String, Boolean, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllBoolean(Config, String, String, Boolean, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
   name: SetAllBoolean(Config, String, String, Boolean, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetAllBoolean(Config, String, String, Boolean, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config, System.String, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllBoolean*
+- uid: DotNetConfig.ConfigExtensions.SetAllBoolean*
   name: SetAllBoolean
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetAllBoolean
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllBoolean_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetAllBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllBoolean
+  fullName: DotNetConfig.ConfigExtensions.SetAllBoolean
   nameWithType: ConfigExtensions.SetAllBoolean
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: SetAllDateTime(Config, String, String, DateTime)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
   name: SetAllDateTime(Config, String, String, DateTime, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllDateTime*
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime*
   name: SetAllDateTime
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetAllDateTime
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetAllDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllDateTime
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime
   nameWithType: ConfigExtensions.SetAllDateTime
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
   name: SetAllNumber(Config, String, String, Int64)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config, System.String, System.String, System.Int64)
   nameWithType: ConfigExtensions.SetAllNumber(Config, String, String, Int64)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
   name: SetAllNumber(Config, String, String, Int64, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllNumber(Config, String, String, Int64, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
   name: SetAllNumber(Config, String, String, Int64, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetAllNumber(Config, String, String, Int64, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config, System.String, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllNumber*
+- uid: DotNetConfig.ConfigExtensions.SetAllNumber*
   name: SetAllNumber
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetAllNumber
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllNumber_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetAllNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllNumber
+  fullName: DotNetConfig.ConfigExtensions.SetAllNumber
   nameWithType: ConfigExtensions.SetAllNumber
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String)
   name: SetAllString(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.SetAllString(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
   name: SetAllString(Config, String, String, String, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllString(Config, String, String, String, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: SetAllString(Config, String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetAllString(Config, String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllString(Config, String, String, String, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllString(Config, String, String, String, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetAllString(Config, String, String, String, String, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_Microsoft_DotNet_Config_System_String_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString(Microsoft.DotNet.Config, System.String, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config, System.String, System.String, System.String, System.String, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllString(Config, String, String, String, String, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetAllString*
+- uid: DotNetConfig.ConfigExtensions.SetAllString*
   name: SetAllString
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetAllString_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetAllString
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllString_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetAllString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetAllString
+  fullName: DotNetConfig.ConfigExtensions.SetAllString
   nameWithType: ConfigExtensions.SetAllString
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
   name: SetBoolean(Config, String, String, Boolean)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, Boolean)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
   name: SetBoolean(Config, String, String, Boolean, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, Boolean, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
   name: SetBoolean(Config, String, String, Boolean, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, Boolean, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean)
   name: SetBoolean(Config, String, String, String, Boolean)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Boolean_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Boolean)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.String, System.Boolean)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, String, Boolean)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
   name: SetBoolean(Config, String, String, String, Boolean, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.String, System.Boolean, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, String, Boolean, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Boolean_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Boolean,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Boolean, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config, System.String, System.String, System.String, System.Boolean, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetBoolean*
+- uid: DotNetConfig.ConfigExtensions.SetBoolean*
   name: SetBoolean
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetBoolean
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetBoolean_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetBoolean
+  fullName: DotNetConfig.ConfigExtensions.SetBoolean
   nameWithType: ConfigExtensions.SetBoolean
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: SetDateTime(Config, String, String, DateTime)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
   name: SetDateTime(Config, String, String, DateTime, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime)
   name: SetDateTime(Config, String, String, String, DateTime)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_System_DateTime_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String, System.DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, String, DateTime, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_String_System_DateTime_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.String,System.DateTime,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime(Microsoft.DotNet.Config, System.String, System.String, System.String, System.DateTime, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetDateTime*
+- uid: DotNetConfig.ConfigExtensions.SetDateTime*
   name: SetDateTime
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetDateTime
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetDateTime
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime
   nameWithType: ConfigExtensions.SetDateTime
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
   name: SetNumber(Config, String, String, Int64)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.Int64)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, Int64)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
   name: SetNumber(Config, String, String, Int64, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, Int64, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
   name: SetNumber(Config, String, String, Int64, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, Int64, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64)
   name: SetNumber(Config, String, String, String, Int64)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Int64_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Int64)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.String, System.Int64)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, String, Int64)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
   name: SetNumber(Config, String, String, String, Int64, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.String, System.Int64, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, String, Int64, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_Microsoft_DotNet_Config_System_String_System_String_System_String_System_Int64_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config,System.String,System.String,System.String,System.Int64,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber(Microsoft.DotNet.Config, System.String, System.String, System.String, System.Int64, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config, System.String, System.String, System.String, System.Int64, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetNumber*
+- uid: DotNetConfig.ConfigExtensions.SetNumber*
   name: SetNumber
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetNumber
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetNumber_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetNumber
+  fullName: DotNetConfig.ConfigExtensions.SetNumber
   nameWithType: ConfigExtensions.SetNumber
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String)
   name: SetString(Config, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
   name: SetString(Config, String, String, String, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
   name: SetString(Config, String, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetString(Config, String, String, String, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String)
   name: SetString(Config, String, String, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, System.String)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
   name: SetString(Config, String, String, String, String, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_System_String_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, System.String, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, String, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
   name: SetString(Config, String, String, String, String, ValueMatcher, ConfigLevel)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_Microsoft_DotNet_Config_System_String_System_String_System_String_System_String_Microsoft_DotNet_ValueMatcher_Microsoft_DotNet_ConfigLevel_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config,System.String,System.String,System.String,System.String,Microsoft.DotNet.ValueMatcher,Microsoft.DotNet.ConfigLevel)
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString(Microsoft.DotNet.Config, System.String, System.String, System.String, System.String, Microsoft.DotNet.ValueMatcher, Microsoft.DotNet.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config, System.String, System.String, System.String, System.String, DotNetConfig.ValueMatcher, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetString(Config, String, String, String, String, ValueMatcher, ConfigLevel)
-- uid: Microsoft.DotNet.ConfigExtensions.SetString*
+- uid: DotNetConfig.ConfigExtensions.SetString*
   name: SetString
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_SetString_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.SetString
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetString_
+  commentId: Overload:DotNetConfig.ConfigExtensions.SetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.SetString
+  fullName: DotNetConfig.ConfigExtensions.SetString
   nameWithType: ConfigExtensions.SetString
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean@)
+- uid: DotNetConfig.ConfigExtensions.TryGetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean@)
   name: TryGetBoolean(Config, String, String, out Boolean)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetBoolean_Microsoft_DotNet_Config_System_String_System_String_System_Boolean__
-  commentId: M:Microsoft.DotNet.ConfigExtensions.TryGetBoolean(Microsoft.DotNet.Config,System.String,System.String,System.Boolean@)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean__
+  commentId: M:DotNetConfig.ConfigExtensions.TryGetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean@)
   name.vb: TryGetBoolean(Config, String, String, ByRef Boolean)
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetBoolean(Microsoft.DotNet.Config, System.String, System.String, out System.Boolean)
-  fullName.vb: Microsoft.DotNet.ConfigExtensions.TryGetBoolean(Microsoft.DotNet.Config, System.String, System.String, ByRef System.Boolean)
+  fullName: DotNetConfig.ConfigExtensions.TryGetBoolean(DotNetConfig.Config, System.String, System.String, out System.Boolean)
+  fullName.vb: DotNetConfig.ConfigExtensions.TryGetBoolean(DotNetConfig.Config, System.String, System.String, ByRef System.Boolean)
   nameWithType: ConfigExtensions.TryGetBoolean(Config, String, String, out Boolean)
   nameWithType.vb: ConfigExtensions.TryGetBoolean(Config, String, String, ByRef Boolean)
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetBoolean*
+- uid: DotNetConfig.ConfigExtensions.TryGetBoolean*
   name: TryGetBoolean
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetBoolean_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.TryGetBoolean
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetBoolean_
+  commentId: Overload:DotNetConfig.ConfigExtensions.TryGetBoolean
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetBoolean
+  fullName: DotNetConfig.ConfigExtensions.TryGetBoolean
   nameWithType: ConfigExtensions.TryGetBoolean
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime@)
+- uid: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime@)
   name: TryGetDateTime(Config, String, String, out DateTime)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetDateTime_Microsoft_DotNet_Config_System_String_System_String_System_DateTime__
-  commentId: M:Microsoft.DotNet.ConfigExtensions.TryGetDateTime(Microsoft.DotNet.Config,System.String,System.String,System.DateTime@)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime__
+  commentId: M:DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime@)
   name.vb: TryGetDateTime(Config, String, String, ByRef DateTime)
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetDateTime(Microsoft.DotNet.Config, System.String, System.String, out System.DateTime)
-  fullName.vb: Microsoft.DotNet.ConfigExtensions.TryGetDateTime(Microsoft.DotNet.Config, System.String, System.String, ByRef System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, out System.DateTime)
+  fullName.vb: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, ByRef System.DateTime)
   nameWithType: ConfigExtensions.TryGetDateTime(Config, String, String, out DateTime)
   nameWithType.vb: ConfigExtensions.TryGetDateTime(Config, String, String, ByRef DateTime)
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetDateTime*
+- uid: DotNetConfig.ConfigExtensions.TryGetDateTime*
   name: TryGetDateTime
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetDateTime_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.TryGetDateTime
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetDateTime_
+  commentId: Overload:DotNetConfig.ConfigExtensions.TryGetDateTime
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetDateTime
+  fullName: DotNetConfig.ConfigExtensions.TryGetDateTime
   nameWithType: ConfigExtensions.TryGetDateTime
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64@)
+- uid: DotNetConfig.ConfigExtensions.TryGetNumber(DotNetConfig.Config,System.String,System.String,System.Int64@)
   name: TryGetNumber(Config, String, String, out Int64)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetNumber_Microsoft_DotNet_Config_System_String_System_String_System_Int64__
-  commentId: M:Microsoft.DotNet.ConfigExtensions.TryGetNumber(Microsoft.DotNet.Config,System.String,System.String,System.Int64@)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetNumber_DotNetConfig_Config_System_String_System_String_System_Int64__
+  commentId: M:DotNetConfig.ConfigExtensions.TryGetNumber(DotNetConfig.Config,System.String,System.String,System.Int64@)
   name.vb: TryGetNumber(Config, String, String, ByRef Int64)
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetNumber(Microsoft.DotNet.Config, System.String, System.String, out System.Int64)
-  fullName.vb: Microsoft.DotNet.ConfigExtensions.TryGetNumber(Microsoft.DotNet.Config, System.String, System.String, ByRef System.Int64)
+  fullName: DotNetConfig.ConfigExtensions.TryGetNumber(DotNetConfig.Config, System.String, System.String, out System.Int64)
+  fullName.vb: DotNetConfig.ConfigExtensions.TryGetNumber(DotNetConfig.Config, System.String, System.String, ByRef System.Int64)
   nameWithType: ConfigExtensions.TryGetNumber(Config, String, String, out Int64)
   nameWithType.vb: ConfigExtensions.TryGetNumber(Config, String, String, ByRef Int64)
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetNumber*
+- uid: DotNetConfig.ConfigExtensions.TryGetNumber*
   name: TryGetNumber
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetNumber_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.TryGetNumber
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetNumber_
+  commentId: Overload:DotNetConfig.ConfigExtensions.TryGetNumber
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetNumber
+  fullName: DotNetConfig.ConfigExtensions.TryGetNumber
   nameWithType: ConfigExtensions.TryGetNumber
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetString(Microsoft.DotNet.Config,System.String,System.String,System.String@)
+- uid: DotNetConfig.ConfigExtensions.TryGetString(DotNetConfig.Config,System.String,System.String,System.String@)
   name: TryGetString(Config, String, String, out String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetString_Microsoft_DotNet_Config_System_String_System_String_System_String__
-  commentId: M:Microsoft.DotNet.ConfigExtensions.TryGetString(Microsoft.DotNet.Config,System.String,System.String,System.String@)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetString_DotNetConfig_Config_System_String_System_String_System_String__
+  commentId: M:DotNetConfig.ConfigExtensions.TryGetString(DotNetConfig.Config,System.String,System.String,System.String@)
   name.vb: TryGetString(Config, String, String, ByRef String)
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetString(Microsoft.DotNet.Config, System.String, System.String, out System.String)
-  fullName.vb: Microsoft.DotNet.ConfigExtensions.TryGetString(Microsoft.DotNet.Config, System.String, System.String, ByRef System.String)
+  fullName: DotNetConfig.ConfigExtensions.TryGetString(DotNetConfig.Config, System.String, System.String, out System.String)
+  fullName.vb: DotNetConfig.ConfigExtensions.TryGetString(DotNetConfig.Config, System.String, System.String, ByRef System.String)
   nameWithType: ConfigExtensions.TryGetString(Config, String, String, out String)
   nameWithType.vb: ConfigExtensions.TryGetString(Config, String, String, ByRef String)
-- uid: Microsoft.DotNet.ConfigExtensions.TryGetString*
+- uid: DotNetConfig.ConfigExtensions.TryGetString*
   name: TryGetString
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_TryGetString_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.TryGetString
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetString_
+  commentId: Overload:DotNetConfig.ConfigExtensions.TryGetString
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.TryGetString
+  fullName: DotNetConfig.ConfigExtensions.TryGetString
   nameWithType: ConfigExtensions.TryGetString
-- uid: Microsoft.DotNet.ConfigExtensions.Unset(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.Unset(DotNetConfig.Config,System.String,System.String)
   name: Unset(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_Unset_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.Unset(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.Unset(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_Unset_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.Unset(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.Unset(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.Unset(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.Unset*
+- uid: DotNetConfig.ConfigExtensions.Unset*
   name: Unset
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_Unset_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.Unset
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_Unset_
+  commentId: Overload:DotNetConfig.ConfigExtensions.Unset
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.Unset
+  fullName: DotNetConfig.ConfigExtensions.Unset
   nameWithType: ConfigExtensions.Unset
-- uid: Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config,System.String,System.String)
+- uid: DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String)
   name: UnsetAll(Config, String, String)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_UnsetAll_Microsoft_DotNet_Config_System_String_System_String_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config,System.String,System.String)
-  fullName: Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config, System.String, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config, System.String, System.String)
   nameWithType: ConfigExtensions.UnsetAll(Config, String, String)
-- uid: Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config,System.String,System.String,Microsoft.DotNet.ValueMatcher)
+- uid: DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)
   name: UnsetAll(Config, String, String, ValueMatcher)
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_UnsetAll_Microsoft_DotNet_Config_System_String_System_String_Microsoft_DotNet_ValueMatcher_
-  commentId: M:Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config,System.String,System.String,Microsoft.DotNet.ValueMatcher)
-  fullName: Microsoft.DotNet.ConfigExtensions.UnsetAll(Microsoft.DotNet.Config, System.String, System.String, Microsoft.DotNet.ValueMatcher)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_DotNetConfig_ValueMatcher_
+  commentId: M:DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)
+  fullName: DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config, System.String, System.String, DotNetConfig.ValueMatcher)
   nameWithType: ConfigExtensions.UnsetAll(Config, String, String, ValueMatcher)
-- uid: Microsoft.DotNet.ConfigExtensions.UnsetAll*
+- uid: DotNetConfig.ConfigExtensions.UnsetAll*
   name: UnsetAll
-  href: api/Microsoft.DotNet.ConfigExtensions.html#Microsoft_DotNet_ConfigExtensions_UnsetAll_
-  commentId: Overload:Microsoft.DotNet.ConfigExtensions.UnsetAll
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_UnsetAll_
+  commentId: Overload:DotNetConfig.ConfigExtensions.UnsetAll
   isSpec: "True"
-  fullName: Microsoft.DotNet.ConfigExtensions.UnsetAll
+  fullName: DotNetConfig.ConfigExtensions.UnsetAll
   nameWithType: ConfigExtensions.UnsetAll
-- uid: Microsoft.DotNet.ConfigLevel
+- uid: DotNetConfig.ConfigLevel
   name: ConfigLevel
-  href: api/Microsoft.DotNet.ConfigLevel.html
-  commentId: T:Microsoft.DotNet.ConfigLevel
-  fullName: Microsoft.DotNet.ConfigLevel
+  href: api/DotNetConfig.ConfigLevel.html
+  commentId: T:DotNetConfig.ConfigLevel
+  fullName: DotNetConfig.ConfigLevel
   nameWithType: ConfigLevel
-- uid: Microsoft.DotNet.ConfigLevel.Global
+- uid: DotNetConfig.ConfigLevel.Global
   name: Global
-  href: api/Microsoft.DotNet.ConfigLevel.html#Microsoft_DotNet_ConfigLevel_Global
-  commentId: F:Microsoft.DotNet.ConfigLevel.Global
-  fullName: Microsoft.DotNet.ConfigLevel.Global
+  href: api/DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_Global
+  commentId: F:DotNetConfig.ConfigLevel.Global
+  fullName: DotNetConfig.ConfigLevel.Global
   nameWithType: ConfigLevel.Global
-- uid: Microsoft.DotNet.ConfigLevel.System
+- uid: DotNetConfig.ConfigLevel.System
   name: System
-  href: api/Microsoft.DotNet.ConfigLevel.html#Microsoft_DotNet_ConfigLevel_System
-  commentId: F:Microsoft.DotNet.ConfigLevel.System
-  fullName: Microsoft.DotNet.ConfigLevel.System
+  href: api/DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_System
+  commentId: F:DotNetConfig.ConfigLevel.System
+  fullName: DotNetConfig.ConfigLevel.System
   nameWithType: ConfigLevel.System
-- uid: Microsoft.DotNet.ValueMatcher
+- uid: DotNetConfig.ValueMatcher
   name: ValueMatcher
-  href: api/Microsoft.DotNet.ValueMatcher.html
-  commentId: T:Microsoft.DotNet.ValueMatcher
-  fullName: Microsoft.DotNet.ValueMatcher
+  href: api/DotNetConfig.ValueMatcher.html
+  commentId: T:DotNetConfig.ValueMatcher
+  fullName: DotNetConfig.ValueMatcher
   nameWithType: ValueMatcher
-- uid: Microsoft.DotNet.ValueMatcher.All
+- uid: DotNetConfig.ValueMatcher.All
   name: All
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_All
-  commentId: P:Microsoft.DotNet.ValueMatcher.All
-  fullName: Microsoft.DotNet.ValueMatcher.All
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_All
+  commentId: P:DotNetConfig.ValueMatcher.All
+  fullName: DotNetConfig.ValueMatcher.All
   nameWithType: ValueMatcher.All
-- uid: Microsoft.DotNet.ValueMatcher.All*
+- uid: DotNetConfig.ValueMatcher.All*
   name: All
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_All_
-  commentId: Overload:Microsoft.DotNet.ValueMatcher.All
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_All_
+  commentId: Overload:DotNetConfig.ValueMatcher.All
   isSpec: "True"
-  fullName: Microsoft.DotNet.ValueMatcher.All
+  fullName: DotNetConfig.ValueMatcher.All
   nameWithType: ValueMatcher.All
-- uid: Microsoft.DotNet.ValueMatcher.From(System.String)
+- uid: DotNetConfig.ValueMatcher.From(System.String)
   name: From(String)
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_From_System_String_
-  commentId: M:Microsoft.DotNet.ValueMatcher.From(System.String)
-  fullName: Microsoft.DotNet.ValueMatcher.From(System.String)
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_From_System_String_
+  commentId: M:DotNetConfig.ValueMatcher.From(System.String)
+  fullName: DotNetConfig.ValueMatcher.From(System.String)
   nameWithType: ValueMatcher.From(String)
-- uid: Microsoft.DotNet.ValueMatcher.From*
+- uid: DotNetConfig.ValueMatcher.From*
   name: From
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_From_
-  commentId: Overload:Microsoft.DotNet.ValueMatcher.From
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_From_
+  commentId: Overload:DotNetConfig.ValueMatcher.From
   isSpec: "True"
-  fullName: Microsoft.DotNet.ValueMatcher.From
+  fullName: DotNetConfig.ValueMatcher.From
   nameWithType: ValueMatcher.From
-- uid: Microsoft.DotNet.ValueMatcher.Matches(System.String)
+- uid: DotNetConfig.ValueMatcher.Matches(System.String)
   name: Matches(String)
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_Matches_System_String_
-  commentId: M:Microsoft.DotNet.ValueMatcher.Matches(System.String)
-  fullName: Microsoft.DotNet.ValueMatcher.Matches(System.String)
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_
+  commentId: M:DotNetConfig.ValueMatcher.Matches(System.String)
+  fullName: DotNetConfig.ValueMatcher.Matches(System.String)
   nameWithType: ValueMatcher.Matches(String)
-- uid: Microsoft.DotNet.ValueMatcher.Matches*
+- uid: DotNetConfig.ValueMatcher.Matches*
   name: Matches
-  href: api/Microsoft.DotNet.ValueMatcher.html#Microsoft_DotNet_ValueMatcher_Matches_
-  commentId: Overload:Microsoft.DotNet.ValueMatcher.Matches
+  href: api/DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_
+  commentId: Overload:DotNetConfig.ValueMatcher.Matches
   isSpec: "True"
-  fullName: Microsoft.DotNet.ValueMatcher.Matches
+  fullName: DotNetConfig.ValueMatcher.Matches
   nameWithType: ValueMatcher.Matches

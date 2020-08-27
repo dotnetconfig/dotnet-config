@@ -1,0 +1,1636 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Config
+   | .netconfig </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Config
+   | .netconfig ">
+    <meta name="generator" content="docfx 2.56.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="DotNetConfig.Config">
+  
+  
+  <h1 id="DotNetConfig_Config" data-uid="DotNetConfig.Config" class="text-break">Class Config
+  </h1>
+  <div class="markdown level0 summary"><p>Provides access to .netconfig configuration options.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Config</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="DotNetConfig.html">DotNetConfig</a></h6>
+  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
+  <h5 id="DotNetConfig_Config_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class Config : IEnumerable&lt;ConfigEntry&gt;, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="DotNetConfig_Config__ctor_" data-uid="DotNetConfig.Config.#ctor*"></a>
+  <h4 id="DotNetConfig_Config__ctor_System_String_" data-uid="DotNetConfig.Config.#ctor(System.String)">Config(String)</h4>
+  <div class="markdown level1 summary"><p>Creates the <a class="xref" href="DotNetConfig.Config.html">Config</a> and sets <a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FilePath">FilePath</a> to the given <code data-dev-comment-type="paramref" class="paramref">filePath</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Config(string filePath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filePath</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="DotNetConfig_Config_FileName" data-uid="DotNetConfig.Config.FileName">FileName</h4>
+  <div class="markdown level1 summary"><p>Default filename, equal to &apos;.netconfig&apos;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string FileName = &quot;.netconfig&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="DotNetConfig_Config_FilePath_" data-uid="DotNetConfig.Config.FilePath*"></a>
+  <h4 id="DotNetConfig_Config_FilePath" data-uid="DotNetConfig.Config.FilePath">FilePath</h4>
+  <div class="markdown level1 summary"><p>Path to the file that will be used to save values when writing 
+changes to disk.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FilePath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_GlobalLocation_" data-uid="DotNetConfig.Config.GlobalLocation*"></a>
+  <h4 id="DotNetConfig_Config_GlobalLocation" data-uid="DotNetConfig.Config.GlobalLocation">GlobalLocation</h4>
+  <div class="markdown level1 summary"><p>Default global location, equal to <span class="xref">System.Environment.SpecialFolder.UserProfile</span> plus 
+<a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FileName">FileName</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GlobalLocation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_Level_" data-uid="DotNetConfig.Config.Level*"></a>
+  <h4 id="DotNetConfig_Config_Level" data-uid="DotNetConfig.Config.Level">Level</h4>
+  <div class="markdown level1 summary"><p>Gets the optional configuration level for this config. 
+<span class="xref">null</span> unless the <a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FilePath">FilePath</a> equals 
+<a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_GlobalLocation">GlobalLocation</a> or <a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation">SystemLocation</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConfigLevel? Level { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SystemLocation_" data-uid="DotNetConfig.Config.SystemLocation*"></a>
+  <h4 id="DotNetConfig_Config_SystemLocation" data-uid="DotNetConfig.Config.SystemLocation">SystemLocation</h4>
+  <div class="markdown level1 summary"><p>Default system location, equal to <span class="xref">System.Environment.SpecialFolder.System</span> plus 
+<a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FileName">FileName</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string SystemLocation { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="DotNetConfig_Config_AddBoolean_" data-uid="DotNetConfig.Config.AddBoolean*"></a>
+  <h4 id="DotNetConfig_Config_AddBoolean_System_String_System_String_System_String_System_Boolean_" data-uid="DotNetConfig.Config.AddBoolean(System.String,System.String,System.String,System.Boolean)">AddBoolean(String, String, String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds a value to a multi-valued variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void AddBoolean(string section, string subsection, string variable, bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value add to the variable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_AddDateTime_" data-uid="DotNetConfig.Config.AddDateTime*"></a>
+  <h4 id="DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_System_DateTime_" data-uid="DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)">AddDateTime(String, String, String, DateTime)</h4>
+  <div class="markdown level1 summary"><p>Adds a value to a multi-valued variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void AddDateTime(string section, string subsection, string variable, DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value add to the variable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_AddNumber_" data-uid="DotNetConfig.Config.AddNumber*"></a>
+  <h4 id="DotNetConfig_Config_AddNumber_System_String_System_String_System_String_System_Int64_" data-uid="DotNetConfig.Config.AddNumber(System.String,System.String,System.String,System.Int64)">AddNumber(String, String, String, Int64)</h4>
+  <div class="markdown level1 summary"><p>Adds a value to a multi-valued variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void AddNumber(string section, string subsection, string variable, long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value add to the variable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_AddString_" data-uid="DotNetConfig.Config.AddString*"></a>
+  <h4 id="DotNetConfig_Config_AddString_System_String_System_String_System_String_System_String_" data-uid="DotNetConfig.Config.AddString(System.String,System.String,System.String,System.String)">AddString(String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Adds a value to a multi-valued variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void AddString(string section, string subsection, string variable, string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value add to the variable.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_Build_" data-uid="DotNetConfig.Config.Build*"></a>
+  <h4 id="DotNetConfig_Config_Build_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.Config.Build(DotNetConfig.ConfigLevel)">Build(ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Access the configuration from a specific store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Config Build(ConfigLevel store)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">store</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_Build_" data-uid="DotNetConfig.Config.Build*"></a>
+  <h4 id="DotNetConfig_Config_Build_System_String_" data-uid="DotNetConfig.Config.Build(System.String)">Build(String)</h4>
+  <div class="markdown level1 summary"><p>Builds configuration from the given path, which can be a directory or a file path. 
+If ommited, the <see cref="!:Directory.GetCurrentDirectory"></see> will be used.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Config Build(string path = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="DotNetConfig_Config_Build_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+The returned configuration will contain the aggregate hierarchical configuration 
+from the given directory (or file) and any ancestor directories, plus 
+<a class="xref" href="DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_Global">Global</a> and <a class="xref" href="DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_System">System</a> locations.
+</p>
+</div>
+  
+  
+  <a id="DotNetConfig_Config_GetAll_" data-uid="DotNetConfig.Config.GetAll*"></a>
+  <h4 id="DotNetConfig_Config_GetAll_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.GetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)">GetAll(String, String, String, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Gets all values from a multi-valued variable from the given section and optional subsection, 
+which optionally match the given value regular expression.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ConfigEntry&gt; GetAll(string section, string subsection, string variable, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_GetEntries_" data-uid="DotNetConfig.Config.GetEntries*"></a>
+  <h4 id="DotNetConfig_Config_GetEntries" data-uid="DotNetConfig.Config.GetEntries">GetEntries()</h4>
+  <div class="markdown level1 summary"><p>Gets the configuration entries in the current configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IEnumerable&lt;ConfigEntry&gt; GetEntries()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_GetRegex_" data-uid="DotNetConfig.Config.GetRegex*"></a>
+  <h4 id="DotNetConfig_Config_GetRegex_System_String_System_String_" data-uid="DotNetConfig.Config.GetRegex(System.String,System.String)">GetRegex(String, String)</h4>
+  <div class="markdown level1 summary"><p>Gets all values where the key (section plus subsection and variable name) match 
+the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and optionally also the <code data-dev-comment-type="paramref" class="paramref">valueRegex</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IEnumerable&lt;ConfigEntry&gt; GetRegex(string nameRegex, string valueRegex = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">nameRegex</span></td>
+        <td><p>Regular expression to match against the key (section plus subsection and variable name).</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Optional regular expression to match against the variable values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_RemoveSection_" data-uid="DotNetConfig.Config.RemoveSection*"></a>
+  <h4 id="DotNetConfig_Config_RemoveSection_System_String_System_String_" data-uid="DotNetConfig.Config.RemoveSection(System.String,System.String)">RemoveSection(String, String)</h4>
+  <div class="markdown level1 summary"><p>Remove the given section from the configuration file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RemoveSection(string section, string subsection = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_RenameSection_" data-uid="DotNetConfig.Config.RenameSection*"></a>
+  <h4 id="DotNetConfig_Config_RenameSection_System_String_System_String_System_String_System_String_" data-uid="DotNetConfig.Config.RenameSection(System.String,System.String,System.String,System.String)">RenameSection(String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Renames a section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void RenameSection(string oldSection, string oldSubsection, string newSection, string newSubsection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">oldSection</span></td>
+        <td><p>The old section name to rename.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">oldSubsection</span></td>
+        <td><p>The optional old subsection to rename.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSection</span></td>
+        <td><p>The new section name to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSubsection</span></td>
+        <td><p>The optional new subsection to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetAllBoolean_" data-uid="DotNetConfig.Config.SetAllBoolean*"></a>
+  <h4 id="DotNetConfig_Config_SetAllBoolean_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetAllBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)">SetAllBoolean(String, String, String, Boolean, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetAllBoolean(string section, string subsection, string variable, bool value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the matching variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetAllDateTime_" data-uid="DotNetConfig.Config.SetAllDateTime*"></a>
+  <h4 id="DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)">SetAllDateTime(String, String, String, DateTime, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetAllDateTime(string section, string subsection, string variable, DateTime value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the matching variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetAllNumber_" data-uid="DotNetConfig.Config.SetAllNumber*"></a>
+  <h4 id="DotNetConfig_Config_SetAllNumber_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetAllNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)">SetAllNumber(String, String, String, Int64, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetAllNumber(string section, string subsection, string variable, long value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the matching variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetAllString_" data-uid="DotNetConfig.Config.SetAllString*"></a>
+  <h4 id="DotNetConfig_Config_SetAllString_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetAllString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)">SetAllString(String, String, String, String, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetAllString(string section, string subsection, string variable, string value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the matching variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetBoolean_" data-uid="DotNetConfig.Config.SetBoolean*"></a>
+  <h4 id="DotNetConfig_Config_SetBoolean_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetBoolean(System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)">SetBoolean(String, String, String, Boolean, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetBoolean(string section, string subsection, string variable, bool value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetDateTime_" data-uid="DotNetConfig.Config.SetDateTime*"></a>
+  <h4 id="DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)">SetDateTime(String, String, String, DateTime, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetDateTime(string section, string subsection, string variable, DateTime value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetNumber_" data-uid="DotNetConfig.Config.SetNumber*"></a>
+  <h4 id="DotNetConfig_Config_SetNumber_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetNumber(System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)">SetNumber(String, String, String, Int64, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetNumber(string section, string subsection, string variable, long value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_SetString_" data-uid="DotNetConfig.Config.SetString*"></a>
+  <h4 id="DotNetConfig_Config_SetString_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.SetString(System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher)">SetString(String, String, String, String, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetString(string section, string subsection, string variable, string value, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to assign.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to assign to the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_TryGetBoolean_" data-uid="DotNetConfig.Config.TryGetBoolean*"></a>
+  <h4 id="DotNetConfig_Config_TryGetBoolean_System_String_System_String_System_String_System_Boolean__" data-uid="DotNetConfig.Config.TryGetBoolean(System.String,System.String,System.String,System.Boolean@)">TryGetBoolean(String, String, String, out Boolean)</h4>
+  <div class="markdown level1 summary"><p>Tries to retrieve a variable value from configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool TryGetBoolean(string section, string subsection, string variable, out bool value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to retrieve.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The variable value if found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the value was found, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_TryGetDateTime_" data-uid="DotNetConfig.Config.TryGetDateTime*"></a>
+  <h4 id="DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_System_DateTime__" data-uid="DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)">TryGetDateTime(String, String, String, out DateTime)</h4>
+  <div class="markdown level1 summary"><p>Tries to retrieve a variable value from configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool TryGetDateTime(string section, string subsection, string variable, out DateTime value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to retrieve.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The variable value if found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the value was found, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_TryGetNumber_" data-uid="DotNetConfig.Config.TryGetNumber*"></a>
+  <h4 id="DotNetConfig_Config_TryGetNumber_System_String_System_String_System_String_System_Int64__" data-uid="DotNetConfig.Config.TryGetNumber(System.String,System.String,System.String,System.Int64@)">TryGetNumber(String, String, String, out Int64)</h4>
+  <div class="markdown level1 summary"><p>Tries to retrieve a variable value from configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool TryGetNumber(string section, string subsection, string variable, out long value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to retrieve.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The variable value if found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the value was found, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_TryGetString_" data-uid="DotNetConfig.Config.TryGetString*"></a>
+  <h4 id="DotNetConfig_Config_TryGetString_System_String_System_String_System_String_System_String__" data-uid="DotNetConfig.Config.TryGetString(System.String,System.String,System.String,System.String@)">TryGetString(String, String, String, out String)</h4>
+  <div class="markdown level1 summary"><p>Tries to retrieve a variable value from configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool TryGetString(string section, string subsection, string variable, out string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to retrieve.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The variable value if found.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p><span class="xref">true</span> if the value was found, <span class="xref">false</span> otherwise.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_Unset_" data-uid="DotNetConfig.Config.Unset*"></a>
+  <h4 id="DotNetConfig_Config_Unset_System_String_System_String_System_String_" data-uid="DotNetConfig.Config.Unset(System.String,System.String,System.String)">Unset(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Removes a variable from the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Unset(string section, string subsection, string variable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_Config_UnsetAll_" data-uid="DotNetConfig.Config.UnsetAll*"></a>
+  <h4 id="DotNetConfig_Config_UnsetAll_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.Config.UnsetAll(System.String,System.String,System.String,DotNetConfig.ValueMatcher)">UnsetAll(String, String, String, ValueMatcher)</h4>
+  <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section and optional subsection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void UnsetAll(string section, string subsection, string variable, ValueMatcher valueMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
+        <td><span class="parametername">valueMatcher</span></td>
+        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*"></a>
+  <h4 id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator">IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerator&lt;ConfigEntry&gt; IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -14,11 +14,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.Config.yml",
+      "source_relative_path": "api/DotNetConfig.Config.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.Config.html",
-          "hash": "42QijBnsEkm95SjvOxk4Zw=="
+          "relative_path": "api/DotNetConfig.Config.html",
+          "hash": "ligaAZ3/sd+AIM46jBcZtw=="
         }
       },
       "is_incremental": false,
@@ -26,11 +26,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.ConfigEntry.yml",
+      "source_relative_path": "api/DotNetConfig.ConfigEntry.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.ConfigEntry.html",
-          "hash": "3CFXsDfSBp0s+ALHdqJtGQ=="
+          "relative_path": "api/DotNetConfig.ConfigEntry.html",
+          "hash": "KFzno9vItCL5Tht97P/pJg=="
         }
       },
       "is_incremental": false,
@@ -38,11 +38,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.ConfigExtensions.yml",
+      "source_relative_path": "api/DotNetConfig.ConfigExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.ConfigExtensions.html",
-          "hash": "z1WGqp9asxg6k3grAQeSjA=="
+          "relative_path": "api/DotNetConfig.ConfigExtensions.html",
+          "hash": "IX5WDJzsUx6cIQjhOg6G8A=="
         }
       },
       "is_incremental": false,
@@ -50,11 +50,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.ConfigLevel.yml",
+      "source_relative_path": "api/DotNetConfig.ConfigLevel.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.ConfigLevel.html",
-          "hash": "egT6aQjHNSIbgE2e9SGdMQ=="
+          "relative_path": "api/DotNetConfig.ConfigLevel.html",
+          "hash": "GRzYv+l/1MBkyv9yKjJj1g=="
         }
       },
       "is_incremental": false,
@@ -62,11 +62,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.ValueMatcher.yml",
+      "source_relative_path": "api/DotNetConfig.ValueMatcher.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.ValueMatcher.html",
-          "hash": "9L+51ZxwP4DjUR+owb0ftg=="
+          "relative_path": "api/DotNetConfig.ValueMatcher.html",
+          "hash": "EJrISyyDnnjwUeCqQcmSqQ=="
         }
       },
       "is_incremental": false,
@@ -74,11 +74,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Microsoft.DotNet.yml",
+      "source_relative_path": "api/DotNetConfig.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Microsoft.DotNet.html",
-          "hash": "IqNu8nzBVnCi1yqT6wOpJg=="
+          "relative_path": "api/DotNetConfig.html",
+          "hash": "etDXsYVhqZLBiiubdsVG2Q=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "w/0i4RVx1ynjth4goyxVzw=="
+          "hash": "UTUcakIHNPa8v/XY+NJBHw=="
         }
       },
       "is_incremental": false,
