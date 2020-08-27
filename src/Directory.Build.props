@@ -60,6 +60,9 @@
     <GeneratePackageOnBuild>$(PackOnBuild)</GeneratePackageOnBuild>
     <PackageOutputPath Condition="'$(PackOnBuild)' == 'true' And '$(PackageOutputPath)' == ''">$(MSBuildThisFileDirectory)..\bin</PackageOutputPath>
     <DefaultItemExcludes>$(DefaultExcludeItems);*.binlog</DefaultItemExcludes>
+
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)dotnet-config.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   
   <!-- This target is replaced by GitInfo when restored -->

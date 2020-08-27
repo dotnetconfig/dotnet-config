@@ -8,7 +8,7 @@
     <RootNamespace>DotNetConfig</RootNamespace>
     <PackageId>dotnet-config-lib</PackageId>
     <Nullable>enable</Nullable>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>  
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Label="docfx">
@@ -23,8 +23,9 @@
   <ItemGroup>
     <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
     <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
+    <PackageReference Include="StrongNamer" Version="0.2.5" />
     <PackageReference Include="Superpower" Version="2.3.0" />
-    <PackageReference Include="docfx.console" Version="2.56.0" PrivateAssets="all"/>
+    <PackageReference Include="docfx.console" Version="2.56.0" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
