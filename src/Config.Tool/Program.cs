@@ -150,11 +150,11 @@ namespace DotNetConfig
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
                             return ShowError(error);
 
-                        var matcher = ValueMatcher.All;
+                        string? valueRegex = default;
                         if (extraArgs.Count > 1)
-                            matcher = ValueMatcher.From(extraArgs[1]);
+                            valueRegex = extraArgs[1];
 
-                        foreach (var entry in config.GetAll(section!, subsection, variable!, matcher))
+                        foreach (var entry in config.GetAll(section!, subsection, variable!, valueRegex))
                         {
                             entryWriter(entry);
                         }
@@ -209,9 +209,9 @@ namespace DotNetConfig
                             return ShowHelp(options);
 
                         var value = extraArgs[1];
-                        var matcher = ValueMatcher.All;
+                        string? valueRegex = default;
                         if (extraArgs.Count > 2)
-                            matcher = ValueMatcher.From(extraArgs[2]);
+                            valueRegex = extraArgs[2];
 
                         if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !ConfigParser.TryParseBoolean(value, out error)) ||
                             (kind == ValueKind.Number && !ConfigParser.TryParseNumber(value, out error)) ||
@@ -224,7 +224,7 @@ namespace DotNetConfig
                             return -1;
                         }
 
-                        config.SetAllString(section!, subsection, variable!, value, matcher);
+                        config.SetAllString(section!, subsection, variable!, value, valueRegex);
                         break;
                     }
                 case ConfigAction.Unset:
@@ -241,11 +241,11 @@ namespace DotNetConfig
                         if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
                             return ShowError(error);
 
-                        var matcher = ValueMatcher.All;
+                        string? valueRegex = default;
                         if (extraArgs.Count > 1)
-                            matcher = ValueMatcher.From(extraArgs[1]);
+                            valueRegex = extraArgs[1];
 
-                        config.UnsetAll(section!, subsection, variable!, matcher);
+                        config.UnsetAll(section!, subsection, variable!, valueRegex);
                         break;
                     }
                 case ConfigAction.List:

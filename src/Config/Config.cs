@@ -125,6 +125,13 @@ namespace DotNetConfig
             FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System : null;
 
         /// <summary>
+        /// Gets the section and optional subsection from the configuration.
+        /// </summary>
+        /// <param name="section">The section containing the variables.</param>
+        /// <param name="subsection">Optional subsection containing the variables.</param>
+        public ConfigSection GetSection(string section, string? subsection = null) => new ConfigSection(this, section, subsection);
+
+        /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.
         /// </summary>
         /// <param name="section">The section containing the variable.</param>
@@ -167,8 +174,8 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex);
 
         /// <summary>
         /// Gets all values where the key (section plus subsection and variable name) match 
@@ -185,8 +192,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -195,8 +202,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -205,8 +212,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -215,8 +222,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetString(string section, string? subsection, string variable, string value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -225,8 +232,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetAllBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -235,8 +242,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetAllDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -245,8 +252,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetAllNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -255,8 +262,8 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void SetAllString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex);
 
         /// <summary>
         /// Tries to retrieve a variable value from configuration.
@@ -312,8 +319,8 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        /// <param name="valueMatcher">Filter returned entries to those where the value is matched by <see cref="ValueMatcher.Matches(string?)"/>.</param>
-        public abstract void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher);
+        /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
+        public abstract void UnsetAll(string section, string? subsection, string variable, string? valueRegex);
 
         /// <summary>
         /// Remove the given section from the configuration file.

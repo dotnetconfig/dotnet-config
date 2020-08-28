@@ -46,8 +46,8 @@ namespace DotNetConfig
             doc.Save();
         }
 
-        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
-            => doc.GetAll(section, subsection, variable, valueMatcher);
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex)
+            => doc.GetAll(section, subsection, variable, valueRegex);
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => doc.GetAll(nameRegex, valueRegex);
@@ -64,69 +64,69 @@ namespace DotNetConfig
             doc.Save();
         }
 
-        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
+        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
         {
             if (value)
             {
                 // Shortcut notation.
-                doc.SetAll(section, subsection, variable, null, valueMatcher);
+                doc.SetAll(section, subsection, variable, null, valueRegex);
                 doc.Save();
             }
             else
             {
-                doc.SetAll(section, subsection, variable, "false", valueMatcher);
+                doc.SetAll(section, subsection, variable, "false", valueRegex);
                 doc.Save();
             }
         }
 
-        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
+        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
         {
-            doc.SetAll(section, subsection, variable, value.ToString("O"), valueMatcher);
+            doc.SetAll(section, subsection, variable, value.ToString("O"), valueRegex);
             doc.Save();
         }
 
-        public override void SetAllNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
+        public override void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
         {
-            doc.SetAll(section, subsection, variable, value.ToString(), valueMatcher);
+            doc.SetAll(section, subsection, variable, value.ToString(), valueRegex);
             doc.Save();
         }
 
-        public override void SetAllString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
+        public override void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
         {
-            doc.SetAll(section, subsection, variable, value, valueMatcher);
+            doc.SetAll(section, subsection, variable, value, valueRegex);
             doc.Save();
         }
 
-        public override void SetBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
+        public override void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
         {
             if (value)
             {
                 // Shortcut notation.
-                doc.Set(section, subsection, variable, null, valueMatcher);
+                doc.Set(section, subsection, variable, null, valueRegex);
                 doc.Save();
             }
             else
             {
-                doc.Set(section, subsection, variable, "false", valueMatcher);
+                doc.Set(section, subsection, variable, "false", valueRegex);
                 doc.Save();
             }
         }
 
-        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
+        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
         {
-            doc.Set(section, subsection, variable, value.ToString("O"), valueMatcher);
+            doc.Set(section, subsection, variable, value.ToString("O"), valueRegex);
             doc.Save();
         }
 
-        public override void SetNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
+        public override void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
         {
-            doc.Set(section, subsection, variable, value.ToString(), valueMatcher);
+            doc.Set(section, subsection, variable, value.ToString(), valueRegex);
             doc.Save();
         }
 
-        public override void SetString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
+        public override void SetString(string section, string? subsection, string variable, string value, string? valueRegex)
         {
-            doc.Set(section, subsection, variable, value, valueMatcher);
+            doc.Set(section, subsection, variable, value, valueRegex);
             doc.Save();
         }
 
@@ -204,7 +204,7 @@ namespace DotNetConfig
             doc.Save();
         }
 
-        public override void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
+        public override void UnsetAll(string section, string? subsection, string variable, string? valueMatcher)
         {
             doc.UnsetAll(section, subsection, variable, valueMatcher);
             doc.Save();

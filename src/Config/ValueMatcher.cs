@@ -6,7 +6,7 @@ namespace DotNetConfig
     /// <summary>
     /// Allows matching values by using a regular expression.
     /// </summary>
-    public class ValueMatcher
+    internal class ValueMatcher
     {
         readonly Func<string?, bool> matcher;
 
@@ -17,10 +17,10 @@ namespace DotNetConfig
         public static ValueMatcher All { get; } = new ValueMatcher(_ => true);
 
         /// <summary>
-        /// An optional regular expression to use 
+        /// An optional regular expression to use for value matching/filtering.
         /// </summary>
         /// <param name="expression">Regular expression, optionally starting with <c>!</c> to negate the match expression.</param>
-        public static ValueMatcher From(string expression)
+        public static ValueMatcher From(string? expression)
         {
             if (string.IsNullOrWhiteSpace(expression))
                 return All;
@@ -31,6 +31,12 @@ namespace DotNetConfig
             return new ValueMatcher(v => v != null && Regex.IsMatch(v, expression));
 
         }
+
+        /// <summary>
+        /// Converts a string to a <see cref="ValueMatcher"/>.
+        /// </summary>
+        /// <param name="expression">Regular expression, optionally starting with <c>!</c> to negate the match expression.</param>
+        public static implicit operator ValueMatcher?(string? expression) => From(expression);
 
         ValueMatcher(Func<string?, bool> matcher) => this.matcher = matcher;
 

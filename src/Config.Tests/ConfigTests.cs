@@ -23,6 +23,13 @@ namespace DotNetConfig.Tests
             Assert.True(config.GetBoolean("core", "parent"));
             Assert.True(config.GetBoolean("core", "global"));
             Assert.True(config.GetBoolean("core", "system"));
+
+            var section = config.GetSection("core");
+
+            Assert.True(section.GetBoolean("local"));
+            Assert.True(section.GetBoolean("parent"));
+            Assert.True(section.GetBoolean("global"));
+            Assert.True(section.GetBoolean("system"));
         }
 
         [Fact]

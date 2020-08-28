@@ -24,8 +24,8 @@ namespace DotNetConfig
         public override void AddString(string section, string? subsection, string variable, string value)
             => Files.First().AddString(section, subsection, variable, value);
 
-        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
-            => Files.SelectMany(x => x.GetAll(section, subsection, variable, valueMatcher));
+        public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex)
+            => Files.SelectMany(x => x.GetAll(section, subsection, variable, valueRegex));
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => Files.SelectMany(x => x.GetRegex(nameRegex, valueRegex));
@@ -36,29 +36,29 @@ namespace DotNetConfig
         public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
             => Files.First().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
 
-        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
-            => Files.First().SetAllBoolean(section, subsection, variable, value, valueMatcher);
+        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+            => Files.First().SetAllBoolean(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
-            => Files.First().SetAllDateTime(section, subsection, variable, value, valueMatcher);
+        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+            => Files.First().SetAllDateTime(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
-            => Files.First().SetAllNumber(section, subsection, variable, value, valueMatcher);
+        public override void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+            => Files.First().SetAllNumber(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
-            => Files.First().SetAllString(section, subsection, variable, value, valueMatcher);
+        public override void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
+            => Files.First().SetAllString(section, subsection, variable, value, valueRegex);
 
-        public override void SetBoolean(string section, string? subsection, string variable, bool value, ValueMatcher valueMatcher)
-            => Files.First().SetBoolean(section, subsection, variable, value, valueMatcher);
+        public override void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+            => Files.First().SetBoolean(section, subsection, variable, value, valueRegex);
 
-        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, ValueMatcher valueMatcher)
-            => Files.First().SetDateTime(section, subsection, variable, value, valueMatcher);
+        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+            => Files.First().SetDateTime(section, subsection, variable, value, valueRegex);
 
-        public override void SetNumber(string section, string? subsection, string variable, long value, ValueMatcher valueMatcher)
-            => Files.First().SetNumber(section, subsection, variable, value, valueMatcher);
+        public override void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+            => Files.First().SetNumber(section, subsection, variable, value, valueRegex);
 
-        public override void SetString(string section, string? subsection, string variable, string value, ValueMatcher valueMatcher)
-            => Files.First().SetString(section, subsection, variable, value, valueMatcher);
+        public override void SetString(string section, string? subsection, string variable, string value, string? valueRegex)
+            => Files.First().SetString(section, subsection, variable, value, valueRegex);
 
         public override bool TryGetBoolean(string section, string? subsection, string variable, out bool value)
         {
@@ -111,8 +111,8 @@ namespace DotNetConfig
         public override void Unset(string section, string? subsection, string variable)
             => Files.First().Unset(section, subsection, variable);
 
-        public override void UnsetAll(string section, string? subsection, string variable, ValueMatcher valueMatcher)
-            => Files.First().UnsetAll(section, subsection, variable, valueMatcher);
+        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex)
+            => Files.First().UnsetAll(section, subsection, variable, valueRegex);
 
         protected override IEnumerable<ConfigEntry> GetEntries() => Files.SelectMany(x => x);
     }
