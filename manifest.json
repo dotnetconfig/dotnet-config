@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.Config.html",
-          "hash": "ligaAZ3/sd+AIM46jBcZtw=="
+          "hash": "lOrILL65is1v/Hmr+hI2hw=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigExtensions.html",
-          "hash": "IX5WDJzsUx6cIQjhOg6G8A=="
+          "hash": "VnH05WbwinrBx9r30lqSng=="
         }
       },
       "is_incremental": false,
@@ -62,11 +62,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DotNetConfig.ValueMatcher.yml",
+      "source_relative_path": "api/DotNetConfig.ConfigSection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/DotNetConfig.ValueMatcher.html",
-          "hash": "EJrISyyDnnjwUeCqQcmSqQ=="
+          "relative_path": "api/DotNetConfig.ConfigSection.html",
+          "hash": "Y8A15VVh9CR/CJ7mY3w5Eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DotNetConfig.ConfigSectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DotNetConfig.ConfigSectionExtensions.html",
+          "hash": "W0fbFlPQgtHqsUGUFxFnSg=="
         }
       },
       "is_incremental": false,
@@ -78,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.html",
-          "hash": "etDXsYVhqZLBiiubdsVG2Q=="
+          "hash": "+deQx5NEJ430eYOfi6pl4A=="
         }
       },
       "is_incremental": false,
@@ -102,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "UTUcakIHNPa8v/XY+NJBHw=="
+          "hash": "a1WS5mXLCfAr8ylyn2rWNg=="
         }
       },
       "is_incremental": false,
@@ -234,7 +246,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 6,
+          "total_file_count": 7,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

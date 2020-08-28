@@ -218,7 +218,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -277,7 +277,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -377,7 +377,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -436,7 +436,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -536,7 +536,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -595,7 +595,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -695,7 +695,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -754,7 +754,7 @@
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -796,69 +796,6 @@
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">variable</span></td>
         <td><p>The variable to remove.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="DotNetConfig_ConfigExtensions_GetAll_" data-uid="DotNetConfig.ConfigExtensions.GetAll*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_GetAll_DotNetConfig_Config_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.GetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)">GetAll(Config, String, String, ValueMatcher)</h4>
-  <div class="markdown level1 summary"><p>Gets all values from a multi-valued variable from the given section and optional subsection, 
-which optionally match the given value regular expression.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;ConfigEntry&gt; GetAll(this Config config, string section, string variable, ValueMatcher valueMatcher)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
-        <td><span class="parametername">config</span></td>
-        <td><p>The configuration to get the values from.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">section</span></td>
-        <td><p>The section containing the variable.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">variable</span></td>
-        <td><p>The variable to remove.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
 </td>
       </tr>
     </tbody>
@@ -1458,6 +1395,47 @@ which optionally match the given value regular expression.</p>
   </table>
   
   
+  <a id="DotNetConfig_ConfigExtensions_RemoveSection_" data-uid="DotNetConfig.ConfigExtensions.RemoveSection*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_RemoveSection_DotNetConfig_Config_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.RemoveSection(DotNetConfig.Config,System.String,DotNetConfig.ConfigLevel)">RemoveSection(Config, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Remove the given section from the configuration file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RemoveSection(this Config config, string section, ConfigLevel level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="DotNetConfig_ConfigExtensions_RenameSection_" data-uid="DotNetConfig.ConfigExtensions.RenameSection*"></a>
   <h4 id="DotNetConfig_ConfigExtensions_RenameSection_DotNetConfig_Config_System_String_System_String_" data-uid="DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String)">RenameSection(Config, String, String)</h4>
   <div class="markdown level1 summary"><p>Renames a section.</p>
@@ -1493,6 +1471,53 @@ which optionally match the given value regular expression.</p>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">newSection</span></td>
         <td><p>The new section name to use.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_ConfigExtensions_RenameSection_" data-uid="DotNetConfig.ConfigExtensions.RenameSection*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_RenameSection_DotNetConfig_Config_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String,DotNetConfig.ConfigLevel)">RenameSection(Config, String, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Renames a section.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RenameSection(this Config config, string oldSection, string newSection, ConfigLevel level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">oldSection</span></td>
+        <td><p>The old section name to rename.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newSection</span></td>
+        <td><p>The new section name to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1592,7 +1617,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1600,13 +1625,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)">SetAllBoolean(Config, String, String, Boolean, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,System.String)">SetAllBoolean(Config, String, String, Boolean, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string variable, bool value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string variable, bool value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1643,9 +1668,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -1653,13 +1678,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,System.String,DotNetConfig.ConfigLevel)">SetAllBoolean(Config, String, String, Boolean, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string variable, bool value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string variable, bool value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1696,15 +1721,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1712,13 +1737,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,System.String,DotNetConfig.ConfigLevel)">SetAllBoolean(Config, String, String, String, Boolean, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string subsection, string variable, bool value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllBoolean(this Config config, string section, string subsection, string variable, bool value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1761,15 +1786,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1869,7 +1894,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1877,13 +1902,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)">SetAllDateTime(Config, String, String, DateTime, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)">SetAllDateTime(Config, String, String, DateTime, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string variable, DateTime value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string variable, DateTime value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1920,9 +1945,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -1930,13 +1955,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)">SetAllDateTime(Config, String, String, DateTime, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string variable, DateTime value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string variable, DateTime value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1973,15 +1998,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -1989,13 +2014,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)">SetAllDateTime(Config, String, String, String, DateTime, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string subsection, string variable, DateTime value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllDateTime(this Config config, string section, string subsection, string variable, DateTime value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2038,15 +2063,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2146,7 +2171,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2154,13 +2179,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllNumber_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)">SetAllNumber(Config, String, String, Int64, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,System.String)">SetAllNumber(Config, String, String, Int64, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string variable, long value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string variable, long value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2197,9 +2222,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -2207,13 +2232,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllNumber_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_Int64_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.Int64,System.String,DotNetConfig.ConfigLevel)">SetAllNumber(Config, String, String, Int64, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string variable, long value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string variable, long value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2250,15 +2275,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2266,13 +2291,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllNumber_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,System.String,DotNetConfig.ConfigLevel)">SetAllNumber(Config, String, String, String, Int64, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string subsection, string variable, long value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllNumber(this Config config, string section, string subsection, string variable, long value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2315,15 +2340,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2423,7 +2448,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2431,13 +2456,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllString_" data-uid="DotNetConfig.ConfigExtensions.SetAllString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)">SetAllString(Config, String, String, String, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String)">SetAllString(Config, String, String, String, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string variable, string value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string variable, string value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2474,9 +2499,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -2484,13 +2509,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllString_" data-uid="DotNetConfig.ConfigExtensions.SetAllString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllString(Config, String, String, String, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">SetAllString(Config, String, String, String, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string variable, string value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string variable, string value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2527,15 +2552,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2543,13 +2568,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetAllString_" data-uid="DotNetConfig.ConfigExtensions.SetAllString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetAllString(Config, String, String, String, String, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetAllString_DotNetConfig_Config_System_String_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetAllString(DotNetConfig.Config,System.String,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">SetAllString(Config, String, String, String, String, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string subsection, string variable, string value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetAllString(this Config config, string section, string subsection, string variable, string value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2592,15 +2617,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2700,7 +2725,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2708,13 +2733,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher)">SetBoolean(Config, String, String, Boolean, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,System.String)">SetBoolean(Config, String, String, Boolean, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string variable, bool value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string variable, bool value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2751,9 +2776,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -2761,13 +2786,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetBoolean(Config, String, String, Boolean, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_Boolean_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.Boolean,System.String,DotNetConfig.ConfigLevel)">SetBoolean(Config, String, String, Boolean, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string variable, bool value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string variable, bool value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2804,15 +2829,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2924,7 +2949,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -2932,13 +2957,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetBoolean_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetBoolean(Config, String, String, String, Boolean, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetBoolean_DotNetConfig_Config_System_String_System_String_System_String_System_Boolean_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetBoolean(DotNetConfig.Config,System.String,System.String,System.String,System.Boolean,System.String,DotNetConfig.ConfigLevel)">SetBoolean(Config, String, String, String, Boolean, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string subsection, string variable, bool value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetBoolean(this Config config, string section, string subsection, string variable, bool value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -2981,15 +3006,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3089,7 +3114,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3097,13 +3122,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher)">SetDateTime(Config, String, String, DateTime, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)">SetDateTime(Config, String, String, DateTime, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string variable, DateTime value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string variable, DateTime value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3140,9 +3165,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -3150,13 +3175,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetDateTime(Config, String, String, DateTime, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)">SetDateTime(Config, String, String, DateTime, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string variable, DateTime value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string variable, DateTime value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3193,15 +3218,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3313,7 +3338,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3321,13 +3346,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetDateTime_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetDateTime(Config, String, String, String, DateTime, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)">SetDateTime(Config, String, String, String, DateTime, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string subsection, string variable, DateTime value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetDateTime(this Config config, string section, string subsection, string variable, DateTime value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3370,15 +3395,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3478,7 +3503,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3486,13 +3511,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetNumber_" data-uid="DotNetConfig.ConfigExtensions.SetNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher)">SetNumber(Config, String, String, Int64, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_System_String_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,System.String)">SetNumber(Config, String, String, Int64, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string variable, long value, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string variable, long value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3529,9 +3554,9 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
     </tbody>
@@ -3539,13 +3564,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetNumber_" data-uid="DotNetConfig.ConfigExtensions.SetNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetNumber(Config, String, String, Int64, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_Int64_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.Int64,System.String,DotNetConfig.ConfigLevel)">SetNumber(Config, String, String, Int64, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string variable, long value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string variable, long value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3582,15 +3607,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3702,7 +3727,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3710,13 +3735,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetNumber_" data-uid="DotNetConfig.ConfigExtensions.SetNumber*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetNumber(Config, String, String, String, Int64, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetNumber_DotNetConfig_Config_System_String_System_String_System_String_System_Int64_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetNumber(DotNetConfig.Config,System.String,System.String,System.String,System.Int64,System.String,DotNetConfig.ConfigLevel)">SetNumber(Config, String, String, String, Int64, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string subsection, string variable, long value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetNumber(this Config config, string section, string subsection, string variable, long value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -3759,15 +3784,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -3867,119 +3892,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="DotNetConfig_ConfigExtensions_SetString_" data-uid="DotNetConfig.ConfigExtensions.SetString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher)">SetString(Config, String, String, String, ValueMatcher)</h4>
-  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetString(this Config config, string section, string variable, string value, ValueMatcher valueMatcher)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
-        <td><span class="parametername">config</span></td>
-        <td><p>The configuration to operate on.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">section</span></td>
-        <td><p>The section containing the variable.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">variable</span></td>
-        <td><p>The variable to assign.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to assign to the variable.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="DotNetConfig_ConfigExtensions_SetString_" data-uid="DotNetConfig.ConfigExtensions.SetString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetString(Config, String, String, String, ValueMatcher, ConfigLevel)</h4>
-  <div class="markdown level1 summary"><p>Sets the value of a variable in the given section.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetString(this Config config, string section, string variable, string value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
-        <td><span class="parametername">config</span></td>
-        <td><p>The configuration to operate on.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">section</span></td>
-        <td><p>The section containing the variable.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">variable</span></td>
-        <td><p>The variable to assign.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">value</span></td>
-        <td><p>Value to assign to the variable.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
-        <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -4091,7 +4004,7 @@ which optionally match the given value regular expression.</p>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -4099,13 +4012,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_SetString_" data-uid="DotNetConfig.ConfigExtensions.SetString*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ValueMatcher_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ValueMatcher,DotNetConfig.ConfigLevel)">SetString(Config, String, String, String, String, ValueMatcher, ConfigLevel)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_SetString_DotNetConfig_Config_System_String_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.SetString(DotNetConfig.Config,System.String,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">SetString(Config, String, String, String, String, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void SetString(this Config config, string section, string subsection, string variable, string value, ValueMatcher valueMatcher, ConfigLevel level)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void SetString(this Config config, string section, string subsection, string variable, string value, string valueRegex, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4148,15 +4061,15 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
         <td><span class="parametername">level</span></td>
-        <td><p>The level to add the value too.</p>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -4456,14 +4369,14 @@ which optionally match the given value regular expression.</p>
   </table>
   
   
-  <a id="DotNetConfig_ConfigExtensions_UnsetAll_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String)">UnsetAll(Config, String, String)</h4>
-  <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section.</p>
+  <a id="DotNetConfig_ConfigExtensions_Unset_" data-uid="DotNetConfig.ConfigExtensions.Unset*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_Unset_DotNetConfig_Config_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.Unset(DotNetConfig.Config,System.String,System.String,DotNetConfig.ConfigLevel)">Unset(Config, String, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Removes a variable from the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string variable)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void Unset(this Config config, string section, string variable, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4491,6 +4404,65 @@ which optionally match the given value regular expression.</p>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">variable</span></td>
         <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_ConfigExtensions_Unset_" data-uid="DotNetConfig.ConfigExtensions.Unset*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_Unset_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.Unset(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">Unset(Config, String, String, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Removes a variable from the given section.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void Unset(this Config config, string section, string subsection, string variable, ConfigLevel level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
@@ -4498,13 +4470,13 @@ which optionally match the given value regular expression.</p>
   
   
   <a id="DotNetConfig_ConfigExtensions_UnsetAll_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll*"></a>
-  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_DotNetConfig_ValueMatcher_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ValueMatcher)">UnsetAll(Config, String, String, ValueMatcher)</h4>
+  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,DotNetConfig.ConfigLevel)">UnsetAll(Config, String, String, ConfigLevel)</h4>
   <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string variable, ValueMatcher valueMatcher)</code></pre>
+    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string variable, ConfigLevel level)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -4535,9 +4507,168 @@ which optionally match the given value regular expression.</p>
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="DotNetConfig.ValueMatcher.html">ValueMatcher</a></td>
-        <td><span class="parametername">valueMatcher</span></td>
-        <td><p>Filter returned entries to those where the value is matched by <a class="xref" href="DotNetConfig.ValueMatcher.html#DotNetConfig_ValueMatcher_Matches_System_String_">Matches(String)</a>.</p>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_ConfigExtensions_UnsetAll_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_System_String_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,System.String)">UnsetAll(Config, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string variable, string valueRegex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_ConfigExtensions_UnsetAll_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">UnsetAll(Config, String, String, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string variable, string valueRegex, ConfigLevel level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="DotNetConfig_ConfigExtensions_UnsetAll_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll*"></a>
+  <h4 id="DotNetConfig_ConfigExtensions_UnsetAll_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_" data-uid="DotNetConfig.ConfigExtensions.UnsetAll(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)">UnsetAll(Config, String, String, String, String, ConfigLevel)</h4>
+  <div class="markdown level1 summary"><p>Removes all values from a multi-valued variable from the given section.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void UnsetAll(this Config config, string section, string subsection, string variable, string valueRegex, ConfigLevel level)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td><span class="parametername">config</span></td>
+        <td><p>The configuration to operate on.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">section</span></td>
+        <td><p>The section containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">subsection</span></td>
+        <td><p>Optional subsection containing the variable.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">variable</span></td>
+        <td><p>The variable to remove.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">valueRegex</span></td>
+        <td><p>Filter returned entries to those where the value matches the given expression.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.ConfigLevel.html">ConfigLevel</a></td>
+        <td><span class="parametername">level</span></td>
+        <td><p>The configuration level to operate on.</p>
 </td>
       </tr>
     </tbody>
