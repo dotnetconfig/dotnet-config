@@ -82,7 +82,7 @@ The file consists of **sections** and **variables**. A section begins with the n
 square brackets and continues until the next section begins. Section names are case-insensitive. 
 Only alphanumeric characters, `-` and `.` are allowed in section names. Each variable must belong 
 to some section, which means that there must be a section header before the first setting of a 
-variable.
+variable. 
 
 Sections can be further divided into **subsections**. To begin a subsection put its name in double 
 quotes, separated by space from the section name, in the section header, like in the example below:
@@ -100,14 +100,19 @@ don't need to.
 
 All the other lines are recognized as setting **variables**, in the form `name = value` (or just `name`, 
 which is a short-hand to say that the variable is the boolean `true`). Variable names are case-insensitive, 
-allow only alphanumeric characters and `-`, and must start with an alphabetic character.
+allow only alphanumeric characters and `-`, and must start with an alphabetic character. Variables may 
+appear multiple times; we say then that the variable is *multivalued*.
 
-Leading whitespaces after `name =`, the remainder of the line after the first comment character `#` 
+Leading whitespaces after `name =`, the remainder of the line after the first comment character `#`
 or `;`, and trailing whitespaces of the line are discarded unless they are enclosed in double quotes. 
 Internal whitespaces within the value are retained verbatim.
 
-Backslash `\` characters must always be escaped with `\\`. Inside double quotes, double quote `"` 
-must be escaped with `\"`. 
+Backslash `\` characters must always be escaped with `\\`. Double quotes must either be escaped with 
+`\"` or be properly balanced, which causes the whitespace within to be preserved verbatim.
+
+Beside `\"` and `\\`, only `\n` for newline character (NL) and `\t` for horizontal tabulation (HT, TAB) 
+escape sequences are recognized.
+
 
 > NOTE: when using the CLI or API, these escaping rules are applied automatically
 

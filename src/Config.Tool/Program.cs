@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection.Metadata;
 using Mono.Options;
 
 namespace DotNetConfig
@@ -11,6 +10,18 @@ namespace DotNetConfig
     class Program
     {
         static int Main(string[] args)
+        {
+            try
+            {
+                return Run(args);
+            }
+            catch (Exception e)
+            {
+                return ShowError(e.Message);
+            }
+        }
+
+        static int Run(string[] args)
         {
             var help = false;
 
@@ -78,7 +89,7 @@ namespace DotNetConfig
                 config = Config.Build(ConfigLevel.Global);
             else if (systemLocation)
                 config = Config.Build(ConfigLevel.System);
-            else 
+            else
                 config = Config.Build(path);
 
             // Can be a get or a set, depending on whether a value is provided.
@@ -91,6 +102,9 @@ namespace DotNetConfig
                 else
                     return ShowHelp(options);
             }
+
+            // TODO: For any action that isn't a simple get (which may rely on the output being just the 
+            // value retrieved), render to the output window the warnings about invalid entries
 
             Action<ConfigEntry> entryWriter;
             if (nameOnly)
@@ -116,21 +130,18 @@ namespace DotNetConfig
             {
                 case ConfigAction.Add:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
-
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
                         if (extraArgs.Count != 2)
                             return ShowHelp(options);
 
-                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(extraArgs[1]) && !ConfigParser.TryParseBoolean(extraArgs[1], out error)) || 
-                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(extraArgs[1], out error)) || 
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(extraArgs[1]) && !TextRules.TryValidateBoolean(extraArgs[1], out error)) ||
+                            (kind == ValueKind.Number && !TextRules.TryValidateNumber(extraArgs[1], out error)) ||
                             kind == ValueKind.DateTime && !DateTime.TryParse(extraArgs[1], CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
                         {
                             if (error != null)
                                 return ShowError(error);
 
-                            Console.Error.WriteLine($"unexpected datetime value `{extraArgs[1]}`, expected ISO 8601 (aka round-trip) format.");
-                            return -1;
+                            return ShowError($"Unexpected datetime value `{extraArgs[1]}`, expected ISO 8601 (aka round-trip) format.");
                         }
 
                         config.AddString(section!, subsection, variable!, extraArgs[1]);
@@ -138,8 +149,7 @@ namespace DotNetConfig
                     }
                 case ConfigAction.Get:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
 
                         var value = config.GetString(section!, subsection, variable!);
                         Console.WriteLine(value ?? defaultValue ?? "");
@@ -147,8 +157,7 @@ namespace DotNetConfig
                     }
                 case ConfigAction.GetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
 
                         string? valueRegex = default;
                         if (extraArgs.Count > 1)
@@ -178,16 +187,15 @@ namespace DotNetConfig
                     }
                 case ConfigAction.Set:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
 
                         var value = string.Join(' ', extraArgs.Skip(1)).Trim();
                         // It's a common mistake to do 'config key = value', so just remove it.
                         if (value.StartsWith('='))
                             value = new string(value[1..]).Trim();
 
-                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !ConfigParser.TryParseBoolean(value, out error)) ||
-                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(value, out error)) ||
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !TextRules.TryValidateBoolean(value, out error)) ||
+                            (kind == ValueKind.Number && !TextRules.TryValidateNumber(value, out error)) ||
                             kind == ValueKind.DateTime && !DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
                         {
                             if (error != null)
@@ -202,8 +210,7 @@ namespace DotNetConfig
                     }
                 case ConfigAction.SetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
 
                         if (extraArgs.Count < 2 || extraArgs.Count > 3)
                             return ShowHelp(options);
@@ -213,8 +220,8 @@ namespace DotNetConfig
                         if (extraArgs.Count > 2)
                             valueRegex = extraArgs[2];
 
-                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !ConfigParser.TryParseBoolean(value, out error)) ||
-                            (kind == ValueKind.Number && !ConfigParser.TryParseNumber(value, out error)) ||
+                        if ((kind == ValueKind.Boolean && !string.IsNullOrEmpty(value) && !TextRules.TryValidateBoolean(value, out error)) ||
+                            (kind == ValueKind.Number && !TextRules.TryValidateNumber(value, out error)) ||
                             kind == ValueKind.DateTime && !DateTime.TryParse(value, CultureInfo.InvariantCulture, DateTimeStyles.RoundtripKind, out _))
                         {
                             if (error != null)
@@ -229,17 +236,13 @@ namespace DotNetConfig
                     }
                 case ConfigAction.Unset:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
-
-
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
                         config.Unset(section!, subsection, variable!);
                         break;
                     }
                 case ConfigAction.UnsetAll:
                     {
-                        if (!ConfigParser.TryParseKey(extraArgs[0], out var section, out var subsection, out var variable, out error))
-                            return ShowError(error);
+                        TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
 
                         string? valueRegex = default;
                         if (extraArgs.Count > 1)
@@ -277,11 +280,8 @@ namespace DotNetConfig
                     if (extraArgs.Count != 2)
                         return ShowHelp(options);
 
-                    if (!ConfigParser.TryParseSection(extraArgs[0], out var oldSection, out var oldSubsection, out error))
-                        return ShowError(error);
-
-                    if (!ConfigParser.TryParseSection(extraArgs[1], out var newSection, out var newSubsection, out error))
-                        return ShowError(error);
+                    TextRules.ParseSection(extraArgs[0], out var oldSection, out var oldSubsection);
+                    TextRules.ParseSection(extraArgs[1], out var newSection, out var newSubsection);
 
                     config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection);
                     break;
@@ -297,11 +297,19 @@ namespace DotNetConfig
             if (error == null)
                 return -1;
 
-            var colon = error.IndexOf(':');
-            if (colon != -1)
-                Console.Error.WriteLine(error[++colon..].Trim());
-            else
-                Console.Error.WriteLine(error.Trim());
+            try
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                var colon = error.IndexOf(':');
+                if (colon != -1)
+                    Console.Error.WriteLine(error[++colon..].Trim());
+                else
+                    Console.Error.WriteLine(error.Trim());
+            }
+            finally
+            {
+                Console.ResetColor();
+            }
 
             return -1;
         }

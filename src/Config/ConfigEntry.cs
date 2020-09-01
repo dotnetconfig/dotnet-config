@@ -62,47 +62,14 @@ namespace DotNetConfig
         /// <summary>
         /// Gets the key for the entry.
         /// </summary>
-        public string Key
-        {
-            get
-            {
-                var sb = new StringBuilder(Section);
-                if (Subsection != null)
-                {
-                    sb = sb.Append('.');
-                    if (Subsection.IndexOfAny(new[] { ' ', '\\', '"', '.' }) == -1)
-                        sb = sb.Append(Subsection);
-                    else
-                        sb = sb.Append("\"").Append(Subsection.Replace("\\", "\\\\").Replace("\"", "\\\"")).Append("\"");
-                }
-
-                return sb.Append('.').Append(Variable).ToString();
-            }
-        }
+        public string Key => TextRules.ToKey(Section, Subsection, Variable);
 
         /// <summary>
         /// Gets the typed <see cref="bool"/> value for the entry.
         /// </summary>
         /// <returns>The <see cref="bool"/> corresponding to the <see cref="RawValue"/>.</returns>
         /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="bool"/>.</exception>
-        public bool GetBoolean()
-        {
-            // Empty or null variable value is true for a boolean
-            if (string.IsNullOrWhiteSpace(RawValue))
-                return true;
-
-            // Regular bool parsing
-            if (bool.TryParse(RawValue, out var value))
-                return value;
-
-            // Special cases for common variants of boolean users can use.
-            return RawValue switch
-            {
-                "yes" or "on" or "1" => true,
-                "no" or "off" or "0" => false,
-                _ => throw new FormatException($"Value '{RawValue}' cannot be converted to boolean."),
-            };
-        }
+        public bool GetBoolean() => TextRules.ParseBoolean(RawValue);
 
         /// <summary>
         /// Gets the typed <see cref="DateTime"/> value for the entry.
@@ -116,7 +83,7 @@ namespace DotNetConfig
         /// </summary>
         /// <returns>The <see cref="long"/> corresponding to the <see cref="RawValue"/>.</returns>
         /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="long"/>.</exception>
-        public long GetNumber() => long.Parse(RawValue ?? throw new FormatException(Key), CultureInfo.InvariantCulture);
+        public long GetNumber() => TextRules.ParseNumber(RawValue ?? throw new FormatException(Key));
 
         /// <summary>
         /// Gets the <see cref="string"/> value for the entry.
@@ -125,6 +92,6 @@ namespace DotNetConfig
         /// <exception cref="FormatException">The <see cref="RawValue"/> cannot be converted to <see cref="string"/>, because it does not have a value.</exception>
         public string GetString() => RawValue ?? throw new FormatException(Key);
 
-        string DebuggerDisplay => $"{Key}={RawValue}";
+        string DebuggerDisplay => $"{Key} = {RawValue}";
     }
 }

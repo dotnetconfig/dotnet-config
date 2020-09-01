@@ -1,13 +1,47 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Superpower;
 using Xunit;
 
 namespace DotNetConfig
 {
     public class ConfigDocumentTests
     {
+        [Fact]
+        public void can_load()
+        {
+            var file = Path.GetTempFileName();
+            File.WriteAllText(file, @"
+[sleet]
+    feedLockTimeoutMinutes = 30
+    username = kzu
+    useremail = daniel@cazzulino.com
+
+[sleet ""AzureFeed""]
+    type = azure
+    container = feed
+    connectionString = ""DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=;BlobEndpoint=""
+    path = https://myaccount.blob.core.windows.net/feed/
+    feedSubPath = subPath
+
+[sleet ""AmazonFeed""]
+    type = s3
+    bucketName = bucket
+    region = us-east-1
+    profileName = profile
+    path = https://s3.amazonaws.com/my-bucket/
+    feedSubPath = subPath
+    serverSideEncryptionMethod = AES256
+    compress
+
+[sleet ""FolderFeed""]
+    type = local
+    path = C:\\feed
+");
+
+            var config = Config.Build(file);
+        }
+
         [Fact]
         public void can_load_document()
         {
@@ -20,9 +54,9 @@ namespace DotNetConfig
 
             var doc = ConfigDocument.FromFile(path);
 
-            Assert.Single(doc.Lines.OfType<SectionLine>());
-            Assert.Single(doc.Lines.OfType<VariableLine>());
-            Assert.Equal(2, doc.Lines.OfType<CommentLine>().Count());
+            Assert.Single(doc.Sections);
+            Assert.Single(doc.Variables);
+            Assert.Equal(2, doc.Comments.Count());
         }
 
         [Fact]
@@ -63,7 +97,7 @@ namespace DotNetConfig
         }
 
         [Fact]
-        public void set_variable_null_reads_as_boolean_true()
+        public void set_variable_null_reads_as_null()
         {
             var path = Path.GetTempFileName();
             var doc = ConfigDocument.FromFile(path);
@@ -83,7 +117,7 @@ namespace DotNetConfig
             Assert.Equal("foo", saved.Single().Section);
             Assert.Equal("bar", saved.Single().Subsection);
             Assert.Equal("baz", saved.Single().Variable);
-            Assert.Equal("true", saved.Single().RawValue);
+            Assert.Null(saved.Single().RawValue);
         }
 
         [Fact]
@@ -120,9 +154,9 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Single(saved.Lines.OfType<SectionLine>());
-            Assert.Equal(3, saved.Lines.OfType<VariableLine>().Count());
-            Assert.Equal("weak", saved.Lines.OfType<VariableLine>().Last().Name);
+            Assert.Single(saved.Sections);
+            Assert.Equal(3, saved.Variables.Count());
+            Assert.Equal("weak", saved.Variables.Last().Variable);
         }
 
         [Theory]
@@ -133,7 +167,7 @@ namespace DotNetConfig
         [InlineData("file", "with \" quote", "[file \"with \\\" quote\"]")]
         public void render_section(string section, string subsection, string expected)
         {
-            Assert.Equal(expected, new SectionLine(section, subsection).Text);
+            Assert.Equal(expected, Line.CreateSection(null, 0, section, subsection).LineText);
         }
 
         [Fact]
@@ -253,7 +287,7 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Lines.OfType<VariableLine>().Where(v => v.Name == "bar"));
+            Assert.Empty(saved.Variables.Where(v => v.Variable == "bar"));
         }
 
         [Fact]
@@ -297,7 +331,7 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Single(saved.Lines.OfType<VariableLine>());
+            Assert.Single(saved.Variables);
         }
 
         [Fact]
@@ -317,9 +351,9 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Equal(2, saved.Lines.OfType<VariableLine>().Where(x => x.Name == "bar").Count());
-            Assert.Equal("hello", saved.Lines.OfType<VariableLine>().First().Value);
-            Assert.Equal("bye", saved.Lines.OfType<VariableLine>().Skip(1).First().Value);
+            Assert.Equal(2, saved.Lines.Where(line => line.Kind == LineKind.Variable).Where(x => x.Variable == "bar").Count());
+            Assert.Contains("hello", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value.Text));
+            Assert.Contains("bye", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value.Text));
         }
 
         [Fact]
@@ -336,8 +370,8 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Equal(2, saved.Lines.OfType<VariableLine>().Where(x => x.Name == "bar").Count());
-            Assert.All(saved.Lines.OfType<VariableLine>(), line => Assert.Equal("empty", line.Value));
+            Assert.Equal(2, saved.Variables.Where(x => x.Variable == "bar").Count());
+            Assert.All(saved.Variables, line => Assert.Equal("empty", line.Value));
         }
 
         [Fact]
@@ -356,8 +390,8 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Lines.OfType<VariableLine>());
-            Assert.Equal(2, saved.Lines.OfType<CommentLine>().Count());
+            Assert.Empty(saved.Variables);
+            Assert.Equal(2, saved.Comments.Count());
         }
 
         [Fact]
@@ -377,7 +411,7 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Single(saved.Lines.OfType<SectionLine>());
+            Assert.Single(saved.Sections);
         }
 
         [Fact]
@@ -397,7 +431,7 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("github")));
+            Assert.Empty(saved.Variables.Where(x => x.Variable.Text.Contains("github")));
         }
 
         [Fact]
@@ -417,8 +451,8 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("github")));
-            Assert.Equal(3, saved.Lines.OfType<VariableLine>().Where(x => x.Value.Contains("dev.azure.com")).Count());
+            Assert.Empty(saved.Variables.Where(x => x.Value.Text.Contains("github")));
+            Assert.Equal(3, saved.Variables.Where(x => x.Value.Text.Contains("dev.azure.com")).Count());
         }
 
         [Fact]
@@ -460,10 +494,10 @@ namespace DotNetConfig
 
             doc.RemoveSection("foo");
 
-            Assert.Single(doc.Lines.OfType<SectionLine>());
-            Assert.Single(doc.Lines.OfType<CommentLine>());
-            Assert.IsNotType<EmptyLine>(doc.Lines.First());
-            Assert.IsNotType<EmptyLine>(doc.Lines.Last());
+            Assert.Single(doc.Sections);
+            Assert.Single(doc.Comments);
+            Assert.NotEqual(LineKind.None, doc.Lines.First().Kind);
+            Assert.NotEqual(LineKind.None, doc.Lines.Last().Kind);
         }
 
         [Fact]
@@ -480,19 +514,19 @@ namespace DotNetConfig
 
             doc.RenameSection("foo", null, "bar", null);
 
-            Assert.Single(doc.Lines.OfType<SectionLine>());
-            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Section);
+            Assert.Single(doc.Sections);
+            Assert.Equal("bar", doc.Sections.First().Section);
 
             doc.RenameSection("bar", null, "bar", "foo or baz");
 
-            Assert.Single(doc.Lines.OfType<SectionLine>());
-            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Section);
-            Assert.Equal("foo or baz", doc.Lines.OfType<SectionLine>().First().Subsection);
+            Assert.Single(doc.Sections);
+            Assert.Equal("bar", doc.Sections.First().Section);
+            Assert.Equal("foo or baz", doc.Sections.First().Subsection);
 
             doc.RenameSection("bar", "foo or baz", "foo", "bar");
 
-            Assert.Equal("foo", doc.Lines.OfType<SectionLine>().First().Section);
-            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Subsection);
+            Assert.Equal("foo", doc.Sections.First().Section);
+            Assert.Equal("bar", doc.Sections.First().Subsection);
         }
 
         [Fact]
@@ -507,9 +541,9 @@ namespace DotNetConfig
 
             doc.RenameSection("foo", "bar or baz", "foo", "bar");
 
-            Assert.Single(doc.Lines.OfType<SectionLine>());
-            Assert.Equal("foo", doc.Lines.OfType<SectionLine>().First().Section);
-            Assert.Equal("bar", doc.Lines.OfType<SectionLine>().First().Subsection);
+            Assert.Single(doc.Sections);
+            Assert.Equal("foo", doc.Sections.First().Section);
+            Assert.Equal("bar", doc.Sections.First().Subsection);
         }
 
         [Fact]
@@ -527,7 +561,8 @@ namespace DotNetConfig
 
             doc.RenameSection("foo", null, "bar", null);
 
-            Assert.All(doc.Lines.OfType<SectionLine>(), x => Assert.Equal("bar", x.Section));
+            Assert.All(doc.Sections, x => Assert.Equal("bar", x.Section));
+            Assert.All(doc.Variables, x => Assert.Equal("bar", x.Section));
         }
 
         [Fact]
@@ -535,12 +570,12 @@ namespace DotNetConfig
         {
             var doc = ConfigDocument.FromFile(Path.GetTempFileName());
 
-            Assert.Throws<ParseException>(() => doc.Add("foo_bar", null, "baz", "hello"));
-            Assert.Throws<ParseException>(() => doc.Set("foo", null, "1baz", "hello"));
-            Assert.Throws<ParseException>(() => doc.SetAll("foo_bar", null, "baz", "hello"));
-            Assert.Throws<ParseException>(() => doc.SetAll("foo", null, "1baz", "hello"));
-            Assert.Throws<ParseException>(() => doc.RenameSection("foo_bar", null, "baz", null));
-            Assert.Throws<ParseException>(() => doc.RenameSection("foo", null, "baz_baz", null));
+            Assert.Throws<ArgumentException>(() => doc.Add("foo_bar", null, "baz", "hello"));
+            Assert.Throws<ArgumentException>(() => doc.Set("foo", null, "1baz", "hello"));
+            Assert.Throws<ArgumentException>(() => doc.SetAll("foo_bar", null, "baz", "hello"));
+            Assert.Throws<ArgumentException>(() => doc.SetAll("foo", null, "1baz", "hello"));
+            Assert.Throws<ArgumentException>(() => doc.RenameSection("foo_bar", null, "baz", null));
+            Assert.Throws<ArgumentException>(() => doc.RenameSection("foo", null, "baz_baz", null));
         }
 
         [Fact]

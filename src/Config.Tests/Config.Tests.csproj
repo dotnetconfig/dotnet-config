@@ -8,6 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ConfigParserTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ConfigParserTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Content\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
