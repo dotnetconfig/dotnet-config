@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.Config.html",
-          "hash": "lOrILL65is1v/Hmr+hI2hw=="
+          "hash": "xGxzHAAYML7Gz0UudhZtDQ=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigEntry.html",
-          "hash": "KFzno9vItCL5Tht97P/pJg=="
+          "hash": "5VmDHOzTzn7hbGn5e0aoxg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigExtensions.html",
-          "hash": "VnH05WbwinrBx9r30lqSng=="
+          "hash": "Pjx908lzJLaVjpJ6zLn11w=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigLevel.html",
-          "hash": "GRzYv+l/1MBkyv9yKjJj1g=="
+          "hash": "mob+pKRixb7Gu/7cs93TMg=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSection.html",
-          "hash": "Y8A15VVh9CR/CJ7mY3w5Eg=="
+          "hash": "nyu8s3ZnJi0F30HhPLpXpA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSectionExtensions.html",
-          "hash": "W0fbFlPQgtHqsUGUFxFnSg=="
+          "hash": "GkNAWp2WCWlcSSv73pNStw=="
         }
       },
       "is_incremental": false,
@@ -191,6 +191,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "who/dotnet-serve.md",
+      "output": {
+        ".html": {
+          "relative_path": "who/dotnet-serve.html",
+          "hash": "QihBIk68mQSjXinnK+odnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "who/dotnet-vs.md",
       "output": {
         ".html": {
@@ -219,7 +231,7 @@
       "output": {
         ".html": {
           "relative_path": "who/toc.html",
-          "hash": "13TKBKMwGvH/Ye/LF8H83w=="
+          "hash": "wjOHdHtZd/Qt0u/Oeo8hIA=="
         }
       },
       "is_incremental": false,
@@ -240,7 +252,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 5,
+          "total_file_count": 6,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {

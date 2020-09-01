@@ -5,11 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Enum ConfigLevel
-   | .netconfig </title>
+    <title>dotnet-serve | .netconfig </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Enum ConfigLevel
-   | .netconfig ">
+    <meta name="title" content="dotnet-serve | .netconfig ">
     <meta name="generator" content="docfx 2.56.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,44 +76,46 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="DotNetConfig.ConfigLevel">
-  
-  
-  <h1 id="DotNetConfig_ConfigLevel" data-uid="DotNetConfig.ConfigLevel" class="text-break">Enum ConfigLevel
-  </h1>
-  <div class="markdown level0 summary"><p>Specifies the level of configuration to use.</p>
-</div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="DotNetConfig.html">DotNetConfig</a></h6>
-  <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
-  <h5 id="DotNetConfig_ConfigLevel_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public enum ConfigLevel</code></pre>
-  </div>
-  <h3 id="fields">Fields
-  </h3>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    <thead>
-    <tbody>
-      <tr>
-        <td id="DotNetConfig_ConfigLevel_Global">Global</td>
-        <td><p>The global ~/.netconfig for the current user, from the 
-<see cref="!:Environment.SpecialFolder.UserProfile"></see> location.</p>
-</td>
-      </tr>
-      <tr>
-        <td id="DotNetConfig_ConfigLevel_System">System</td>
-        <td><p>The system wide .netconfig, from the 
-<see cref="!:Environment.SpecialFolder.System"></see> location.</p>
-</td>
-      </tr>
-    </tbody>
-  </thead></thead></table>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="dotnet-serve">dotnet-serve</h1>
+
+<p>The <a href="https://www.nuget.org/packages/dotnet-serve/">dotnet-serve</a> is a simple 
+command-line HTTP server.</p>
+<p>It leverages <code>dotnet-config</code> to <a href="https://github.com/natemcmaster/dotnet-serve#reusing-options-with-netconfig">augment and reuse options</a> 
+so they don&#39;t have to be passed in constantly via the command line as arguments. 
+The hierarchical nature of <code>.netconfig</code> makes it very convenient to centralize 
+settings related to HTTPS, certificates and others globally (either at the user 
+or system level), so that in most cases you just have to run <code>dotnet serve</code> from 
+any folder and get a consistent behavior throughout your machine.</p>
+<p>To save the options used in a particular run to the current directory&#39;s <code>.netconfig</code>, just append 
+<code>--save-options</code>:</p>
+<pre><code>dotnet serve -p 8080 --gzip --cors --quiet --save-options
+</code></pre><p>After running that command, a new <code>.netconfig</code> will be created (if there isn&#39;t one already there) 
+with the following section for <code>dotnet-serve</code>:</p>
+<pre><code>[serve]
+    port = 8080
+    gzip
+    cors
+    quiet
+</code></pre><p>You can also add multiple <code>header</code>, <code>mime</code> type mappings and <code>exclude-file</code> entries can be provided as
+individual variables, such as:</p>
+<pre><code>[serve]
+    port = 8080
+    header = X-H1: value
+    header = X-H2: value
+    mime = .cs=text/plain
+    mime = .vb=text/plain
+    mime = .fs=text/plain
+    exclude-file = app.config
+    exclude-file = appsettings.json
+</code></pre><p>You can place those settings in any parent folder and it will be reused across all descendent 
+folders, or they can also be saved to the global (user profile) or system locations. To easily 
+configure these options at those levels, use the <code>dotnet-config</code> tool itself:</p>
+<pre><code>dotnet config --global --set serve.port 8000
+dotnet config --global --add serve.mime .csproj=text/plain
+</code></pre><p>This will default the port to <code>8000</code> whenever a port is not specified in the command line, 
+and it will always add the given mime type mapping. You can open the saved <code>.netconfig</code> 
+at <code>%USERPROFILE%\.netconfig</code> or <code>~/.netconfig</code>.</p>
 </article>
           </div>
           
@@ -123,6 +123,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/master/docs/who/dotnet-serve.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
