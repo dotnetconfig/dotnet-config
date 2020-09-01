@@ -2,5 +2,7 @@
   href: intro.md
 - name: dotnet-file
   href: dotnet-file.md
+- name: dotnet-serve
+  href: dotnet-serve.md
 - name: dotnet-vs
   href: dotnet-vs.md
