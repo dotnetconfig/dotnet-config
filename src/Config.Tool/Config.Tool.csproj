@@ -7,8 +7,8 @@
     <TargetFrameworks>netcoreapp2.1;netcoreapp3.1</TargetFrameworks>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
 
-    <AssemblyName>config</AssemblyName>
-    <RootNamespace>Microsoft.DotNet</RootNamespace>
+    <AssemblyName>dotnet-config</AssemblyName>
+    <RootNamespace>DotNetConfig</RootNamespace>
 
     <PackageId>dotnet-config</PackageId>
     <ToolCommandName>dotnet-config</ToolCommandName>
