@@ -917,6 +917,18 @@ namespace DotNetConfig
         public static void RenameSection(this Config config, string oldSection, string newSection, ConfigLevel level)
             => Write(config, level, x => config.RenameSection(oldSection, null, newSection, null));
 
+        /// <summary>
+        /// Renames a section.
+        /// </summary>
+        /// <param name="config">The configuration to operate on.</param>
+        /// <param name="oldSection">The old section name to rename.</param>
+        /// <param name="oldSubsection">The optional old subsection to rename.</param>
+        /// <param name="newSection">The new section name to use.</param>
+        /// <param name="newSubsection">The optional new subsection to use.</param>
+        /// <param name="level">The configuration level to operate on.</param>
+        public static void RenameSection(this Config config, string oldSection, string? oldSubsection, string newSection, string? newSubsection, ConfigLevel level)
+            => Write(config, level, x => config.RenameSection(oldSection, oldSubsection, newSection, newSubsection));
+
         static void Write(Config config, ConfigLevel level, Action<Config> action)
         {
             if (config.Level == level)

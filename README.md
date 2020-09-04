@@ -39,13 +39,19 @@ leverages the learnings of the git community around configuration for arbitrary 
 * A dotnet global tool to manage the configuration files (much like [git config](https://git-scm.com/docs/git-config)).
 * An API for dotnet tool authors to read/write settings.
 
-By default, configuration files are named `.netconfig` and support three storage levels: 
-* Local: current directory and any ancestor directories
+By default, configuration files are named `.netconfig` and support four storage levels: 
+* Local: a `.netconfig.user` file alongside the `Default` level.
+* Default: current directory and any ancestor directories.
 * Global: user profile directory, from [System.Environment.SpecialFolder.UserProfile](https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields).
 * System: system-wide directory, from [System.Environment.SpecialFolder.System](https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields).
 
 The files are read in the order given above, with first value found taking precedence. 
 When multiple values are read then all values of a key from all files will be returned.
+
+> `.netconfig.user` can be used to keep local-only settings separate from team-wide settings 
+> in source control, and it's already a commonly ignored extension in 
+> [.gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore#L9).
+
 
 # How
 
@@ -55,6 +61,10 @@ Example file:
 
 ```
 # .netconfig is awesome: https://dotnetconfig.org
+
+[serve]
+    port = 8080
+    gzip
 
 [vs "alias"]
 	comexp = run|community|exp
@@ -80,7 +90,7 @@ The `#` and `;` characters begin comments to the end of line, blank lines are ig
 
 The file consists of **sections** and **variables**. A section begins with the name of the section in 
 square brackets and continues until the next section begins. Section names are case-insensitive. 
-Only alphanumeric characters, `-` and `.` are allowed in section names. Each variable must belong 
+Only alphanumeric characters and `-` are allowed in section names. Each variable must belong 
 to some section, which means that there must be a section header before the first setting of a 
 variable. 
 
@@ -221,6 +231,8 @@ foreach (ConfigEntry entry in config.GetAll("proxy", "url"))
         // entry came from Environment.SpecialFolder.System
     else if (entry.Level == ConfigLevel.Global)
         // entry came from Environment.SpecialFolder.UserProfile
+    else if (entry.Level == ConfigLevel.Local)
+        // entry came from .netconfig.user file in the current dir or an ancestor directory
     else
         // local entry from current dir .netconfig or an ancestor directory
 
@@ -279,17 +291,17 @@ All current options from running `dotnet config -?` are:
 Usage: dotnet config [options]
 
 Location (uses all locations by default)
-      --local                aggregate config file in current and ancestor directories
-      --global               use only global config file
-      --system               use only system config file
-  -f, --file[=VALUE]         use only given config file
+      --local                use .netconfig.user file
+      --global               use global config file
+      --system               use system config file
+      --path[=VALUE]         use given config file or directory
 
 Action
       --get                  get value: name [value-regex]
       --get-all              get all values: key [value-regex]
       --get-regexp           get values for regexp: name-regex [value-regex]
       --set                  set value: name value [value-regex]
-      --set-all              replace all matching variables: name value [value_regex]
+      --set-all              set all matches: name value [value-regex]
       --add                  add a new variable: name value
       --unset                remove a variable: name [value-regex]
       --unset-all            remove all matches: name [value-regex]
@@ -300,7 +312,6 @@ Action
 
 Other
       --default[=VALUE]      with --get, use default value when missing entry
-  -d, --directory[=VALUE]    use given directory for configuration file
       --name-only            show variable names only
       --type[=VALUE]         value is given this type, can be 'boolean', 'datetime' or 'number'
   -?, -h, --help             Display this help

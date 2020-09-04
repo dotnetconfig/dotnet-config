@@ -11,6 +11,11 @@ namespace DotNetConfig
     public abstract class Config : IEnumerable<ConfigEntry>
     {
         /// <summary>
+        /// The local-level .user extension.
+        /// </summary>
+        internal const string UserExtension = ".user";
+
+        /// <summary>
         /// Default filename, equal to '.netconfig'.
         /// </summary>
         public const string FileName = ".netconfig";
@@ -43,50 +48,64 @@ namespace DotNetConfig
             AggregateConfig configs;
             DirectoryInfo dir;
 
-            if (string.IsNullOrEmpty(path))
+            // null check to avoid false null warnings further down :(
+            if (path == null || string.IsNullOrEmpty(path))
                 path = Path.Combine(Directory.GetCurrentDirectory(), FileName);
+
+            // A note on hierarchical paths: we always append both the .user and then .netconfig file 
+            // since the API allows writing to either, as well as the global and system locations. 
+            // If the files don't exist, they will still be added, since they would be created on first 
+            // variable assignment anyway. 
+            // .user files are added before .netconfig so they can override values.
 
             if (File.Exists(path))
             {
-                configs = new AggregateConfig(new FileConfig(path!));
+                if (path.EndsWith(UserExtension, StringComparison.Ordinal))
+                    configs = new AggregateConfig(new FileConfig(path, ConfigLevel.Local), new FileConfig(path[..^5]));
+                else
+                    configs = new AggregateConfig(new FileConfig(path + UserExtension, ConfigLevel.Local), new FileConfig(path));
+
                 dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
             }
             else if (Directory.Exists(path) || !Path.HasExtension(path))
             {
-                // First entry is always a file in the given path, even if it's missing.
-                // This allows writing to the specified directory.
-                configs = new AggregateConfig(new FileConfig(Path.Combine(path, FileName)));
+                configs = new AggregateConfig(
+                    new FileConfig(Path.Combine(path, FileName + UserExtension), ConfigLevel.Local), 
+                    new FileConfig(Path.Combine(path, FileName)));
+
                 dir = new DirectoryInfo(path).Parent;
             }
             else
             {
                 // If the path does not point to an existing directory
                 // we consider it a file path as a fallback.
-                configs = new AggregateConfig(new FileConfig(path!));
+                if (path.EndsWith(UserExtension, StringComparison.Ordinal))
+                    configs = new AggregateConfig(new FileConfig(path, ConfigLevel.Local), new FileConfig(path[..^5]));
+                else
+                    configs = new AggregateConfig(new FileConfig(path + UserExtension, ConfigLevel.Local), new FileConfig(path));
+
                 dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
             }
 
             // [config] root = true stops the directory walking
             while (configs.GetBoolean("config", "root") != true && dir != null && dir.Exists)
             {
-                var file = Path.Combine(dir.FullName, FileName);
+                var file = Path.Combine(dir.FullName, FileName + UserExtension);
+                if (File.Exists(file))
+                    configs.Files.Add(new FileConfig(file));
+
+                file = file[..^4];
                 if (File.Exists(file))
                     configs.Files.Add(new FileConfig(file));
 
                 dir = dir.Parent;
             }
 
-            // But global+system configs are still always added.
-            // TODO: maybe we could offer a way to opt-out of those too?
-
             // Don't read the global location if we're building the system location or it's been opted out explicitly
             if (SystemLocation != path && GlobalLocation != path && configs.GetBoolean("config", "global") != false)
                 configs.Files.Add(new FileConfig(GlobalLocation, ConfigLevel.Global));
             if (SystemLocation != path && configs.GetBoolean("config", "system") != false)
                 configs.Files.Add(new FileConfig(SystemLocation, ConfigLevel.System));
-
-            if (configs.Files.Count == 1)
-                return configs.Files[0];
 
             return configs;
         }
@@ -99,6 +118,7 @@ namespace DotNetConfig
             {
                 ConfigLevel.Global => Build(GlobalLocation),
                 ConfigLevel.System => Build(SystemLocation),
+                ConfigLevel.Local => Build(),
                 _ => throw new ArgumentException(nameof(store))
             };
 
@@ -117,12 +137,14 @@ namespace DotNetConfig
         /// <summary>
         /// Gets the optional configuration level for this config. 
         /// <see langword="null"/> unless the <see cref="FilePath"/> equals 
-        /// <see cref="GlobalLocation"/> or <see cref="SystemLocation"/>.
+        /// <see cref="GlobalLocation"/> or <see cref="SystemLocation"/> or 
+        /// it ends in <c>.user</c> in which case it's <see cref="ConfigLevel.Local"/>.
         /// </summary>
         public ConfigLevel? Level => 
             this is AggregateConfig ? null :
             FilePath == GlobalLocation ? (ConfigLevel?)ConfigLevel.Global : 
-            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System : null;
+            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System : 
+            FilePath.EndsWith(UserExtension) ? (ConfigLevel?)ConfigLevel.Local: null;
 
         /// <summary>
         /// Gets the section and optional subsection from the configuration.

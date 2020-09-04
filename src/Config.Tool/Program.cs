@@ -26,8 +26,9 @@ namespace DotNetConfig
             var help = false;
 
             var action = ConfigAction.None;
-            var systemLocation = false;
-            var globalLocation = false;
+            var useSystem = false;
+            var useGlobal = false;
+            var useLocal = false;
             string? path = Directory.GetCurrentDirectory();
             bool nameOnly = false;
             string? defaultValue = default;
@@ -39,8 +40,9 @@ namespace DotNetConfig
                 { Environment.NewLine },
                 { Environment.NewLine },
                 { "Location (uses all locations by default)" },
-                { "global", "use global config file", _ => globalLocation = true },
-                { "system", "use system config file", _ => systemLocation = true },
+                { "local", "use .netconfig.user file", _ => useLocal = true },
+                { "global", "use global config file", _ => useGlobal = true },
+                { "system", "use system config file", _ => useSystem = true },
                 { "path:", "use given config file or directory", f => path = f },
 
                 { Environment.NewLine },
@@ -49,8 +51,8 @@ namespace DotNetConfig
                 { "get-all", "get all values: key [value-regex]", _ => action = ConfigAction.GetAll },
                 { "get-regexp", "get values for regexp: name-regex [value-regex]", _ => action = ConfigAction.GetRegexp },
                 { "set", "set value: name value [value-regex]", _ => action = ConfigAction.Set },
-                { "set-all", "replace all matching variables: name value [value_regex]", _ => action = ConfigAction.SetAll },
-                { "replace-all", "replace all matching variables: name value [value_regex]", _ => action = ConfigAction.SetAll, true },
+                { "set-all", "set all matches: name value [value-regex]", _ => action = ConfigAction.SetAll },
+                { "replace-all", "replace all matches: name value [value-regex]", _ => action = ConfigAction.SetAll, true },
 
                 //{ "get-urlmatch", "get value specific for the URL: section[.var] URL", _ => action = ConfigAction.Get },
                 { "add", "add a new variable: name value", _ => action = ConfigAction.Add },
@@ -84,13 +86,32 @@ namespace DotNetConfig
             if (args.Length == 1 && help)
                 return ShowHelp(options);
 
+            // Can only use one location
+            if ((useGlobal && (useSystem || useLocal)) ||
+                (useSystem && (useGlobal || useLocal)) ||
+                (useLocal && (useGlobal || useSystem)))
+            {
+                return ShowError("Can only specify one config location.");
+            }
+
+            ConfigLevel? level = null;
             Config config;
-            if (globalLocation)
+            if (useGlobal)
+            {
                 config = Config.Build(ConfigLevel.Global);
-            else if (systemLocation)
+                level = ConfigLevel.Global;
+            }
+            else if (useSystem)
+            {
                 config = Config.Build(ConfigLevel.System);
+                level = ConfigLevel.System;
+            }
             else
+            {
                 config = Config.Build(path);
+                if (useLocal)
+                    level = ConfigLevel.Local;
+            }
 
             // Can be a get or a set, depending on whether a value is provided.
             if (action == ConfigAction.None)
@@ -144,7 +165,11 @@ namespace DotNetConfig
                             return ShowError($"Unexpected datetime value `{extraArgs[1]}`, expected ISO 8601 (aka round-trip) format.");
                         }
 
-                        config.AddString(section!, subsection, variable!, extraArgs[1]);
+                        if (level != null)
+                            config.AddString(section!, subsection, variable!, extraArgs[1], level.Value);
+                        else
+                            config.AddString(section!, subsection, variable!, extraArgs[1]);
+
                         break;
                     }
                 case ConfigAction.Get:
@@ -205,7 +230,11 @@ namespace DotNetConfig
                             return -1;
                         }
 
-                        config.SetString(section!, subsection, variable!, value);
+                        if (level != null)
+                            config.SetString(section!, subsection, variable!, value, level.Value);
+                        else
+                            config.SetString(section!, subsection, variable!, value);
+
                         break;
                     }
                 case ConfigAction.SetAll:
@@ -231,13 +260,21 @@ namespace DotNetConfig
                             return -1;
                         }
 
-                        config.SetAllString(section!, subsection, variable!, value, valueRegex);
+                        if (level != null)
+                            config.SetAllString(section!, subsection, variable!, value, valueRegex, level.Value);
+                        else
+                            config.SetAllString(section!, subsection, variable!, value, valueRegex);
+
                         break;
                     }
                 case ConfigAction.Unset:
                     {
                         TextRules.ParseKey(extraArgs[0], out var section, out var subsection, out var variable);
-                        config.Unset(section!, subsection, variable!);
+                        if (level != null)
+                            config.Unset(section!, subsection, variable!, level.Value);
+                        else
+                            config.Unset(section!, subsection, variable!);
+
                         break;
                     }
                 case ConfigAction.UnsetAll:
@@ -248,7 +285,11 @@ namespace DotNetConfig
                         if (extraArgs.Count > 1)
                             valueRegex = extraArgs[1];
 
-                        config.UnsetAll(section!, subsection, variable!, valueRegex);
+                        if (level != null)
+                            config.UnsetAll(section!, subsection, variable!, valueRegex, level.Value);
+                        else
+                            config.UnsetAll(section!, subsection, variable!, valueRegex);
+
                         break;
                     }
                 case ConfigAction.List:
@@ -258,23 +299,32 @@ namespace DotNetConfig
                     }
                     break;
                 case ConfigAction.Edit:
-                    if (!Config.Build(path).TryGetString("core", null, "editor", out var editor))
+                    if (!Config.Build(path).TryGetString("config", null, "editor", out var editor))
                     {
                         var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
                         editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
                     }
 
+                    var configFile = config.FilePath;
+                    if (config is AggregateConfig aggregate &&
+                        aggregate.Files.FirstOrDefault(x => x.Level == level) is Config levelConfig)
+                        configFile = levelConfig.FilePath;
+
                     if (!string.IsNullOrEmpty(editor))
-                        Process.Start(editor, config.FilePath);
+                        Process.Start(editor, configFile);
                     else
-                        Process.Start(new ProcessStartInfo(config.FilePath) { UseShellExecute = true });
+                        Process.Start(new ProcessStartInfo(configFile) { UseShellExecute = true });
 
                     break;
                 case ConfigAction.RemoveSection:
                     if (extraArgs.Count != 1)
                         return ShowHelp(options);
 
-                    config.RemoveSection(extraArgs[0]);
+                    if (level != null)
+                        config.RemoveSection(extraArgs[0], level.Value);
+                    else
+                        config.RemoveSection(extraArgs[0]);
+
                     break;
                 case ConfigAction.RenameSection:
                     if (extraArgs.Count != 2)
@@ -283,7 +333,11 @@ namespace DotNetConfig
                     TextRules.ParseSection(extraArgs[0], out var oldSection, out var oldSubsection);
                     TextRules.ParseSection(extraArgs[1], out var newSection, out var newSubsection);
 
-                    config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection);
+                    if (level != null)
+                        config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection, level.Value);
+                    else
+                        config.RenameSection(oldSection!, oldSubsection, newSection!, newSubsection);
+
                     break;
                 default:
                     return ShowHelp(options);
@@ -317,7 +371,7 @@ namespace DotNetConfig
         static int ShowHelp(OptionSet options)
         {
 #pragma warning disable CS0436 // Type conflicts with imported type
-            Console.Write($"Usage: dotnet {ThisAssembly.Metadata.AssemblyName} [options]");
+            Console.Write($"Usage: dotnet config [options]");
 #pragma warning restore CS0436 // Type conflicts with imported type
             options.WriteOptionDescriptions(Console.Out);
             return 0;
