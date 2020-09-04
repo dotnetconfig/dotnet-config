@@ -23,6 +23,8 @@ namespace DotNetConfig
                     level = ConfigLevel.Global;
                 else if (filePath == Config.SystemLocation)
                     level = ConfigLevel.System;
+                else if (filePath.EndsWith(Config.UserExtension, StringComparison.Ordinal))
+                    level = ConfigLevel.Local;
             }
 
             Level = level;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using Xunit;
 
 namespace DotNetConfig.Tests
@@ -159,7 +160,7 @@ namespace DotNetConfig.Tests
             var dir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
             var config = Config.Build(dir);
 
-            Assert.Equal(Path.Combine(dir, Config.FileName), config.FilePath);
+            Assert.False(File.Exists(config.FilePath));
         }
 
         [Fact]
@@ -179,7 +180,7 @@ namespace DotNetConfig.Tests
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
 
-            Assert.Equal(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", Config.FileName), config.FilePath);
+            Assert.Equal(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", Config.FileName + ".user"), config.FilePath);
         }
 
         [Fact]
@@ -240,6 +241,61 @@ namespace DotNetConfig.Tests
             var global = Config.Build(ConfigLevel.System);
 
             Assert.True(global.GetBoolean("test", "var"));
+        }
+
+        [Fact]
+        public void when_setting_local_variable_then_writes_user_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            var config = Config.Build(path);
+
+            config.AddString("foo", "bar", "baz", ConfigLevel.Local);
+
+            Assert.True(File.Exists(Path.Combine(path, Config.FileName + ".user")));
+
+            using var reader = new ConfigReader(Path.Combine(path, Config.FileName + ".user"));
+
+            Assert.Single(reader.ReadAllLines().Where(x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz"));
+        }
+
+        [Fact]
+        public void when_setting_variable_then_writes_default_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            var config = Config.Build(path);
+
+            config.AddString("foo", "bar", "baz");
+
+            Assert.False(File.Exists(Path.Combine(path, Config.FileName + ".user")));
+            Assert.True(File.Exists(Path.Combine(path, Config.FileName)));
+
+            using var reader = new ConfigReader(Path.Combine(path, Config.FileName));
+
+            Assert.Single(reader.ReadAllLines().Where(x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz"));
+        }
+
+        [Fact]
+        public void when_setting_local_variable_then_overrides_default_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            var path = Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString())).FullName;
+            File.WriteAllText(Path.Combine(path, ".netconfig"), @"[foo]
+bar = baz");
+            File.WriteAllText(Path.Combine(path, ".netconfig.user"), @"[foo]
+bar = hey");
+
+
+            var config = Config.Build(path);
+
+            Assert.Equal("hey", config.GetString("foo", "bar"));
         }
     }
 }
