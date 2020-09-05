@@ -79,9 +79,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dotnet-config-api">dotnet-config API</h1>
 
-<p>The main usage for .NET tool authors consuming the <code>dotnet-config-lib</code> API is to 
-first build a configuration from a specific path (will assume current directory 
-if omitted):</p>
+<p>The main usage for .NET tool authors consuming the <a href="https://nuget.org/packages/DotNetConfig">DotNetConfig</a> 
+API is to first build a configuration from a specific path (will assume current 
+directory if omitted):</p>
 <pre><code class="lang-csharp">var config = Config.Build();
 </code></pre><p>The resulting configuration will contain the hierarchical variables set in the 
 current directory (or the given path), all its ancestor directories, plus global 

@@ -39,11 +39,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.AddBoolean
   nameWithType: Config.AddBoolean
-- uid: DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,DateTime)
+- uid: DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
   name: AddDateTime(String, String, String, DateTime)
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_DateTime_
-  commentId: M:DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,DateTime)
-  fullName: DotNetConfig.Config.AddDateTime(System.String, System.String, System.String, DateTime)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.Config.AddDateTime(System.String, System.String, System.String, System.DateTime)
   nameWithType: Config.AddDateTime(String, String, String, DateTime)
 - uid: DotNetConfig.Config.AddDateTime*
   name: AddDateTime
@@ -142,6 +142,19 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.GetEntries
   nameWithType: Config.GetEntries
+- uid: DotNetConfig.Config.GetNormalizedPath(System.String,System.String,System.String)
+  name: GetNormalizedPath(String, String, String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetNormalizedPath_System_String_System_String_System_String_
+  commentId: M:DotNetConfig.Config.GetNormalizedPath(System.String,System.String,System.String)
+  fullName: DotNetConfig.Config.GetNormalizedPath(System.String, System.String, System.String)
+  nameWithType: Config.GetNormalizedPath(String, String, String)
+- uid: DotNetConfig.Config.GetNormalizedPath*
+  name: GetNormalizedPath
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetNormalizedPath_
+  commentId: Overload:DotNetConfig.Config.GetNormalizedPath
+  isSpec: "True"
+  fullName: DotNetConfig.Config.GetNormalizedPath
+  nameWithType: Config.GetNormalizedPath
 - uid: DotNetConfig.Config.GetRegex(System.String,System.String)
   name: GetRegex(String, String)
   href: api/DotNetConfig.Config.html#DotNetConfig_Config_GetRegex_System_String_System_String_
@@ -233,11 +246,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.SetAllBoolean
   nameWithType: Config.SetAllBoolean
-- uid: DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,DateTime,System.String)
+- uid: DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,System.String)
   name: SetAllDateTime(String, String, String, DateTime, String)
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,DateTime,System.String)
-  fullName: DotNetConfig.Config.SetAllDateTime(System.String, System.String, System.String, DateTime, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.Config.SetAllDateTime(System.String, System.String, System.String, System.DateTime, System.String)
   nameWithType: Config.SetAllDateTime(String, String, String, DateTime, String)
 - uid: DotNetConfig.Config.SetAllDateTime*
   name: SetAllDateTime
@@ -285,11 +298,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.SetBoolean
   nameWithType: Config.SetBoolean
-- uid: DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,DateTime,System.String)
+- uid: DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,System.String)
   name: SetDateTime(String, String, String, DateTime, String)
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,DateTime,System.String)
-  fullName: DotNetConfig.Config.SetDateTime(System.String, System.String, System.String, DateTime, System.String)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.Config.SetDateTime(System.String, System.String, System.String, System.DateTime, System.String)
   nameWithType: Config.SetDateTime(String, String, String, DateTime, String)
 - uid: DotNetConfig.Config.SetDateTime*
   name: SetDateTime
@@ -324,6 +337,23 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.SetString
   nameWithType: Config.SetString
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+  name: IEnumerable<ConfigEntry>.GetEnumerator()
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator
+  commentId: M:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+  nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator()
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*
+  name: IEnumerable<ConfigEntry>.GetEnumerator
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_
+  commentId: Overload:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+  isSpec: "True"
+  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+  nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
 - uid: DotNetConfig.Config.SystemLocation
   name: SystemLocation
   href: api/DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation
@@ -353,13 +383,13 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.TryGetBoolean
   nameWithType: Config.TryGetBoolean
-- uid: DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,DateTime@)
+- uid: DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
   name: TryGetDateTime(String, String, String, out DateTime)
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_DateTime__
-  commentId: M:DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,DateTime@)
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_System_DateTime__
+  commentId: M:DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)
   name.vb: TryGetDateTime(String, String, String, ByRef DateTime)
-  fullName: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, out DateTime)
-  fullName.vb: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, ByRef DateTime)
+  fullName: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, out System.DateTime)
+  fullName.vb: DotNetConfig.Config.TryGetDateTime(System.String, System.String, System.String, ByRef System.DateTime)
   nameWithType: Config.TryGetDateTime(String, String, String, out DateTime)
   nameWithType.vb: Config.TryGetDateTime(String, String, String, ByRef DateTime)
 - uid: DotNetConfig.Config.TryGetDateTime*
@@ -623,23 +653,23 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigExtensions.AddBoolean
   nameWithType: ConfigExtensions.AddBoolean
-- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: AddDateTime(Config, String, String, DateTime)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_DateTime_
-  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
-  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, DateTime)
-- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: AddDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: AddDateTime(Config, String, String, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_AddDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.AddDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.AddDateTime(Config, String, String, String, DateTime, ConfigLevel)
 - uid: DotNetConfig.ConfigExtensions.AddDateTime*
   name: AddDateTime
@@ -755,6 +785,19 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigExtensions.GetDateTime
   nameWithType: ConfigExtensions.GetDateTime
+- uid: DotNetConfig.ConfigExtensions.GetNormalizedPath(DotNetConfig.Config,System.String,System.String)
+  name: GetNormalizedPath(Config, String, String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNormalizedPath_DotNetConfig_Config_System_String_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.GetNormalizedPath(DotNetConfig.Config,System.String,System.String)
+  fullName: DotNetConfig.ConfigExtensions.GetNormalizedPath(DotNetConfig.Config, System.String, System.String)
+  nameWithType: ConfigExtensions.GetNormalizedPath(Config, String, String)
+- uid: DotNetConfig.ConfigExtensions.GetNormalizedPath*
+  name: GetNormalizedPath
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNormalizedPath_
+  commentId: Overload:DotNetConfig.ConfigExtensions.GetNormalizedPath
+  isSpec: "True"
+  fullName: DotNetConfig.ConfigExtensions.GetNormalizedPath
+  nameWithType: ConfigExtensions.GetNormalizedPath
 - uid: DotNetConfig.ConfigExtensions.GetNumber(DotNetConfig.Config,System.String,System.String)
   name: GetNumber(Config, String, String)
   href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_GetNumber_DotNetConfig_Config_System_String_System_String_
@@ -824,6 +867,12 @@ references:
   commentId: M:DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String,DotNetConfig.ConfigLevel)
   fullName: DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config, System.String, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.RenameSection(Config, String, String, ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  name: RenameSection(Config, String, String, String, String, ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RenameSection_DotNetConfig_Config_System_String_System_String_System_String_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config,System.String,System.String,System.String,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.RenameSection(DotNetConfig.Config, System.String, System.String, System.String, System.String, DotNetConfig.ConfigLevel)
+  nameWithType: ConfigExtensions.RenameSection(Config, String, String, String, String, ConfigLevel)
 - uid: DotNetConfig.ConfigExtensions.RenameSection*
   name: RenameSection
   href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_RenameSection_
@@ -868,35 +917,35 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigExtensions.SetAllBoolean
   nameWithType: ConfigExtensions.SetAllBoolean
-- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: SetAllDateTime(Config, String, String, DateTime)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_DateTime_
-  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
-  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime)
-- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)
   name: SetAllDateTime(Config, String, String, DateTime, String)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String)
-  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, DateTime, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, System.String)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, String)
-- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, DateTime, String, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(Config, String, String, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetAllDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetAllDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetAllDateTime(Config, String, String, String, DateTime, String, ConfigLevel)
 - uid: DotNetConfig.ConfigExtensions.SetAllDateTime*
   name: SetAllDateTime
@@ -1028,47 +1077,47 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigExtensions.SetBoolean
   nameWithType: ConfigExtensions.SetBoolean
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
   name: SetDateTime(Config, String, String, DateTime)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_DateTime_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)
   name: SetDateTime(Config, String, String, DateTime, String)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, DateTime, System.String)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, System.String)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, String)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, DateTime, String, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime)
   name: SetDateTime(Config, String, String, String, DateTime)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_DateTime_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, DateTime)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetDateTime(Config, String, String, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_SetDateTime_DotNetConfig_Config_System_String_System_String_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config,System.String,System.String,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigExtensions.SetDateTime(DotNetConfig.Config, System.String, System.String, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigExtensions.SetDateTime(Config, String, String, String, DateTime, String, ConfigLevel)
 - uid: DotNetConfig.ConfigExtensions.SetDateTime*
   name: SetDateTime
@@ -1179,13 +1228,13 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigExtensions.TryGetBoolean
   nameWithType: ConfigExtensions.TryGetBoolean
-- uid: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,DateTime@)
+- uid: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime@)
   name: TryGetDateTime(Config, String, String, out DateTime)
-  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetDateTime_DotNetConfig_Config_System_String_System_String_DateTime__
-  commentId: M:DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,DateTime@)
+  href: api/DotNetConfig.ConfigExtensions.html#DotNetConfig_ConfigExtensions_TryGetDateTime_DotNetConfig_Config_System_String_System_String_System_DateTime__
+  commentId: M:DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config,System.String,System.String,System.DateTime@)
   name.vb: TryGetDateTime(Config, String, String, ByRef DateTime)
-  fullName: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, out DateTime)
-  fullName.vb: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, ByRef DateTime)
+  fullName: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, out System.DateTime)
+  fullName.vb: DotNetConfig.ConfigExtensions.TryGetDateTime(DotNetConfig.Config, System.String, System.String, ByRef System.DateTime)
   nameWithType: ConfigExtensions.TryGetDateTime(Config, String, String, out DateTime)
   nameWithType.vb: ConfigExtensions.TryGetDateTime(Config, String, String, ByRef DateTime)
 - uid: DotNetConfig.ConfigExtensions.TryGetDateTime*
@@ -1295,6 +1344,12 @@ references:
   commentId: F:DotNetConfig.ConfigLevel.Global
   fullName: DotNetConfig.ConfigLevel.Global
   nameWithType: ConfigLevel.Global
+- uid: DotNetConfig.ConfigLevel.Local
+  name: Local
+  href: api/DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_Local
+  commentId: F:DotNetConfig.ConfigLevel.Local
+  fullName: DotNetConfig.ConfigLevel.Local
+  nameWithType: ConfigLevel.Local
 - uid: DotNetConfig.ConfigLevel.System
   name: System
   href: api/DotNetConfig.ConfigLevel.html#DotNetConfig_ConfigLevel_System
@@ -1320,11 +1375,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSection.AddBoolean
   nameWithType: ConfigSection.AddBoolean
-- uid: DotNetConfig.ConfigSection.AddDateTime(System.String,DateTime)
+- uid: DotNetConfig.ConfigSection.AddDateTime(System.String,System.DateTime)
   name: AddDateTime(String, DateTime)
-  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_AddDateTime_System_String_DateTime_
-  commentId: M:DotNetConfig.ConfigSection.AddDateTime(System.String,DateTime)
-  fullName: DotNetConfig.ConfigSection.AddDateTime(System.String, DateTime)
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_AddDateTime_System_String_System_DateTime_
+  commentId: M:DotNetConfig.ConfigSection.AddDateTime(System.String,System.DateTime)
+  fullName: DotNetConfig.ConfigSection.AddDateTime(System.String, System.DateTime)
   nameWithType: ConfigSection.AddDateTime(String, DateTime)
 - uid: DotNetConfig.ConfigSection.AddDateTime*
   name: AddDateTime
@@ -1372,6 +1427,19 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSection.GetAll
   nameWithType: ConfigSection.GetAll
+- uid: DotNetConfig.ConfigSection.GetNormalizedPath(System.String)
+  name: GetNormalizedPath(String)
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_GetNormalizedPath_System_String_
+  commentId: M:DotNetConfig.ConfigSection.GetNormalizedPath(System.String)
+  fullName: DotNetConfig.ConfigSection.GetNormalizedPath(System.String)
+  nameWithType: ConfigSection.GetNormalizedPath(String)
+- uid: DotNetConfig.ConfigSection.GetNormalizedPath*
+  name: GetNormalizedPath
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_GetNormalizedPath_
+  commentId: Overload:DotNetConfig.ConfigSection.GetNormalizedPath
+  isSpec: "True"
+  fullName: DotNetConfig.ConfigSection.GetNormalizedPath
+  nameWithType: ConfigSection.GetNormalizedPath
 - uid: DotNetConfig.ConfigSection.SetAllBoolean(System.String,System.Boolean,System.String)
   name: SetAllBoolean(String, Boolean, String)
   href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_SetAllBoolean_System_String_System_Boolean_System_String_
@@ -1385,11 +1453,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSection.SetAllBoolean
   nameWithType: ConfigSection.SetAllBoolean
-- uid: DotNetConfig.ConfigSection.SetAllDateTime(System.String,DateTime,System.String)
+- uid: DotNetConfig.ConfigSection.SetAllDateTime(System.String,System.DateTime,System.String)
   name: SetAllDateTime(String, DateTime, String)
-  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_SetAllDateTime_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.ConfigSection.SetAllDateTime(System.String,DateTime,System.String)
-  fullName: DotNetConfig.ConfigSection.SetAllDateTime(System.String, DateTime, System.String)
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_SetAllDateTime_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.ConfigSection.SetAllDateTime(System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.ConfigSection.SetAllDateTime(System.String, System.DateTime, System.String)
   nameWithType: ConfigSection.SetAllDateTime(String, DateTime, String)
 - uid: DotNetConfig.ConfigSection.SetAllDateTime*
   name: SetAllDateTime
@@ -1437,11 +1505,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSection.SetBoolean
   nameWithType: ConfigSection.SetBoolean
-- uid: DotNetConfig.ConfigSection.SetDateTime(System.String,DateTime,System.String)
+- uid: DotNetConfig.ConfigSection.SetDateTime(System.String,System.DateTime,System.String)
   name: SetDateTime(String, DateTime, String)
-  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_SetDateTime_System_String_DateTime_System_String_
-  commentId: M:DotNetConfig.ConfigSection.SetDateTime(System.String,DateTime,System.String)
-  fullName: DotNetConfig.ConfigSection.SetDateTime(System.String, DateTime, System.String)
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_SetDateTime_System_String_System_DateTime_System_String_
+  commentId: M:DotNetConfig.ConfigSection.SetDateTime(System.String,System.DateTime,System.String)
+  fullName: DotNetConfig.ConfigSection.SetDateTime(System.String, System.DateTime, System.String)
   nameWithType: ConfigSection.SetDateTime(String, DateTime, String)
 - uid: DotNetConfig.ConfigSection.SetDateTime*
   name: SetDateTime
@@ -1492,13 +1560,13 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSection.TryGetBoolean
   nameWithType: ConfigSection.TryGetBoolean
-- uid: DotNetConfig.ConfigSection.TryGetDateTime(System.String,DateTime@)
+- uid: DotNetConfig.ConfigSection.TryGetDateTime(System.String,System.DateTime@)
   name: TryGetDateTime(String, out DateTime)
-  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_TryGetDateTime_System_String_DateTime__
-  commentId: M:DotNetConfig.ConfigSection.TryGetDateTime(System.String,DateTime@)
+  href: api/DotNetConfig.ConfigSection.html#DotNetConfig_ConfigSection_TryGetDateTime_System_String_System_DateTime__
+  commentId: M:DotNetConfig.ConfigSection.TryGetDateTime(System.String,System.DateTime@)
   name.vb: TryGetDateTime(String, ByRef DateTime)
-  fullName: DotNetConfig.ConfigSection.TryGetDateTime(System.String, out DateTime)
-  fullName.vb: DotNetConfig.ConfigSection.TryGetDateTime(System.String, ByRef DateTime)
+  fullName: DotNetConfig.ConfigSection.TryGetDateTime(System.String, out System.DateTime)
+  fullName.vb: DotNetConfig.ConfigSection.TryGetDateTime(System.String, ByRef System.DateTime)
   nameWithType: ConfigSection.TryGetDateTime(String, out DateTime)
   nameWithType.vb: ConfigSection.TryGetDateTime(String, ByRef DateTime)
 - uid: DotNetConfig.ConfigSection.TryGetDateTime*
@@ -1585,11 +1653,11 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSectionExtensions.AddBoolean
   nameWithType: ConfigSectionExtensions.AddBoolean
-- uid: DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: AddDateTime(ConfigSection, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_AddDateTime_DotNetConfig_ConfigSection_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_AddDateTime_DotNetConfig_ConfigSection_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigSectionExtensions.AddDateTime(DotNetConfig.ConfigSection, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigSectionExtensions.AddDateTime(ConfigSection, String, DateTime, ConfigLevel)
 - uid: DotNetConfig.ConfigSectionExtensions.AddDateTime*
   name: AddDateTime
@@ -1695,17 +1763,17 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSectionExtensions.SetAllBoolean
   nameWithType: ConfigSectionExtensions.SetAllBoolean
-- uid: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(ConfigSection, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetAllDateTime_DotNetConfig_ConfigSection_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetAllDateTime_DotNetConfig_ConfigSection_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigSectionExtensions.SetAllDateTime(ConfigSection, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetAllDateTime(ConfigSection, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetAllDateTime_DotNetConfig_ConfigSection_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetAllDateTime_DotNetConfig_ConfigSection_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigSectionExtensions.SetAllDateTime(DotNetConfig.ConfigSection, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigSectionExtensions.SetAllDateTime(ConfigSection, String, DateTime, String, ConfigLevel)
 - uid: DotNetConfig.ConfigSectionExtensions.SetAllDateTime*
   name: SetAllDateTime
@@ -1771,17 +1839,17 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSectionExtensions.SetBoolean
   nameWithType: ConfigSectionExtensions.SetBoolean
-- uid: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
   name: SetDateTime(ConfigSection, String, DateTime, ConfigLevel)
-  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetDateTime_DotNetConfig_ConfigSection_System_String_DateTime_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,DateTime,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection, System.String, DateTime, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetDateTime_DotNetConfig_ConfigSection_System_String_System_DateTime_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection, System.String, System.DateTime, DotNetConfig.ConfigLevel)
   nameWithType: ConfigSectionExtensions.SetDateTime(ConfigSection, String, DateTime, ConfigLevel)
-- uid: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
+- uid: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
   name: SetDateTime(ConfigSection, String, DateTime, String, ConfigLevel)
-  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetDateTime_DotNetConfig_ConfigSection_System_String_DateTime_System_String_DotNetConfig_ConfigLevel_
-  commentId: M:DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,DateTime,System.String,DotNetConfig.ConfigLevel)
-  fullName: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection, System.String, DateTime, System.String, DotNetConfig.ConfigLevel)
+  href: api/DotNetConfig.ConfigSectionExtensions.html#DotNetConfig_ConfigSectionExtensions_SetDateTime_DotNetConfig_ConfigSection_System_String_System_DateTime_System_String_DotNetConfig_ConfigLevel_
+  commentId: M:DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection,System.String,System.DateTime,System.String,DotNetConfig.ConfigLevel)
+  fullName: DotNetConfig.ConfigSectionExtensions.SetDateTime(DotNetConfig.ConfigSection, System.String, System.DateTime, System.String, DotNetConfig.ConfigLevel)
   nameWithType: ConfigSectionExtensions.SetDateTime(ConfigSection, String, DateTime, String, ConfigLevel)
 - uid: DotNetConfig.ConfigSectionExtensions.SetDateTime*
   name: SetDateTime
@@ -1860,3 +1928,103 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.ConfigSectionExtensions.UnsetAll
   nameWithType: ConfigSectionExtensions.UnsetAll
+- uid: DotNetConfig.Position
+  name: Position
+  href: api/DotNetConfig.Position.html
+  commentId: T:DotNetConfig.Position
+  fullName: DotNetConfig.Position
+  nameWithType: Position
+- uid: DotNetConfig.Position.#ctor(System.Int32,System.Int32,System.Nullable{System.Int32})
+  name: Position(Int32, Int32, Nullable<Int32>)
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position__ctor_System_Int32_System_Int32_System_Nullable_System_Int32__
+  commentId: M:DotNetConfig.Position.#ctor(System.Int32,System.Int32,System.Nullable{System.Int32})
+  name.vb: Position(Int32, Int32, Nullable(Of Int32))
+  fullName: DotNetConfig.Position.Position(System.Int32, System.Int32, System.Nullable<System.Int32>)
+  fullName.vb: DotNetConfig.Position.Position(System.Int32, System.Int32, System.Nullable(Of System.Int32))
+  nameWithType: Position.Position(Int32, Int32, Nullable<Int32>)
+  nameWithType.vb: Position.Position(Int32, Int32, Nullable(Of Int32))
+- uid: DotNetConfig.Position.#ctor*
+  name: Position
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position__ctor_
+  commentId: Overload:DotNetConfig.Position.#ctor
+  isSpec: "True"
+  fullName: DotNetConfig.Position.Position
+  nameWithType: Position.Position
+- uid: DotNetConfig.Position.Absolute
+  name: Absolute
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Absolute
+  commentId: P:DotNetConfig.Position.Absolute
+  fullName: DotNetConfig.Position.Absolute
+  nameWithType: Position.Absolute
+- uid: DotNetConfig.Position.Absolute*
+  name: Absolute
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Absolute_
+  commentId: Overload:DotNetConfig.Position.Absolute
+  isSpec: "True"
+  fullName: DotNetConfig.Position.Absolute
+  nameWithType: Position.Absolute
+- uid: DotNetConfig.Position.Column
+  name: Column
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Column
+  commentId: P:DotNetConfig.Position.Column
+  fullName: DotNetConfig.Position.Column
+  nameWithType: Position.Column
+- uid: DotNetConfig.Position.Column*
+  name: Column
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Column_
+  commentId: Overload:DotNetConfig.Position.Column
+  isSpec: "True"
+  fullName: DotNetConfig.Position.Column
+  nameWithType: Position.Column
+- uid: DotNetConfig.Position.HasValue
+  name: HasValue
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_HasValue
+  commentId: P:DotNetConfig.Position.HasValue
+  fullName: DotNetConfig.Position.HasValue
+  nameWithType: Position.HasValue
+- uid: DotNetConfig.Position.HasValue*
+  name: HasValue
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_HasValue_
+  commentId: Overload:DotNetConfig.Position.HasValue
+  isSpec: "True"
+  fullName: DotNetConfig.Position.HasValue
+  nameWithType: Position.HasValue
+- uid: DotNetConfig.Position.Line
+  name: Line
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Line
+  commentId: P:DotNetConfig.Position.Line
+  fullName: DotNetConfig.Position.Line
+  nameWithType: Position.Line
+- uid: DotNetConfig.Position.Line*
+  name: Line
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Line_
+  commentId: Overload:DotNetConfig.Position.Line
+  isSpec: "True"
+  fullName: DotNetConfig.Position.Line
+  nameWithType: Position.Line
+- uid: DotNetConfig.Position.ToString
+  name: ToString()
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_ToString
+  commentId: M:DotNetConfig.Position.ToString
+  fullName: DotNetConfig.Position.ToString()
+  nameWithType: Position.ToString()
+- uid: DotNetConfig.Position.ToString*
+  name: ToString
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_ToString_
+  commentId: Overload:DotNetConfig.Position.ToString
+  isSpec: "True"
+  fullName: DotNetConfig.Position.ToString
+  nameWithType: Position.ToString
+- uid: DotNetConfig.Position.Zero
+  name: Zero
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Zero
+  commentId: P:DotNetConfig.Position.Zero
+  fullName: DotNetConfig.Position.Zero
+  nameWithType: Position.Zero
+- uid: DotNetConfig.Position.Zero*
+  name: Zero
+  href: api/DotNetConfig.Position.html#DotNetConfig_Position_Zero_
+  commentId: Overload:DotNetConfig.Position.Zero
+  isSpec: "True"
+  fullName: DotNetConfig.Position.Zero
+  nameWithType: Position.Zero

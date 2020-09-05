@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.Config.html",
-          "hash": "xGxzHAAYML7Gz0UudhZtDQ=="
+          "hash": "xcnyKWxhLOHn4+sW94WlGw=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigEntry.html",
-          "hash": "5VmDHOzTzn7hbGn5e0aoxg=="
+          "hash": "KFzno9vItCL5Tht97P/pJg=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigExtensions.html",
-          "hash": "Pjx908lzJLaVjpJ6zLn11w=="
+          "hash": "v0RAQ4cDfD+sbDaAPOgFdw=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigLevel.html",
-          "hash": "mob+pKRixb7Gu/7cs93TMg=="
+          "hash": "Bj5klilcUbrVXNOq0TpBrA=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSection.html",
-          "hash": "nyu8s3ZnJi0F30HhPLpXpA=="
+          "hash": "WMIitXSHSEZnGwv8Z/1BFg=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,19 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSectionExtensions.html",
-          "hash": "GkNAWp2WCWlcSSv73pNStw=="
+          "hash": "W0fbFlPQgtHqsUGUFxFnSg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DotNetConfig.Position.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DotNetConfig.Position.html",
+          "hash": "RjA7qIHz+/1q2VRAqbSnWA=="
         }
       },
       "is_incremental": false,
@@ -90,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.html",
-          "hash": "+deQx5NEJ430eYOfi6pl4A=="
+          "hash": "ZfRq8ENuODwm2pkSBga9nA=="
         }
       },
       "is_incremental": false,
@@ -102,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "yt8RRs8npzL3GWxngPrxfQ=="
+          "hash": "E2MA5AA8+BoQMZ3TwmZ3bw=="
         }
       },
       "is_incremental": false,
@@ -114,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "a1WS5mXLCfAr8ylyn2rWNg=="
+          "hash": "twBVHCLkUDya2S35bgqxuw=="
         }
       },
       "is_incremental": false,
@@ -137,7 +149,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "gprzWQELclNE9uFRJMaoTQ=="
+          "hash": "qyoeVMt9rvuaQ80BUtUmaA=="
         }
       },
       "is_incremental": false,
@@ -258,7 +270,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 7,
+          "total_file_count": 8,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

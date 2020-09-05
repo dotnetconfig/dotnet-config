@@ -70,7 +70,7 @@
         <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="iconhttpsgithubcomkzudotnet-configrawmasterdocsimgicon-32png-dotnet-config"><img src="https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png" alt="Icon"> dotnet-config</h1>
+<h1 id="iconhttpsgithubcomdotnetconfigdotnet-configrawmasterdocsimgicon-32png-dotnet-config"><img src="https://github.com/dotnetconfig/dotnet-config/raw/master/docs/img/icon-32.png" alt="Icon"> dotnet-config</h1>
 
 <p><a href="https://github.com/dotnetconfig/dotnet-config"><img src="https://img.shields.io/badge/-github-181717.svg?logo=GitHub" alt="GitHub"></a>
 <a href="https://discord.gg/x4qhjYd"><img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat"></a>
@@ -106,18 +106,27 @@ leverages the learnings of the git community around configuration for arbitrary 
 <li>A dotnet global tool to manage the configuration files (much like <a href="https://git-scm.com/docs/git-config">git config</a>).</li>
 <li>An API for dotnet tool authors to read/write settings.</li>
 </ul>
-<p>By default, configuration files are named <code>.netconfig</code> and support three storage levels: </p>
+<p>By default, configuration files are named <code>.netconfig</code> and support four storage levels: </p>
 <ul>
-<li>Local: current directory and any ancestor directories</li>
+<li>Local: a <code>.netconfig.user</code> file alongside the <code>Default</code> level.</li>
+<li>Default: current directory and any ancestor directories.</li>
 <li>Global: user profile directory, from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields">System.Environment.SpecialFolder.UserProfile</a>.</li>
 <li>System: system-wide directory, from <a href="https://docs.microsoft.com/en-us/dotnet/api/system.environment.specialfolder?view=netstandard-2.0#fields">System.Environment.SpecialFolder.System</a>.</li>
 </ul>
 <p>The files are read in the order given above, with first value found taking precedence. 
 When multiple values are read then all values of a key from all files will be returned.</p>
+<blockquote><p><code>.netconfig.user</code> can be used to keep local-only settings separate from team-wide settings 
+in source control, and it&#39;s already a commonly ignored extension in 
+<a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore#L9">.gitignore</a>.</p>
+</blockquote>
 <h1 id="how">How</h1>
 <h2 id="format">Format</h2>
 <p>Example file:</p>
 <pre><code># .netconfig is awesome: https://dotnetconfig.org
+
+[serve]
+    port = 8080
+    gzip
 
 [vs &quot;alias&quot;]
     comexp = run|community|exp
@@ -140,9 +149,9 @@ When multiple values are read then all values of a key from all files will be re
 The <code>#</code> and <code>;</code> characters begin comments to the end of line, blank lines are ignored.</p>
 <p>The file consists of <strong>sections</strong> and <strong>variables</strong>. A section begins with the name of the section in 
 square brackets and continues until the next section begins. Section names are case-insensitive. 
-Only alphanumeric characters, <code>-</code> and <code>.</code> are allowed in section names. Each variable must belong 
+Only alphanumeric characters and <code>-</code> are allowed in section names. Each variable must belong 
 to some section, which means that there must be a section header before the first setting of a 
-variable.</p>
+variable. </p>
 <p>Sections can be further divided into <strong>subsections</strong>. To begin a subsection put its name in double 
 quotes, separated by space from the section name, in the section header, like in the example below:</p>
 <pre><code>    [section &quot;subsection&quot;]
@@ -153,12 +162,15 @@ or to a given subsection. You can have <code>[section]</code> if you have <code>
 don&#39;t need to.</p>
 <p>All the other lines are recognized as setting <strong>variables</strong>, in the form <code>name = value</code> (or just <code>name</code>, 
 which is a short-hand to say that the variable is the boolean <code>true</code>). Variable names are case-insensitive, 
-allow only alphanumeric characters and <code>-</code>, and must start with an alphabetic character.</p>
-<p>Leading whitespaces after <code>name =</code>, the remainder of the line after the first comment character <code>#</code> 
+allow only alphanumeric characters and <code>-</code>, and must start with an alphabetic character. Variables may 
+appear multiple times; we say then that the variable is <em>multivalued</em>.</p>
+<p>Leading whitespaces after <code>name =</code>, the remainder of the line after the first comment character <code>#</code>
 or <code>;</code>, and trailing whitespaces of the line are discarded unless they are enclosed in double quotes. 
 Internal whitespaces within the value are retained verbatim.</p>
-<p>Backslash <code>\</code> characters must always be escaped with <code>\\</code>. Inside double quotes, double quote <code>&quot;</code> 
-must be escaped with <code>\&quot;</code>. </p>
+<p>Backslash <code>\</code> characters must always be escaped with <code>\\</code>. Double quotes must either be escaped with 
+<code>\&quot;</code> or be properly balanced, which causes the whitespace within to be preserved verbatim.</p>
+<p>Beside <code>\&quot;</code> and <code>\\</code>, only <code>\n</code> for newline character (NL) and <code>\t</code> for horizontal tabulation (HT, TAB) 
+escape sequences are recognized.</p>
 <blockquote><p>NOTE: when using the CLI or API, these escaping rules are applied automatically</p>
 </blockquote>
 <h3 id="values">Values</h3>
@@ -186,12 +198,10 @@ specific types and there are rules as to how to spell them.</p>
 </li>
 </ul>
 <h2 id="api">API</h2>
-<p><a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue" alt="Version"></a>
-<a href="https://www.nuget.org/packages/dotnet-config-lib"><img src="https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta" alt="Downloads"></a></p>
-<pre><code>PM&gt; Install-Package dotnet-config-lib
-</code></pre><p>There is a CI feed in case you are working on a feature branch or a PR:</p>
-<pre><code> &lt;add key=&quot;kzu&quot; value=&quot;https://pkg.kzu.io/index.json&quot; /&gt;
-</code></pre><p>The main usage for .NET tool authors consuming the <a href="https://www.nuget.org/packages/dotnet-config-lib">dotnet-config-lib</a> 
+<p><a href="https://www.nuget.org/packages/DotNetConfig"><img src="https://img.shields.io/nuget/v/DotNetConfig.svg?color=royalblue" alt="Version"></a>
+<a href="https://www.nuget.org/packages/DotNetConfig"><img src="https://img.shields.io/nuget/dt/DotNetConfig.svg?color=darkmagenta" alt="Downloads"></a></p>
+<pre><code>PM&gt; Install-Package DotNetConfig
+</code></pre><p>The main usage for .NET tool authors consuming the <a href="https://www.nuget.org/packages/DotNetConfig">DotNetConfig</a> 
 API is to first build a configuration from a specific path (will assume current directory 
 if omitted):</p>
 <pre><code class="lang-csharp">var config = Config.Build();
@@ -238,6 +248,8 @@ optional subsection) is not found:</p>
         // entry came from Environment.SpecialFolder.System
     else if (entry.Level == ConfigLevel.Global)
         // entry came from Environment.SpecialFolder.UserProfile
+    else if (entry.Level == ConfigLevel.Local)
+        // entry came from .netconfig.user file in the current dir or an ancestor directory
     else
         // local entry from current dir .netconfig or an ancestor directory
 
@@ -258,8 +270,6 @@ config.AddString(&quot;vs&quot;, &quot;alias&quot;, &quot;comexp&quot;, &quot;ru
 <p>The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
 Installation is the same as for any other dotnet tool: </p>
 <pre><code>&gt; dotnet tool install -g dotnet-config
-</code></pre><p>There is a CI feed in case you are working on a feature branch or a PR:</p>
-<pre><code>&gt; dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
 </code></pre><p>Reading and writing variables don&#39;t require any special options. The following lines first 
 write a variable value and then retrieve its value:</p>
 <pre><code>&gt; dotnet config mytool.myvariable myvalue
@@ -271,17 +281,17 @@ variable, for example.</p>
 <pre><code>Usage: dotnet config [options]
 
 Location (uses all locations by default)
-      --local                aggregate config file in current and ancestor directories
-      --global               use only global config file
-      --system               use only system config file
-  -f, --file[=VALUE]         use only given config file
+      --local                use .netconfig.user file
+      --global               use global config file
+      --system               use system config file
+      --path[=VALUE]         use given config file or directory
 
 Action
       --get                  get value: name [value-regex]
       --get-all              get all values: key [value-regex]
       --get-regexp           get values for regexp: name-regex [value-regex]
       --set                  set value: name value [value-regex]
-      --set-all              replace all matching variables: name value [value_regex]
+      --set-all              set all matches: name value [value-regex]
       --add                  add a new variable: name value
       --unset                remove a variable: name [value-regex]
       --unset-all            remove all matches: name [value-regex]
@@ -292,7 +302,6 @@ Action
 
 Other
       --default[=VALUE]      with --get, use default value when missing entry
-  -d, --directory[=VALUE]    use given directory for configuration file
       --name-only            show variable names only
       --type[=VALUE]         value is given this type, can be &#39;boolean&#39;, &#39;datetime&#39; or &#39;number&#39;
   -?, -h, --help             Display this help
