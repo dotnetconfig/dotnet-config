@@ -1,8 +1,8 @@
 # dotnet-config API
 
-The main usage for .NET tool authors consuming the `dotnet-config-lib` API is to 
-first build a configuration from a specific path (will assume current directory 
-if omitted):
+The main usage for .NET tool authors consuming the [DotNetConfig](https://nuget.org/packages/DotNetConfig) 
+API is to first build a configuration from a specific path (will assume current 
+directory if omitted):
 
 ```csharp
 var config = Config.Build();
