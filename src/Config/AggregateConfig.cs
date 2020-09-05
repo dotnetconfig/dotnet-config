@@ -7,7 +7,7 @@ namespace DotNetConfig
     internal class AggregateConfig : Config
     {
         public AggregateConfig(params Config[] configs)
-            : base(configs.FirstOrDefault()?.FilePath ?? throw new ArgumentException())
+            : base(configs.SkipWhile(c => c.Level == ConfigLevel.Local).FirstOrDefault()?.FilePath ?? throw new ArgumentException())
             => Files = configs.ToList();
 
         public List<Config> Files { get; }

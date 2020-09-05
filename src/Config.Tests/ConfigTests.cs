@@ -180,11 +180,11 @@ namespace DotNetConfig.Tests
         }
 
         [Fact]
-        public void when_build_hierarchical_filepath_is_first_local()
+        public void when_build_hierarchical_filepath_is_default()
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
 
-            Assert.Equal(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", Config.FileName + ".user"), config.FilePath);
+            Assert.Equal(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", Config.FileName), config.FilePath);
         }
 
         [Fact]
