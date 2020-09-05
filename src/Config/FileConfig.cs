@@ -226,5 +226,7 @@ namespace DotNetConfig
         }
 
         protected override IEnumerable<ConfigEntry> GetEntries() => doc;
+
+        public override string ToString() => FilePath;
     }
 }

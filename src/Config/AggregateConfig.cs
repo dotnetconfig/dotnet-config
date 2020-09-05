@@ -118,5 +118,7 @@ namespace DotNetConfig
             => Files.First(x => x.Level == null).UnsetAll(section, subsection, variable, valueRegex);
 
         protected override IEnumerable<ConfigEntry> GetEntries() => Files.SelectMany(x => x);
+
+        public override string ToString() => string.Join(", ", Files.Select(x => x.FilePath));
     }
 }
