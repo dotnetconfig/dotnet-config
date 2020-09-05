@@ -1,4 +1,4 @@
-![Icon](https://github.com/kzu/dotnet-config/raw/master/docs/img/icon-32.png) dotnet-config
+![Icon](https://github.com/dotnetconfig/dotnet-config/raw/master/docs/img/icon-32.png) dotnet-config
 ============
 
 [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
@@ -155,20 +155,14 @@ specific types and there are rules as to how to spell them.
 
 ## API
 
-[![Version](https://img.shields.io/nuget/v/dotnet-config-lib.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config-lib)
-[![Downloads](https://img.shields.io/nuget/dt/dotnet-config-lib.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config-lib)
+[![Version](https://img.shields.io/nuget/v/DotNetConfig.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig)
+[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig)
 
 ```
-PM> Install-Package dotnet-config-lib
+PM> Install-Package DotNetConfig
 ```
 
-There is a CI feed in case you are working on a feature branch or a PR:
-
-```
- <add key="kzu" value="https://pkg.kzu.io/index.json" />
-```
-
-The main usage for .NET tool authors consuming the [dotnet-config-lib](https://www.nuget.org/packages/dotnet-config-lib) 
+The main usage for .NET tool authors consuming the [DotNetConfig](https://www.nuget.org/packages/DotNetConfig) 
 API is to first build a configuration from a specific path (will assume current directory 
 if omitted):
 
@@ -265,12 +259,6 @@ Installation is the same as for any other dotnet tool:
 
 ```
 > dotnet tool install -g dotnet-config
-```
-
-There is a CI feed in case you are working on a feature branch or a PR:
-
-```
-> dotnet tool update -g dotnet-config --no-cache --add-source https://pkg.kzu.io/index.json
 ```
 
 Reading and writing variables don't require any special options. The following lines first 

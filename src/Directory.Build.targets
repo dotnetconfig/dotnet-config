@@ -80,7 +80,7 @@
       <!-- Update package description so it contains metadata too. -->
       <Description>$(Description)
 
-Built by https://build.azdo.io/kzu/oss/$(BUILD_BUILDID) from $(PackageProjectUrl)/tree/$(GitCommit)
+Built by https://build.azdo.io/dotnetconfig/dotnetconfig/$(BUILD_BUILDID) from $(PackageProjectUrl)/tree/$(GitCommit)
 </Description>
     </PropertyGroup>
 

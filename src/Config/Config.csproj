@@ -6,7 +6,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DotNetConfig</AssemblyName>
     <RootNamespace>DotNetConfig</RootNamespace>
-    <PackageId>dotnet-config-lib</PackageId>
+    <PackageId>DotNetConfig</PackageId>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
