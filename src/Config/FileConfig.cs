@@ -57,6 +57,10 @@ namespace DotNetConfig
             if (!TryGetString(section, subsection, variable, out var value))
                 return null;
 
+            // For Windows, FileInfo.FullName takes care of converting \ to / already.
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT)
+                value = value.Replace('\\', '/');
+
             if (Path.IsPathRooted(value))
                 return new FileInfo(value).FullName;
 
