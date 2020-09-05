@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace DotNetConfig
@@ -50,6 +51,17 @@ namespace DotNetConfig
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => doc.GetAll(nameRegex, valueRegex);
+
+        public override string? GetNormalizedPath(string section, string? subsection, string variable)
+        {
+            if (!TryGetString(section, subsection, variable, out var value))
+                return null;
+
+            if (Path.IsPathRooted(value))
+                return new FileInfo(value).FullName;
+
+            return new FileInfo(Path.Combine(Path.GetDirectoryName(FilePath), value)).FullName;
+        }
 
         public override void RemoveSection(string section, string? subsection)
         {
