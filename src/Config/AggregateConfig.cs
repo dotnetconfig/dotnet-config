@@ -30,6 +30,9 @@ namespace DotNetConfig
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
             => Files.SelectMany(x => x.GetRegex(nameRegex, valueRegex));
 
+        public override string? GetNormalizedPath(string section, string? subsection, string variable)
+            => Files.Select(config => config.GetNormalizedPath(section, subsection, variable)).Where(x => x != null).FirstOrDefault();
+
         public override void RemoveSection(string section, string? subsection = null)
             => Files.First(x => x.Level == null).RemoveSection(section, subsection);
 

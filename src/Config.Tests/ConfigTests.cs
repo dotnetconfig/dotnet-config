@@ -3,16 +3,20 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace DotNetConfig.Tests
 {
     public class ConfigTests
     {
-        public ConfigTests()
+        readonly ITestOutputHelper output;
+
+        public ConfigTests(ITestOutputHelper output)
         {
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            this.output = output;
         }
 
         [Fact]
@@ -296,6 +300,52 @@ bar = hey");
             var config = Config.Build(path);
 
             Assert.Equal("hey", config.GetString("foo", "bar"));
+        }
+
+        [Fact]
+        public void when_resolving_path_then_resolves_relative_to_config()
+        {
+            var globalDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var systemDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var parentDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var localDir = Path.Combine(parentDir, Guid.NewGuid().ToString());
+
+            Config.GlobalLocation = Path.Combine(globalDir, ".netconfig");
+            Config.SystemLocation = Path.Combine(systemDir, ".netconfig");
+
+            Directory.CreateDirectory(globalDir);
+            Directory.CreateDirectory(systemDir);
+            Directory.CreateDirectory(localDir);
+
+            File.WriteAllText(Config.GlobalLocation, @$"[file]
+    global = .\\global\\file.txt
+    dir = .\\global
+");
+            File.WriteAllText(Config.SystemLocation, @$"[file]
+    system = ./system/file.txt
+");
+            File.WriteAllText(Path.Combine(parentDir, Config.FileName), @$"[file]
+    parent = file.txt
+");
+            File.WriteAllText(Path.Combine(localDir, Config.FileName), @$"[file]
+    local = ./file.txt
+");
+
+            var config = Config.Build(localDir);
+
+            Assert.Equal(Path.Combine(globalDir, "global"), config.GetNormalizedPath("file", "dir"));
+            Assert.Equal(Path.Combine(globalDir, "global", "file.txt"), config.GetNormalizedPath("file", "global"));
+            Assert.Equal(Path.Combine(systemDir, "system", "file.txt"), config.GetNormalizedPath("file", "system"));
+            Assert.Equal(Path.Combine(parentDir, "file.txt"), config.GetNormalizedPath("file", "parent"));
+            Assert.Equal(Path.Combine(localDir, "file.txt"), config.GetNormalizedPath("file", "local"));
+
+            var section = config.GetSection("file");
+
+            Assert.Equal(Path.Combine(globalDir, "global"), section.GetNormalizedPath("dir"));
+            Assert.Equal(Path.Combine(globalDir, "global", "file.txt"), section.GetNormalizedPath("global"));
+            Assert.Equal(Path.Combine(systemDir, "system", "file.txt"), section.GetNormalizedPath("system"));
+            Assert.Equal(Path.Combine(parentDir, "file.txt"), section.GetNormalizedPath("parent"));
+            Assert.Equal(Path.Combine(localDir, "file.txt"), section.GetNormalizedPath("local"));
         }
     }
 }

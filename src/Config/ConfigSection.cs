@@ -55,6 +55,15 @@ namespace DotNetConfig
         public IEnumerable<ConfigEntry> GetAll(string variable, string? valueRegex = null) => Config.GetAll(Section, Subsection, variable, valueRegex);
 
         /// <summary>
+        /// Gets a string variable and applies path normalization to it, resolving 
+        /// relative paths and normalizing directory separator characters to the 
+        /// current platform.
+        /// </summary>
+        /// <param name="variable">The variable to retrieve as a resolved path.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public string? GetNormalizedPath(string variable) => Config.GetNormalizedPath(Section, Subsection, variable);
+
+        /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
         /// </summary>
         /// <param name="variable">The variable to assign.</param>

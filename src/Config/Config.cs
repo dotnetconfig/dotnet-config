@@ -94,7 +94,7 @@ namespace DotNetConfig
                 if (File.Exists(file))
                     configs.Files.Add(new FileConfig(file));
 
-                file = file[..^4];
+                file = Path.Combine(dir.FullName, FileName);
                 if (File.Exists(file))
                     configs.Files.Add(new FileConfig(file));
 
@@ -206,6 +206,17 @@ namespace DotNetConfig
         /// <param name="nameRegex">Regular expression to match against the key (section plus subsection and variable name).</param>
         /// <param name="valueRegex">Optional regular expression to match against the variable values.</param>
         public abstract IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null);
+
+        /// <summary>
+        /// Gets a string variable and applies path normalization to it, resolving 
+        /// relative paths and normalizing directory separator characters to the 
+        /// current platform.
+        /// </summary>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="subsection">Optional subsection containing the variable.</param>
+        /// <param name="variable">The variable to retrieve as a resolved path.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public abstract string? GetNormalizedPath(string section, string? subsection, string variable);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.

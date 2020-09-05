@@ -228,6 +228,18 @@ namespace DotNetConfig
             => config.GetString(section, null, variable);
 
         /// <summary>
+        /// Gets a string variable and applies path normalization to it, resolving 
+        /// relative paths and normalizing directory separator characters to the 
+        /// current platform.
+        /// </summary>
+        /// <param name="config">The configuration to get the value from.</param>
+        /// <param name="section">The section containing the variable.</param>
+        /// <param name="variable">The variable to retrieve as a resolved path.</param>
+        /// <returns><see langword="true"/> if the value was found, <see langword="false"/> otherwise.</returns>
+        public static string? GetNormalizedPath(this Config config, string section, string variable)
+            => config.GetNormalizedPath(section, null, variable);
+
+        /// <summary>
         /// Gets all values from a multi-valued variable from the given section.
         /// </summary>
         /// <param name="config">The configuration to get the values from.</param>
