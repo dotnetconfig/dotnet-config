@@ -59,7 +59,7 @@ When multiple values are read then all values of a key from all files will be re
 
 Example file:
 
-```
+```gitconfig
 # .netconfig is awesome: https://dotnetconfig.org
 
 [serve]
@@ -97,7 +97,7 @@ variable.
 Sections can be further divided into **subsections**. To begin a subsection put its name in double 
 quotes, separated by space from the section name, in the section header, like in the example below:
 
-```
+```gitconfig
 	[section "subsection"]
 ```
 

@@ -20,7 +20,7 @@ dotnet serve -p 8080 --gzip --cors --quiet --save-options
 After running that command, a new `.netconfig` will be created (if there isn't one already there) 
 with the following section for `dotnet-serve`:
 
-```
+```gitconfig
 [serve]
 	port = 8080
 	gzip
@@ -31,7 +31,7 @@ with the following section for `dotnet-serve`:
 You can also add multiple `header`, `mime` type mappings and `exclude-file` entries can be provided as
 individual variables, such as:
 
-```
+```gitconfig
 [serve]
 	port = 8080
     header = X-H1: value
