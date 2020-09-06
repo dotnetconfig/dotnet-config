@@ -6,3 +6,5 @@
   href: dotnet-serve.md
 - name: dotnet-vs
   href: dotnet-vs.md
+- name: sleet
+  href: sleet.md
