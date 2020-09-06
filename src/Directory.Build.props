@@ -58,7 +58,7 @@
     <PackOnBuild Condition="$(CI) or '$(BuildingInsideVisualStudio)' != 'true'">true</PackOnBuild>
 
     <GeneratePackageOnBuild>$(PackOnBuild)</GeneratePackageOnBuild>
-    <PackageOutputPath Condition="'$(PackOnBuild)' == 'true' And '$(PackageOutputPath)' == ''">$(MSBuildThisFileDirectory)..\bin</PackageOutputPath>
+    <PackageOutputPath Condition="'$(PackageOutputPath)' == ''">$(MSBuildThisFileDirectory)..\bin</PackageOutputPath>
     <DefaultItemExcludes>$(DefaultExcludeItems);*.binlog</DefaultItemExcludes>
 
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)dotnet-config.snk</AssemblyOriginatorKeyFile>
