@@ -7,7 +7,7 @@ a `dotnet file update` can only download the necessary changes (if any).
 
 Sample configuration:
 
-```
+```gitconfig
 # dotnet-file GH repo download/sync for specific subfolders
 [file.github "docs"]
 	url = https://github.com/dotnet/aspnetcore/tree/master/docs

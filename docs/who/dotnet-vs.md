@@ -20,7 +20,7 @@ Example:
 
 Sample configuration:
 
-```
+```gitconfig
 [vs "alias"]
 	comexp = run|community|exp
 	preexp = run|preview|exp
