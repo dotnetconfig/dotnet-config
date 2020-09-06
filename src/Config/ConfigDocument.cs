@@ -13,17 +13,17 @@ namespace DotNetConfig
 
         ConfigDocument(string filePath, ConfigLevel? level = null)
         {
-            this.filePath = filePath;
-            if (File.Exists(filePath))
+            this.filePath = new FileInfo(filePath).FullName;
+            if (File.Exists(this.filePath))
                 Load();
 
             if (level == null)
             {
-                if (filePath == Config.GlobalLocation)
+                if (this.filePath == Config.GlobalLocation)
                     level = ConfigLevel.Global;
-                else if (filePath == Config.SystemLocation)
+                else if (this.filePath == Config.SystemLocation)
                     level = ConfigLevel.System;
-                else if (filePath.EndsWith(Config.UserExtension, StringComparison.Ordinal))
+                else if (this.filePath.EndsWith(Config.UserExtension, StringComparison.Ordinal))
                     level = ConfigLevel.Local;
             }
 

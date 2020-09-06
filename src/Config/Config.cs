@@ -46,7 +46,7 @@ namespace DotNetConfig
         public static Config Build(string? path = null)
         {
             AggregateConfig configs;
-            DirectoryInfo dir;
+            DirectoryInfo dir = null;
 
             // null check to avoid false null warnings further down :(
             if (path == null || string.IsNullOrEmpty(path))
@@ -60,6 +60,8 @@ namespace DotNetConfig
 
             if (File.Exists(path))
             {
+                // Resolve full path before continuing processing
+                path = new FileInfo(path).FullName;
                 if (path.EndsWith(UserExtension, StringComparison.Ordinal))
                     configs = new AggregateConfig(new FileConfig(path, ConfigLevel.Local), new FileConfig(path[..^5]));
                 else
@@ -70,7 +72,7 @@ namespace DotNetConfig
             else if (Directory.Exists(path) || !Path.HasExtension(path))
             {
                 configs = new AggregateConfig(
-                    new FileConfig(Path.Combine(path, FileName + UserExtension), ConfigLevel.Local), 
+                    new FileConfig(Path.Combine(path, FileName + UserExtension), ConfigLevel.Local),
                     new FileConfig(Path.Combine(path, FileName)));
 
                 dir = new DirectoryInfo(path).Parent;
@@ -79,6 +81,8 @@ namespace DotNetConfig
             {
                 // If the path does not point to an existing directory
                 // we consider it a file path as a fallback.
+                path = new FileInfo(path).FullName;
+
                 if (path.EndsWith(UserExtension, StringComparison.Ordinal))
                     configs = new AggregateConfig(new FileConfig(path, ConfigLevel.Local), new FileConfig(path[..^5]));
                 else
@@ -113,8 +117,8 @@ namespace DotNetConfig
         /// <summary>
         /// Access the configuration from a specific store.
         /// </summary>
-        public static Config Build(ConfigLevel store) => 
-            store switch 
+        public static Config Build(ConfigLevel store) =>
+            store switch
             {
                 ConfigLevel.Global => Build(GlobalLocation),
                 ConfigLevel.System => Build(SystemLocation),
@@ -140,11 +144,11 @@ namespace DotNetConfig
         /// <see cref="GlobalLocation"/> or <see cref="SystemLocation"/> or 
         /// it ends in <c>.user</c> in which case it's <see cref="ConfigLevel.Local"/>.
         /// </summary>
-        public ConfigLevel? Level => 
+        public ConfigLevel? Level =>
             this is AggregateConfig ? null :
-            FilePath == GlobalLocation ? (ConfigLevel?)ConfigLevel.Global : 
-            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System : 
-            FilePath.EndsWith(UserExtension) ? (ConfigLevel?)ConfigLevel.Local: null;
+            FilePath == GlobalLocation ? (ConfigLevel?)ConfigLevel.Global :
+            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System :
+            FilePath.EndsWith(UserExtension) ? (ConfigLevel?)ConfigLevel.Local : null;
 
         /// <summary>
         /// Gets the section and optional subsection from the configuration.

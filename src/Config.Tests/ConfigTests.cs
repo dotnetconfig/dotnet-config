@@ -38,6 +38,24 @@ namespace DotNetConfig.Tests
         }
 
         [Fact]
+        public void can_read_hierarchical_from_root_file()
+        {
+            var config = Config.Build("C:\\.netconfig");
+
+            Assert.True(config.GetBoolean("core", "global"));
+            Assert.True(config.GetBoolean("core", "system"));
+        }
+
+        [Fact]
+        public void can_read_hierarchical_from_relative_path()
+        {
+            var config = Config.Build(Config.FileName);
+
+            Assert.True(config.GetBoolean("core", "global"));
+            Assert.True(config.GetBoolean("core", "system"));
+        }
+
+        [Fact]
         public void can_read_hierarchical_with_config_entry_level()
         {
             var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local"));
