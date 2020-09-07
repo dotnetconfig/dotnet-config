@@ -1,6 +1,8 @@
 # dotnet-eventgrid
 
-[dotnet-eventgrid](https://www.nuget.org/packages/dotnet-eventgrid/) is a dotnet global tool to 
+[![dotnet-eventgrid](https://img.shields.io/nuget/v/dotnet-eventgrid.svg?color=royalblue&label=dotnet-eventgrid)](https://nuget.org/packages/dotnet-eventgrid)
+
+[dotnet-eventgrid](https://raw.github.com/kzu/dotnet-eventgrid) is a dotnet global tool to 
 monitor and filter real-time event from Azure EventGrid, delivered through Azure SignalR.
 
 The tool allows configuring filters so that you can monitor the specific events comming through 

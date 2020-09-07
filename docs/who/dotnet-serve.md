@@ -1,6 +1,8 @@
 # dotnet-serve
 
-The [dotnet-serve](https://www.nuget.org/packages/dotnet-serve/) is a simple 
+[![dotnet-serve](https://img.shields.io/nuget/v/dotnet-serve.svg?color=royalblue&label=dotnet-serve)](https://nuget.org/packages/dotnet-serve)
+
+The [dotnet-serve](https://github.com/natemcmaster/dotnet-serve) is a simple 
 command-line HTTP server.
 
 It leverages `dotnet-config` to [augment and reuse options](https://github.com/natemcmaster/dotnet-serve#reusing-options-with-netconfig) 
