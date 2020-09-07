@@ -52,6 +52,19 @@ When multiple values are read then all values of a key from all files will be re
 > in source control, and it's already a commonly ignored extension in 
 > [.gitignore](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore#L9).
 
+# Who
+
+The following are tools that leverage *.netconfig* to provide flexible configuration persistence 
+options to their users:
+
+[![dotnet-file](https://img.shields.io/nuget/v/dotnet-file.svg?color=royalblue&label=dotnet-file)](https://www.nuget.org/packages/dotnet-file)
+[![dotnet-serve](https://img.shields.io/nuget/v/dotnet-serve.svg?color=royalblue&label=dotnet-serve)](https://www.nuget.org/packages/dotnet-serve)
+[![dotnet-vs](https://img.shields.io/nuget/v/dotnet-vs.svg?color=royalblue&label=dotnet-vs)](https://www.nuget.org/packages/dotnet-vs)
+ [![sleet](https://img.shields.io/nuget/v/sleet.svg?color=royalblue&label=sleet)](https://www.nuget.org/packages/sleet)
+
+Learn more about how the various tools leverage `.netconfig` in the [Who](https://dotnetconfig.org/who) 
+section of our docs site.
+
 
 # How
 
