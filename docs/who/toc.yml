@@ -8,5 +8,7 @@
   href: dotnet-serve.md
 - name: dotnet-vs
   href: dotnet-vs.md
-- name: sleet
+- name: ReportGenerator
+  href: reportgenerator.md  
+- name: Sleet
   href: sleet.md

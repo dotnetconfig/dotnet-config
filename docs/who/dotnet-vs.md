@@ -1,5 +1,7 @@
 # dotnet-vs
 
+[![dotnet-vs](https://img.shields.io/nuget/v/dotnet-vs.svg?color=royalblue&label=dotnet-vs)](https://nuget.org/packages/dotnet-vs)
+
 The [dotnet-vs](https://github.com/kzu/dotnet-vs) tool uses `dotnet-config` to persist command aliases, 
 just like GIT aliases, that run `Visual Studio` (or its installer) with various switches.
 

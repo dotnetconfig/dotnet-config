@@ -1,5 +1,7 @@
 # dotnet-file
 
+[![dotnet-file](https://img.shields.io/nuget/v/dotnet-file.svg?color=royalblue&label=dotnet-file)](https://nuget.org/packages/dotnet-file)
+
 The [dotnet-file](https://github.com/kzu/dotnet-file) is a dotnet global tool for 
 downloading and updating loose files from arbitrary URLs. It uses `dotnet-config` to 
 persist the remove URLs and the associated ETags for downloaded files so that performing 
