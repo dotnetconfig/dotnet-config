@@ -1,5 +1,7 @@
 - name: Overview
   href: index.md
+- name: dotnet-eventgrid
+  href: dotnet-eventgrid.md
 - name: dotnet-file
   href: dotnet-file.md
 - name: dotnet-serve
