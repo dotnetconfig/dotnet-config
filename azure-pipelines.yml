@@ -4,6 +4,12 @@ variables:
 - name: PackageOutputPath
   value: $(Build.ArtifactStagingDirectory)
 
+trigger:
+  paths:
+    exclude:
+    - docs/*
+    - README.md
+
 stages:
 
 - stage: Build
