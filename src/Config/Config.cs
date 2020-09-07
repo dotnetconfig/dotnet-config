@@ -46,7 +46,7 @@ namespace DotNetConfig
         public static Config Build(string? path = null)
         {
             AggregateConfig configs;
-            DirectoryInfo dir = null;
+            DirectoryInfo? dir = null;
 
             // null check to avoid false null warnings further down :(
             if (path == null || string.IsNullOrEmpty(path))
