@@ -13,11 +13,11 @@ Example:
 
 * Run Visual Studio Community edition's experimental instance, with activity logging enabled, save as `test`
 
-    vs run com exp /log --save=test
+	vs run com exp /log --save=test
 
   From that point on, the same command can be run simply with:
 
-    vs test
+	vs test
 
 
 Sample configuration:

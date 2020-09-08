@@ -10,21 +10,21 @@ the SignalR connection like:
 
 ```gitconfig
 [eventgrid]
-    url = https://events.mygrid.com
-    filter = path=MyApp/**/Login
-    filter = eventType=*System*
+	url = https://events.mygrid.com
+	filter = path=MyApp/**/Login
+	filter = eventType=*System*
 ```
 
 You can also specify whether you want to see certain event properties rendered or not in the console:
 
 ```gitconfig
 [eventgrid]
-    # properties to include in the event rendering
-    include = EventType
-    include = Subject
+	# properties to include in the event rendering
+	include = EventType
+	include = Subject
 
-    # properties to exclude from event rendering
-    exclude = data
+	# properties to exclude from event rendering
+	exclude = data
 ```
 
 The tool is quite awesome in action, and after you have your desired *.netconfig* in place, you can 

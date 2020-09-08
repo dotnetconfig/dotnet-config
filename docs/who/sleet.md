@@ -14,29 +14,29 @@ Some examples are:
 
 ```gitconfig
 [sleet "feed"]
-    type = azure
-    container = feed
-    connectionString = "DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint="
-    path = https://yourStorageAccount.blob.core.windows.net/feed/
+	type = azure
+	container = feed
+	connectionString = "DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint="
+	path = https://yourStorageAccount.blob.core.windows.net/feed/
 ```
 
 2. AWS S3-based feed:
 
 ```gitconfig
 [sleet "feed"]
-    type = s3
-    path = https://s3.amazonaws.com/my-bucket-feed/
-    bucketName = my-bucket-feed
-    region = us-west-2
-    accessKeyId = IAM_ACCESS_KEY_ID
-    secretAccessKey = IAM_SECRET_ACCESS_KEY
+	type = s3
+	path = https://s3.amazonaws.com/my-bucket-feed/
+	bucketName = my-bucket-feed
+	region = us-west-2
+	accessKeyId = IAM_ACCESS_KEY_ID
+	secretAccessKey = IAM_SECRET_ACCESS_KEY
 ```
 
 3. Local directory feed:
 ```gitconfig
 [sleet "myLocalFeed"]
-    type = local
-    path = C:\\myFeed
+	type = local
+	path = C:\\myFeed
 ```
 
 See the [docs](https://github.com/emgarten/Sleet/blob/master/doc/index.md) for all 

@@ -36,13 +36,13 @@ individual variables, such as:
 ```gitconfig
 [serve]
 	port = 8080
-    header = X-H1: value
-    header = X-H2: value
-    mime = .cs=text/plain
-    mime = .vb=text/plain
-    mime = .fs=text/plain
-    exclude-file = app.config
-    exclude-file = appsettings.json
+	header = X-H1: value
+	header = X-H2: value
+	mime = .cs=text/plain
+	mime = .vb=text/plain
+	mime = .fs=text/plain
+	exclude-file = app.config
+	exclude-file = appsettings.json
 ```
 
 You can place those settings in any parent folder and it will be reused across all descendent 

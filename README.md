@@ -77,8 +77,8 @@ Example file:
 # .netconfig is awesome: https://dotnetconfig.org
 
 [serve]
-    port = 8080
-    gzip
+	port = 8080
+	gzip
 
 [vs "alias"]
 	comexp = run|community|exp
@@ -112,7 +112,7 @@ Sections can be further divided into **subsections**. To begin a subsection put 
 quotes, separated by space from the section name, in the section header, like in the example below:
 
 ```gitconfig
-	[section "subsection"]
+[section "subsection"]
 ```
 
 Subsection names are case sensitive and can contain any characters except newline. Doublequote `"` 
@@ -323,4 +323,3 @@ Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/
 all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, 
 `--flag=value`, `/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, 
 `--flag value`, `/flag value`.
-

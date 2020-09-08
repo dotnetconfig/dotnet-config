@@ -11,6 +11,10 @@ insert_final_newline = true
 indent_style = space
 # (Please don't specify an indent_size here; that has too many unintended consequences.)
 
+# Markdown
+
+[*.md]
+indent_style = tab
 
 # Code files
 [*.{cs,csx,vb,vbx}]
