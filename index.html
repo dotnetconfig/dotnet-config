@@ -119,10 +119,20 @@ When multiple values are read then all values of a key from all files will be re
 in source control, and it&#39;s already a commonly ignored extension in 
 <a href="https://github.com/github/gitignore/blob/master/VisualStudio.gitignore#L9">.gitignore</a>.</p>
 </blockquote>
+<h1 id="who">Who</h1>
+<p>The following are tools that leverage <em>.netconfig</em> to provide flexible configuration persistence 
+options:</p>
+<p><a href="https://dotnetconfig.org/who/dotnet-eventgrid"><img src="https://img.shields.io/nuget/v/dotnet-eventgrid.svg?color=royalblue&amp;label=dotnet-eventgrid" alt="dotnet-eventgrid"></a>
+<a href="https://dotnetconfig.org/who/dotnet-file"><img src="https://img.shields.io/nuget/v/dotnet-file.svg?color=royalblue&amp;label=dotnet-file" alt="dotnet-file"></a>
+<a href="https://dotnetconfig.org/who/dotnet-serve"><img src="https://img.shields.io/nuget/v/dotnet-serve.svg?color=royalblue&amp;label=dotnet-serve" alt="dotnet-serve"></a>
+<a href="https://dotnetconfig.org/who/dotnet-vs"><img src="https://img.shields.io/nuget/v/dotnet-vs.svg?color=royalblue&amp;label=dotnet-vs" alt="dotnet-vs"></a>
+<a href="https://dotnetconfig.org/who/sleet"><img src="https://img.shields.io/nuget/v/sleet.svg?color=royalblue&amp;label=sleet" alt="sleet"></a></p>
+<p>Learn more about how the various tools leverage <code>.netconfig</code> in the <a href="https://dotnetconfig.org/who">Who</a> 
+section of our docs site.</p>
 <h1 id="how">How</h1>
 <h2 id="format">Format</h2>
 <p>Example file:</p>
-<pre><code># .netconfig is awesome: https://dotnetconfig.org
+<pre><code class="lang-gitconfig"># .netconfig is awesome: https://dotnetconfig.org
 
 [serve]
     port = 8080
@@ -154,7 +164,7 @@ to some section, which means that there must be a section header before the firs
 variable. </p>
 <p>Sections can be further divided into <strong>subsections</strong>. To begin a subsection put its name in double 
 quotes, separated by space from the section name, in the section header, like in the example below:</p>
-<pre><code>    [section &quot;subsection&quot;]
+<pre><code class="lang-gitconfig">    [section &quot;subsection&quot;]
 </code></pre><p>Subsection names are case sensitive and can contain any characters except newline. Doublequote <code>&quot;</code> 
 and backslash <code>\</code> can be included by escaping them as <code>\&quot;</code> and <code>\\</code>, respectively. </p>
 <p>Section headers cannot span multiple lines. Variables may belong directly to a section 

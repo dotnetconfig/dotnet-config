@@ -79,7 +79,8 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dotnet-serve">dotnet-serve</h1>
 
-<p>The <a href="https://www.nuget.org/packages/dotnet-serve/">dotnet-serve</a> is a simple 
+<p><a href="https://nuget.org/packages/dotnet-serve"><img src="https://img.shields.io/nuget/v/dotnet-serve.svg?color=royalblue&amp;label=dotnet-serve" alt="dotnet-serve"></a></p>
+<p>The <a href="https://github.com/natemcmaster/dotnet-serve">dotnet-serve</a> is a simple 
 command-line HTTP server.</p>
 <p>It leverages <code>dotnet-config</code> to <a href="https://github.com/natemcmaster/dotnet-serve#reusing-options-with-netconfig">augment and reuse options</a> 
 so they don&#39;t have to be passed in constantly via the command line as arguments. 
@@ -92,14 +93,14 @@ any folder and get a consistent behavior throughout your machine.</p>
 <pre><code>dotnet serve -p 8080 --gzip --cors --quiet --save-options
 </code></pre><p>After running that command, a new <code>.netconfig</code> will be created (if there isn&#39;t one already there) 
 with the following section for <code>dotnet-serve</code>:</p>
-<pre><code>[serve]
+<pre><code class="lang-gitconfig">[serve]
     port = 8080
     gzip
     cors
     quiet
 </code></pre><p>You can also add multiple <code>header</code>, <code>mime</code> type mappings and <code>exclude-file</code> entries can be provided as
 individual variables, such as:</p>
-<pre><code>[serve]
+<pre><code class="lang-gitconfig">[serve]
     port = 8080
     header = X-H1: value
     header = X-H2: value

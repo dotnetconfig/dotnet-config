@@ -79,6 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dotnet-vs">dotnet-vs</h1>
 
+<p><a href="https://nuget.org/packages/dotnet-vs"><img src="https://img.shields.io/nuget/v/dotnet-vs.svg?color=royalblue&amp;label=dotnet-vs" alt="dotnet-vs"></a></p>
 <p>The <a href="https://github.com/kzu/dotnet-vs">dotnet-vs</a> tool uses <code>dotnet-config</code> to persist command aliases, 
 just like GIT aliases, that run <code>Visual Studio</code> (or its installer) with various switches.</p>
 <p>Any of the commands supported by the <code>vs</code> global tool can be saved as an alias by simply appending 
@@ -93,7 +94,7 @@ command, you can just use <code>vs [alias]</code> instead.</p>
 </li>
 </ul>
 <p>Sample configuration:</p>
-<pre><code>[vs &quot;alias&quot;]
+<pre><code class="lang-gitconfig">[vs &quot;alias&quot;]
     comexp = run|community|exp
     preexp = run|preview|exp
     test = run|com|exp|/log

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>dotnet-file | .netconfig </title>
+    <title>Who uses .netconfig? | .netconfig </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="dotnet-file | .netconfig ">
+    <meta name="title" content="Who uses .netconfig? | .netconfig ">
     <meta name="generator" content="docfx 2.56.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -77,33 +77,15 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="dotnet-file">dotnet-file</h1>
+<h1 id="who-uses-netconfig">Who uses .netconfig?</h1>
 
-<p><a href="https://nuget.org/packages/dotnet-file"><img src="https://img.shields.io/nuget/v/dotnet-file.svg?color=royalblue&amp;label=dotnet-file" alt="dotnet-file"></a></p>
-<p>The <a href="https://github.com/kzu/dotnet-file">dotnet-file</a> is a dotnet global tool for 
-downloading and updating loose files from arbitrary URLs. It uses <code>dotnet-config</code> to 
-persist the remove URLs and the associated ETags for downloaded files so that performing 
-a <code>dotnet file update</code> can only download the necessary changes (if any).</p>
-<p>Sample configuration:</p>
-<pre><code class="lang-gitconfig"># dotnet-file GH repo download/sync for specific subfolders
-[file.github &quot;docs&quot;]
-    url = https://github.com/dotnet/aspnetcore/tree/master/docs
-    url = https://github.com/dotnet/runtime/tree/master/docs/design/features
-
-[file &quot;docs/APIReviewProcess.md&quot;]
-    url = https://github.com/dotnet/aspnetcore/blob/master/docs/APIReviewProcess.md
-    etag = 1e4acd7e1ac446f0c6d397e1ed517c54507700b85826f64745559dfb50f2acbd
-[file &quot;docs/Artifacts.md&quot;]
-    url = https://github.com/dotnet/aspnetcore/blob/master/docs/Artifacts.md
-    etag = d663b7b460e871c6af17fc288d8bd2d893e29127acf417030254dd239ef42a68
-...
-[file &quot;docs/design/features/tiered-compilation.md&quot;]
-    url = https://github.com/dotnet/runtime/blob/master/docs/design/features/tiered-compilation.md
-    etag = 8c2706b687ea4bdaac7ba4caccf29fa529856623e292195dda4aa506e39c3d7d
-[file &quot;docs/design/features/unloadability.md&quot;]
-    url = https://github.com/dotnet/runtime/blob/master/docs/design/features/unloadability.md
-    etag = 4424103e00e2fae42e6a6a8157d139de18026f2acd5d1afd6c727af03c5affeb
-</code></pre></article>
+<p>This section highlights some of the known usages of <code>dotnet-config</code>.</p>
+<p>If you created or use a tool that leverages <code>dotnet-config</code>, please consider 
+sending a PR to add it to the <a href="https://github.com/dotnetconfig/dotnet-config/tree/master/docs/who">who</a> 
+directory. In addition to a <code>.md</code> doc showcasing the usage, don&#39;t forget to add 
+a corresponding entry to the <a href="https://github.com/dotnetconfig/dotnet-config/tree/master/docs/who/toc.yml">toc.yml</a>.</p>
+<p>Thanks!</p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -111,7 +93,7 @@ a <code>dotnet file update</code> can only download the necessary changes (if an
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/master/docs/who/dotnet-file.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/master/docs/who/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
