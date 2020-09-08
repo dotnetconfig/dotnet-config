@@ -149,7 +149,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "l/jwf0tGzT5E+Z5doL2LOQ=="
+          "hash": "KoWj9SUsKFMLbzDtDYsbmA=="
         }
       },
       "is_incremental": false,
@@ -251,6 +251,18 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "who/reportgenerator.md",
+      "output": {
+        ".html": {
+          "relative_path": "who/reportgenerator.html",
+          "hash": "JeDUNtiL71Fwtj3rVckQ9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "who/sleet.md",
       "output": {
         ".html": {
@@ -267,7 +279,7 @@
       "output": {
         ".html": {
           "relative_path": "who/toc.html",
-          "hash": "CsarKEte7tA848BNWVYtZA=="
+          "hash": "w3vkTz3e7eKDz8Yc72ry1Q=="
         }
       },
       "is_incremental": false,
@@ -288,7 +300,7 @@
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 8,
+          "total_file_count": 9,
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
