@@ -27,13 +27,13 @@
           
     <PropertyGroup>
       <GitBranch>$(GitBranch.Replace('/', '-'))</GitBranch>
-      <!-- We don't build stable versions from non-master branches. But when the version came from the branch, we leave it as-is. -->
-      <GitSemVerDashLabel Condition="'$(GitBranch)' != 'master'">$(GitSemVerDashLabel)-$(GitBranch)</GitSemVerDashLabel>
+      <!-- We don't build stable versions from non-main branches. But when the version came from the branch, we leave it as-is. -->
+      <GitSemVerDashLabel Condition="'$(GitBranch)' != 'main'">$(GitSemVerDashLabel)-$(GitBranch)</GitSemVerDashLabel>
 
       <IncludeBuildMetadata>$(PR)</IncludeBuildMetadata>
-      <!-- Build metadata always present for non-master branches, unless the existing label matches the branch.
+      <!-- Build metadata always present for non-main branches, unless the existing label matches the branch.
            For a versioned branch, it doesn't make sense either. -->
-      <IncludeBuildMetadata Condition="'$(GitBranch)' != 'master' and '$(GitSemVerSource)' != 'Branch' and '$(GitSemVerDashLabel)' != '-$(GitBranch)'">true</IncludeBuildMetadata>
+      <IncludeBuildMetadata Condition="'$(GitBranch)' != 'main' and '$(GitSemVerSource)' != 'Branch' and '$(GitSemVerDashLabel)' != '-$(GitBranch)'">true</IncludeBuildMetadata>
     </PropertyGroup>
 
 
