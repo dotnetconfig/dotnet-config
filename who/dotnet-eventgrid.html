@@ -12,6 +12,7 @@
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
@@ -80,16 +81,16 @@
 <h1 id="dotnet-eventgrid">dotnet-eventgrid</h1>
 
 <p><a href="https://nuget.org/packages/dotnet-eventgrid"><img src="https://img.shields.io/nuget/v/dotnet-eventgrid.svg?color=royalblue&amp;label=dotnet-eventgrid" alt="dotnet-eventgrid"></a></p>
-<p><a href="https://raw.github.com/kzu/dotnet-eventgrid">dotnet-eventgrid</a> is a dotnet global tool to 
+<p><a href="https://github.com/kzu/dotnet-eventgrid">dotnet-eventgrid</a> is a dotnet global tool to 
 monitor and filter real-time event from Azure EventGrid, delivered through Azure SignalR.</p>
 <p>The tool allows configuring filters so that you can monitor the specific events comming through 
 the SignalR connection like:</p>
-<pre><code class="lang-gitconfig">[eventgrid]
+<pre><code class="lang-dotnetconfig">[eventgrid]
     url = https://events.mygrid.com
     filter = path=MyApp/**/Login
     filter = eventType=*System*
 </code></pre><p>You can also specify whether you want to see certain event properties rendered or not in the console:</p>
-<pre><code class="lang-gitconfig">[eventgrid]
+<pre><code class="lang-dotnetconfig">[eventgrid]
     # properties to include in the event rendering
     include = EventType
     include = Subject
@@ -134,6 +135,8 @@ just run <code>eventgrid</code> without parameters and enjoy it right-away:</p>
     </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

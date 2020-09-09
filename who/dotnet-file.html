@@ -12,6 +12,7 @@
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
@@ -85,8 +86,8 @@ downloading and updating loose files from arbitrary URLs. It uses <code>dotnet-c
 persist the remove URLs and the associated ETags for downloaded files so that performing 
 a <code>dotnet file update</code> can only download the necessary changes (if any).</p>
 <p>Sample configuration:</p>
-<pre><code class="lang-gitconfig"># dotnet-file GH repo download/sync for specific subfolders
-[file.github &quot;docs&quot;]
+<pre><code class="lang-dotnetconfig"># dotnet-file GH repo download/sync for specific subfolders
+[file &quot;docs&quot;]
     url = https://github.com/dotnet/aspnetcore/tree/master/docs
     url = https://github.com/dotnet/runtime/tree/master/docs/design/features
 
@@ -138,6 +139,8 @@ a <code>dotnet file update</code> can only download the necessary changes (if an
     </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

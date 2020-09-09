@@ -12,6 +12,7 @@
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
@@ -88,7 +89,7 @@ are supported via <code>.netconfig</code>. </p>
 <ol>
 <li>Azure Blob Storage-based feed:</li>
 </ol>
-<pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
+<pre><code class="lang-dotnetconfig">[sleet &quot;feed&quot;]
     type = azure
     container = feed
     connectionString = &quot;DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint=&quot;
@@ -96,7 +97,7 @@ are supported via <code>.netconfig</code>. </p>
 </code></pre><ol>
 <li>AWS S3-based feed:</li>
 </ol>
-<pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
+<pre><code class="lang-dotnetconfig">[sleet &quot;feed&quot;]
     type = s3
     path = https://s3.amazonaws.com/my-bucket-feed/
     bucketName = my-bucket-feed
@@ -105,7 +106,7 @@ are supported via <code>.netconfig</code>. </p>
     secretAccessKey = IAM_SECRET_ACCESS_KEY
 </code></pre><ol>
 <li>Local directory feed:
-<code>gitconfig
+<code>dotnetconfig
 [sleet &quot;myLocalFeed&quot;]
  type = local
  path = C:\\myFeed</code></li>
@@ -147,6 +148,8 @@ available settings. </p>
     </div>
     
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>
