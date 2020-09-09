@@ -41,7 +41,8 @@
         "files": [
           "logo.svg",
           "favicon.ico",
-          "styles/*.css"
+          "styles/*.css",
+          "styles/*.js"
         ]
       }
     ],
@@ -49,6 +50,10 @@
       "_appTitle": ".netconfig",
       "_enableSearch": true
     },
+    "template": [
+      "default",
+      "./template"
+    ],    
     "dest": "_site"
   }
 }

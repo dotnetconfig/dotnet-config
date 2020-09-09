@@ -74,7 +74,7 @@ section of our docs site.
 
 Example file:
 
-```gitconfig
+```dotnetconfig
 # .netconfig is awesome: https://dotnetconfig.org
 
 [serve]
@@ -85,7 +85,7 @@ Example file:
 	comexp = run|community|exp
 	preexp = run|preview|exp
 
-[file.github]
+[file]
 	# example of multi-valued variables
 	url = https://github.com/dotnet/runtime/tree/master/docs/design/features
 	url = https://github.com/dotnet/aspnetcore/tree/master/docs
@@ -98,6 +98,17 @@ Example file:
 [file "docs/APIReviewProcess.md"]
 	url = https://github.com/dotnet/aspnetcore/blob/master/docs/APIReviewProcess.md
 	etag = 1e4acd7...
+
+[mytool]
+    description = "\t tab and \n newline escapes, plus \\ backslash are valid"
+    title = My tool is great    # internal whitespace preserved without needing double quotes
+    path = C:\\tool             # backslashes always escaped, inside or outside double quotes
+    size = 500kb                # numbers can have a multiplier (case insensitive) suffix kb, mb, gb, tb 
+    max-size = 1T               # the 'b' is optional.
+    compress = true             # multiple variants for boolean: true|false|yes|no|on|off|1|0
+    secure   = yes
+    localized = off
+    enabled  = 1    
 ```
 
 The syntax follows closely the [git-config syntax](https://git-scm.com/docs/git-config#_syntax). 
