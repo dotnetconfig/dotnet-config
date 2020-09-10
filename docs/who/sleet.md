@@ -12,7 +12,7 @@ Some examples are:
 
 1. Azure Blob Storage-based feed:
 
-```dotnetconfig
+```gitconfig
 [sleet "feed"]
 	type = azure
 	container = feed
@@ -22,7 +22,7 @@ Some examples are:
 
 2. AWS S3-based feed:
 
-```dotnetconfig
+```gitconfig
 [sleet "feed"]
 	type = s3
 	path = https://s3.amazonaws.com/my-bucket-feed/
@@ -33,7 +33,7 @@ Some examples are:
 ```
 
 3. Local directory feed:
-```dotnetconfig
+```gitconfig
 [sleet "myLocalFeed"]
 	type = local
 	path = C:\\myFeed

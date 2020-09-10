@@ -22,7 +22,7 @@ Example:
 
 Sample configuration:
 
-```dotnetconfig
+```gitconfig
 [vs "alias"]
 	comexp = run|community|exp
 	preexp = run|preview|exp

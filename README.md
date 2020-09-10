@@ -74,7 +74,7 @@ section of our docs site.
 
 Example file:
 
-```dotnetconfig
+```gitconfig
 # .netconfig is awesome: https://dotnetconfig.org
 
 [serve]

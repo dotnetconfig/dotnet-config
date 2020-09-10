@@ -8,7 +8,7 @@ It provides a dotnet [global tool](https://www.nuget.org/packages/dotnet-reportg
 which supports `.netconfig` to configure the multitude of options that generating complex reports 
 require, for example:
 
-```dotnetconfig
+```gitconfig
 [ReportGenerator]
 	reports = coverage.xml
 	targetdir = "C:\report"
@@ -19,7 +19,7 @@ require, for example:
 
 All the plural options can also be specified as multiple singular entries, like:
 
-```dotnetconfig
+```gitconfig
 [ReportGenerator]
 	report = coverage1.xml
 	report = coverage2.xml
