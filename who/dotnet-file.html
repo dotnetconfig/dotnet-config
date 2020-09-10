@@ -86,7 +86,7 @@ downloading and updating loose files from arbitrary URLs. It uses <code>dotnet-c
 persist the remove URLs and the associated ETags for downloaded files so that performing 
 a <code>dotnet file update</code> can only download the necessary changes (if any).</p>
 <p>Sample configuration:</p>
-<pre><code class="lang-dotnetconfig"># dotnet-file GH repo download/sync for specific subfolders
+<pre><code class="lang-gitconfig"># dotnet-file GH repo download/sync for specific subfolders
 [file &quot;docs&quot;]
     url = https://github.com/dotnet/aspnetcore/tree/master/docs
     url = https://github.com/dotnet/runtime/tree/master/docs/design/features

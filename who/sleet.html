@@ -89,7 +89,7 @@ are supported via <code>.netconfig</code>. </p>
 <ol>
 <li>Azure Blob Storage-based feed:</li>
 </ol>
-<pre><code class="lang-dotnetconfig">[sleet &quot;feed&quot;]
+<pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
     type = azure
     container = feed
     connectionString = &quot;DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint=&quot;
@@ -97,7 +97,7 @@ are supported via <code>.netconfig</code>. </p>
 </code></pre><ol>
 <li>AWS S3-based feed:</li>
 </ol>
-<pre><code class="lang-dotnetconfig">[sleet &quot;feed&quot;]
+<pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
     type = s3
     path = https://s3.amazonaws.com/my-bucket-feed/
     bucketName = my-bucket-feed
@@ -106,7 +106,7 @@ are supported via <code>.netconfig</code>. </p>
     secretAccessKey = IAM_SECRET_ACCESS_KEY
 </code></pre><ol>
 <li>Local directory feed:
-<code>dotnetconfig
+<code>gitconfig
 [sleet &quot;myLocalFeed&quot;]
  type = local
  path = C:\\myFeed</code></li>

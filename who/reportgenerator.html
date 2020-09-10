@@ -85,14 +85,14 @@
 <p>It provides a dotnet <a href="https://www.nuget.org/packages/dotnet-reportgenerator-globaltool/">global tool</a> 
 which supports <code>.netconfig</code> to configure the multitude of options that generating complex reports 
 require, for example:</p>
-<pre><code class="lang-dotnetconfig">[ReportGenerator]
+<pre><code class="lang-gitconfig">[ReportGenerator]
     reports = coverage.xml
     targetdir = &quot;C:\report&quot;
     reporttypes = Latex;HtmlSummary
     assemblyfilters = +Test;-Test
     classfilters = +Test2;-Test2
 </code></pre><p>All the plural options can also be specified as multiple singular entries, like:</p>
-<pre><code class="lang-dotnetconfig">[ReportGenerator]
+<pre><code class="lang-gitconfig">[ReportGenerator]
     report = coverage1.xml
     report = coverage2.xml
     reporttype = Latex

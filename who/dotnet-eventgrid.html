@@ -85,12 +85,12 @@
 monitor and filter real-time event from Azure EventGrid, delivered through Azure SignalR.</p>
 <p>The tool allows configuring filters so that you can monitor the specific events comming through 
 the SignalR connection like:</p>
-<pre><code class="lang-dotnetconfig">[eventgrid]
+<pre><code class="lang-gitconfig">[eventgrid]
     url = https://events.mygrid.com
     filter = path=MyApp/**/Login
     filter = eventType=*System*
 </code></pre><p>You can also specify whether you want to see certain event properties rendered or not in the console:</p>
-<pre><code class="lang-dotnetconfig">[eventgrid]
+<pre><code class="lang-gitconfig">[eventgrid]
     # properties to include in the event rendering
     include = EventType
     include = Subject
