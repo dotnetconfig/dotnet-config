@@ -26,3 +26,14 @@ jobs:
           dotnet-version: 5.0.100-preview.7.20366.6
       - name: Test 🔧
         run: dotnet test
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.100-preview.7.20366.6
+      - name: Test 🔧
+        run: dotnet test
