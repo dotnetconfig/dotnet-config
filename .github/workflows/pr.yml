@@ -5,30 +5,12 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.100-preview.7.20366.6
-      - name: Test 🔧
-        run: dotnet test
-
-  macOS:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.100-preview.7.20366.6
-      - name: Test 🔧
-        run: dotnet test
-
-  windows:
-    runs-on: windows-latest
+  build:
+    name: Build-${{matrix.os}}
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
