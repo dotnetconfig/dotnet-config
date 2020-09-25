@@ -14,33 +14,15 @@ stages:
 
 - stage: Build
   jobs:
-  - job: Ubuntu
+  - job: 
+    strategy:
+      matrix:
+        Ubuntu:
+          vm: ubuntu-latest
+        macOS:
+          vm: macOS-latest
     pool:
-      vmImage: 'ubuntu-latest'
-    steps:
-    - checkout: self
-      submodules: recursive
-      clean: true
-
-    - task: UseDotNet@2
-      inputs:
-        packageType: sdk
-        useGlobalJson: true
-        performMultiLevelLookup: true
-
-    - script: dotnet restore -p:Configuration=$(Configuration)
-      displayName: Restore
-
-    - script: dotnet build --no-restore -m:1 -p:Configuration=$(Configuration)
-      displayName: Build
-
-    - script: dotnet test --no-restore -p:Configuration=$(Configuration)
-      displayName: Test
-
-  - job: Mac
-    dependsOn: []
-    pool:
-      vmImage: 'macOS-latest'
+      vmImage: $(vm)
     steps:
     - checkout: self
       submodules: recursive
