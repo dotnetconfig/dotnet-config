@@ -4,7 +4,7 @@
 [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd)
 [![License](https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue)](https://github.com/dotnetconfig/dotnet-config/blob/main/LICENSE)
-[![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=main)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
+[![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=dev)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
 
 <p>
 <b><a href="#why">Why</a></b>
