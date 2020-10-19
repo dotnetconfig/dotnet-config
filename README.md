@@ -54,7 +54,7 @@ When multiple values are read then all values of a key from all files will be re
 
 # Who
 
-The following are tools that leverage *.netconfig* to provide flexible configuration persistence 
+The following are some of the tools that leverage *.netconfig* to provide flexible configuration persistence 
 options:
 
 [![dotnet-eventgrid](https://img.shields.io/nuget/v/dotnet-eventgrid.svg?color=royalblue&label=dotnet-eventgrid)](https://dotnetconfig.org/who/dotnet-eventgrid)
