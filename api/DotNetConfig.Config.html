@@ -92,40 +92,11 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Config</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</div>
-    <div><span class="xref">System.Collections.IEnumerable</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="DotNetConfig.html">DotNetConfig</a></h6>
   <h6><strong>Assembly</strong>: cs.temp.dll.dll</h6>
   <h5 id="DotNetConfig_Config_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class Config : IEnumerable&lt;ConfigEntry&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class Config : IEnumerable&lt;ConfigEntry&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -217,7 +188,7 @@ changes to disk.</p>
   
   <a id="DotNetConfig_Config_GlobalLocation_" data-uid="DotNetConfig.Config.GlobalLocation*"></a>
   <h4 id="DotNetConfig_Config_GlobalLocation" data-uid="DotNetConfig.Config.GlobalLocation">GlobalLocation</h4>
-  <div class="markdown level1 summary"><p>Default global location, equal to <span class="xref">System.Environment.SpecialFolder.UserProfile</span> plus 
+  <div class="markdown level1 summary"><p>Default global location, equal to <see cref="!:Environment.SpecialFolder.UserProfile"></see> plus 
 <a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FileName">FileName</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -273,7 +244,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   
   <a id="DotNetConfig_Config_SystemLocation_" data-uid="DotNetConfig.Config.SystemLocation*"></a>
   <h4 id="DotNetConfig_Config_SystemLocation" data-uid="DotNetConfig.Config.SystemLocation">SystemLocation</h4>
-  <div class="markdown level1 summary"><p>Default system location, equal to <span class="xref">System.Environment.SpecialFolder.System</span> plus 
+  <div class="markdown level1 summary"><p>Default system location, equal to <see cref="!:Environment.SpecialFolder.System"></see> plus 
 <a class="xref" href="DotNetConfig.Config.html#DotNetConfig_Config_FileName">FileName</a>.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -348,7 +319,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   
   
   <a id="DotNetConfig_Config_AddDateTime_" data-uid="DotNetConfig.Config.AddDateTime*"></a>
-  <h4 id="DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_System_DateTime_" data-uid="DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,System.DateTime)">AddDateTime(String, String, String, DateTime)</h4>
+  <h4 id="DotNetConfig_Config_AddDateTime_System_String_System_String_System_String_DateTime_" data-uid="DotNetConfig.Config.AddDateTime(System.String,System.String,System.String,DateTime)">AddDateTime(String, String, String, DateTime)</h4>
   <div class="markdown level1 summary"><p>Adds a value to a multi-valued variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -385,7 +356,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">DateTime</span></td>
         <td><span class="parametername">value</span></td>
         <td><p>Value add to the variable.</p>
 </td>
@@ -638,7 +609,7 @@ which optionally match the given value regular expression.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -664,7 +635,7 @@ which optionally match the given value regular expression.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -774,7 +745,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -967,7 +938,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   
   
   <a id="DotNetConfig_Config_SetAllDateTime_" data-uid="DotNetConfig.Config.SetAllDateTime*"></a>
-  <h4 id="DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_System_DateTime_System_String_" data-uid="DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,System.DateTime,System.String)">SetAllDateTime(String, String, String, DateTime, String)</h4>
+  <h4 id="DotNetConfig_Config_SetAllDateTime_System_String_System_String_System_String_DateTime_System_String_" data-uid="DotNetConfig.Config.SetAllDateTime(System.String,System.String,System.String,DateTime,System.String)">SetAllDateTime(String, String, String, DateTime, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of all matching variables in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1004,7 +975,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">DateTime</span></td>
         <td><span class="parametername">value</span></td>
         <td><p>Value to assign to the matching variables.</p>
 </td>
@@ -1179,7 +1150,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   
   
   <a id="DotNetConfig_Config_SetDateTime_" data-uid="DotNetConfig.Config.SetDateTime*"></a>
-  <h4 id="DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_System_DateTime_System_String_" data-uid="DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,System.DateTime,System.String)">SetDateTime(String, String, String, DateTime, String)</h4>
+  <h4 id="DotNetConfig_Config_SetDateTime_System_String_System_String_System_String_DateTime_System_String_" data-uid="DotNetConfig.Config.SetDateTime(System.String,System.String,System.String,DateTime,System.String)">SetDateTime(String, String, String, DateTime, String)</h4>
   <div class="markdown level1 summary"><p>Sets the value of a variable in the given section and optional subsection.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1216,7 +1187,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">DateTime</span></td>
         <td><span class="parametername">value</span></td>
         <td><p>Value to assign to the variable.</p>
 </td>
@@ -1401,7 +1372,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   
   
   <a id="DotNetConfig_Config_TryGetDateTime_" data-uid="DotNetConfig.Config.TryGetDateTime*"></a>
-  <h4 id="DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_System_DateTime__" data-uid="DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,System.DateTime@)">TryGetDateTime(String, String, String, out DateTime)</h4>
+  <h4 id="DotNetConfig_Config_TryGetDateTime_System_String_System_String_System_String_DateTime__" data-uid="DotNetConfig.Config.TryGetDateTime(System.String,System.String,System.String,DateTime@)">TryGetDateTime(String, String, String, out DateTime)</h4>
   <div class="markdown level1 summary"><p>Tries to retrieve a variable value from configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1438,7 +1409,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.DateTime</span></td>
+        <td><span class="xref">DateTime</span></td>
         <td><span class="parametername">value</span></td>
         <td><p>The variable value if found.</p>
 </td>
@@ -1675,40 +1646,6 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
-  <h3 id="eii">Explicit Interface Implementations
-  </h3>
-  
-  
-  <a id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*"></a>
-  <h4 id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator">IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerator&lt;ConfigEntry&gt; IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>
-  </div>
-  <div>
-      <span class="xref">System.Collections.IEnumerable</span>
-  </div>
 </article>
           </div>
           
