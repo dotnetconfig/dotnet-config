@@ -115,7 +115,7 @@ namespace DotNetConfig
             if (value.IndexOf('\\') != -1)
                 value = value.Replace("\\", "\\\\");
 
-            if (value.IndexOfAny(new[] { '#', ';', '"' }) == -1)
+            if (value.IndexOfAny(new[] { '#', ';', '"', '=' }) == -1)
                 return value;
 
             return "\"" + value.Trim('"').Replace("\"", "\\\"") + "\"";
