@@ -653,6 +653,20 @@ namespace DotNetConfig
         }
 
         [Fact]
+        public void when_saving_variable_with_equals_then_adds_quotes()
+        {
+            var temp = Path.GetTempFileName();
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", null, "title", "with=equals")
+                .Save();
+
+            var line = File.ReadAllLines(temp).Skip(1).First();
+
+            Assert.Contains("\"", line);
+        }
+
+        [Fact]
         public void when_saving_variable_with_hash_then_adds_quotes()
         {
             var temp = Path.GetTempFileName();
