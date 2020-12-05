@@ -79,7 +79,7 @@ Example file:
 
 [serve]
 	port = 8080
-	gzip
+	gzip                    #shorthand for gzip=true
 
 [vs "alias"]
 	comexp = run|community|exp
