@@ -1,9 +1,7 @@
-# This file is understood by git 1.7.2 and higher. Everyone should
-# be on this version by now.
-
 # sln, csproj files (and friends) are always CRLF, even on linux
 *.sln text eol=crlf
 *.proj text eol=crlf
+*.csproj text eol=crlf
 
 # These are windows specific files which we may as well ensure are
 # always crlf on checkout
@@ -16,15 +14,11 @@
 *.config text
 *.h text
 *.cs text
-*.csproj text
 *.md text
 *.tt text
 *.txt text
-*.vspackage text
-*.vspackage.diagram text
 
 # Some must always be checked out as lf so enforce that for those files
 # If these are not lf then bash/cygwin on windows will not be able to
 # excute the files
 *.sh text eol=lf
-

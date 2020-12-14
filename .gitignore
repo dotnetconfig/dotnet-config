@@ -1,10 +1,10 @@
+_site
 bin
 obj
 artifacts
 pack
 .vs
 .vscode
-_site
 
 *.suo
 *.sdf
@@ -15,6 +15,7 @@ _site
 *.tmp
 *.cache
 *.binlog
+*.zip
 
 .nuget
 *.lock.json

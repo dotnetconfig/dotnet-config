@@ -6,13 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8722AC17-A90B-406B-850A-C1B8EB89056D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		azure-pipelines.yml = azure-pipelines.yml
-		src\Directory.Build.props = src\Directory.Build.props
-		src\Directory.Build.targets = src\Directory.Build.targets
-		src\GitInfo.txt = src\GitInfo.txt
-		src\NuGet.Config = src\NuGet.Config
-		.github\workflows\pages.yml = .github\workflows\pages.yml
-		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config", "src\Config\Config.csproj", "{D746131A-1AC4-476F-B075-0534069DCEA0}"

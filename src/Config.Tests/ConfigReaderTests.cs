@@ -7,10 +7,6 @@ namespace DotNetConfig
 {
     public class ConfigReaderTests
     {
-        readonly ITestOutputHelper output;
-
-        public ConfigReaderTests(ITestOutputHelper output) => this.output = output;
-
         [Theory]
         [InlineData("[foo]", "foo", null)]
         [InlineData("[foo-bar]", "foo-bar", null)]
@@ -20,7 +16,7 @@ namespace DotNetConfig
         [InlineData("[foo \"bar\\baz\"]", "foo", "barbaz")]
         [InlineData("# comment", null, null, "# comment")]
         [InlineData("    # comment", null, null, "# comment")]
-        public void can_read_section(string input, string section, string subsection, string comment = null)
+        public void can_read_section(string input, string section, string subsection, string? comment = null)
         {
             using var reader = new ConfigReader(new StringReader(input));
             var line = reader.ReadLine();
@@ -29,15 +25,15 @@ namespace DotNetConfig
 
             if (section != null)
             {
-                Assert.Equal(LineKind.Section, line.Kind);
+                Assert.Equal(LineKind.Section, line!.Kind);
                 Assert.Equal(section, line.Section);
             }
 
             if (subsection != null)
-                Assert.Equal(subsection, line.Subsection);
+                Assert.Equal(subsection, line!.Subsection);
 
             if (comment != null)
-                Assert.Equal(comment, line.Comment);
+                Assert.Equal(comment, line!.Comment);
         }
 
         [Theory]
@@ -52,7 +48,7 @@ namespace DotNetConfig
 
             Assert.NotNull(line);
 
-            var updated = line.WithSection(section, subsection);
+            var updated = line!.WithSection(section, subsection);
 
             Assert.Equal(expected, updated.LineText);
         }
@@ -74,9 +70,9 @@ namespace DotNetConfig
             var line = reader.ReadLine();
 
             Assert.NotNull(line);
-            Assert.Equal(LineKind.Error, line.Kind);
-            Assert.Equal(string.Format(error, args), line.Error);
-            Assert.Equal(column, line.ErrorPosition.Column);
+            Assert.Equal(LineKind.Error, line!.Kind);
+            Assert.Equal(string.Format(error, args), line!.Error);
+            Assert.Equal(column, line!.ErrorPosition?.Column);
         }
 
         [Theory]
@@ -146,7 +142,7 @@ baz")]
         //[InlineData("size=2Tb", "size", "2199023255552")]
         //[InlineData("size=2t", "size", "2199023255552")]
         //[InlineData("size=2tb", "size", "2199023255552")]
-        public void can_read_variable(string input, string name, string value, string comment = null)
+        public void can_read_variable(string input, string name, string value, string? comment = null)
         {
             using var reader = new ConfigReader(new StringReader("[section]" + Environment.NewLine + input));
             Assert.NotNull(reader.ReadLine());
@@ -154,7 +150,7 @@ baz")]
             var line = reader.ReadLine();
 
             Assert.NotNull(line);
-            Assert.Equal(LineKind.Variable, line.Kind);
+            Assert.Equal(LineKind.Variable, line!.Kind);
             Assert.Equal(name, line.Variable);
 
             if (value == null)
@@ -182,7 +178,9 @@ baz")]
 
             var line = reader.ReadLine();
 
-            var updated = line.WithValue(value);
+            Assert.NotNull(line);
+
+            var updated = line!.WithValue(value);
 
             Assert.Equal(expected, updated.LineText);
         }
@@ -194,7 +192,7 @@ baz")]
             var line = reader.ReadLine();
 
             Assert.NotNull(line);
-            Assert.Equal(LineKind.Error, line.Kind);
+            Assert.Equal(LineKind.Error, line!.Kind);
             Assert.Equal("Variables must be declared within a section.", line.Error);
         }
 
@@ -218,9 +216,9 @@ baz")]
             var line = reader.ReadLine();
 
             Assert.NotNull(line);
-            Assert.Equal(LineKind.Error, line.Kind);
+            Assert.Equal(LineKind.Error, line!.Kind);
             Assert.Equal(string.Format(error, args), line.Error);
-            Assert.Equal(column, line.ErrorPosition.Column);
+            Assert.Equal(column, line.ErrorPosition?.Column);
         }
     }
 }

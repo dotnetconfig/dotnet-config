@@ -9,8 +9,8 @@ namespace DotNetConfig
     {
         ConfigDocument doc;
 
-        public FileConfig(string filePath, ConfigLevel? level = null) 
-            : base(filePath) 
+        public FileConfig(string filePath, ConfigLevel? level = null)
+            : base(filePath)
             => doc = ConfigDocument.FromFile(filePath, level);
 
         public override void AddBoolean(string section, string? subsection, string variable, bool value)

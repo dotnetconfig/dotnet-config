@@ -17,10 +17,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="GitInfo" Version="2.0.20" PrivateAssets="all" />
     <PackageReference Include="Mono.Options" Version="6.6.0.161" />
-    <PackageReference Include="MSBuilder.ThisAssembly.Metadata" Version="0.1.4" PrivateAssets="all" />
-    <PackageReference Include="StrongNamer" Version="0.2.5" />
+    <PackageReference Include="ThisAssembly" Version="1.0.1" PrivateAssets="all" />
+    <PackageReference Include="StrongNamer" Version="0.2.5" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
@@ -29,17 +28,6 @@
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\docs\img\icon-128.png" Link="icon-128.png" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="%(Filename)%(Extension)" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
-      <_Parameter1>AssemblyName</_Parameter1>
-      <_Parameter2>$(AssemblyName)</_Parameter2>
-    </AssemblyAttribute>
   </ItemGroup>
 
   <ItemGroup>

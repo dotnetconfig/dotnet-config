@@ -18,7 +18,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public static void AddBoolean(this Config config, string section, string variable, bool value) 
+        public static void AddBoolean(this Config config, string section, string variable, bool value)
             => config.AddBoolean(section, null, variable, value);
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public static void AddDateTime(this Config config, string section, string variable, DateTime value) 
+        public static void AddDateTime(this Config config, string section, string variable, DateTime value)
             => config.AddDateTime(section, null, variable, value);
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public static void AddNumber(this Config config, string section, string variable, long value) 
+        public static void AddNumber(this Config config, string section, string variable, long value)
             => config.AddNumber(section, null, variable, value);
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to retrieve.</param>
         /// <returns>The value or <see langword="null"/> if not found.</returns>
-        public static bool? GetBoolean(this Config config, string section, string variable) 
+        public static bool? GetBoolean(this Config config, string section, string variable)
             => config.GetBoolean(section, null, variable);
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace DotNetConfig
         /// <param name="config">The configuration to get the values from.</param>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        public static IEnumerable<ConfigEntry> GetAll(this Config config, string section, string variable) 
+        public static IEnumerable<ConfigEntry> GetAll(this Config config, string section, string variable)
             => config.GetAll(section, null, variable, null);
 
         /// <summary>
@@ -256,7 +256,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        public static IEnumerable<ConfigEntry> GetAll(this Config config, string section, string? subsection, string variable) 
+        public static IEnumerable<ConfigEntry> GetAll(this Config config, string section, string? subsection, string variable)
             => config.GetAll(section, subsection, variable, null);
 
         /// <summary>
@@ -266,7 +266,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        public static void SetBoolean(this Config config, string section, string variable, bool value) 
+        public static void SetBoolean(this Config config, string section, string variable, bool value)
             => config.SetBoolean(section, null, variable, value, null);
 
         /// <summary>
@@ -277,7 +277,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        public static void SetBoolean(this Config config, string section, string? subsection, string variable, bool value) 
+        public static void SetBoolean(this Config config, string section, string? subsection, string variable, bool value)
             => config.SetBoolean(section, subsection, variable, value, null);
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public static void SetBoolean(this Config config, string section, string variable, bool value, string? valueRegex) 
+        public static void SetBoolean(this Config config, string section, string variable, bool value, string? valueRegex)
             => config.SetBoolean(section, null, variable, value, valueRegex);
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        public static void SetDateTime(this Config config, string section, string variable, DateTime value) 
+        public static void SetDateTime(this Config config, string section, string variable, DateTime value)
             => config.SetDateTime(section, null, variable, value, null);
 
         /// <summary>
@@ -368,7 +368,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public static void SetDateTime(this Config config, string section, string variable, DateTime value, string? valueRegex) 
+        public static void SetDateTime(this Config config, string section, string variable, DateTime value, string? valueRegex)
             => config.SetDateTime(section, null, variable, value, valueRegex);
 
         /// <summary>
@@ -426,7 +426,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        public static void SetNumber(this Config config, string section, string variable, long value) 
+        public static void SetNumber(this Config config, string section, string variable, long value)
             => config.SetNumber(section, null, variable, value, null);
 
         /// <summary>
@@ -437,7 +437,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
-        public static void SetNumber(this Config config, string section, string? subsection, string variable, long value) 
+        public static void SetNumber(this Config config, string section, string? subsection, string variable, long value)
             => config.SetNumber(section, subsection, variable, value, null);
 
         /// <summary>
@@ -448,7 +448,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public static void SetNumber(this Config config, string section, string variable, long value, string? valueRegex) 
+        public static void SetNumber(this Config config, string section, string variable, long value, string? valueRegex)
             => config.SetNumber(section, null, variable, value, valueRegex);
 
         /// <summary>
@@ -574,7 +574,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public static void SetAllBoolean(this Config config, string section, string variable, bool value, string? valueRegex) 
+        public static void SetAllBoolean(this Config config, string section, string variable, bool value, string? valueRegex)
             => config.SetAllBoolean(section, null, variable, value, valueRegex);
 
         /// <summary>
@@ -585,7 +585,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="level">The configuration level to operate on.</param>
-        public static void SetAllBoolean(this Config config, string section, string variable, bool value, ConfigLevel level) 
+        public static void SetAllBoolean(this Config config, string section, string variable, bool value, ConfigLevel level)
             => Write(config, level, x => x.SetAllBoolean(section, null, variable, value, null));
 
         /// <summary>
@@ -620,7 +620,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
-        public static void SetAllDateTime(this Config config, string section, string variable, DateTime value) 
+        public static void SetAllDateTime(this Config config, string section, string variable, DateTime value)
             => config.SetAllDateTime(section, null, variable, value, null);
 
         /// <summary>
@@ -710,7 +710,7 @@ namespace DotNetConfig
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
         /// <param name="level">The configuration level to operate on.</param>
-        public static void SetAllNumber(this Config config, string section, string variable, long value, string? valueRegex, ConfigLevel level) 
+        public static void SetAllNumber(this Config config, string section, string variable, long value, string? valueRegex, ConfigLevel level)
             => Write(config, level, x => x.SetAllNumber(section, null, variable, value, valueRegex));
 
         /// <summary>
@@ -765,7 +765,7 @@ namespace DotNetConfig
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
         /// <param name="level">The configuration level to operate on.</param>
-        public static void SetAllString(this Config config, string section, string variable, string value, string? valueRegex, ConfigLevel level) 
+        public static void SetAllString(this Config config, string section, string variable, string value, string? valueRegex, ConfigLevel level)
             => Write(config, level, x => x.SetAllString(section, null, variable, value, valueRegex));
 
         /// <summary>
@@ -827,7 +827,7 @@ namespace DotNetConfig
         /// <param name="config">The configuration to operate on.</param>
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        public static void Unset(this Config config, string section, string variable) 
+        public static void Unset(this Config config, string section, string variable)
             => config.Unset(section, null, variable);
 
         /// <summary>
@@ -868,7 +868,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public static void UnsetAll(this Config config, string section, string variable, string? valueRegex) 
+        public static void UnsetAll(this Config config, string section, string variable, string? valueRegex)
             => config.UnsetAll(section, null, variable, valueRegex);
 
         /// <summary>
@@ -916,7 +916,7 @@ namespace DotNetConfig
         /// <param name="config">The configuration to operate on.</param>
         /// <param name="oldSection">The old section name to rename.</param>
         /// <param name="newSection">The new section name to use.</param>
-        public static void RenameSection(this Config config, string oldSection, string newSection) 
+        public static void RenameSection(this Config config, string oldSection, string newSection)
             => config.RenameSection(oldSection, null, newSection, null);
 
         /// <summary>

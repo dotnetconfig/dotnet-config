@@ -1,0 +1,18 @@
+<Project>
+
+  <PropertyGroup>
+    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
+    <PackageTags>dotnet config</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Because it's sooo much better than GeneratePackageOnBuild! -->
+    <PackOnBuild Condition="$(CI) or '$(BuildingInsideVisualStudio)' != 'true'">true</PackOnBuild>
+    <GeneratePackageOnBuild>$(PackOnBuild)</GeneratePackageOnBuild>
+
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)dotnet-config.snk</AssemblyOriginatorKeyFile>
+    <PublicKey>002400000480000094000000060200000024000052534131000400000100010071207e0121c41cd25ecdf4dffe275b3a055b03e9f009f778b6bd0f0fe6643ac89ca3eeddf6d136496c4cd0defa1fcff361cc2c2c0d0a8f1b6ff92c15e661dee0acde682c4dcf78b7a30edd65737b54da568f4ec76b66827ce019093b9dedf80214b1a3d63d5289d542b3b218d7fe537d6da628d2718307190a5993d7fca0e3b1</PublicKey>
+    <PublicKeyToken>41dc05ca892b85e5</PublicKeyToken>
+  </PropertyGroup>
+
+</Project>

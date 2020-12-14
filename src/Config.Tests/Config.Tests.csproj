@@ -33,10 +33,12 @@
     <ProjectReference Include="..\Config\Config.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include="..\Config\Range.cs" Link="Range.cs" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(OS)' != 'Windows_NT'">
-    <None Update="xunit.runner.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>
