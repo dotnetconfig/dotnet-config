@@ -29,11 +29,11 @@ namespace DotNetConfig
             var useSystem = false;
             var useGlobal = false;
             var useLocal = false;
-            string? path = Directory.GetCurrentDirectory();
-            bool nameOnly = false;
+            var path = Directory.GetCurrentDirectory();
+            var nameOnly = false;
             string? defaultValue = default;
             string? type = default;
-            bool debug = false;
+            var debug = false;
 
             var options = new OptionSet
             {
@@ -199,7 +199,7 @@ namespace DotNetConfig
                         if (extraArgs.Count == 0 || extraArgs.Count > 2)
                             return ShowHelp(options);
 
-                        string nameRegex = extraArgs[0];
+                        var nameRegex = extraArgs[0];
                         string? valueRegex = default;
                         if (extraArgs.Count > 1)
                             valueRegex = extraArgs[1];
@@ -370,9 +370,7 @@ namespace DotNetConfig
 
         static int ShowHelp(OptionSet options)
         {
-#pragma warning disable CS0436 // Type conflicts with imported type
             Console.Write($"Usage: dotnet config [options]");
-#pragma warning restore CS0436 // Type conflicts with imported type
             options.WriteOptionDescriptions(Console.Out);
             return 0;
         }

@@ -1,10 +1,14 @@
 ![Icon](https://github.com/dotnetconfig/dotnet-config/raw/main/docs/img/icon-32.png) dotnet-config
 ============
 
-[![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
+[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)
+[![Downloads](https://img.shields.io/nuget/dt/dotnet-config?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt)
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd)
-[![License](https://img.shields.io/github/license/dotnetconfig/dotnet-config.svg?color=blue)](https://github.com/dotnetconfig/dotnet-config/blob/main/LICENSE)
-[![Build Status](https://dev.azure.com/dotnetconfig/dotnetconfig/_apis/build/status/dotnet-config?branchName=dev)](https://build.azdo.io/dotnetconfig/dotnetconfig/1)
+[![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
+
+[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/dotnet-config/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.io/index.json)
+[![CI Status](https://github.com/dotnetconfig/dotnet-config/workflows/build/badge.svg?branch=main)](https://github.com/dotnetconfig/dotnet-config/actions?query=branch%3Amain+workflow%3Abuild+)
 
 <p>
 <b><a href="#why">Why</a></b>

@@ -24,12 +24,12 @@ namespace DotNetConfig
         }
 
         public Line(
-            string? filePath, LineKind kind, 
-            int lineNumber, string lineText, 
+            string? filePath, LineKind kind,
+            int lineNumber, string lineText,
             TextSpan? section = null, TextSpan? subsection = null,
             TextSpan? name = null, TextSpan? value = null,
-            TextSpan? comment = null, 
-            string? error = null, 
+            TextSpan? comment = null,
+            string? error = null,
             Position? errorPosition = null)
         {
             FilePath = filePath;
@@ -79,14 +79,14 @@ namespace DotNetConfig
 
             builder.Append(original.Substring(0, Section.Position.Absolute));
             builder.Append(section);
-            
+
             if (Subsection != null)
             {
                 var start = Section.Position.Absolute + Section.Length;
                 var length = Subsection.Position.Absolute - start;
 
                 builder.Append(original.Substring(start, length));
-                
+
                 if (subsection != null)
                     builder.Append('\"').Append(TextRules.SerializeSubsection(subsection)).Append('\"');
 

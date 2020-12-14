@@ -84,7 +84,7 @@ namespace DotNetConfig.Tests
         public void can_read_system()
         {
             var config = Config.Build(ConfigLevel.System);
-            
+
             Assert.Null(config.GetBoolean("core", "local"));
             Assert.Null(config.GetBoolean("core", "parent"));
             Assert.Null(config.GetBoolean("core", "global"));

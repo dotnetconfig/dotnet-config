@@ -39,7 +39,7 @@ namespace DotNetConfig
     path = C:\\feed
 ");
 
-            var config = Config.Build(file);
+            Config.Build(file);
         }
 
         [Fact]
@@ -105,13 +105,12 @@ namespace DotNetConfig
             doc.Set("foo", "bar", "baz", "value");
             doc.Save();
 
-            var saved = ConfigDocument.FromFile(path);
             doc.Set("foo", "bar", "baz", null);
 
             // TODO: if we don't save and reload, there's an issue in updating 
             // the value
             doc.Save();
-            saved = ConfigDocument.FromFile(path);
+            var saved = ConfigDocument.FromFile(path);
 
             Assert.Single(saved);
             Assert.Equal("foo", saved.Single().Section);
@@ -352,8 +351,8 @@ namespace DotNetConfig
             var saved = ConfigDocument.FromFile(path);
 
             Assert.Equal(2, saved.Lines.Where(line => line.Kind == LineKind.Variable).Where(x => x.Variable == "bar").Count());
-            Assert.Contains("hello", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value.Text));
-            Assert.Contains("bye", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value.Text));
+            Assert.Contains("hello", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value?.Text));
+            Assert.Contains("bye", saved.Lines.Where(line => line.Kind == LineKind.Variable && line.Variable == "bar").Select(line => line.Value?.Text));
         }
 
         [Fact]
@@ -421,7 +420,7 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     source = https://github.com/kzu
     source = https://github.com/xamarin
-    source = https://github.com/microsoft
+    source = https://github.com/microsoft 
     source = https://microsoft.com/kzu
     source = https://nuget.org/kzu");
             var doc = ConfigDocument.FromFile(path);
@@ -431,7 +430,7 @@ namespace DotNetConfig
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Variables.Where(x => x.Variable.Text.Contains("github")));
+            Assert.Empty(saved.Variables.Where(x => x.Variable != null && x.Variable.Text.Contains("github")));
         }
 
         [Fact]
@@ -446,13 +445,13 @@ namespace DotNetConfig
     source = https://nuget.org/kzu");
             var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", default, "source", "https://dev.azure.com" , ValueMatcher.From("github\\.com"));
+            doc.SetAll("foo", default, "source", "https://dev.azure.com", ValueMatcher.From("github\\.com"));
             doc.Save();
 
             var saved = ConfigDocument.FromFile(path);
 
-            Assert.Empty(saved.Variables.Where(x => x.Value.Text.Contains("github")));
-            Assert.Equal(3, saved.Variables.Where(x => x.Value.Text.Contains("dev.azure.com")).Count());
+            Assert.Empty(saved.Variables.Where(x => x.Value != null && x.Value.Text.Contains("github")));
+            Assert.Equal(3, saved.Variables.Where(x => x.Value != null && x.Value.Text.Contains("dev.azure.com")).Count());
         }
 
         [Fact]
