@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Config.Tool": {
-      "commandName": "Project",
-      "commandLineArgs": "list"
-    }
-  }
-}
