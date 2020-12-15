@@ -11,12 +11,13 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-      - uses: actions/setup-dotnet@v1
+      - name: ⚙ dotnet 5.0.x
+        uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.100-preview.7.20366.6
-      - name: Build 🔧
+          dotnet-version: 5.0.x
+      - name: 🙏 build
         run: dotnet build -p:BuildDocFx=true
-      - name: Deploy 🚀
+      - name: 🚀 deploy 
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
