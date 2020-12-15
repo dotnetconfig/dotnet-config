@@ -3,7 +3,7 @@
 
 [![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config)
 [![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig)
-[![Downloads](https://img.shields.io/nuget/dt/dotnet-config?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
+[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt)
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd)
 [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
