@@ -1,12 +1,11 @@
-name: pages
-
+name: docs
 on:
   push:
     branches:
       - main
 
 jobs:
-  deploy:
+  docs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
