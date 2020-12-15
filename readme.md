@@ -1,7 +1,8 @@
 ![Icon](https://github.com/dotnetconfig/dotnet-config/raw/main/docs/img/icon-32.png) dotnet-config
 ============
 
-[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)
+[![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config)
+[![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig)
 [![Downloads](https://img.shields.io/nuget/dt/dotnet-config?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt)
 [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd)
