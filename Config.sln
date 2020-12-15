@@ -6,6 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8722AC17-A90B-406B-850A-C1B8EB89056D}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		src\Directory.props = src\Directory.props
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config", "src\Config\Config.csproj", "{D746131A-1AC4-476F-B075-0534069DCEA0}"
@@ -13,6 +15,55 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config.Tool", "src\Config.Tool\Config.Tool.csproj", "{8CB7B794-E8B4-4899-AC6C-E45AC254D17E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config.Tests", "src\Config.Tests\Config.Tests.csproj", "{B1776FB0-DF19-421E-8369-6D16D482A8BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{BC7430A7-57FD-47C9-81CC-D0027FE0C4B5}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		.github\workflows\pages.yml = .github\workflows\pages.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+		.github\workflows\tag.yml = .github\workflows\tag.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{BDFC791F-8AA0-481F-ADDC-F6B8EFBD00F1}"
+	ProjectSection(SolutionItems) = preProject
+		docs\docfx.json = docs\docfx.json
+		docs\favicon.ico = docs\favicon.ico
+		docs\index.md = docs\index.md
+		docs\logo.svg = docs\logo.svg
+		docs\toc.yml = docs\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{5801C1E5-6570-496C-A0F5-A4C6801C6AF3}"
+	ProjectSection(SolutionItems) = preProject
+		docs\api\.gitignore = docs\api\.gitignore
+		docs\api\index.md = docs\api\index.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "styles", "styles", "{9062F290-96B8-4B15-A4E8-423424BBD3A9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\styles\main.css = docs\styles\main.css
+		docs\styles\main.js = docs\styles\main.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{E07D933F-2E4F-4770-9ED1-93C1AB0F9B7D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "who", "who", "{A6A9B3BF-7F2A-4A47-AB4B-1ADEB80A45F1}"
+	ProjectSection(SolutionItems) = preProject
+		docs\who\dotnet-eventgrid.md = docs\who\dotnet-eventgrid.md
+		docs\who\dotnet-file.md = docs\who\dotnet-file.md
+		docs\who\dotnet-serve.md = docs\who\dotnet-serve.md
+		docs\who\dotnet-vs.md = docs\who\dotnet-vs.md
+		docs\who\index.md = docs\who\index.md
+		docs\who\reportgenerator.md = docs\who\reportgenerator.md
+		docs\who\sleet.md = docs\who\sleet.md
+		docs\who\toc.yml = docs\who\toc.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{61FC2991-D7D8-4CD9-B399-82AA2CDC482D}"
+	ProjectSection(SolutionItems) = preProject
+		docs\template\partials\head.tmpl.partial = docs\template\partials\head.tmpl.partial
+		docs\template\partials\scripts.tmpl.partial = docs\template\partials\scripts.tmpl.partial
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +86,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BC7430A7-57FD-47C9-81CC-D0027FE0C4B5} = {8722AC17-A90B-406B-850A-C1B8EB89056D}
+		{5801C1E5-6570-496C-A0F5-A4C6801C6AF3} = {BDFC791F-8AA0-481F-ADDC-F6B8EFBD00F1}
+		{9062F290-96B8-4B15-A4E8-423424BBD3A9} = {BDFC791F-8AA0-481F-ADDC-F6B8EFBD00F1}
+		{E07D933F-2E4F-4770-9ED1-93C1AB0F9B7D} = {BDFC791F-8AA0-481F-ADDC-F6B8EFBD00F1}
+		{A6A9B3BF-7F2A-4A47-AB4B-1ADEB80A45F1} = {BDFC791F-8AA0-481F-ADDC-F6B8EFBD00F1}
+		{61FC2991-D7D8-4CD9-B399-82AA2CDC482D} = {E07D933F-2E4F-4770-9ED1-93C1AB0F9B7D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {19B804F2-469A-40CA-9387-C9C1F7D231E8}
