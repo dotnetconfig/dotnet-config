@@ -99,7 +99,9 @@ namespace DotNetConfig
                     configs.Files.Add(new FileConfig(file));
 
                 file = Path.Combine(dir.FullName, FileName);
-                if (File.Exists(file))
+                if (File.Exists(file) &&
+                    !GlobalLocation.Equals(file, StringComparison.OrdinalIgnoreCase) &&
+                    !SystemLocation.Equals(file, StringComparison.OrdinalIgnoreCase))
                     configs.Files.Add(new FileConfig(file));
 
                 dir = dir.Parent;
