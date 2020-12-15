@@ -302,7 +302,7 @@ namespace DotNetConfig
                     if (!Config.Build(path).TryGetString("config", null, "editor", out var editor))
                     {
                         var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
-                        editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true }).StandardOutput.ReadLine() ?? "";
+                        editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true })?.StandardOutput.ReadLine() ?? "";
                     }
 
                     var configFile = config.FilePath;
