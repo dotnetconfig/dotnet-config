@@ -38,6 +38,26 @@ namespace DotNetConfig.Tests
         }
 
         [Fact]
+        public void when_reading_hierarchical_from_file_reads_system_once()
+        {
+            Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", ".netconfig");
+
+            var config = Config.Build(Path.Combine(Directory.GetCurrentDirectory(), "Content", "local", ".netconfig"));
+
+            Assert.True(config.GetBoolean("core", "local"));
+            Assert.True(config.GetBoolean("core", "parent"));
+
+            var section = config.GetSection("core");
+
+            Assert.True(section.GetBoolean("local"));
+            Assert.True(section.GetBoolean("parent"));
+            Assert.True(section.GetBoolean("global"));
+
+            // Reads the system.netconfig only once, even if the file is in a subfolder
+            Assert.Single(config.GetAll("core", "parent"));
+        }
+
+        [Fact]
         public void can_read_hierarchical_from_root_file()
         {
             var config = Config.Build("C:\\.netconfig");
