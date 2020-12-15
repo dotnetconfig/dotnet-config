@@ -144,15 +144,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidInclude"
-      ],
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "pR/mm0AWwzqSi/SRlzRt+w=="
+          "hash": "3T/ppe9Ylbq3Q6phj7W13A=="
         }
       },
       "is_incremental": false,
