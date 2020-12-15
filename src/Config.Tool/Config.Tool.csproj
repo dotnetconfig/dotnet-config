@@ -4,7 +4,7 @@
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp2.1;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
 
     <AssemblyName>dotnet-config</AssemblyName>
@@ -14,6 +14,11 @@
     <ToolCommandName>dotnet-config</ToolCommandName>
     <PackAsTool>true</PackAsTool>
     <Nullable>enable</Nullable>
+    <!-- Disable warning about using AsSpan instead of range index on string since it's NET5 only -->
+    <NoWarn>$(NoWarn);CA1831</NoWarn>
+
+    <!-- This causes (random?) build failures inside VS but works fine in dotnet build -->
+    <DisableStrongNamer Condition="'$(BuildingInsideVisualStudio)' == 'true'">true</DisableStrongNamer>
   </PropertyGroup>
 
   <ItemGroup>
