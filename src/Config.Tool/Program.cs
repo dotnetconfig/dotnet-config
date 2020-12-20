@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using Mono.Options;
 
 namespace DotNetConfig
@@ -301,8 +302,20 @@ namespace DotNetConfig
                 case ConfigAction.Edit:
                     if (!Config.Build(path).TryGetString("config", null, "editor", out var editor))
                     {
-                        var cmd = Environment.OSVersion.Platform == PlatformID.Unix ? "which" : "where";
-                        editor = Process.Start(new ProcessStartInfo(cmd, "code") { RedirectStandardOutput = true })?.StandardOutput.ReadLine() ?? "";
+                        var isWindows = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+                        var cmd = isWindows ? "where" : "which";
+                        var psi = new ProcessStartInfo(cmd)
+                        {
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                        };
+                        var extensions = isWindows && Environment.GetEnvironmentVariable("PATHEXT") is { } v
+                                       ? v.Split(Path.PathSeparator, StringSplitOptions.RemoveEmptyEntries)
+                                       : Array.Empty<string>();
+                        foreach (var extension in extensions.DefaultIfEmpty(""))
+                            psi.ArgumentList.Add("code" + extension);
+                        using var process = Process.Start(psi)!;
+                        editor = process.StandardOutput.ReadLine() ?? "";
                     }
 
                     var configFile = config.FilePath;
