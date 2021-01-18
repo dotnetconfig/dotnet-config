@@ -337,23 +337,6 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.SetString
   nameWithType: Config.SetString
-- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
-  name: IEnumerable<ConfigEntry>.GetEnumerator()
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator
-  commentId: M:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
-  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
-  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
-  nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator()
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
-- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*
-  name: IEnumerable<ConfigEntry>.GetEnumerator
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_
-  commentId: Overload:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
-  isSpec: "True"
-  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
-  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
-  nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
 - uid: DotNetConfig.Config.SystemLocation
   name: SystemLocation
   href: api/DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation
