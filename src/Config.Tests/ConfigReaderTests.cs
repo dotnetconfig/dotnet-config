@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -219,6 +223,23 @@ baz")]
             Assert.Equal(LineKind.Error, line!.Kind);
             Assert.Equal(string.Format(error, args), line.Error);
             Assert.Equal(column, line.ErrorPosition?.Column);
+        }
+
+        [Fact]
+        public void reading_from_multiple_threads_succeeds()
+        {
+            ThreadPool.GetMaxThreads(out var threads, out _);
+
+            Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
+            Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Content", ".netconfig");
+
+            Task.WaitAll(Enumerable
+                .Range(0, threads * 2)
+                .Select(_ => Task.Run(() => Config.Build(path)))
+                .ToArray());
         }
     }
 }
