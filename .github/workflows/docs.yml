@@ -10,12 +10,10 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-      - name: ⚙ dotnet 5.0.x
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: 5.0.x
+
       - name: 🙏 build
         run: dotnet build -p:BuildDocFx=true
+
       - name: 🚀 deploy 
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
