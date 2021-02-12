@@ -17,7 +17,7 @@
     <!-- The Microsoft.Managed.Core.targets use this property to use deterministic source paths in CI builds -->
     <ContinuousIntegrationBuild>$(CI)</ContinuousIntegrationBuild>
   </PropertyGroup>
-  
+
   <PropertyGroup Label="NuGet">
     <Authors>kzu</Authors>
     <Copyright>Copyright (C) Daniel Cazzulino and Contributors. All rights reserved.</Copyright>
@@ -38,14 +38,14 @@
 
   <ItemGroup Label="NuGet">
     <!-- This is compatible with nugetizer and SDK pack -->
-    <Content Include="$(MSBuildThisFileDirectory)icon.png" Link="icon.png" 
-             CopyToOutputDirectory="PreserveNewest" 
-             Pack="true" 
-             Visible="false"
-             PackagePath="%(Filename)%(Extension)" />
+    <None Include="$(MSBuildThisFileDirectory)icon.png" Link="icon.png"
+          Pack="true"
+          Visible="false"
+          PackagePath="%(Filename)%(Extension)" />
   </ItemGroup>
 
   <PropertyGroup Label="Build">
+    <Configuration Condition="'$(Configuration)' == '' and $(CI)">Release</Configuration>
     <LangVersion>Latest</LangVersion>
 
     <!-- See https://docs.microsoft.com/en-us/dotnet/standard/assembly/reference-assemblies -->
@@ -90,7 +90,7 @@
     <NoWarn>NU5105;$(NoWarn)</NoWarn>
     <!-- Turn warnings into errors in CI or Release builds -->
     <WarningsAsErrors Condition="$(CI) or '$(Configuration)' == 'Release'">true</WarningsAsErrors>
-</PropertyGroup>
+  </PropertyGroup>
 
   <PropertyGroup Label="Version">
     <!-- Versioning: when building locally, it's always 42.42.42. 

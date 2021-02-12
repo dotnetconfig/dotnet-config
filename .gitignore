@@ -1,4 +1,3 @@
-_site
 bin
 obj
 artifacts
@@ -21,3 +20,10 @@ pack
 *.lock.json
 *.nuget.props
 *.nuget.targets
+
+node_modules
+_site
+.jekyll-metadata
+.jekyll-cache
+Gemfile.lock
+package-lock.json
