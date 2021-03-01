@@ -35,7 +35,7 @@
 
   <PropertyGroup>
     <!-- Define constant for TF like NET5, NET472, NETSTANDARD2, NETSTANDARD21 -->
-    <DefineConstants Condition="'$(TargetFramework)' != '' and '$(TargetFrameworks)' != ''">$(DefineConstants);$(TargetFramework.ToUpperInvariant().TrimEnd('0').TrimEnd('.').Replace('.', ''))</DefineConstants>
+    <DefineConstants Condition="'$(TargetFramework)' != ''">$(DefineConstants);$(TargetFramework.ToUpperInvariant().TrimEnd('0').TrimEnd('.').Replace('.', ''))</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
