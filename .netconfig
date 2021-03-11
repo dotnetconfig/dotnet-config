@@ -88,8 +88,8 @@
 	weak
 [file "src/Directory.Build.targets"]
 	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.targets
-	sha = 872f3ab674ed375636eab6a34ae5d38426012ace
-	etag = 938aac551ff94e2882de1a679514b18c5a3248146d0d122ff75613e2cdf38e86
+	sha = 6edd918283051b5179f6255556d254654acc5b8c
+	etag = af2cf67157f42ab43a0082cbf876aa4cc46e167e6e6df6c05e9aaf36ffb23cc8
 	weak
 [file ".github/workflows/changelog.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/changelog.yml
@@ -136,8 +136,8 @@
 	skip
 [file ".github/workflows/sponsors.ps1"]
 	url = https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.ps1
-	sha = ffde0b030405ef9925309cf69467570c75b6edea
-	etag = 5e29155d35ab142150e900df391363e03e5a15a8be46e4adeeb4c6fd34013289
+	sha = 11f5c27cfdb304436ef0b7ee27ff333cda31ef65
+	etag = 57a303125f3367b68ad0700d89ff4ba57cb29b33b303903488c9c8638d0bf735
 	weak
 [file ".github/workflows/sponsors.yml"]
 	url = https://github.com/devlooped/.github/blob/main/.github/workflows/sponsors.yml
@@ -151,6 +151,6 @@
 	weak
 [file ".github/workflows/dotnet-file.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/dotnet-file.yml
-	sha = e977ded975b1a536e76d5577a15a8512570ad8c7
-	etag = a84e35210d22591f420ba49ffed469e23107fbccb685857a20188134026d91bd
+	sha = 094043587f7e7313a0a77dece1532fbcb1ce8555
+	etag = 15333d15756257ec2d7975ea3ba5a22d1e3fae98aab35d83d67a728628e90cea
 	weak
