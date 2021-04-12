@@ -26,7 +26,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
     <PackageReference Include="ThisAssembly" Version="1.0.7" PrivateAssets="all" />
-    <PackageReference Include="docfx.console" Version="2.56.7" PrivateAssets="all" />
+    <PackageReference Include="docfx.console" Version="2.57.0" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>
