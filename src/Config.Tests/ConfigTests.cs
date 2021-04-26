@@ -9,10 +9,12 @@ namespace DotNetConfig.Tests
 {
     public class ConfigTests
     {
+        static readonly string currentDir = Directory.GetCurrentDirectory();
         readonly ITestOutputHelper output;
 
         public ConfigTests(ITestOutputHelper output)
         {
+            Directory.SetCurrentDirectory(currentDir);
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
@@ -384,6 +386,24 @@ bar = hey");
             Assert.Equal(Path.Combine(systemDir, "system", "file.txt"), section.GetNormalizedPath("system"));
             Assert.Equal(Path.Combine(parentDir, "file.txt"), section.GetNormalizedPath("parent"));
             Assert.Equal(Path.Combine(localDir, "file.txt"), section.GetNormalizedPath("local"));
+        }
+
+        [Fact]
+        public void when_setting_variable_in_global_dir_then_writes_global_file()
+        {
+            Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+            Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
+
+            // Simulates opening a cli app from the user's profile dir
+            Directory.CreateDirectory(Path.GetDirectoryName(Config.GlobalLocation));
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(Config.GlobalLocation));
+            var config = Config.Build();
+
+            config.SetString("foo", "bar", "baz");
+
+            var global = Config.Build(ConfigLevel.Global);
+
+            Assert.Equal("baz", global.GetString("foo", "bar"));
         }
     }
 }

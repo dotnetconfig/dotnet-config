@@ -13,16 +13,16 @@ namespace DotNetConfig
         public List<Config> Files { get; }
 
         public override void AddBoolean(string section, string? subsection, string variable, bool value)
-            => Files.First(x => x.Level == null).AddBoolean(section, subsection, variable, value);
+            => GetConfig().AddBoolean(section, subsection, variable, value);
 
         public override void AddDateTime(string section, string? subsection, string variable, DateTime value)
-            => Files.First(x => x.Level == null).AddDateTime(section, subsection, variable, value);
+            => GetConfig().AddDateTime(section, subsection, variable, value);
 
         public override void AddNumber(string section, string? subsection, string variable, long value)
-            => Files.First(x => x.Level == null).AddNumber(section, subsection, variable, value);
+            => GetConfig().AddNumber(section, subsection, variable, value);
 
         public override void AddString(string section, string? subsection, string variable, string value)
-            => Files.First(x => x.Level == null).AddString(section, subsection, variable, value);
+            => GetConfig().AddString(section, subsection, variable, value);
 
         public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex)
             => Files.SelectMany(x => x.GetAll(section, subsection, variable, valueRegex));
@@ -34,34 +34,34 @@ namespace DotNetConfig
             => Files.Select(config => config.GetNormalizedPath(section, subsection, variable)).Where(x => x != null).FirstOrDefault();
 
         public override void RemoveSection(string section, string? subsection = null)
-            => Files.First(x => x.Level == null).RemoveSection(section, subsection);
+            => GetConfig().RemoveSection(section, subsection);
 
         public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
-            => Files.First(x => x.Level == null).RenameSection(oldSection, oldSubsection, newSection, newSubsection);
+            => GetConfig().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
 
         public override void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetAllBoolean(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetAllBoolean(section, subsection, variable, value, valueRegex);
 
         public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetAllDateTime(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetAllDateTime(section, subsection, variable, value, valueRegex);
 
         public override void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetAllNumber(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetAllNumber(section, subsection, variable, value, valueRegex);
 
         public override void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetAllString(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetAllString(section, subsection, variable, value, valueRegex);
 
         public override void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetBoolean(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetBoolean(section, subsection, variable, value, valueRegex);
 
         public override void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetDateTime(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetDateTime(section, subsection, variable, value, valueRegex);
 
         public override void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetNumber(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetNumber(section, subsection, variable, value, valueRegex);
 
         public override void SetString(string section, string? subsection, string variable, string value, string? valueRegex)
-            => Files.First(x => x.Level == null).SetString(section, subsection, variable, value, valueRegex);
+            => GetConfig().SetString(section, subsection, variable, value, valueRegex);
 
         public override bool TryGetBoolean(string section, string? subsection, string variable, out bool value)
         {
@@ -112,10 +112,18 @@ namespace DotNetConfig
         }
 
         public override void Unset(string section, string? subsection, string variable)
-            => Files.First(x => x.Level == null).Unset(section, subsection, variable);
+            => GetConfig().Unset(section, subsection, variable);
 
         public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex)
-            => Files.First(x => x.Level == null).UnsetAll(section, subsection, variable, valueRegex);
+            => GetConfig().UnsetAll(section, subsection, variable, valueRegex);
+
+        // When writing via the aggregate config without specifying a ConfigLevel, we first try the default 
+        // .netconfig location, followed by a non-local one (i.e. global/system if that's the first we find), 
+        // followed by whatever is first last.
+        Config GetConfig()
+            => Files.FirstOrDefault(x => x.Level == null) ??
+               Files.FirstOrDefault(x => x.Level != ConfigLevel.Local) ??
+               Files.First();
 
         protected override IEnumerable<ConfigEntry> GetEntries() => Files.SelectMany(x => x);
 

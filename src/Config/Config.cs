@@ -91,20 +91,31 @@ namespace DotNetConfig
                 dir = new DirectoryInfo(Path.GetDirectoryName(path)).Parent;
             }
 
-            // [config] root = true stops the directory walking
-            while (configs.GetBoolean("config", "root") != true && dir != null && dir.Exists)
+            // If the path is not Global or System, we start walking the directory 
+            // tree up to build the config hierarchy
+            if (!GlobalLocation.Equals(path, StringComparison.OrdinalIgnoreCase) &&
+                !SystemLocation.Equals(path, StringComparison.OrdinalIgnoreCase))
             {
-                var file = Path.Combine(dir.FullName, FileName + UserExtension);
-                if (File.Exists(file))
-                    configs.Files.Add(new FileConfig(file));
+                // [config] root = true stops the directory walking
+                while (configs.GetBoolean("config", "root") != true && dir != null && dir.Exists)
+                {
+                    var file = Path.Combine(dir.FullName, FileName + UserExtension);
+                    if (File.Exists(file))
+                        configs.Files.Add(new FileConfig(file));
 
-                file = Path.Combine(dir.FullName, FileName);
-                if (File.Exists(file) &&
-                    !GlobalLocation.Equals(file, StringComparison.OrdinalIgnoreCase) &&
-                    !SystemLocation.Equals(file, StringComparison.OrdinalIgnoreCase))
-                    configs.Files.Add(new FileConfig(file));
+                    file = Path.Combine(dir.FullName, FileName);
+                    // Never add global or system locations here, this loop is just for directory hierarchies
+                    // NOTE: we did add the .user file at the global/system location, since it might be useful 
+                    // to allow local writing there too.
+                    if (GlobalLocation.Equals(file, StringComparison.OrdinalIgnoreCase) ||
+                        SystemLocation.Equals(file, StringComparison.OrdinalIgnoreCase))
+                        break;
 
-                dir = dir.Parent;
+                    if (File.Exists(file))
+                        configs.Files.Add(new FileConfig(file));
+
+                    dir = dir.Parent;
+                }
             }
 
             // Don't read the global location if we're building the system location or it's been opted out explicitly

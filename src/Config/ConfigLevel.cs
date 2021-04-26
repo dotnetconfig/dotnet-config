@@ -5,6 +5,11 @@ namespace DotNetConfig
     /// <summary>
     /// Specifies the level of configuration to use.
     /// </summary>
+    /// <remarks>
+    /// If not provided, the default <c>.netconfig</c> location will be used, 
+    /// which is typically the current directory unless building configuration 
+    /// from a specific file.
+    /// </remarks>
     public enum ConfigLevel
     {
         /// <summary>
