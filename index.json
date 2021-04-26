@@ -17,7 +17,7 @@
   "api/DotNetConfig.ConfigLevel.html": {
     "href": "api/DotNetConfig.ConfigLevel.html",
     "title": "Enum ConfigLevel | .netconfig",
-    "keywords": "Enum ConfigLevel Specifies the level of configuration to use. Namespace : DotNetConfig Assembly : cs.temp.dll.dll Syntax public enum ConfigLevel Fields Name Description Global The global ~/.netconfig for the current user, from the System.Environment.SpecialFolder.UserProfile location. Local Use a .netconfig.user file, instead of the default .netconfig , which allows separating local-only settings from potentially team-wide configuration files that can be checked-in source control. System The system wide .netconfig, from the System.Environment.SpecialFolder.System location."
+    "keywords": "Enum ConfigLevel Specifies the level of configuration to use. Namespace : DotNetConfig Assembly : cs.temp.dll.dll Syntax public enum ConfigLevel Remarks If not provided, the default .netconfig location will be used, which is typically the current directory unless building configuration from a specific file. Fields Name Description Global The global ~/.netconfig for the current user, from the System.Environment.SpecialFolder.UserProfile location. Local Use a .netconfig.user file, instead of the default .netconfig , which allows separating local-only settings from potentially team-wide configuration files that can be checked-in source control. System The system wide .netconfig, from the System.Environment.SpecialFolder.System location."
   },
   "api/DotNetConfig.ConfigSection.html": {
     "href": "api/DotNetConfig.ConfigSection.html",
