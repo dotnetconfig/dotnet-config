@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace DotNetConfig
 {
-    internal class ConfigDocument : IEnumerable<ConfigEntry>
+    internal record ConfigDocument : IEnumerable<ConfigEntry>
     {
         readonly string filePath;
 
@@ -15,7 +16,10 @@ namespace DotNetConfig
         {
             this.filePath = new FileInfo(filePath).FullName;
             if (File.Exists(this.filePath))
-                Load();
+            {
+                using var reader = new ConfigReader(filePath);
+                Lines = reader.ReadAllLines().ToImmutableList();
+            }
 
             if (level == null)
             {
@@ -34,9 +38,9 @@ namespace DotNetConfig
 
         public ConfigLevel? Level { get; }
 
-        public List<Line> Lines { get; private set; } = new List<Line>();
+        internal ImmutableList<Line> Lines { get; init; } = ImmutableList<Line>.Empty;
 
-        public void Save()
+        public ConfigDocument Save()
         {
             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
@@ -46,6 +50,8 @@ namespace DotNetConfig
             {
                 writer.WriteLine(line.LineText);
             }
+
+            return this;
         }
 
         public IEnumerable<ConfigEntry> GetAll(string nameRegex, string? valueRegex = null)
@@ -64,15 +70,17 @@ namespace DotNetConfig
                 .Select(ToEntry);
         }
 
-        public void Add(string section, string? subsection, string name, string? value)
+        public ConfigDocument Add(string section, string? subsection, string name, string? value)
         {
             var sectionLine = Lines.Where(line => line.Kind == LineKind.Section).FirstOrDefault(SectionEquals(section, subsection));
+            var lines = Lines;
 
             if (sectionLine == null)
             {
                 sectionLine = Line.CreateSection(filePath, Lines.Count, section, subsection);
-                Lines.Add(sectionLine);
-                Lines.Add(Line.CreateVariable(filePath, Lines.Count, sectionLine.Section, sectionLine.Subsection, name, value));
+                lines = Lines
+                    .Add(sectionLine)
+                    .Add(Line.CreateVariable(filePath, Lines.Count, sectionLine.Section, sectionLine.Subsection, name, value));
             }
             else
             {
@@ -81,8 +89,10 @@ namespace DotNetConfig
                 while (++index < Lines.Count && Lines[index].Kind == LineKind.Variable)
                     ;
 
-                Lines.Insert(index, Line.CreateVariable(filePath, index, sectionLine.Section, sectionLine.Subsection, name, value));
+                lines = lines.Insert(index, Line.CreateVariable(filePath, index, sectionLine.Section, sectionLine.Subsection, name, value));
             }
+
+            return this with { Lines = lines };
         }
 
         public ConfigDocument Set(string section, string? subsection, string name, string? value = null, ValueMatcher? valueMatcher = null)
@@ -102,17 +112,15 @@ namespace DotNetConfig
 
             if (variable != null)
             {
-                variable.WithValue(value);
+                return this with { Lines = Lines.Replace(variable, variable.WithValue(value)) };
             }
             else
             {
-                Add(section, subsection, name, value);
+                return Add(section, subsection, name, value);
             }
-
-            return this;
         }
 
-        public void Unset(string section, string? subsection, string name)
+        public ConfigDocument Unset(string section, string? subsection, string name)
         {
             // Forces validation
             Line.CreateSection(filePath, 0, section, subsection);
@@ -128,80 +136,92 @@ namespace DotNetConfig
             var variable = variables.FirstOrDefault();
             if (variable != null)
             {
-                Lines.Remove(variable);
-                CleanupSection(section, subsection);
+                return (this with { Lines = Lines.Remove(variable) }).CleanupSection(section, subsection);
             }
+
+            return this;
         }
 
-        public void SetAll(string section, string? subsection, string name, string? value, ValueMatcher? valueMatcher = null)
+        public ConfigDocument SetAll(string section, string? subsection, string name, string? value, ValueMatcher? valueMatcher = null)
         {
             // Forces validation
             var sl = Line.CreateSection(filePath, 0, section, subsection);
             Line.CreateVariable(filePath, 0, sl.Section, sl.Subsection, name, value);
 
             var matcher = valueMatcher ?? ValueMatcher.All;
-
+            var lines = Lines;
             foreach (var variable in Variables.Where(SectionEquals(section, subsection))
                 .Where(line => line.Variable == name && matcher.Matches(line.Value))
                 .ToArray())
             {
-                variable.WithValue(value);
+                lines = lines.Replace(variable, variable.WithValue(value));
             }
+
+            return this with { Lines = lines };
         }
 
-        public void UnsetAll(string section, string? subsection, string name, ValueMatcher? valueMatcher = null)
+        public ConfigDocument UnsetAll(string section, string? subsection, string name, ValueMatcher? valueMatcher = null)
         {
             // Forces validation
             var sl = Line.CreateSection(filePath, 0, section, subsection);
             Line.CreateVariable(filePath, 0, sl.Section, sl.Subsection, name, null);
 
             var matcher = valueMatcher ?? ValueMatcher.All;
-            var lines = Variables.Where(SectionEquals(section, subsection))
+            var variables = Variables.Where(SectionEquals(section, subsection))
                 .Where(line => line.Variable == name && matcher.Matches(line.Value))
                 .ToArray();
 
-            foreach (var variable in lines)
+            var lines = Lines;
+
+            foreach (var variable in variables)
             {
-                Lines.Remove(variable);
+                lines = lines.Remove(variable);
             }
 
-            CleanupSection(section, subsection);
+            return (this with { Lines = lines }).CleanupSection(section, subsection);
         }
 
-        public void RemoveSection(string section, string? subsection = null)
+        public ConfigDocument RemoveSection(string section, string? subsection = null)
         {
             // Forces validation
             Line.CreateSection(filePath, 0, section, subsection);
 
             Line line;
-            while ((line = Lines
+            var lines = Lines;
+
+            while ((line = lines
                 .Where(line => line.Kind == LineKind.Section)
                 .Where(SectionEquals(section, subsection))
                 .FirstOrDefault()) != null)
             {
-                var start = Lines.IndexOf(line);
+                var start = lines.IndexOf(line);
                 var end = start;
                 // Delete until next section
-                while (++end < Lines.Count && Lines[end].Kind != LineKind.Section)
+                while (++end < lines.Count && lines[end].Kind != LineKind.Section)
                     ;
 
-                Lines.RemoveRange(start, end - start);
+                lines = lines.RemoveRange(start, end - start);
             }
 
-            while (Lines.Count > 0 && Lines[0].Kind == LineKind.None)
-                Lines.RemoveAt(0);
+            while (lines.Count > 0 && lines[0].Kind == LineKind.None)
+                lines = lines.RemoveAt(0);
 
-            while (Lines.Count > 0 && Lines[^1].Kind == LineKind.None)
-                Lines.RemoveAt(Lines.Count - 1);
+            while (lines.Count > 0 && lines[^1].Kind == LineKind.None)
+                lines = lines.RemoveAt(lines.Count - 1);
+
+            return this with { Lines = lines };
         }
 
-        public void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+        public ConfigDocument RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
         {
             // Forces validation
             Line.CreateSection(filePath, 0, oldSection, oldSubsection);
+            Line.CreateSection(filePath, 0, newSection, newSubsection);
 
             Line line;
-            while ((line = Lines
+            var lines = Lines;
+
+            while ((line = lines
                 .Where(line => line.Kind == LineKind.Section)
                 .Where(SectionEquals(oldSection, oldSubsection))
                 .FirstOrDefault()) != null)
@@ -209,18 +229,23 @@ namespace DotNetConfig
                 var os = line.Section;
                 var oss = line.Subsection;
                 var nl = line.WithSection(newSection, newSubsection);
+                lines = lines.Replace(line, nl);
 
-                foreach (var variable in Variables.Where(x => x.Section == os && oss == x.Subsection))
+                foreach (var variable in lines
+                    .Where(line => line.Kind == LineKind.Variable)
+                    .Where(x => x.Section == os && oss == x.Subsection))
                 {
-                    variable.WithSection(nl.Section!, nl.Subsection);
+                    lines = lines.Replace(variable, variable.WithSection(nl.Section!, nl.Subsection));
                 }
             }
+
+            return this with { Lines = lines };
         }
 
         /// <summary>
         /// Removes a section containing no more variables.
         /// </summary>
-        void CleanupSection(string section, string? subsection)
+        ConfigDocument CleanupSection(string section, string? subsection)
         {
             if (!Variables.Where(SectionEquals(section, subsection)).Any())
             {
@@ -228,21 +253,17 @@ namespace DotNetConfig
                 if (line.Kind == LineKind.Section)
                 {
                     var index = Lines.IndexOf(line);
-                    Lines.RemoveAt(index);
+                    var lines = Lines.RemoveAt(index);
+
                     // Remove empty section
-                    while (index < Lines.Count && Lines[index].Kind == LineKind.None)
-                        Lines.RemoveAt(index);
+                    while (index < lines.Count && lines[index].Kind == LineKind.None)
+                        lines = lines.RemoveAt(index);
+
+                    return this with { Lines = lines };
                 }
             }
-        }
 
-        void Load()
-        {
-            using var reader = new ConfigReader(filePath);
-            Lines = reader.ReadAllLines().ToList();
-
-            // throw for lines with errors?
-            //throw new ArgumentException($"{filePath}({index},{errorPosition.Column}): {error}");
+            return this;
         }
 
         Func<Line, bool> SectionEquals(string section, string? subsection) =>

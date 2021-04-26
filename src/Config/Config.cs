@@ -177,7 +177,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public abstract void AddBoolean(string section, string? subsection, string variable, bool value);
+        public abstract Config AddBoolean(string section, string? subsection, string variable, bool value);
 
         /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.
@@ -186,7 +186,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public abstract void AddDateTime(string section, string? subsection, string variable, DateTime value);
+        public abstract Config AddDateTime(string section, string? subsection, string variable, DateTime value);
 
         /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.
@@ -195,7 +195,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public abstract void AddNumber(string section, string? subsection, string variable, long value);
+        public abstract Config AddNumber(string section, string? subsection, string variable, long value);
 
         /// <summary>
         /// Adds a value to a multi-valued variable in the given section and optional subsection.
@@ -204,7 +204,7 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value add to the variable.</param>
-        public abstract void AddString(string section, string? subsection, string variable, string value);
+        public abstract Config AddString(string section, string? subsection, string variable, string value);
 
         /// <summary>
         /// Gets all values from a multi-valued variable from the given section and optional subsection, 
@@ -243,7 +243,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
+        public abstract Config SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -253,7 +253,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
+        public abstract Config SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -263,7 +263,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex);
+        public abstract Config SetNumber(string section, string? subsection, string variable, long value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of a variable in the given section and optional subsection.
@@ -273,7 +273,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the variable.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetString(string section, string? subsection, string variable, string value, string? valueRegex);
+        public abstract Config SetString(string section, string? subsection, string variable, string value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -283,7 +283,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
+        public abstract Config SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -293,7 +293,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
+        public abstract Config SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -303,7 +303,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex);
+        public abstract Config SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex);
 
         /// <summary>
         /// Sets the value of all matching variables in the given section and optional subsection.
@@ -313,7 +313,7 @@ namespace DotNetConfig
         /// <param name="variable">The variable to assign.</param>
         /// <param name="value">Value to assign to the matching variables.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex);
+        public abstract Config SetAllString(string section, string? subsection, string variable, string value, string? valueRegex);
 
         /// <summary>
         /// Tries to retrieve a variable value from configuration.
@@ -361,7 +361,7 @@ namespace DotNetConfig
         /// <param name="section">The section containing the variable.</param>
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
-        public abstract void Unset(string section, string? subsection, string variable);
+        public abstract Config Unset(string section, string? subsection, string variable);
 
         /// <summary>
         /// Removes all values from a multi-valued variable from the given section and optional subsection.
@@ -370,14 +370,14 @@ namespace DotNetConfig
         /// <param name="subsection">Optional subsection containing the variable.</param>
         /// <param name="variable">The variable to remove.</param>
         /// <param name="valueRegex">Filter returned entries to those where the value matches the given expression.</param>
-        public abstract void UnsetAll(string section, string? subsection, string variable, string? valueRegex);
+        public abstract Config UnsetAll(string section, string? subsection, string variable, string? valueRegex);
 
         /// <summary>
         /// Remove the given section from the configuration file.
         /// </summary>
         /// <param name="section">The section to remove.</param>
         /// <param name="subsection">Optional subsection to remove.</param>
-        public abstract void RemoveSection(string section, string? subsection = null);
+        public abstract Config RemoveSection(string section, string? subsection = null);
 
         /// <summary>
         /// Renames a section and optional subsection.
@@ -386,7 +386,7 @@ namespace DotNetConfig
         /// <param name="oldSubsection">The optional old subsection to rename.</param>
         /// <param name="newSection">The new section name to use.</param>
         /// <param name="newSubsection">The optional new subsection to use.</param>
-        public abstract void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection);
+        public abstract Config RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection);
 
         /// <summary>
         /// Gets the configuration entries in the current configuration.

@@ -3,7 +3,7 @@ using System.Text;
 
 namespace DotNetConfig
 {
-    internal class Line
+    internal record Line
     {
         public static Line CreateSection(string? filePath, int lineNumber, string section, string? subsection)
         {
@@ -51,17 +51,17 @@ namespace DotNetConfig
 
         public int LineNumber { get; }
 
-        public string LineText { get; private set; }
+        public string LineText { get; private init; }
 
-        public TextSpan? Section { get; private set; }
+        public TextSpan? Section { get; private init; }
 
-        public TextSpan? Subsection { get; private set; }
+        public TextSpan? Subsection { get; private init; }
 
-        public TextSpan? Variable { get; private set; }
+        public TextSpan? Variable { get; private init; }
 
-        public TextSpan? Value { get; private set; }
+        public TextSpan? Value { get; private init; }
 
-        public TextSpan? Comment { get; private set; }
+        public TextSpan? Comment { get; private init; }
 
         public string? Error { get; }
 
@@ -103,21 +103,21 @@ namespace DotNetConfig
             var lineText = builder.ToString();
             var parsed = ConfigReader.ParseSection(FilePath, lineText, LineNumber);
 
-            LineText = lineText;
-            Section = parsed.Section;
-            Subsection = parsed.Subsection;
-            Comment = parsed.Comment;
-
-            return this;
+            return this with
+            {
+                LineText = lineText,
+                Section = parsed.Section,
+                Subsection = parsed.Subsection,
+                Comment = parsed.Comment,
+            };
         }
 
         internal Line WithSection(TextSpan section, TextSpan? subsection)
-        {
-            Section = section;
-            Subsection = subsection;
-
-            return this;
-        }
+            => this with
+            {
+                Section = section,
+                Subsection = subsection,
+            };
 
         internal Line WithValue(string? value)
         {
@@ -141,12 +141,13 @@ namespace DotNetConfig
             var lineText = builder.ToString();
             var parsed = ConfigReader.ParseVariable(FilePath, lineText, LineNumber, Section, Subsection);
 
-            LineText = lineText;
-            Variable = parsed.Variable;
-            Value = parsed.Value;
-            Comment = parsed.Comment;
-
-            return this;
+            return this with
+            {
+                LineText = lineText,
+                Variable = parsed.Variable,
+                Value = parsed.Value,
+                Comment = parsed.Comment,
+            };
         }
     }
 }

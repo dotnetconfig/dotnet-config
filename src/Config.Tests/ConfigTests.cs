@@ -5,7 +5,7 @@ using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace DotNetConfig.Tests
+namespace DotNetConfig
 {
     public class ConfigTests
     {
@@ -231,9 +231,8 @@ namespace DotNetConfig.Tests
         public void can_write_new_file()
         {
             var file = Path.GetTempFileName();
-            var config = Config.Build(file);
-
-            config.SetBoolean("section", "subsection", "bool", true);
+            var config = Config.Build(file)
+                .SetBoolean("section", "subsection", "bool", true);
 
             Assert.True(config.GetBoolean("section", "subsection", "bool"));
         }
