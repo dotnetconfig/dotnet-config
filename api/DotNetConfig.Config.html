@@ -94,7 +94,7 @@
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</div>
+    <div><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">ConfigEntry</span>&gt;</div>
     <div><span class="xref">System.Collections.IEnumerable</span></div>
   </div>
   <div class="inheritedMembers">
@@ -307,7 +307,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void AddBoolean(string section, string subsection, string variable, bool value)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config AddBoolean(string section, string subsection, string variable, bool value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -345,6 +345,21 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_AddDateTime_" data-uid="DotNetConfig.Config.AddDateTime*"></a>
@@ -354,7 +369,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void AddDateTime(string section, string subsection, string variable, DateTime value)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config AddDateTime(string section, string subsection, string variable, DateTime value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -392,6 +407,21 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_AddNumber_" data-uid="DotNetConfig.Config.AddNumber*"></a>
@@ -401,7 +431,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void AddNumber(string section, string subsection, string variable, long value)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config AddNumber(string section, string subsection, string variable, long value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -439,6 +469,21 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_AddString_" data-uid="DotNetConfig.Config.AddString*"></a>
@@ -448,7 +493,7 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void AddString(string section, string subsection, string variable, string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config AddString(string section, string subsection, string variable, string value)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -483,6 +528,21 @@ it ends in <code>.user</code> in which case it&apos;s <a class="xref" href="DotN
         <td><span class="parametername">value</span></td>
         <td><p>Value add to the variable.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -638,7 +698,7 @@ which optionally match the given value regular expression.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">ConfigEntry</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -664,7 +724,7 @@ which optionally match the given value regular expression.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">ConfigEntry</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -774,7 +834,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">ConfigEntry</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -838,7 +898,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void RemoveSection(string section, string subsection = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config RemoveSection(string section, string subsection = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -864,6 +924,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_RenameSection_" data-uid="DotNetConfig.Config.RenameSection*"></a>
@@ -873,7 +948,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void RenameSection(string oldSection, string oldSubsection, string newSection, string newSubsection)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config RenameSection(string oldSection, string oldSubsection, string newSection, string newSubsection)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -911,6 +986,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetAllBoolean_" data-uid="DotNetConfig.Config.SetAllBoolean*"></a>
@@ -920,7 +1010,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetAllBoolean(string section, string subsection, string variable, bool value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetAllBoolean(string section, string subsection, string variable, bool value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -961,6 +1051,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
         <td><span class="parametername">valueRegex</span></td>
         <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -973,7 +1078,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetAllDateTime(string section, string subsection, string variable, DateTime value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetAllDateTime(string section, string subsection, string variable, DateTime value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1017,6 +1122,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetAllNumber_" data-uid="DotNetConfig.Config.SetAllNumber*"></a>
@@ -1026,7 +1146,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetAllNumber(string section, string subsection, string variable, long value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetAllNumber(string section, string subsection, string variable, long value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1070,6 +1190,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetAllString_" data-uid="DotNetConfig.Config.SetAllString*"></a>
@@ -1079,7 +1214,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetAllString(string section, string subsection, string variable, string value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetAllString(string section, string subsection, string variable, string value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1123,6 +1258,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetBoolean_" data-uid="DotNetConfig.Config.SetBoolean*"></a>
@@ -1132,7 +1282,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetBoolean(string section, string subsection, string variable, bool value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetBoolean(string section, string subsection, string variable, bool value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1176,6 +1326,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetDateTime_" data-uid="DotNetConfig.Config.SetDateTime*"></a>
@@ -1185,7 +1350,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetDateTime(string section, string subsection, string variable, DateTime value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetDateTime(string section, string subsection, string variable, DateTime value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1229,6 +1394,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetNumber_" data-uid="DotNetConfig.Config.SetNumber*"></a>
@@ -1238,7 +1418,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetNumber(string section, string subsection, string variable, long value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetNumber(string section, string subsection, string variable, long value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1282,6 +1462,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_SetString_" data-uid="DotNetConfig.Config.SetString*"></a>
@@ -1291,7 +1486,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void SetString(string section, string subsection, string variable, string value, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config SetString(string section, string subsection, string variable, string value, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1332,6 +1527,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
         <td><span class="parametername">valueRegex</span></td>
         <td><p>Filter returned entries to those where the value matches the given expression.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -1596,7 +1806,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void Unset(string section, string subsection, string variable)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config Unset(string section, string subsection, string variable)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1628,6 +1838,21 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="DotNetConfig_Config_UnsetAll_" data-uid="DotNetConfig.Config.UnsetAll*"></a>
@@ -1637,7 +1862,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void UnsetAll(string section, string subsection, string variable, string valueRegex)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Config UnsetAll(string section, string subsection, string variable, string valueRegex)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1675,12 +1900,27 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="DotNetConfig.Config.html">Config</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="eii">Explicit Interface Implementations
   </h3>
   
   
-  <a id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*"></a>
-  <h4 id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator">IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</h4>
+  <a id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_ConfigEntry__GetEnumerator_" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator*"></a>
+  <h4 id="DotNetConfig_Config_System_Collections_Generic_IEnumerable_ConfigEntry__GetEnumerator" data-uid="DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator">IEnumerable&lt;ConfigEntry&gt;.GetEnumerator()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1697,7 +1937,7 @@ the <code data-dev-comment-type="paramref" class="paramref">nameRegex</code> and
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<a class="xref" href="DotNetConfig.ConfigEntry.html">ConfigEntry</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IEnumerator</span>&lt;<span class="xref">ConfigEntry</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>

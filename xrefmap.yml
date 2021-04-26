@@ -337,23 +337,23 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.SetString
   nameWithType: Config.SetString
-- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator
   name: IEnumerable<ConfigEntry>.GetEnumerator()
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator
-  commentId: M:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
-  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
-  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_ConfigEntry__GetEnumerator
+  commentId: M:DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator()
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator()
   nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator()
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator()
-- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator*
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator()
+- uid: DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator*
   name: IEnumerable<ConfigEntry>.GetEnumerator
-  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_DotNetConfig_ConfigEntry__GetEnumerator_
-  commentId: Overload:DotNetConfig.Config.System#Collections#Generic#IEnumerable{DotNetConfig#ConfigEntry}#GetEnumerator
+  href: api/DotNetConfig.Config.html#DotNetConfig_Config_System_Collections_Generic_IEnumerable_ConfigEntry__GetEnumerator_
+  commentId: Overload:DotNetConfig.Config.System#Collections#Generic#IEnumerable{ConfigEntry}#GetEnumerator
   isSpec: "True"
-  name.vb: System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
-  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+  name.vb: System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator
+  fullName: DotNetConfig.Config.System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator
   nameWithType: Config.IEnumerable<ConfigEntry>.GetEnumerator
-  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<DotNetConfig.ConfigEntry>.GetEnumerator
+  nameWithType.vb: Config.System.Collections.Generic.IEnumerable<ConfigEntry>.GetEnumerator
 - uid: DotNetConfig.Config.SystemLocation
   name: SystemLocation
   href: api/DotNetConfig.Config.html#DotNetConfig_Config_SystemLocation
@@ -457,171 +457,6 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Config.UnsetAll
   nameWithType: Config.UnsetAll
-- uid: DotNetConfig.ConfigEntry
-  name: ConfigEntry
-  href: api/DotNetConfig.ConfigEntry.html
-  commentId: T:DotNetConfig.ConfigEntry
-  fullName: DotNetConfig.ConfigEntry
-  nameWithType: ConfigEntry
-- uid: DotNetConfig.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{DotNetConfig.ConfigLevel})
-  name: ConfigEntry(String, String, String, String, Nullable<ConfigLevel>)
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry__ctor_System_String_System_String_System_String_System_String_System_Nullable_DotNetConfig_ConfigLevel__
-  commentId: M:DotNetConfig.ConfigEntry.#ctor(System.String,System.String,System.String,System.String,System.Nullable{DotNetConfig.ConfigLevel})
-  name.vb: ConfigEntry(String, String, String, String, Nullable(Of ConfigLevel))
-  fullName: DotNetConfig.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable<DotNetConfig.ConfigLevel>)
-  fullName.vb: DotNetConfig.ConfigEntry.ConfigEntry(System.String, System.String, System.String, System.String, System.Nullable(Of DotNetConfig.ConfigLevel))
-  nameWithType: ConfigEntry.ConfigEntry(String, String, String, String, Nullable<ConfigLevel>)
-  nameWithType.vb: ConfigEntry.ConfigEntry(String, String, String, String, Nullable(Of ConfigLevel))
-- uid: DotNetConfig.ConfigEntry.#ctor*
-  name: ConfigEntry
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry__ctor_
-  commentId: Overload:DotNetConfig.ConfigEntry.#ctor
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.ConfigEntry
-  nameWithType: ConfigEntry.ConfigEntry
-- uid: DotNetConfig.ConfigEntry.Comment
-  name: Comment
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Comment
-  commentId: P:DotNetConfig.ConfigEntry.Comment
-  fullName: DotNetConfig.ConfigEntry.Comment
-  nameWithType: ConfigEntry.Comment
-- uid: DotNetConfig.ConfigEntry.Comment*
-  name: Comment
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Comment_
-  commentId: Overload:DotNetConfig.ConfigEntry.Comment
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Comment
-  nameWithType: ConfigEntry.Comment
-- uid: DotNetConfig.ConfigEntry.GetBoolean
-  name: GetBoolean()
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetBoolean
-  commentId: M:DotNetConfig.ConfigEntry.GetBoolean
-  fullName: DotNetConfig.ConfigEntry.GetBoolean()
-  nameWithType: ConfigEntry.GetBoolean()
-- uid: DotNetConfig.ConfigEntry.GetBoolean*
-  name: GetBoolean
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetBoolean_
-  commentId: Overload:DotNetConfig.ConfigEntry.GetBoolean
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.GetBoolean
-  nameWithType: ConfigEntry.GetBoolean
-- uid: DotNetConfig.ConfigEntry.GetDateTime
-  name: GetDateTime()
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetDateTime
-  commentId: M:DotNetConfig.ConfigEntry.GetDateTime
-  fullName: DotNetConfig.ConfigEntry.GetDateTime()
-  nameWithType: ConfigEntry.GetDateTime()
-- uid: DotNetConfig.ConfigEntry.GetDateTime*
-  name: GetDateTime
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetDateTime_
-  commentId: Overload:DotNetConfig.ConfigEntry.GetDateTime
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.GetDateTime
-  nameWithType: ConfigEntry.GetDateTime
-- uid: DotNetConfig.ConfigEntry.GetNumber
-  name: GetNumber()
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetNumber
-  commentId: M:DotNetConfig.ConfigEntry.GetNumber
-  fullName: DotNetConfig.ConfigEntry.GetNumber()
-  nameWithType: ConfigEntry.GetNumber()
-- uid: DotNetConfig.ConfigEntry.GetNumber*
-  name: GetNumber
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetNumber_
-  commentId: Overload:DotNetConfig.ConfigEntry.GetNumber
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.GetNumber
-  nameWithType: ConfigEntry.GetNumber
-- uid: DotNetConfig.ConfigEntry.GetString
-  name: GetString()
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetString
-  commentId: M:DotNetConfig.ConfigEntry.GetString
-  fullName: DotNetConfig.ConfigEntry.GetString()
-  nameWithType: ConfigEntry.GetString()
-- uid: DotNetConfig.ConfigEntry.GetString*
-  name: GetString
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_GetString_
-  commentId: Overload:DotNetConfig.ConfigEntry.GetString
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.GetString
-  nameWithType: ConfigEntry.GetString
-- uid: DotNetConfig.ConfigEntry.Key
-  name: Key
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Key
-  commentId: P:DotNetConfig.ConfigEntry.Key
-  fullName: DotNetConfig.ConfigEntry.Key
-  nameWithType: ConfigEntry.Key
-- uid: DotNetConfig.ConfigEntry.Key*
-  name: Key
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Key_
-  commentId: Overload:DotNetConfig.ConfigEntry.Key
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Key
-  nameWithType: ConfigEntry.Key
-- uid: DotNetConfig.ConfigEntry.Level
-  name: Level
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Level
-  commentId: P:DotNetConfig.ConfigEntry.Level
-  fullName: DotNetConfig.ConfigEntry.Level
-  nameWithType: ConfigEntry.Level
-- uid: DotNetConfig.ConfigEntry.Level*
-  name: Level
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Level_
-  commentId: Overload:DotNetConfig.ConfigEntry.Level
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Level
-  nameWithType: ConfigEntry.Level
-- uid: DotNetConfig.ConfigEntry.RawValue
-  name: RawValue
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_RawValue
-  commentId: P:DotNetConfig.ConfigEntry.RawValue
-  fullName: DotNetConfig.ConfigEntry.RawValue
-  nameWithType: ConfigEntry.RawValue
-- uid: DotNetConfig.ConfigEntry.RawValue*
-  name: RawValue
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_RawValue_
-  commentId: Overload:DotNetConfig.ConfigEntry.RawValue
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.RawValue
-  nameWithType: ConfigEntry.RawValue
-- uid: DotNetConfig.ConfigEntry.Section
-  name: Section
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Section
-  commentId: P:DotNetConfig.ConfigEntry.Section
-  fullName: DotNetConfig.ConfigEntry.Section
-  nameWithType: ConfigEntry.Section
-- uid: DotNetConfig.ConfigEntry.Section*
-  name: Section
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Section_
-  commentId: Overload:DotNetConfig.ConfigEntry.Section
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Section
-  nameWithType: ConfigEntry.Section
-- uid: DotNetConfig.ConfigEntry.Subsection
-  name: Subsection
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Subsection
-  commentId: P:DotNetConfig.ConfigEntry.Subsection
-  fullName: DotNetConfig.ConfigEntry.Subsection
-  nameWithType: ConfigEntry.Subsection
-- uid: DotNetConfig.ConfigEntry.Subsection*
-  name: Subsection
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Subsection_
-  commentId: Overload:DotNetConfig.ConfigEntry.Subsection
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Subsection
-  nameWithType: ConfigEntry.Subsection
-- uid: DotNetConfig.ConfigEntry.Variable
-  name: Variable
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Variable
-  commentId: P:DotNetConfig.ConfigEntry.Variable
-  fullName: DotNetConfig.ConfigEntry.Variable
-  nameWithType: ConfigEntry.Variable
-- uid: DotNetConfig.ConfigEntry.Variable*
-  name: Variable
-  href: api/DotNetConfig.ConfigEntry.html#DotNetConfig_ConfigEntry_Variable_
-  commentId: Overload:DotNetConfig.ConfigEntry.Variable
-  isSpec: "True"
-  fullName: DotNetConfig.ConfigEntry.Variable
-  nameWithType: ConfigEntry.Variable
 - uid: DotNetConfig.ConfigExtensions
   name: ConfigExtensions
   href: api/DotNetConfig.ConfigExtensions.html
