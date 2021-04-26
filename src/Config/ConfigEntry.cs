@@ -9,7 +9,7 @@ namespace DotNetConfig
     /// Represents a configuration option.
     /// </summary>
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
-    public class ConfigEntry
+    public record ConfigEntry
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigEntry" /> class with a given key, value and store level.
@@ -46,7 +46,7 @@ namespace DotNetConfig
         /// <summary>
         /// Gets the variable raw value.
         /// </summary>
-        public string? RawValue { get; }
+        public string? RawValue { get; init; }
 
         /// <summary>
         /// Gets the origin store. <see langword="null"/> if not either <see cref="ConfigLevel.Global"/> 
@@ -57,7 +57,7 @@ namespace DotNetConfig
         /// <summary>
         /// Gets or sets the optional comment.
         /// </summary>
-        public string? Comment { get; set; }
+        public string? Comment { get; init; }
 
         /// <summary>
         /// Gets the key for the entry.

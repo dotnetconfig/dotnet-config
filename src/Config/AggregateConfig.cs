@@ -12,16 +12,16 @@ namespace DotNetConfig
 
         public List<Config> Files { get; }
 
-        public override void AddBoolean(string section, string? subsection, string variable, bool value)
+        public override Config AddBoolean(string section, string? subsection, string variable, bool value)
             => GetConfig().AddBoolean(section, subsection, variable, value);
 
-        public override void AddDateTime(string section, string? subsection, string variable, DateTime value)
+        public override Config AddDateTime(string section, string? subsection, string variable, DateTime value)
             => GetConfig().AddDateTime(section, subsection, variable, value);
 
-        public override void AddNumber(string section, string? subsection, string variable, long value)
+        public override Config AddNumber(string section, string? subsection, string variable, long value)
             => GetConfig().AddNumber(section, subsection, variable, value);
 
-        public override void AddString(string section, string? subsection, string variable, string value)
+        public override Config AddString(string section, string? subsection, string variable, string value)
             => GetConfig().AddString(section, subsection, variable, value);
 
         public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex)
@@ -33,34 +33,34 @@ namespace DotNetConfig
         public override string? GetNormalizedPath(string section, string? subsection, string variable)
             => Files.Select(config => config.GetNormalizedPath(section, subsection, variable)).Where(x => x != null).FirstOrDefault();
 
-        public override void RemoveSection(string section, string? subsection = null)
+        public override Config RemoveSection(string section, string? subsection = null)
             => GetConfig().RemoveSection(section, subsection);
 
-        public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+        public override Config RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
             => GetConfig().RenameSection(oldSection, oldSubsection, newSection, newSubsection);
 
-        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+        public override Config SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
             => GetConfig().SetAllBoolean(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+        public override Config SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
             => GetConfig().SetAllDateTime(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+        public override Config SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
             => GetConfig().SetAllNumber(section, subsection, variable, value, valueRegex);
 
-        public override void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
+        public override Config SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
             => GetConfig().SetAllString(section, subsection, variable, value, valueRegex);
 
-        public override void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+        public override Config SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
             => GetConfig().SetBoolean(section, subsection, variable, value, valueRegex);
 
-        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+        public override Config SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
             => GetConfig().SetDateTime(section, subsection, variable, value, valueRegex);
 
-        public override void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+        public override Config SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
             => GetConfig().SetNumber(section, subsection, variable, value, valueRegex);
 
-        public override void SetString(string section, string? subsection, string variable, string value, string? valueRegex)
+        public override Config SetString(string section, string? subsection, string variable, string value, string? valueRegex)
             => GetConfig().SetString(section, subsection, variable, value, valueRegex);
 
         public override bool TryGetBoolean(string section, string? subsection, string variable, out bool value)
@@ -111,10 +111,10 @@ namespace DotNetConfig
             return false;
         }
 
-        public override void Unset(string section, string? subsection, string variable)
+        public override Config Unset(string section, string? subsection, string variable)
             => GetConfig().Unset(section, subsection, variable);
 
-        public override void UnsetAll(string section, string? subsection, string variable, string? valueRegex)
+        public override Config UnsetAll(string section, string? subsection, string variable, string? valueRegex)
             => GetConfig().UnsetAll(section, subsection, variable, valueRegex);
 
         // When writing via the aggregate config without specifying a ConfigLevel, we first try the default 

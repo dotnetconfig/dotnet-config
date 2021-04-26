@@ -84,8 +84,8 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", "bar", "baz", "true");
-            doc.Save();
+            doc.Set("foo", "bar", "baz", "true")
+               .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -102,14 +102,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", "bar", "baz", "value");
-            doc.Save();
+            doc.Set("foo", "bar", "baz", "value")
+               .Save()
+               .Set("foo", "bar", "baz", null)
+               .Save();
 
-            doc.Set("foo", "bar", "baz", null);
-
-            // TODO: if we don't save and reload, there's an issue in updating 
-            // the value
-            doc.Save();
             var saved = ConfigDocument.FromFile(path);
 
             Assert.Single(saved);
@@ -125,10 +122,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             File.WriteAllText(path, @"[foo]
     bar = true");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "baz", "false");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "baz", "false")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -142,14 +140,15 @@ namespace DotNetConfig
         public void can_set_many_variables_section()
         {
             var path = Path.GetTempFileName();
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "bar", "false");
-            doc.Save();
-            doc.Set("foo", null, "baz", "true");
-            doc.Save();
-            doc.Set("foo", null, "weak");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "bar", "false")
+                .Save()
+                .Set("foo", null, "baz", "true")
+                .Save()
+                .Set("foo", null, "weak")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -176,10 +175,11 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = hi
     baz = bye");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "baz", "hi", ValueMatcher.From("y"));
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "baz", "hi", ValueMatcher.From("y"))
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -195,10 +195,11 @@ namespace DotNetConfig
     source = microsoft.com/kzu
     source = github.com/vga
     source = microsoft.com/vga");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", null, "source", "none", ValueMatcher.From("github\\.com"));
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .SetAll("foo", null, "source", "none", ValueMatcher.From("github\\.com"))
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -212,10 +213,11 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = hi
     baz = bye");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "baz", "hi", ValueMatcher.From("blah"));
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "baz", "hi", ValueMatcher.From("blah"))
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -228,10 +230,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             File.WriteAllText(path, @"[foo]
     bar = true");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "bar", "false");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "bar", "false")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -247,10 +250,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             File.WriteAllText(path, @"[foo]
     bar = true # with a comment ; some # stuff """);
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Set("foo", null, "bar", "false");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Set("foo", null, "bar", "false")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -267,6 +271,7 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = hello
     bar = world");
+
             var doc = ConfigDocument.FromFile(path);
 
             Assert.Throws<NotSupportedException>(() => doc.Set("foo", null, "bar", "bye"));
@@ -279,10 +284,11 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = true
     baz = false");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Unset("foo", null, "bar");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Unset("foo", null, "bar")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -296,6 +302,7 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = hello
     bar = world");
+
             var doc = ConfigDocument.FromFile(path);
 
             Assert.Throws<NotSupportedException>(() => doc.Unset("foo", null, "bar"));
@@ -307,10 +314,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             File.WriteAllText(path, @"[foo]
     bar = true");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Unset("foo", null, "bar");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Unset("foo", null, "bar")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -323,10 +331,11 @@ namespace DotNetConfig
             var path = Path.GetTempFileName();
             File.WriteAllText(path, @"[foo]
     bar = true");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Unset("foo", null, "baz");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Unset("foo", null, "baz")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -343,10 +352,11 @@ namespace DotNetConfig
 
     [other]
     # but definitely before this");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.Add("foo", default, "bar", "bye");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .Add("foo", default, "bar", "bye")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -362,10 +372,11 @@ namespace DotNetConfig
             File.WriteAllText(path, @"[foo]
     bar = hello
     bar = bye");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", default, "bar", "empty");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .SetAll("foo", default, "bar", "empty")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -382,10 +393,11 @@ namespace DotNetConfig
     # comment
     bar = bye
     # comment");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.UnsetAll("foo", default, "bar");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .UnsetAll("foo", default, "bar")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -403,10 +415,11 @@ namespace DotNetConfig
 
     [other]
     yet = another");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.UnsetAll("foo", default, "bar");
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .UnsetAll("foo", default, "bar")
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -423,10 +436,11 @@ namespace DotNetConfig
     source = https://github.com/microsoft 
     source = https://microsoft.com/kzu
     source = https://nuget.org/kzu");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.UnsetAll("foo", default, "source", ValueMatcher.From("github\\.com"));
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .UnsetAll("foo", default, "source", ValueMatcher.From("github\\.com"))
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -443,10 +457,11 @@ namespace DotNetConfig
     source = https://github.com/microsoft
     source = https://microsoft.com/kzu
     source = https://nuget.org/kzu");
-            var doc = ConfigDocument.FromFile(path);
 
-            doc.SetAll("foo", default, "source", "https://dev.azure.com", ValueMatcher.From("github\\.com"));
-            doc.Save();
+            ConfigDocument
+                .FromFile(path)
+                .SetAll("foo", default, "source", "https://dev.azure.com", ValueMatcher.From("github\\.com"))
+                .Save();
 
             var saved = ConfigDocument.FromFile(path);
 
@@ -489,9 +504,9 @@ namespace DotNetConfig
     ; comment
 ");
 
-            var doc = ConfigDocument.FromFile(path);
-
-            doc.RemoveSection("foo");
+            var doc = ConfigDocument
+                .FromFile(path)
+                .RemoveSection("foo");
 
             Assert.Single(doc.Sections);
             Assert.Single(doc.Comments);
@@ -509,20 +524,20 @@ namespace DotNetConfig
     # comment
 ");
 
-            var doc = ConfigDocument.FromFile(path);
-
-            doc.RenameSection("foo", null, "bar", null);
+            var doc = ConfigDocument
+                .FromFile(path)
+                .RenameSection("foo", null, "bar", null);
 
             Assert.Single(doc.Sections);
             Assert.Equal("bar", doc.Sections.First().Section);
 
-            doc.RenameSection("bar", null, "bar", "foo or baz");
+            doc = doc.RenameSection("bar", null, "bar", "foo or baz");
 
             Assert.Single(doc.Sections);
             Assert.Equal("bar", doc.Sections.First().Section);
             Assert.Equal("foo or baz", doc.Sections.First().Subsection);
 
-            doc.RenameSection("bar", "foo or baz", "foo", "bar");
+            doc = doc.RenameSection("bar", "foo or baz", "foo", "bar");
 
             Assert.Equal("foo", doc.Sections.First().Section);
             Assert.Equal("bar", doc.Sections.First().Subsection);
@@ -536,9 +551,9 @@ namespace DotNetConfig
     url = https
 ");
 
-            var doc = ConfigDocument.FromFile(path);
-
-            doc.RenameSection("foo", "bar or baz", "foo", "bar");
+            var doc = ConfigDocument
+                .FromFile(path)
+                .RenameSection("foo", "bar or baz", "foo", "bar");
 
             Assert.Single(doc.Sections);
             Assert.Equal("foo", doc.Sections.First().Section);
@@ -556,9 +571,9 @@ namespace DotNetConfig
     enabled
 ");
 
-            var doc = ConfigDocument.FromFile(path);
-
-            doc.RenameSection("foo", null, "bar", null);
+            var doc = ConfigDocument
+                .FromFile(path)
+                .RenameSection("foo", null, "bar", null);
 
             Assert.All(doc.Sections, x => Assert.Equal("bar", x.Section));
             Assert.All(doc.Variables, x => Assert.Equal("bar", x.Section));
@@ -590,8 +605,12 @@ namespace DotNetConfig
 	etag = 7d4fe7db35e
 ");
 
-            var doc = ConfigDocument.FromFile(temp);
-            doc.Set("file", "bar", "etag", "asdfafd");
+            ConfigDocument
+                .FromFile(temp)
+                .Set("file", "bar", "etag", "asdfafd")
+                .Save();
+
+            Assert.Equal("asdfafd", Config.Build(temp).GetString("file", "bar", "etag"));
         }
 
         [Fact]

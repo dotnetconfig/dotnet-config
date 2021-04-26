@@ -7,50 +7,51 @@ namespace DotNetConfig
 {
     internal class FileConfig : Config
     {
-        ConfigDocument doc;
+        ConfigDocument document;
 
         public FileConfig(string filePath, ConfigLevel? level = null)
             : base(filePath)
-            => doc = ConfigDocument.FromFile(filePath, level);
+            => document = ConfigDocument.FromFile(filePath, level);
 
-        public override void AddBoolean(string section, string? subsection, string variable, bool value)
+        FileConfig(string filePath, ConfigDocument document) : base(filePath) => this.document = document;
+
+        public override Config AddBoolean(string section, string? subsection, string variable, bool value)
         {
             if (value)
             {
                 // Shortcut notation.
-                doc.Add(section, subsection, variable, null);
-                doc.Save();
+                return new FileConfig(FilePath,
+                    document.Add(section, subsection, variable, null)
+                            .Save());
             }
             else
             {
-                doc.Add(section, subsection, variable, "false");
-                doc.Save();
+                return new FileConfig(FilePath,
+                    document.Add(section, subsection, variable, "false")
+                            .Save());
             }
         }
 
-        public override void AddDateTime(string section, string? subsection, string variable, DateTime value)
-        {
-            doc.Add(section, subsection, variable, value.ToString("O"));
-            doc.Save();
-        }
+        public override Config AddDateTime(string section, string? subsection, string variable, DateTime value)
+            => new FileConfig(FilePath, document
+                .Add(section, subsection, variable, value.ToString("O"))
+                .Save());
 
-        public override void AddNumber(string section, string? subsection, string variable, long value)
-        {
-            doc.Add(section, subsection, variable, value.ToString());
-            doc.Save();
-        }
+        public override Config AddNumber(string section, string? subsection, string variable, long value)
+            => new FileConfig(FilePath, document
+                .Add(section, subsection, variable, value.ToString())
+                .Save());
 
-        public override void AddString(string section, string? subsection, string variable, string value)
-        {
-            doc.Add(section, subsection, variable, value);
-            doc.Save();
-        }
+        public override Config AddString(string section, string? subsection, string variable, string value)
+            => new FileConfig(FilePath, document
+                .Add(section, subsection, variable, value)
+                .Save());
 
         public override IEnumerable<ConfigEntry> GetAll(string section, string? subsection, string variable, string? valueRegex)
-            => doc.GetAll(section, subsection, variable, valueRegex);
+            => document.GetAll(section, subsection, variable, valueRegex);
 
         public override IEnumerable<ConfigEntry> GetRegex(string nameRegex, string? valueRegex = null)
-            => doc.GetAll(nameRegex, valueRegex);
+            => document.GetAll(nameRegex, valueRegex);
 
         public override string? GetNormalizedPath(string section, string? subsection, string variable)
         {
@@ -67,87 +68,83 @@ namespace DotNetConfig
             return new FileInfo(Path.Combine(Path.GetDirectoryName(FilePath), value)).FullName;
         }
 
-        public override void RemoveSection(string section, string? subsection)
-        {
-            doc.RemoveSection(section, subsection);
-            doc.Save();
-        }
+        public override Config RemoveSection(string section, string? subsection)
+            => new FileConfig(FilePath, document
+                .RemoveSection(section, subsection)
+                .Save());
 
-        public override void RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
-        {
-            doc.RenameSection(oldSection, oldSubsection, newSection, newSubsection);
-            doc.Save();
-        }
+        public override Config RenameSection(string oldSection, string? oldSubsection, string newSection, string? newSubsection)
+            => new FileConfig(FilePath, document
+                .RenameSection(oldSection, oldSubsection, newSection, newSubsection)
+                .Save());
 
-        public override void SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+        public override Config SetAllBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
         {
             if (value)
             {
                 // Shortcut notation.
-                doc.SetAll(section, subsection, variable, null, valueRegex);
-                doc.Save();
+                return new FileConfig(FilePath, document
+                    .SetAll(section, subsection, variable, null, valueRegex)
+                    .Save());
             }
             else
             {
-                doc.SetAll(section, subsection, variable, "false", valueRegex);
-                doc.Save();
+                return new FileConfig(FilePath, document
+                    .SetAll(section, subsection, variable, "false", valueRegex)
+                    .Save());
             }
         }
 
-        public override void SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
-        {
-            doc.SetAll(section, subsection, variable, value.ToString("O"), valueRegex);
-            doc.Save();
-        }
+        public override Config SetAllDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .SetAll(section, subsection, variable, value.ToString("O"), valueRegex)
+                .Save());
 
-        public override void SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
-        {
-            doc.SetAll(section, subsection, variable, value.ToString(), valueRegex);
-            doc.Save();
-        }
+        public override Config SetAllNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .SetAll(section, subsection, variable, value.ToString(), valueRegex)
+                .Save());
 
-        public override void SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
-        {
-            doc.SetAll(section, subsection, variable, value, valueRegex);
-            doc.Save();
-        }
+        public override Config SetAllString(string section, string? subsection, string variable, string value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .SetAll(section, subsection, variable, value, valueRegex)
+                .Save());
 
-        public override void SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
+        public override Config SetBoolean(string section, string? subsection, string variable, bool value, string? valueRegex)
         {
             if (value)
             {
                 // Shortcut notation.
-                doc.Set(section, subsection, variable, null, valueRegex);
-                doc.Save();
+                return new FileConfig(FilePath, document
+                    .Set(section, subsection, variable, null, valueRegex)
+                    .Save());
             }
             else
             {
-                doc.Set(section, subsection, variable, "false", valueRegex);
-                doc.Save();
+                return new FileConfig(FilePath, document
+                    .Set(section, subsection, variable, "false", valueRegex)
+                    .Save());
             }
         }
 
-        public override void SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
-        {
-            doc.Set(section, subsection, variable, value.ToString("O"), valueRegex);
-            doc.Save();
-        }
+        public override Config SetDateTime(string section, string? subsection, string variable, DateTime value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .Set(section, subsection, variable, value.ToString("O"), valueRegex)
+                .Save());
 
-        public override void SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
-        {
-            doc.Set(section, subsection, variable, value.ToString(), valueRegex);
-            doc.Save();
-        }
+        public override Config SetNumber(string section, string? subsection, string variable, long value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .Set(section, subsection, variable, value.ToString(), valueRegex)
+                .Save());
 
-        public override void SetString(string section, string? subsection, string variable, string value, string? valueRegex)
-        {
-            doc.Set(section, subsection, variable, value, valueRegex);
-            doc.Save();
-        }
+        public override Config SetString(string section, string? subsection, string variable, string value, string? valueRegex)
+            => new FileConfig(FilePath, document
+                .Set(section, subsection, variable, value, valueRegex)
+                .Save());
 
         public override bool TryGetBoolean(string section, string? subsection, string variable, out bool value)
         {
-            var entry = doc.FirstOrDefault(x =>
+            var entry = document.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
                 variable.Equals(x.Variable));
@@ -164,7 +161,7 @@ namespace DotNetConfig
 
         public override bool TryGetDateTime(string section, string? subsection, string variable, out DateTime value)
         {
-            var entry = doc.FirstOrDefault(x =>
+            var entry = document.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
                 variable.Equals(x.Variable));
@@ -181,7 +178,7 @@ namespace DotNetConfig
 
         public override bool TryGetNumber(string section, string? subsection, string variable, out long value)
         {
-            var entry = doc.FirstOrDefault(x =>
+            var entry = document.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
                 variable.Equals(x.Variable));
@@ -198,7 +195,7 @@ namespace DotNetConfig
 
         public override bool TryGetString(string section, string? subsection, string variable, out string value)
         {
-            var entry = doc.FirstOrDefault(x =>
+            var entry = document.FirstOrDefault(x =>
                 string.Equals(section, x.Section, StringComparison.OrdinalIgnoreCase) &&
                 string.Equals(x.Subsection, subsection) &&
                 variable.Equals(x.Variable));
@@ -213,19 +210,17 @@ namespace DotNetConfig
             return true;
         }
 
-        public override void Unset(string section, string? subsection, string variable)
-        {
-            doc.Unset(section, subsection, variable);
-            doc.Save();
-        }
+        public override Config Unset(string section, string? subsection, string variable)
+            => new FileConfig(FilePath, document
+                .Unset(section, subsection, variable)
+                .Save());
 
-        public override void UnsetAll(string section, string? subsection, string variable, string? valueMatcher)
-        {
-            doc.UnsetAll(section, subsection, variable, valueMatcher);
-            doc.Save();
-        }
+        public override Config UnsetAll(string section, string? subsection, string variable, string? valueMatcher)
+            => new FileConfig(FilePath, document
+                .UnsetAll(section, subsection, variable, valueMatcher)
+                .Save());
 
-        protected override IEnumerable<ConfigEntry> GetEntries() => doc;
+        protected override IEnumerable<ConfigEntry> GetEntries() => document;
 
         public override string ToString() => FilePath;
     }
