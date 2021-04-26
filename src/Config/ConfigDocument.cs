@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -45,7 +45,14 @@ namespace DotNetConfig
             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
 
+            var addHeader = !File.Exists(filePath);
             using var writer = new StreamWriter(filePath, false);
+            if (addHeader)
+            {
+                writer.WriteLine("# .netconfig is awesome: https://dotnetconfig.org");
+                writer.WriteLine();
+            }
+
             foreach (var line in Lines)
             {
                 writer.WriteLine(line.LineText);

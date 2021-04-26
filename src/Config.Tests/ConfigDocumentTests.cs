@@ -697,5 +697,22 @@ namespace DotNetConfig
 
             Assert.Contains("\"", line);
         }
+
+        [Fact]
+        public void when_saving_new_file_then_adds_standard_comment_line()
+        {
+            var temp = Path.GetTempFileName();
+            if (File.Exists(temp))
+                File.Delete(temp);
+
+            ConfigDocument
+                .FromFile(temp)
+                .Set("foo", null, "bar", "baz")
+                .Save();
+
+            var line = File.ReadAllLines(temp).First();
+
+            Assert.StartsWith("# .netconfig", line);
+        }
     }
 }
