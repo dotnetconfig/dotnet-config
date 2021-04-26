@@ -51,7 +51,8 @@ namespace DotNetConfig
         }
 
         public ConfigReader(string filePath)
-            : this(new StreamReader(filePath)) => this.filePath = filePath;
+            : this(new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read), true))
+            => this.filePath = filePath;
 
         internal ConfigReader(TextReader reader) => this.reader = reader;
 
