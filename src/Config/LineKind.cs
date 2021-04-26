@@ -1,6 +1,6 @@
 ﻿namespace DotNetConfig
 {
-    internal enum LineKind
+    enum LineKind
     {
         None,
         Comment,

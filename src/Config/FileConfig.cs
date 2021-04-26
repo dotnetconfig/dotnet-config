@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DotNetConfig
 {
-    internal class FileConfig : Config
+    class FileConfig : Config
     {
         ConfigDocument document;
 

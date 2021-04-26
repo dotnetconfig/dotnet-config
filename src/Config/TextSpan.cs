@@ -3,7 +3,7 @@
     /// <summary>
     /// A span of configuration text within an entire line.
     /// </summary>
-    internal class TextSpan
+    class TextSpan
     {
         string? text;
 

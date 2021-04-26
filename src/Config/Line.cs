@@ -3,7 +3,7 @@ using System.Text;
 
 namespace DotNetConfig
 {
-    internal record Line
+    record Line
     {
         public static Line CreateSection(string? filePath, int lineNumber, string section, string? subsection)
         {

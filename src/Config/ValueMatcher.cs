@@ -6,7 +6,7 @@ namespace DotNetConfig
     /// <summary>
     /// Allows matching values by using a regular expression.
     /// </summary>
-    internal class ValueMatcher
+    class ValueMatcher
     {
         readonly Func<string?, bool> matcher;
 

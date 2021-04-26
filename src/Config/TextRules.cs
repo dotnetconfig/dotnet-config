@@ -3,7 +3,7 @@ using System.Text;
 
 namespace DotNetConfig
 {
-    internal static class TextRules
+    static class TextRules
     {
         const long KB = 1024;
 
