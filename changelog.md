@@ -1,5 +1,13 @@
 
 
+## [v1.0.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.1) (2021-04-27)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0...v1.0.1)
+
+:bug: Fixed bugs:
+
+- ConfigSection facade over Config is missing immutability feature [\#61](https://github.com/dotnetconfig/dotnet-config/issues/61)
+
 ## [v1.0.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0) (2021-04-27)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0-rc.3...v1.0.0)
@@ -55,6 +63,10 @@
 ## [v1.0.0-rc.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.1) (2020-12-15)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0-rc...v1.0.0-rc.1)
+
+:sparkles: Implemented enhancements:
+
+- 🖐 Add native .NET5 support to dotnet-config tool [\#30](https://github.com/dotnetconfig/dotnet-config/pull/30) (@kzu)
 
 :hammer: Other:
 
