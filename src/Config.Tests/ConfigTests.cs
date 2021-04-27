@@ -13,7 +13,7 @@ namespace DotNetConfig
 
         public ConfigTests(ITestOutputHelper output)
         {
-            Directory.SetCurrentDirectory(ModuleInitializer.CurrentDirectory);
+            Directory.SetCurrentDirectory(Constants.CurrentDirectory);
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
