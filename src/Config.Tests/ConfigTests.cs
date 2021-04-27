@@ -9,12 +9,11 @@ namespace DotNetConfig
 {
     public class ConfigTests
     {
-        static readonly string currentDir = Directory.GetCurrentDirectory();
         readonly ITestOutputHelper output;
 
         public ConfigTests(ITestOutputHelper output)
         {
-            Directory.SetCurrentDirectory(currentDir);
+            Directory.SetCurrentDirectory(ModuleInitializer.CurrentDirectory);
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
