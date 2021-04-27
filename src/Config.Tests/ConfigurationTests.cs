@@ -19,7 +19,7 @@ namespace DotNetConfig
             this.output = output;
         }
 
-        [Fact]
+        [FlakyFact]
         public void LoadHierarchicalValues()
         {
             var config = new ConfigurationBuilder().AddDotNetConfig().Build();
