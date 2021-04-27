@@ -12,10 +12,10 @@ namespace DotNetConfig
 
         public ConfigurationTests(ITestOutputHelper output)
         {
-            Config.GlobalLocation = Path.Combine(ModuleInitializer.CurrentDirectory, "Content", "global.netconfig");
-            Config.SystemLocation = Path.Combine(ModuleInitializer.CurrentDirectory, "Content", "system.netconfig");
+            Config.GlobalLocation = Path.Combine(Constants.CurrentDirectory, "Content", "global.netconfig");
+            Config.SystemLocation = Path.Combine(Constants.CurrentDirectory, "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            Directory.SetCurrentDirectory(Path.Combine(ModuleInitializer.CurrentDirectory, "Content", "web"));
+            Directory.SetCurrentDirectory(Path.Combine(Constants.CurrentDirectory, "Content", "web"));
             this.output = output;
         }
 
@@ -29,7 +29,7 @@ namespace DotNetConfig
             Assert.Equal("yay", config["foo:bar:baz"]);
         }
 
-        [Fact]
+        [FlakyFact]
         public void SaveValues()
         {
             var config = new ConfigurationBuilder().AddDotNetConfig().Build();

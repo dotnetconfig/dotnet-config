@@ -20,6 +20,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
+    <ProjectProperty Include="OutputPath"/>
+    <ProjectProperty Include="MSBuildProjectDirectory"/>
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +30,7 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.*" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="ThisAssembly" Version="1.0.7" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>
