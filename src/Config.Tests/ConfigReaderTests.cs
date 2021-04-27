@@ -226,18 +226,16 @@ baz")]
         }
 
         [Fact]
-        public void reading_from_multiple_threads_succeeds()
+        public async Task reading_from_multiple_threads_succeeds()
         {
-            ThreadPool.GetMaxThreads(out var threads, out _);
-
             Config.GlobalLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Directory.GetCurrentDirectory(), "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
             var path = Path.Combine(Directory.GetCurrentDirectory(), "Content", ".netconfig");
 
-            Task.WaitAll(Enumerable
-                .Range(0, threads * 2)
+            await Task.WhenAll(Enumerable
+                .Range(0, 5)
                 .Select(_ => Task.Run(() => Config.Build(path)))
                 .ToArray());
         }
