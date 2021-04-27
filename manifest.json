@@ -97,6 +97,30 @@
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html",
+          "hash": "Jf3nHG4pZw4kxHttA+USkpRNKPF/X+GwiA2EMSjQZRk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.Configuration.html",
+          "hash": "qUG1PgSD8Ch9zSuAHSRxPzLrd4XHK7p4ZLERsc4jQcw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
@@ -114,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "Ow287vSL4vYdHGxDoIx5IAVkK575ojfy0JWWgFXdxwk="
+          "hash": "AGcsQGi0y+SosG/MnyRIeuJlaenj9XXVp8VyK4XxYgk="
         }
       },
       "is_incremental": false,
@@ -305,7 +329,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 7,
+          "total_file_count": 9,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

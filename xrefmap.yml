@@ -1863,3 +1863,28 @@ references:
   isSpec: "True"
   fullName: DotNetConfig.Position.Zero
   nameWithType: Position.Zero
+- uid: Microsoft.Extensions.Configuration
+  name: Microsoft.Extensions.Configuration
+  href: api/Microsoft.Extensions.Configuration.html
+  commentId: N:Microsoft.Extensions.Configuration
+  fullName: Microsoft.Extensions.Configuration
+  nameWithType: Microsoft.Extensions.Configuration
+- uid: Microsoft.Extensions.Configuration.DotNetConfigExtensions
+  name: DotNetConfigExtensions
+  href: api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html
+  commentId: T:Microsoft.Extensions.Configuration.DotNetConfigExtensions
+  fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions
+  nameWithType: DotNetConfigExtensions
+- uid: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
+  name: AddDotNetConfig(IConfigurationBuilder)
+  href: api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html#Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_IConfigurationBuilder_
+  commentId: M:Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
+  fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
+  nameWithType: DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
+- uid: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig*
+  name: AddDotNetConfig
+  href: api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html#Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_
+  commentId: Overload:Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig
+  isSpec: "True"
+  fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig
+  nameWithType: DotNetConfigExtensions.AddDotNetConfig
