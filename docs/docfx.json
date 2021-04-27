@@ -6,6 +6,10 @@
         {
           "files": [ "*.cs" ],
           "src": "../src/Config"
+        },
+        {
+          "files": [ "*.cs" ],
+          "src": "../src/Configuration"
         }
       ],
       "dest": "docs/api"

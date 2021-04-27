@@ -51,7 +51,7 @@ namespace DotNetConfig
         }
 
         public ConfigReader(string filePath)
-            : this(new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read, bufferSize: 1, options: FileOptions.SequentialScan)))
+            : this(new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete, bufferSize: 1, options: FileOptions.SequentialScan)))
             => this.filePath = filePath;
 
         internal ConfigReader(TextReader reader) => this.reader = reader;
