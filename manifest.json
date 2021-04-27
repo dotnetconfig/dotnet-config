@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.Config.html",
-          "hash": "PXagirhn6UOXIXRHV6tpYtclAn/2IykKidH31SDNpo8="
+          "hash": "BKkpXqAZZGkGeraWn3GPN3bsFUuKVW8fbPDfy963hw0="
         }
       },
       "is_incremental": false,
@@ -50,23 +50,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DotNetConfig.ConfigSection.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DotNetConfig.ConfigSection.html",
-          "hash": "AcD4M7v0QRkiwqjDVRaCaWzbl7mBynNI6uaiNVF+TIA="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/DotNetConfig.ConfigSectionExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSectionExtensions.html",
-          "hash": "JTxO6Q4pLRUa/v2xCSwBcWzZCM2h587rJNHak58E7Ds="
+          "hash": "OKKu3JkfkcRKPhhIK8XXU86AQHNFse+BiA6X2SV/3UI="
         }
       },
       "is_incremental": false,
@@ -90,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.html",
-          "hash": "n8B7EdDeYUvq9VuxD/ppoNbVQPOreHtpqQ7UTagq2pw="
+          "hash": "L38+WGWv5+0mkrPQfXOs+3rRBqVjpMm0fOc2W610Yw4="
         }
       },
       "is_incremental": false,
@@ -138,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "AGcsQGi0y+SosG/MnyRIeuJlaenj9XXVp8VyK4XxYgk="
+          "hash": "3HEc7M2fqFOOhG2WksvR9YiL8PlyH/voZ4jJQ2I6u5I="
         }
       },
       "is_incremental": false,
@@ -329,7 +317,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 9,
+          "total_file_count": 8,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
