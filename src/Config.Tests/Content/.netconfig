@@ -1,3 +1,6 @@
 ﻿[core]
 	timeout = 60
     parent = on
+
+[foo "bar"]
+    baz = yay

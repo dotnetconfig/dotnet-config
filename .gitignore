@@ -15,6 +15,7 @@ pack
 *.cache
 *.binlog
 *.zip
+*.txt
 
 .nuget
 *.lock.json

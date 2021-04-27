@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -31,11 +31,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Config\Config.csproj" />
+    <Compile Include="..\Config\Range.cs" Link="Range.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="..\Config\Range.cs" Link="Range.cs" />
+    <ProjectReference Include="..\Configuration\Configuration.csproj" />
+    <ProjectReference Include="..\Config\Config.csproj" />
   </ItemGroup>
 
 </Project>
