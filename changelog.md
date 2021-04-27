@@ -1,5 +1,19 @@
 
 
+## [v1.0.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0) (2021-04-27)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0-rc.3...v1.0.0)
+
+:sparkles: Implemented enhancements:
+
+- Disable async IO since configuration loading is synchronous [\#57](https://github.com/dotnetconfig/dotnet-config/issues/57)
+- Add Microsoft.Extensions.Configuration support [\#3](https://github.com/dotnetconfig/dotnet-config/issues/3)
+
+:twisted_rightwards_arrows: Merged:
+
+- ⚙ Account for test flakyness in CI [\#59](https://github.com/dotnetconfig/dotnet-config/pull/59) (@kzu)
+- ⚙ Add basic Microsoft.Extensions.Configuration support [\#58](https://github.com/dotnetconfig/dotnet-config/pull/58) (@kzu)
+
 ## [v1.0.0-rc.3](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.3) (2021-04-26)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0-rc.2...v1.0.0-rc.3)
@@ -8,7 +22,6 @@
 
 - Switch to an immutable internal structure and public API [\#54](https://github.com/dotnetconfig/dotnet-config/issues/54)
 - When writing initial file, add header line [\#53](https://github.com/dotnetconfig/dotnet-config/issues/53)
-- Add coverlet support [\#20](https://github.com/dotnetconfig/dotnet-config/issues/20)
 
 :bug: Fixed bugs:
 
@@ -25,7 +38,6 @@
 - 🔄 dotnet-file sync [\#42](https://github.com/dotnetconfig/dotnet-config/pull/42) (@kzu)
 - 🔄 dotnet-file sync [\#41](https://github.com/dotnetconfig/dotnet-config/pull/41) (@kzu)
 - 🖆 Apply devlooped/oss template via dotnet-file [\#38](https://github.com/dotnetconfig/dotnet-config/pull/38) (@kzu)
-- 🖆 Apply kzu/oss template via dotnet-file [\#23](https://github.com/dotnetconfig/dotnet-config/pull/23) (@kzu)
 
 ## [v1.0.0-rc.2](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.2) (2020-12-21)
 
@@ -43,10 +55,6 @@
 ## [v1.0.0-rc.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.1) (2020-12-15)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0-rc...v1.0.0-rc.1)
-
-:sparkles: Implemented enhancements:
-
-- 🖐 Add native .NET5 support to dotnet-config tool [\#30](https://github.com/dotnetconfig/dotnet-config/pull/30) (@kzu)
 
 :hammer: Other:
 
