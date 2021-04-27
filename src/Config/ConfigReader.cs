@@ -8,7 +8,7 @@ namespace DotNetConfig
     class ConfigReader : IDisposable
     {
         readonly string? filePath;
-        readonly TextReader reader;
+        TextReader? reader;
         int lineNumber;
         TextSpan? section;
         TextSpan? subsection;
@@ -51,14 +51,14 @@ namespace DotNetConfig
         }
 
         public ConfigReader(string filePath)
-            : this(new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read), true))
+            : this(new StreamReader(new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read, bufferSize: 1, options: FileOptions.SequentialScan)))
             => this.filePath = filePath;
 
         internal ConfigReader(TextReader reader) => this.reader = reader;
 
         public Line? ReadLine()
         {
-            if (reader.Peek() == -1)
+            if (reader == null || reader.Peek() == -1)
                 return null;
 
             var lineText = reader.ReadLine();
@@ -405,7 +405,11 @@ namespace DotNetConfig
 
         ~ConfigReader() => Dispose(false);
 
-        void Dispose(bool disposing) => reader.Dispose();
+        void Dispose(bool disposing)
+        {
+            reader?.Dispose();
+            reader = null;
+        }
 
         static int AdvanceTo(string lineText, int start, Func<char, bool> predicate)
         {

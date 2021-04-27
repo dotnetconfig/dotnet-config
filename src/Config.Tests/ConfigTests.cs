@@ -394,8 +394,8 @@ bar = hey");
             Config.SystemLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
 
             // Simulates opening a cli app from the user's profile dir
-            Directory.CreateDirectory(Path.GetDirectoryName(Config.GlobalLocation));
-            Directory.SetCurrentDirectory(Path.GetDirectoryName(Config.GlobalLocation));
+            Directory.CreateDirectory(Path.GetDirectoryName(Config.GlobalLocation)!);
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(Config.GlobalLocation)!);
             var config = Config.Build();
 
             config.SetString("foo", "bar", "baz");
