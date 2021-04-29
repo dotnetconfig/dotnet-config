@@ -20,7 +20,7 @@ namespace DotNetConfig
         }
 
         [FlakyFact]
-        public void LoadHierarchicalValues()
+        public void can_load_hierarchical_values()
         {
             var config = new ConfigurationBuilder().AddDotNetConfig().Build();
             Assert.Equal("on", config["core:parent"]);
@@ -30,7 +30,7 @@ namespace DotNetConfig
         }
 
         [FlakyFact]
-        public void SaveValues()
+        public void can_save_values()
         {
             var config = new ConfigurationBuilder().AddDotNetConfig().Build();
             config["foo:enabled"] = "true";

@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🙏 build
-        run: dotnet build -p:BuildDocFx=true
+        run: dotnet build -p:BuildDocFx=true -p:DOCFX_SOURCE_BRANCH_NAME=main
 
       - name: 🚀 deploy 
         uses: JamesIves/github-pages-deploy-action@releases/v3

@@ -10,6 +10,10 @@
         {
           "files": [ "*.cs" ],
           "src": "../src/Configuration"
+        },
+        {
+          "files": [ "*.cs" ],
+          "src": "../src/CommandLine"
         }
       ],
       "dest": "docs/api"
