@@ -62,23 +62,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/DotNetConfig.Position.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/DotNetConfig.Position.html",
-          "hash": "FBJeXjc38XCQjn23E0NdYk6J4MInCTCgPCvT9BVvOqg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/DotNetConfig.yml",
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.html",
-          "hash": "L38+WGWv5+0mkrPQfXOs+3rRBqVjpMm0fOc2W610Yw4="
+          "hash": "C/kqp0TkJN/Brm6TdfgK45RBU78e8ka7/qo2mmY5KiA="
         }
       },
       "is_incremental": false,
@@ -150,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "8Z5GLgvmBXkut5YkwuXkXwRILoayra2gKTMTAEsuvN0="
+          "hash": "i7zfSzrPVmSRlCCraqnLoWf4fhBOfWyzlZSPjJ9XROk="
         }
       },
       "is_incremental": false,
@@ -341,7 +329,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 10,
+          "total_file_count": 9,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

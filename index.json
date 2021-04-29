@@ -22,12 +22,7 @@
   "api/DotNetConfig.html": {
     "href": "api/DotNetConfig.html",
     "title": "Namespace DotNetConfig | .netconfig",
-    "keywords": "Namespace DotNetConfig Classes Config Provides access to .netconfig configuration options. ConfigExtensions Usability overloads for Config . ConfigSectionExtensions Usability overloads for . Position A position within a line of configuration. Enums ConfigLevel Specifies the level of configuration to use."
-  },
-  "api/DotNetConfig.Position.html": {
-    "href": "api/DotNetConfig.Position.html",
-    "title": "Class Position | .netconfig",
-    "keywords": "Class Position A position within a line of configuration. Inheritance System.Object Position Inherited Members System.Object.Equals(System.Object) System.Object.Equals(System.Object, System.Object) System.Object.GetHashCode() System.Object.GetType() System.Object.MemberwiseClone() System.Object.ReferenceEquals(System.Object, System.Object) Namespace : DotNetConfig Assembly : cs.temp.dll.dll Syntax public class Position Constructors Position(Int32, Int32, Nullable<Int32>) Creates a new position. Declaration public Position(int line, int absolute, int? column = default(int? )) Parameters Type Name Description System.Int32 line The line number. System.Int32 absolute The absolute position (zero-based). System.Nullable < System.Int32 > column The column number (one-based). Properties Absolute The zero-based absolute index of the position. Declaration public int Absolute { get; } Property Value Type Description System.Int32 Column Gets the one-based column number. Declaration public int Column { get; } Property Value Type Description System.Int32 HasValue true if the position has a value. Declaration public bool HasValue { get; } Property Value Type Description System.Boolean Line Gets the one-based line number. Declaration public int Line { get; } Property Value Type Description System.Int32 Zero The position corresponding to the zero index. Declaration public static Position Zero { get; } Property Value Type Description Position Methods ToString() Gets the Absolute position. Declaration public override string ToString() Returns Type Description System.String Overrides System.Object.ToString()"
+    "keywords": "Namespace DotNetConfig Classes Config Provides access to .netconfig configuration options. ConfigExtensions Usability overloads for Config . ConfigSectionExtensions Usability overloads for . Enums ConfigLevel Specifies the level of configuration to use."
   },
   "api/index.html": {
     "href": "api/index.html",
