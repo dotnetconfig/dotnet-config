@@ -1,7 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>APIs for handling dotnet-config compatible settings for any dotnet tool.</Description>
+    <Description>APIs for handling dotnet-config compatible settings for any dotnet tool.
+
+Usage: 
+  var config = Config.Build();
+  var value = config.GetString("section", "subsection", "variable");
+
+  // Setting values, Config is immutable, so chain calls and update var
+  config = config
+    .SetString("section", "subsection", "variable", value)
+    .SetBoolean("section", "subsection", "enabled", true);
+</Description>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DotNetConfig</AssemblyName>
@@ -24,7 +34,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-    <PackageReference Include="ThisAssembly" Version="1.0.7" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="1.0.8" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.57.2" PrivateAssets="all" />
   </ItemGroup>
 

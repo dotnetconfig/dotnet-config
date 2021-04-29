@@ -2,7 +2,14 @@
 
   <PropertyGroup>
     <PackageId>DotNetConfig.Configuration</PackageId>
-    <Description>DotNetConfig configuration provider implementation for Microsoft.Extensions.Configuration.</Description>
+    <Description>DotNetConfig configuration provider implementation for Microsoft.Extensions.Configuration.
+    
+Usage:
+    var config = new ConfigurationBuilder().AddDotNetConfig().Build();
+    var value = config["section:subsection:variable"]);
+
+Note: section is required and subsection is optional, just like in dotnet-config.
+    </Description>
 
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>DotNetConfig.Configuration</AssemblyName>

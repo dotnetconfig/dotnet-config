@@ -65,7 +65,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{61
 		docs\template\partials\scripts.tmpl.partial = docs\template\partials\scripts.tmpl.partial
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuration", "src\Configuration\Configuration.csproj", "{27257308-72DF-4C4E-8B22-E7CD08984ABE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "src\Configuration\Configuration.csproj", "{27257308-72DF-4C4E-8B22-E7CD08984ABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandLine", "src\CommandLine\CommandLine.csproj", "{545759D0-0144-4CEA-8AFF-73879FEFA918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,10 @@ Global
 		{27257308-72DF-4C4E-8B22-E7CD08984ABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27257308-72DF-4C4E-8B22-E7CD08984ABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{27257308-72DF-4C4E-8B22-E7CD08984ABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545759D0-0144-4CEA-8AFF-73879FEFA918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545759D0-0144-4CEA-8AFF-73879FEFA918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545759D0-0144-4CEA-8AFF-73879FEFA918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545759D0-0144-4CEA-8AFF-73879FEFA918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
