@@ -1,5 +1,17 @@
 
 
+## [v1.0.2](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.2) (2021-04-29)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.1...v1.0.2)
+
+:sparkles: Implemented enhancements:
+
+- ≥ Add System.CommandLine support [\#65](https://github.com/dotnetconfig/dotnet-config/pull/65) (@kzu)
+
+:bug: Fixed bugs:
+
+- dotnet-config tool is missing repository/project properties [\#64](https://github.com/dotnetconfig/dotnet-config/issues/64)
+
 ## [v1.0.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.1) (2021-04-27)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0...v1.0.1)
