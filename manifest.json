@@ -109,12 +109,36 @@
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "api/System.CommandLine.CommandLineExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.CommandLine.CommandLineExtensions.html",
+          "hash": "QsGWzEfATeHKxkaIwGDPwb1UWYFwskVx9sRnk8zcyKw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/System.CommandLine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.CommandLine.html",
+          "hash": "TSH9LCtgOnbAebbVbjb/u3wLZmEth+un8q578wMuk54="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "K2S+cRXfr3LYjcbHa4D35n8jbw153MePS4KPbzZ+PqA="
+          "hash": "CZ5Tydq1p5fV2ixso+CDy7Tc9Rpn54HkLArBw6crVhw="
         }
       },
       "is_incremental": false,
@@ -126,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "3HEc7M2fqFOOhG2WksvR9YiL8PlyH/voZ4jJQ2I6u5I="
+          "hash": "8Z5GLgvmBXkut5YkwuXkXwRILoayra2gKTMTAEsuvN0="
         }
       },
       "is_incremental": false,
@@ -149,7 +173,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "CWsDWnQ6jGKMZn3OI04xD38onDd5d8VN7DYzG1n4iyI="
+          "hash": "yKyLYW+tZtAYVss1r0DpjiJQOQjZ9b8EhPXdSObvbrk="
         }
       },
       "is_incremental": false,
@@ -317,7 +341,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 8,
+          "total_file_count": 10,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

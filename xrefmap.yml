@@ -1335,3 +1335,31 @@ references:
   isSpec: "True"
   fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig
   nameWithType: DotNetConfigExtensions.AddDotNetConfig
+- uid: System.CommandLine
+  name: System.CommandLine
+  href: api/System.CommandLine.html
+  commentId: N:System.CommandLine
+  fullName: System.CommandLine
+  nameWithType: System.CommandLine
+- uid: System.CommandLine.CommandLineExtensions
+  name: CommandLineExtensions
+  href: api/System.CommandLine.CommandLineExtensions.html
+  commentId: T:System.CommandLine.CommandLineExtensions
+  fullName: System.CommandLine.CommandLineExtensions
+  nameWithType: CommandLineExtensions
+- uid: System.CommandLine.CommandLineExtensions.WithConfigurableDefaults*
+  name: WithConfigurableDefaults
+  href: api/System.CommandLine.CommandLineExtensions.html#System_CommandLine_CommandLineExtensions_WithConfigurableDefaults_
+  commentId: Overload:System.CommandLine.CommandLineExtensions.WithConfigurableDefaults
+  isSpec: "True"
+  fullName: System.CommandLine.CommandLineExtensions.WithConfigurableDefaults
+  nameWithType: CommandLineExtensions.WithConfigurableDefaults
+- uid: System.CommandLine.CommandLineExtensions.WithConfigurableDefaults``1(``0,System.String,System.Nullable{Config})
+  name: WithConfigurableDefaults<T>(T, String, Nullable<Config>)
+  href: api/System.CommandLine.CommandLineExtensions.html#System_CommandLine_CommandLineExtensions_WithConfigurableDefaults__1___0_System_String_System_Nullable_Config__
+  commentId: M:System.CommandLine.CommandLineExtensions.WithConfigurableDefaults``1(``0,System.String,System.Nullable{Config})
+  name.vb: WithConfigurableDefaults(Of T)(T, String, Nullable(Of Config))
+  fullName: System.CommandLine.CommandLineExtensions.WithConfigurableDefaults<T>(T, System.String, System.Nullable<Config>)
+  fullName.vb: System.CommandLine.CommandLineExtensions.WithConfigurableDefaults(Of T)(T, System.String, System.Nullable(Of Config))
+  nameWithType: CommandLineExtensions.WithConfigurableDefaults<T>(T, String, Nullable<Config>)
+  nameWithType.vb: CommandLineExtensions.WithConfigurableDefaults(Of T)(T, String, Nullable(Of Config))
