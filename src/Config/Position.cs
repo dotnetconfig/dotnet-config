@@ -3,7 +3,7 @@
     /// <summary>
     /// A position within a line of configuration.
     /// </summary>
-    public class Position
+    class Position
     {
         /// <summary>
         /// The position corresponding to the zero index.
