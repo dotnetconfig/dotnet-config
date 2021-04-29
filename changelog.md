@@ -1,8 +1,8 @@
 
 
-## [v1.0.2](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.2) (2021-04-29)
+## [v1.0.3](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.3) (2021-04-29)
 
-[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.1...v1.0.2)
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0...v1.0.3)
 
 :sparkles: Implemented enhancements:
 
@@ -10,14 +10,8 @@
 
 :bug: Fixed bugs:
 
+- Position class should not be public, it's an internal implementation detail [\#66](https://github.com/dotnetconfig/dotnet-config/issues/66)
 - dotnet-config tool is missing repository/project properties [\#64](https://github.com/dotnetconfig/dotnet-config/issues/64)
-
-## [v1.0.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.1) (2021-04-27)
-
-[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0...v1.0.1)
-
-:bug: Fixed bugs:
-
 - ConfigSection facade over Config is missing immutability feature [\#61](https://github.com/dotnetconfig/dotnet-config/issues/61)
 
 ## [v1.0.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0) (2021-04-27)
@@ -57,7 +51,6 @@
 - Bump files with dotnet-file sync [\#46](https://github.com/dotnetconfig/dotnet-config/pull/46) (@kzu)
 - 🔄 dotnet-file sync [\#42](https://github.com/dotnetconfig/dotnet-config/pull/42) (@kzu)
 - 🔄 dotnet-file sync [\#41](https://github.com/dotnetconfig/dotnet-config/pull/41) (@kzu)
-- 🖆 Apply devlooped/oss template via dotnet-file [\#38](https://github.com/dotnetconfig/dotnet-config/pull/38) (@kzu)
 
 ## [v1.0.0-rc.2](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.2) (2020-12-21)
 
