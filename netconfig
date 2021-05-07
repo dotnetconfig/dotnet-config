@@ -1,0 +1,30 @@
+[file]
+	url = https://github.com/devlooped/oss
+
+# don't sync the .netconfig itself, to avoid a loop
+[file ".netconfig"]
+	url = https://github.com/devlooped/oss/blob/main/.netconfig
+	skip
+
+# readme is always customized for the project
+[file "readme.md"]
+	url = https://github.com/devlooped/oss/blob/main/readme.md
+	skip
+
+# icon is typically specific to each project
+[file "src/icon.png"]
+	url = https://github.com/devlooped/oss/blob/main/src/icon.png
+	skip
+
+# the configuration needs repo-specific links to Discussions
+[file ".github/ISSUE_TEMPLATE/config.yml"]
+	url = https://github.com/devlooped/oss/blob/main/.github/ISSUE_TEMPLATE/config.yml
+	skip
+
+# sponsors images referenced directly by other repos
+[file "assets/images/sponsors.svg"]
+	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.svg
+	skip
+[file "assets/images/sponsors.png"]
+	url = https://github.com/devlooped/oss/blob/main/assets/images/sponsors.png
+	skip
