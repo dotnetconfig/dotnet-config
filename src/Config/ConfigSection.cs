@@ -14,9 +14,15 @@ namespace DotNetConfig
 
         internal Config Config { get; init; }
 
-        internal string Section { get; }
+        /// <summary>
+        /// Gets the section name.
+        /// </summary>
+        public string Section { get; }
 
-        internal string? Subsection { get; }
+        /// <summary>
+        /// Gets the subsection name (if any).
+        /// </summary>
+        public string? Subsection { get; }
 
         /// <summary>
         /// Adds a value to a multi-valued variable in the current section/subsection.
