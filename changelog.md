@@ -1,5 +1,25 @@
 
 
+## [Unreleased](https://github.com/dotnetconfig/dotnet-config/tree/HEAD)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.4...HEAD)
+
+:bug: Fixed bugs:
+
+- Dependency on Configuration.Abstractions doesn't work with Functions v3 [\#73](https://github.com/dotnetconfig/dotnet-config/issues/73)
+
+## [v1.0.4](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.4) (2021-06-12)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.3...v1.0.4)
+
+:sparkles: Implemented enhancements:
+
+- Expose Section and Subsection for a ConfigSection [\#70](https://github.com/dotnetconfig/dotnet-config/issues/70)
+
+:twisted_rightwards_arrows: Merged:
+
+- Bump files with dotnet-file sync [\#72](https://github.com/dotnetconfig/dotnet-config/pull/72) (@kzu)
+
 ## [v1.0.3](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.3) (2021-04-29)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.0...v1.0.3)
@@ -51,6 +71,7 @@
 - Bump files with dotnet-file sync [\#46](https://github.com/dotnetconfig/dotnet-config/pull/46) (@kzu)
 - 🔄 dotnet-file sync [\#42](https://github.com/dotnetconfig/dotnet-config/pull/42) (@kzu)
 - 🔄 dotnet-file sync [\#41](https://github.com/dotnetconfig/dotnet-config/pull/41) (@kzu)
+- 🖆 Apply devlooped/oss template via dotnet-file [\#38](https://github.com/dotnetconfig/dotnet-config/pull/38) (@kzu)
 
 ## [v1.0.0-rc.2](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.0-rc.2) (2020-12-21)
 
@@ -91,6 +112,7 @@
 
 :twisted_rightwards_arrows: Merged:
 
+- Simplify PR build script [\#19](https://github.com/dotnetconfig/dotnet-config/pull/19) (@kzu)
 - Run CI validation via GH actions for speed [\#13](https://github.com/dotnetconfig/dotnet-config/pull/13) (@kzu)
 - Build and test in all supported platforms [\#12](https://github.com/dotnetconfig/dotnet-config/pull/12) (@kzu)
 - Get normalized and resolved relative paths from config [\#11](https://github.com/dotnetconfig/dotnet-config/pull/11) (@kzu)
