@@ -18,7 +18,19 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.Config.html",
-          "hash": "EHXM3s0ueUphUeUIllGKE0FDmkaVyFbgsMxF03xcteg="
+          "hash": "y7yUaVwL5aAiOEr9bPdBIrQFVeqTV2gazXG/XfacHhU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DotNetConfig.ConfigEntry.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DotNetConfig.ConfigEntry.html",
+          "hash": "01u/ycKWlhY29CaLqActtWr6GVJp0srM7In4i3CkzAE="
         }
       },
       "is_incremental": false,
@@ -30,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigExtensions.html",
-          "hash": "F8vFvpBx3AAAyLPvckXRshsMZZbnPbcOfCUEXHecCAU="
+          "hash": "Jvz910vSGJ4ayR+UQ08Al2/RiQ48nsjyJJJkbwh92RM="
         }
       },
       "is_incremental": false,
@@ -42,7 +54,19 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigLevel.html",
-          "hash": "JoZyNO4hUmwtVy6xnGyHy0AaOTjHswqzYhRRm0/gAJM="
+          "hash": "EmXjKqdMdSwN2t5RyMdjvj85NJraJSVoA+2zQ+X1njQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/DotNetConfig.ConfigSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/DotNetConfig.ConfigSection.html",
+          "hash": "o0pLTyqWqjzepHbgKJ9nxu79GYYMJIfDsAjSxpriP1E="
         }
       },
       "is_incremental": false,
@@ -54,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.ConfigSectionExtensions.html",
-          "hash": "OKKu3JkfkcRKPhhIK8XXU86AQHNFse+BiA6X2SV/3UI="
+          "hash": "ATPQHj/C/+IWum0eWcgVUDOylVmynB4pH97Lkl5sFgE="
         }
       },
       "is_incremental": false,
@@ -66,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "api/DotNetConfig.html",
-          "hash": "C/kqp0TkJN/Brm6TdfgK45RBU78e8ka7/qo2mmY5KiA="
+          "hash": "yDPKK3gAGb61sppdx7H7+11H0Rw1WIiRPGDyiawAN1U="
         }
       },
       "is_incremental": false,
@@ -78,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html",
-          "hash": "Jf3nHG4pZw4kxHttA+USkpRNKPF/X+GwiA2EMSjQZRk="
+          "hash": "pMHncXCAJtz1boYq8zKLJ0cKmnkdgZ2w8NIbsqVTb+U="
         }
       },
       "is_incremental": false,
@@ -90,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Microsoft.Extensions.Configuration.html",
-          "hash": "qUG1PgSD8Ch9zSuAHSRxPzLrd4XHK7p4ZLERsc4jQcw="
+          "hash": "jbn5fCxVkc8tDZgn+YW+A+jNoYN3FYTgiHXWzvoQ5sg="
         }
       },
       "is_incremental": false,
@@ -102,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "api/System.CommandLine.CommandLineExtensions.html",
-          "hash": "QsGWzEfATeHKxkaIwGDPwb1UWYFwskVx9sRnk8zcyKw="
+          "hash": "RtdoLz/2K7jO+UcsTU37rnLcx4aHnXhp6WPWPGiW8LQ="
         }
       },
       "is_incremental": false,
@@ -114,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "api/System.CommandLine.html",
-          "hash": "TSH9LCtgOnbAebbVbjb/u3wLZmEth+un8q578wMuk54="
+          "hash": "mh6rChCp5y2w4QmQAPOZDmAq4+lvAmYdhbTeEr5aUiw="
         }
       },
       "is_incremental": false,
@@ -126,7 +150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "CZ5Tydq1p5fV2ixso+CDy7Tc9Rpn54HkLArBw6crVhw="
+          "hash": "3XTTrFqr1nLnF/T2xTTDlXm37BWOVPrUQErUzvHbbu0="
         }
       },
       "is_incremental": false,
@@ -138,7 +162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "i7zfSzrPVmSRlCCraqnLoWf4fhBOfWyzlZSPjJ9XROk="
+          "hash": "bLJP3mmKiFpajNJXXptPUL1sC+tIqbDV5oVk8UTzFvU="
         }
       },
       "is_incremental": false,
@@ -161,7 +185,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "yKyLYW+tZtAYVss1r0DpjiJQOQjZ9b8EhPXdSObvbrk="
+          "hash": "4Hzl7jMllLyL7Z76LfeuKFdOrpig9D14GL2n9gQQhds="
         }
       },
       "is_incremental": false,
@@ -218,7 +242,7 @@
       "output": {
         ".html": {
           "relative_path": "who/dotnet-eventgrid.html",
-          "hash": "QA61MnbY94LbIlcjTpFNWadPGTfiia3O4cjZj0Nvoiw="
+          "hash": "jB5RBcQ9nXcLtbPZ3GBybTePMfabw/DTEdrhnrPArT0="
         }
       },
       "is_incremental": false,
@@ -230,7 +254,7 @@
       "output": {
         ".html": {
           "relative_path": "who/dotnet-file.html",
-          "hash": "b7rOA+gYeDCfJ35sPfVye8pSrWCWfiW6fIHqTEDheMM="
+          "hash": "W+SHxCOTOxzNjx49yesEnKxLddUAywyJZUDXY75UT9I="
         }
       },
       "is_incremental": false,
@@ -242,7 +266,7 @@
       "output": {
         ".html": {
           "relative_path": "who/dotnet-serve.html",
-          "hash": "xTZj9TZ31aIcsYLRBF8IymW2NLYKDIjSms0RCf0d3Zc="
+          "hash": "+qYH746ZDCzydHxxqA9QpTP31wZCU4QZc3PbImPnfrA="
         }
       },
       "is_incremental": false,
@@ -254,7 +278,7 @@
       "output": {
         ".html": {
           "relative_path": "who/dotnet-vs.html",
-          "hash": "pbxu5OHB42aaiTBw2NQNNaki1De2VbjLqUkO1Z9MuGk="
+          "hash": "Sf2Z0EXrD+O4wXbZTojjSjQcrFQMGN8tDZxmphknWCk="
         }
       },
       "is_incremental": false,
@@ -266,7 +290,7 @@
       "output": {
         ".html": {
           "relative_path": "who/index.html",
-          "hash": "i16qzTKdQnxTvPAoXr0gCFHGDT7cql4KQ2VOrkTu0Sw="
+          "hash": "WkZhMrQMgijSxXGTqz6LotWL45pbcH0NcOBoNKTIiGU="
         }
       },
       "is_incremental": false,
@@ -278,7 +302,7 @@
       "output": {
         ".html": {
           "relative_path": "who/reportgenerator.html",
-          "hash": "CX1aYvsfxKeJiwe7F2nHtIw67DEMBBjgcTI26+r7WMQ="
+          "hash": "XL6E27Vu4VE5cEQm8aKBILem1Tv2o9B4XqtN5iESpiI="
         }
       },
       "is_incremental": false,
@@ -290,7 +314,7 @@
       "output": {
         ".html": {
           "relative_path": "who/sleet.html",
-          "hash": "swHiqFtHXNef5JhA7MoK+Oyp0an3eX2meBHq3QNBtxM="
+          "hash": "D14z8QfSozD9gxeJlhlYiQootU/DgiZ9fioYoiS8wBc="
         }
       },
       "is_incremental": false,
@@ -329,7 +353,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 9,
+          "total_file_count": 11,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {
