@@ -1,11 +1,17 @@
 
 
-## [Unreleased](https://github.com/dotnetconfig/dotnet-config/tree/HEAD)
+## [v1.0.5](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.5) (2021-07-30)
 
-[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.4...HEAD)
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.4...v1.0.5)
+
+:sparkles: Implemented enhancements:
+
+- Include readme in package [\#77](https://github.com/dotnetconfig/dotnet-config/issues/77)
 
 :bug: Fixed bugs:
 
+- Configuration extension AddDotNetConfig inverts settings hierarchy/priority [\#78](https://github.com/dotnetconfig/dotnet-config/issues/78)
+- Impossible to have an extension-less config file name [\#76](https://github.com/dotnetconfig/dotnet-config/issues/76)
 - Dependency on Configuration.Abstractions doesn't work with Functions v3 [\#73](https://github.com/dotnetconfig/dotnet-config/issues/73)
 
 ## [v1.0.4](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.4) (2021-06-12)
@@ -112,7 +118,6 @@
 
 :twisted_rightwards_arrows: Merged:
 
-- Simplify PR build script [\#19](https://github.com/dotnetconfig/dotnet-config/pull/19) (@kzu)
 - Run CI validation via GH actions for speed [\#13](https://github.com/dotnetconfig/dotnet-config/pull/13) (@kzu)
 - Build and test in all supported platforms [\#12](https://github.com/dotnetconfig/dotnet-config/pull/12) (@kzu)
 - Get normalized and resolved relative paths from config [\#11](https://github.com/dotnetconfig/dotnet-config/pull/11) (@kzu)
