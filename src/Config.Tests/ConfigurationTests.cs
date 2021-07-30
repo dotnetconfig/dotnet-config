@@ -56,6 +56,25 @@ namespace DotNetConfig
             Assert.Equal("123", config["local:value"]);
         }
 
+        [Fact]
+        public void saves_to_same_level()
+        {
+            var dir = Path.Combine(Constants.CurrentDirectory, "Content", "web", nameof(saves_to_same_level));
+            Directory.CreateDirectory(dir);
+            var usr = Path.Combine(dir, Config.FileName + Config.UserExtension);
+
+            Config.Build(usr).SetNumber("local", "value", 999, ConfigLevel.Local);
+
+            var config = BuildConfiguration();
+
+            Assert.Equal("999", config["local:value"]);
+
+            config["local:value"] = "888";
+
+            Assert.Equal("888", config["local:value"]);
+            Assert.Contains("888", File.ReadAllText(usr));
+        }
+
         IConfiguration BuildConfiguration([CallerMemberName] string? methodName = null)
         {
             var dir = Path.Combine(Constants.CurrentDirectory, "Content", "web", methodName);

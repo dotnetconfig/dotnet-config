@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Configuration;
 
 namespace DotNetConfig
@@ -56,7 +57,14 @@ namespace DotNetConfig
                 variable = key.Substring(last + 1);
             }
 
-            configuration = configuration.SetString(section, subsection, variable, value);
+            var entry = configuration.FirstOrDefault(x => x.Section == section && x.Subsection == subsection && x.Variable == variable);
+            if (entry?.Level == ConfigLevel.Local)
+                // Honor the local level if specified.
+                configuration.SetString(section, subsection, variable, value, ConfigLevel.Local);
+            else
+                // Default saves to the target dir .netconfig instead.
+                configuration = configuration.SetString(section, subsection, variable, value);
+
             base.Set(key, value);
         }
     }
