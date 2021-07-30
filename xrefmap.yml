@@ -1972,6 +1972,12 @@ references:
   commentId: M:Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
   fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
   nameWithType: DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder)
+- uid: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder,System.String)
+  name: AddDotNetConfig(IConfigurationBuilder, String)
+  href: api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html#Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_IConfigurationBuilder_System_String_
+  commentId: M:Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder,System.String)
+  fullName: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder, System.String)
+  nameWithType: DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder, String)
 - uid: Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig*
   name: AddDotNetConfig
   href: api/Microsoft.Extensions.Configuration.DotNetConfigExtensions.html#Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_

@@ -176,6 +176,65 @@ to your app, for example:</p>
 
 var ssl = config[&quot;http:sslVerify&quot;];</code></pre>
 </div>
+  
+  
+  <a id="Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_" data-uid="Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig*"></a>
+  <h4 id="Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_IConfigurationBuilder_System_String_" data-uid="Microsoft.Extensions.Configuration.DotNetConfigExtensions.AddDotNetConfig(IConfigurationBuilder,System.String)">AddDotNetConfig(IConfigurationBuilder, String)</h4>
+  <div class="markdown level1 summary"><p>Adds the DotNetConfig configuration provider to the <code data-dev-comment-type="paramref" class="paramref">builder</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IConfigurationBuilder AddDotNetConfig(this IConfigurationBuilder builder, string path = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IConfigurationBuilder</span></td>
+        <td><span class="parametername">builder</span></td>
+        <td><p>The <see cref="!:IConfigurationBuilder"></see> to add dotnet config support to.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">path</span></td>
+        <td><p>Optional path to use when building the configuration. See <see cref="!:Config.Build(string?)"></see>. 
+If not provided, the current directory will be used.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">IConfigurationBuilder</span></td>
+        <td><p>The <see cref="!:IConfigurationBuilder"></see>.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Microsoft_Extensions_Configuration_DotNetConfigExtensions_AddDotNetConfig_IConfigurationBuilder_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Simply invoke this method on a builder to add hierarchical dotnet-config support 
+to your app, for example:</p>
+<pre><code>var config = new ConfigurationBuilder().AddDotNetConfig().Build();
+
+var ssl = config[&quot;http:sslVerify&quot;];</code></pre>
+</div>
 </article>
           </div>
           
