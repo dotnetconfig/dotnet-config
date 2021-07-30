@@ -20,6 +20,7 @@ Usage:
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Deterministic>true</Deterministic>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Label="docfx">
@@ -36,6 +37,10 @@ Usage:
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
     <PackageReference Include="ThisAssembly" Version="1.0.8" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.58.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" PackagePath="readme.md" Pack="true" Visible="false" />
   </ItemGroup>
 
 </Project>

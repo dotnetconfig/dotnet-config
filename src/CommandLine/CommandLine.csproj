@@ -31,6 +31,7 @@ The following heuristics are applied when providing default values:
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Deterministic>true</Deterministic>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -44,6 +45,10 @@ The following heuristics are applied when providing default values:
 
   <ItemGroup>
     <ProjectReference Include="..\Config\Config.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" PackagePath="readme.md" Pack="true" Visible="false" />
   </ItemGroup>
 
 </Project>

@@ -1,15 +1,9 @@
-![Icon](https://github.com/dotnetconfig/dotnet-config/raw/main/docs/img/icon-32.png) dotnet-config
+![Icon](https://raw.githubusercontent.com/dotnetconfig/dotnet-config/main/docs/img/icon-32.png) dotnet-config
 ============
 
-[![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config)
-[![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig)
-[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt)
-[![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd)
-[![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config)
+[![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config) [![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt) [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd) [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config) 
 
-[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/dotnet-config/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.io/index.json)
-[![CI Status](https://github.com/dotnetconfig/dotnet-config/workflows/build/badge.svg?branch=main)](https://github.com/dotnetconfig/dotnet-config/actions?query=branch%3Amain+workflow%3Abuild+)
+[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/dotnet-config/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.io/index.json) [![CI Status](https://github.com/dotnetconfig/dotnet-config/workflows/build/badge.svg?branch=main)](https://github.com/dotnetconfig/dotnet-config/actions?query=branch%3Amain+workflow%3Abuild+)
 
 <p>
 <b><a href="#why">Why</a></b>
@@ -196,8 +190,7 @@ There are three main ways to access *.netconfig* values:
 
 ### Native API
 
-[![Version](https://img.shields.io/nuget/v/DotNetConfig.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig)
-[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig)
+[![Version](https://img.shields.io/nuget/v/DotNetConfig.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig)
 
 ```
 PM> Install-Package DotNetConfig
@@ -294,8 +287,7 @@ You can explore the entire API in the [docs site](https://dotnetconfig.org/api/)
 
 ### Microsoft.Extensions.Configuration
 
-[![Version](https://img.shields.io/nuget/v/DotNetConfig.Configuration.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig.Configuration)
-[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.Configuration.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig.Configuration)
+[![Version](https://img.shields.io/nuget/v/DotNetConfig.Configuration.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig.Configuration) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.Configuration.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig.Configuration)
 
 ```
 PM> Install-Package DotNetConfig.Configuration
@@ -330,8 +322,7 @@ string timeout = config["security:admin:timeout"];  // == "60";
 
 ### System.CommandLine
 
-[![Version](https://img.shields.io/nuget/v/DotNetConfig.CommandLine.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig.CommandLine)
-[![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.CommandLine.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig.CommandLine)
+[![Version](https://img.shields.io/nuget/v/DotNetConfig.CommandLine.svg?color=royalblue)](https://www.nuget.org/packages/DotNetConfig.CommandLine) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig.CommandLine.svg?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig.CommandLine)
 
 Given the explicit goal of making **.netconfig** a first-class citizen among dotnet (global) tools, it offers 
 excelent and seamless integration with [System.CommandLine](https://www.nuget.org/packages/System.CommandLine).
@@ -439,8 +430,7 @@ For numbers, the argument/option can be either `long` or `int`. Keep in mind tha
 
 ## CLI
 
-[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config)
-[![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
+[![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config) [![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
 
 The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
 Installation is the same as for any other dotnet tool: 
