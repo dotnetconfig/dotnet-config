@@ -1,5 +1,13 @@
 
 
+## [v1.0.6](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.6) (2021-07-30)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.5...v1.0.6)
+
+:sparkles: Implemented enhancements:
+
+- Update configuration to local/user level if original entry is from local too [\#79](https://github.com/dotnetconfig/dotnet-config/issues/79)
+
 ## [v1.0.5](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.5) (2021-07-30)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.4...v1.0.5)
@@ -11,7 +19,6 @@
 :bug: Fixed bugs:
 
 - Configuration extension AddDotNetConfig inverts settings hierarchy/priority [\#78](https://github.com/dotnetconfig/dotnet-config/issues/78)
-- Impossible to have an extension-less config file name [\#76](https://github.com/dotnetconfig/dotnet-config/issues/76)
 - Dependency on Configuration.Abstractions doesn't work with Functions v3 [\#73](https://github.com/dotnetconfig/dotnet-config/issues/73)
 
 ## [v1.0.4](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.4) (2021-06-12)
