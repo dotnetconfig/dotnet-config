@@ -4,6 +4,10 @@ namespace DotNetConfig
 {
     class DotNetConfigSource : IConfigurationSource
     {
-        public IConfigurationProvider Build(IConfigurationBuilder builder) => new DotNetConfigProvider();
+        readonly string? path;
+
+        public DotNetConfigSource(string? path = null) => this.path = path;
+
+        public IConfigurationProvider Build(IConfigurationBuilder builder) => new DotNetConfigProvider(path);
     }
 }

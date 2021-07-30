@@ -2,3 +2,5 @@
 	sslVerify = false
 [core]
     global = yes
+[local]
+    value = 456

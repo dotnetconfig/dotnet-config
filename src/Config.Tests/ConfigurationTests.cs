@@ -1,5 +1,8 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.Configuration;
 using Xunit;
 using Xunit.Abstractions;
@@ -15,33 +18,50 @@ namespace DotNetConfig
             Config.GlobalLocation = Path.Combine(Constants.CurrentDirectory, "Content", "global.netconfig");
             Config.SystemLocation = Path.Combine(Constants.CurrentDirectory, "Content", "system.netconfig");
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            Directory.SetCurrentDirectory(Path.Combine(Constants.CurrentDirectory, "Content", "web"));
             this.output = output;
         }
 
-        [FlakyFact]
+        [Fact]
         public void can_load_hierarchical_values()
         {
-            var config = new ConfigurationBuilder().AddDotNetConfig().Build();
+            var config = BuildConfiguration();
+
             Assert.Equal("on", config["core:parent"]);
             Assert.Equal("true", config["http:sslVerify"]);
             Assert.Equal("false", config["http:https://weak.example.com:sslVerify"]);
             Assert.Equal("yay", config["foo:bar:baz"]);
         }
 
-        [FlakyFact]
+        [Fact]
         public void can_save_values()
         {
-            var config = new ConfigurationBuilder().AddDotNetConfig().Build();
+            var config = BuildConfiguration();
+
             config["foo:enabled"] = "true";
             config["foo:bar:baz"] = "bye";
             config["http:https://weaker.example.com:sslVerify"] = "false";
 
-            var dotnet = Config.Build();
+            var dotnet = Config.Build(Path.Combine(Constants.CurrentDirectory, "Content", "web", nameof(can_save_values)));
 
             Assert.Equal("true", dotnet.GetString("foo", "enabled"));
             Assert.Equal("bye", dotnet.GetString("foo", "bar", "baz"));
             Assert.Equal("false", dotnet.GetString("http", "https://weaker.example.com", "sslVerify"));
+        }
+
+        [Fact]
+        public void local_values_override_system_values()
+        {
+            var config = BuildConfiguration();
+
+            Assert.Equal("123", config["local:value"]);
+        }
+
+        IConfiguration BuildConfiguration([CallerMemberName] string? methodName = null)
+        {
+            var dir = Path.Combine(Constants.CurrentDirectory, "Content", "web", methodName);
+            Directory.CreateDirectory(dir);
+
+            return new ConfigurationBuilder().AddDotNetConfig(dir).Build();
         }
     }
 }

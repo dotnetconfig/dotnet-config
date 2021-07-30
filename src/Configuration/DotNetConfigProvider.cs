@@ -6,7 +6,9 @@ namespace DotNetConfig
 {
     class DotNetConfigProvider : ConfigurationProvider
     {
-        Config configuration = Config.Build();
+        Config configuration;
+
+        public DotNetConfigProvider(string? path = null) => configuration = Config.Build(path);
 
         public override void Load()
         {
@@ -25,7 +27,8 @@ namespace DotNetConfig
 
                 key += ConfigurationPath.KeyDelimiter + entry.Variable;
 
-                data[key] = string.IsNullOrWhiteSpace(entry.RawValue) ? "true" : entry.RawValue!.Trim('"');
+                if (!data.ContainsKey(key))
+                    data[key] = string.IsNullOrWhiteSpace(entry.RawValue) ? "true" : entry.RawValue!.Trim('"');
             }
 
             Data = data;
