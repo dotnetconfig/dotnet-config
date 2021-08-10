@@ -961,7 +961,7 @@ namespace DotNetConfig
                 return function(cfg);
             }
 
-            throw new ArgumentException($"Could write variable for level {level} using the given config.", nameof(config));
+            throw new ArgumentException($"Could not write variable for level {level} using the given config.", nameof(config));
         }
     }
 }
