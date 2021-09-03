@@ -48,8 +48,8 @@
 	weak
 [file ".github_changelog_generator"]
 	url = https://github.com/devlooped/oss/blob/main/.github_changelog_generator
-	sha = a7ab5fe706fdfe1efb05d47d00ef4bb137088669
-	etag = 44dc852588ec508eaed9cefe260618eb162f0db50495188fc3c4e266b41944e2
+	sha = a9a7616a242f5ba5c910c3f1c93bb38c4b2fbd8d
+	etag = 73c55fc67df88885e402f87d24c36cd5df6a08604ae1c3256ee0413d115975c6
 	weak
 [file ".gitignore"]
 	url = https://github.com/devlooped/oss/blob/main/.gitignore
@@ -83,13 +83,13 @@
 	weak
 [file "src/Directory.Build.props"]
 	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.props
-	sha = 52d6c40aaa460ac48fc74c03324c6b1db7ae170d
-	etag = ae2606c157b9725ce8c707e30d9768fb0bad901ac34065d3cd75fc2bdbc5f8cf
+	sha = 32213f2169e34df06da3e1589e52186f2cf57baf
+	etag = afbaf6c253fd1a427ace8405cca937b62a60328c218ca794f501dc66cdf81180
 	weak
 [file "src/Directory.Build.targets"]
 	url = https://github.com/devlooped/oss/blob/main/src/Directory.Build.targets
-	sha = 55c0b32601e94e1eed35028a0cad510c6bcbb265
-	etag = 874f20853c983e6440ed67bb571d94927f9fb4cd4438585b07df7b420c664609
+	sha = fde1f6f17926f429a52e64de5ec355bb643e25bc
+	etag = 126357bbdcfd2ee087986bd27f1817926f6585fba7eda4c9acb36975474fd1b7
 	weak
 [file ".github/workflows/changelog.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/changelog.yml
@@ -108,8 +108,8 @@
 	weak
 [file ".github/workflows/release-notes.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/release-notes.yml
-	sha = 70bc909d2ce6924385a8bcc3a9fb1cff338a3fb7
-	etag = c987e5b93b002c5a2a63304f677eb969b7b6e274b77ef4392aeef4d9ca7e10dd
+	sha = b07aaab94cccdaa7cd42eb17c0390ffacb6fbee8
+	etag = b01d73895c1f62e16cfd2a78e36bbf82c4d1332ed747c50002695997b92caf58
 	weak
 [file "assets/css/style.scss"]
 	url = https://github.com/devlooped/oss/blob/main/assets/css/style.scss
