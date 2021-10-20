@@ -2,6 +2,7 @@ bin
 obj
 artifacts
 pack
+TestResults
 .vs
 .vscode
 
@@ -15,7 +16,6 @@ pack
 *.cache
 *.binlog
 *.zip
-*.txt
 
 .nuget
 *.lock.json
