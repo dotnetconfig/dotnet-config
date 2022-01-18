@@ -3,7 +3,7 @@
 [![sleet](https://img.shields.io/nuget/v/sleet.svg?color=royalblue&label=sleet)](https://nuget.org/packages/sleet)
 
 [Sleet](https://github.com/emgarten/Sleet) is a static (serverless) NuGet package 
-feed generator, which supports for a JSON format as well as `.netconfig`.
+feed generator, which supports configuration via a JSON file as well as `.netconfig`.
 
 All the available [settings](https://github.com/emgarten/Sleet/blob/master/doc/client-settings.md) 
 are supported via `.netconfig`. 
