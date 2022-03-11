@@ -109,7 +109,15 @@ Example file:
     compress = true             # multiple variants for boolean: true|false|yes|no|on|off|1|0
     secure   = yes
     localized = off
-    enabled  = 1    
+    enabled  = 1
+
+; array like syntax for complex objects
+[myArray "0"] # indecies must be unique
+    description = 1st item description
+    name = Fero
+[myArray "1"]
+    description = 2nd item description
+    name = Jozo
 ```
 
 The syntax follows closely the [git-config syntax](https://git-scm.com/docs/git-config#_syntax). 
@@ -178,7 +186,45 @@ specific types and there are rules as to how to spell them.
 	to mean	"scale the number by 1024", "by 1024x1024", "by 1024x1024x1024" or "by 1024x1024x1024x1024"
 	respectively. The suffix is case insensitive, and can also include the `b`, as in `kb` or `MB`.
 
+### Array of complex objects
 
+Creation of more complex objects in array is possible via subsections. Lets say that we have following configuration object:
+
+```csharp
+public class WatchedProcess
+{
+    public string Name { get; set; }
+    public string ApplicationPath { get; set; }
+}
+```
+
+We would like to retrieve from our configuration as `IList<WatchedProcess>`. Even if git-config syntax does not have direct support for this scenario, we are able to create list of complex object with subsection and [ConfigurationRoot](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationroot?view=dotnet-plat-ext-6.0).
+
+`ConfigurationRoot` work with array in way, where it create indicies for items as "subsections". This allow us to create section selector that pick value from array based on index - i.e. `WatchedProcess:0:Name` select value of `Name` in first item in array. With this information in mind we are able to use indicies as subsections and create array of complex objects in following way:
+
+```gitconfig
+[WatchedProcesses "0"] # indicies must be unique
+	ApplicationPath = "C:\\MyProcessPath\ABCD"
+	Name = NServiceBus.Host
+
+[WatchedProcesses "1"] # indicies must be unique
+	ApplicationPath = "C:\\MyProcessPath2\ABCD"
+	Name = NServiceBus.Host
+
+[WatchedProcesses "2"] # indicies must be unique
+	ApplicationPath = "C:\\MyProcessPath2\ABCD"
+	Name = NServiceBus.Host
+```
+
+With this configuration we are able to retrieve array of complex objects in following way:
+```csharp
+var configurationBuilder = new ConfigurationBuilder();
+configurationBuilder.AddDotNetConfig();
+var configurationRoot = configurationBuilder.Build();
+var watchedProcesses = configurationRoot.GetSection(nameof(WatchedProcess)).Get<IList<Json.Appsettings.WatchedProcess>>();
+```
+
+> NOTE: be sure that your array items have unique index
 
 ## API
 
