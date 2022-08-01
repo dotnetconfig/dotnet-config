@@ -34,7 +34,7 @@ Other
 </Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3;net6.0</TargetFrameworks>
     <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
 
     <AssemblyName>dotnet-config</AssemblyName>
