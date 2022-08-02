@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <TargetFramework Condition="'$(BuildingInsideVisualStudio)' == 'true'">net472</TargetFramework>
     <AssemblyName>DotNetConfig.Tests</AssemblyName>
     <RootNamespace>DotNetConfig</RootNamespace>
+    <NoWarn>CS1685;$(NoWarn)</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,15 +31,9 @@
     <PackageReference Include="Traverse" Version="1.0.1" />
     <PackageReference Include="xunit" Version="2.4.*" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.*" />
-    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="ThisAssembly" Version="1.0.7" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.14" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21227.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="..\Config\Range.cs" Link="Range.cs" />
   </ItemGroup>
 
   <ItemGroup>
