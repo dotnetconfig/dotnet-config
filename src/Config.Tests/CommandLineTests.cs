@@ -73,17 +73,17 @@ namespace DotNetConfig
                 .SelectMany(x => x.Arguments).All(x => x.HasDefaultValue));
 
             // Gets from the command-specific section
-            Assert.Equal("bar", command.Children.OfType<Command>().First().Arguments[0].GetDefaultValue());
+            Assert.Equal("bar", command.Children.OfType<Command>().First().Arguments.First().GetDefaultValue());
             Assert.Equal("baz", Traverse
                 .DepthFirst(command, c => c.Children.OfType<Command>())
                 .First(c => c.Name == "update")
-                .Arguments[0].GetDefaultValue());
+                .Arguments.First().GetDefaultValue());
 
             // Uses default from lifted top-level section for shared "name" argument
             Assert.Equal("foo", Traverse
                 .DepthFirst(command, c => c.Children.OfType<Command>())
                 .First(c => c.Name == "install")
-                .Arguments[0].GetDefaultValue());
+                .Arguments.First().GetDefaultValue());
 
             // Non-shared but still lifted since no conflicts
             Assert.True(Traverse
@@ -105,7 +105,7 @@ namespace DotNetConfig
                 new Argument<string[]>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (string[]?)command.Arguments[0].GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (string[]?)command.Arguments.First().GetDefaultValue());
 
             command.Handler = CommandHandler.Create<string[]>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
@@ -126,8 +126,8 @@ namespace DotNetConfig
                 new Argument<List<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.NotNull(command.Arguments[0].GetDefaultValue());
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
+            Assert.NotNull(command.Arguments.First().GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments.First().GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<List<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
@@ -148,8 +148,8 @@ namespace DotNetConfig
                 new Argument<IList<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.NotNull(command.Arguments[0].GetDefaultValue());
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
+            Assert.NotNull(command.Arguments.First().GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments.First().GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<IList<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
@@ -170,8 +170,8 @@ namespace DotNetConfig
                 new Argument<ICollection<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.NotNull(command.Arguments[0].GetDefaultValue());
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
+            Assert.NotNull(command.Arguments.First().GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments.First().GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<ICollection<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));

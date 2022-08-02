@@ -16,9 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Content\**\*.*">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Update="Content\**\*.*" CopyToOutputDirectory="PreserveNewest" />
     <None Update="xunit.runner.json" CopyToOutputDirectory="PreserveNewest" />
     <ProjectProperty Include="OutputPath" />
     <ProjectProperty Include="MSBuildProjectDirectory" />
