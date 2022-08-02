@@ -75,7 +75,7 @@ namespace DotNetConfig
 
         IConfiguration BuildConfiguration([CallerMemberName] string? methodName = null)
         {
-            var dir = Path.Combine(Constants.CurrentDirectory, "Content", "web", methodName);
+            var dir = Path.Combine(Constants.CurrentDirectory, "Content", "web", methodName!);
             Directory.CreateDirectory(dir);
 
             return new ConfigurationBuilder().AddDotNetConfig(dir).Build();

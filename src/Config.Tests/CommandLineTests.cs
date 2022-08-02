@@ -126,7 +126,8 @@ namespace DotNetConfig
                 new Argument<List<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>?)command.Arguments[0].GetDefaultValue());
+            Assert.NotNull(command.Arguments[0].GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<List<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
@@ -147,7 +148,8 @@ namespace DotNetConfig
                 new Argument<IList<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>?)command.Arguments[0].GetDefaultValue());
+            Assert.NotNull(command.Arguments[0].GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<IList<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
@@ -168,7 +170,8 @@ namespace DotNetConfig
                 new Argument<ICollection<string>>("include"),
             }.WithConfigurableDefaults("cli", configuration: config);
 
-            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>?)command.Arguments[0].GetDefaultValue());
+            Assert.NotNull(command.Arguments[0].GetDefaultValue());
+            Assert.Equal(new[] { "foo", "bar", "baz" }, (IEnumerable<string>)command.Arguments[0].GetDefaultValue()!);
 
             command.Handler = CommandHandler.Create<ICollection<string>>(include =>
                 Assert.Equal(new[] { "foo", "bar", "baz" }, include));
