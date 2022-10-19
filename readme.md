@@ -200,7 +200,7 @@ public class WatchedProcess
 
 We would like to retrieve from our configuration as `IList<WatchedProcess>`. Even if git-config syntax does not have direct support for this scenario, we are able to create list of complex object with subsection and [ConfigurationRoot](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationroot?view=dotnet-plat-ext-6.0).
 
-`ConfigurationRoot` work with array in way, where it create indicies for items as "subsections". This allow us to create section selector that pick value from array based on index - i.e. `WatchedProcess:0:Name` select value of `Name` in first item in array. With this information in mind we are able to use indicies as subsections and create array of complex objects in following way:
+`ConfigurationRoot` supports working with arrays by creating indices for items as "subsections". This allows us to create a section selector that picks values from the array based on the element index. For example, `WatchedProcess:0:Name` selects the value `Name` from the first item in the array. This means we can use indices as subsections and create an array of complex objects as follows:
 
 ```gitconfig
 [WatchedProcesses "0"] # indicies must be unique
