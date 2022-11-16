@@ -167,7 +167,15 @@ section of our docs site.</p>
     compress = true             # multiple variants for boolean: true|false|yes|no|on|off|1|0
     secure   = yes
     localized = off
-    enabled  = 1    
+    enabled  = 1
+
+; array like syntax for complex objects
+[myArray &quot;0&quot;] # indecies must be unique
+    description = 1st item description
+    name = Fero
+[myArray &quot;1&quot;]
+    description = 2nd item description
+    name = Jozo
 </code></pre><p>The syntax follows closely the <a href="https://git-scm.com/docs/git-config#_syntax">git-config syntax</a>. 
 The <code>#</code> and <code>;</code> characters begin comments to the end of line, blank lines are ignored.</p>
 <p>The file consists of <strong>sections</strong> and <strong>variables</strong>. A section begins with the name of the section in 
@@ -220,6 +228,33 @@ specific types and there are rules as to how to spell them.</p>
   respectively. The suffix is case insensitive, and can also include the <code>b</code>, as in <code>kb</code> or <code>MB</code>.</p>
 </li>
 </ul>
+<h3 id="array-of-complex-objects">Array of complex objects</h3>
+<p>Creation of more complex objects in array is possible via subsections. Lets say that we have following configuration object:</p>
+<pre><code class="lang-csharp">public class WatchedProcess
+{
+    public string Name { get; set; }
+    public string ApplicationPath { get; set; }
+}
+</code></pre><p>We would like to retrieve from our configuration as <code>IList&lt;WatchedProcess&gt;</code>. Even if git-config syntax does not have direct support for this scenario, we are able to create list of complex object with subsection and <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.configuration.configurationroot?view=dotnet-plat-ext-6.0">ConfigurationRoot</a>.</p>
+<p><code>ConfigurationRoot</code> supports working with arrays by creating indices for items as &quot;subsections&quot;. This allows us to create a section selector that picks values from the array based on the element index. For example, <code>WatchedProcess:0:Name</code> selects the value <code>Name</code> from the first item in the array. This means we can use indices as subsections and create an array of complex objects as follows:</p>
+<pre><code class="lang-gitconfig">[WatchedProcesses &quot;0&quot;] # indicies must be unique
+    ApplicationPath = &quot;C:\\MyProcessPath\ABCD&quot;
+    Name = NServiceBus.Host
+
+[WatchedProcesses &quot;1&quot;] # indicies must be unique
+    ApplicationPath = &quot;C:\\MyProcessPath2\ABCD&quot;
+    Name = NServiceBus.Host
+
+[WatchedProcesses &quot;2&quot;] # indicies must be unique
+    ApplicationPath = &quot;C:\\MyProcessPath2\ABCD&quot;
+    Name = NServiceBus.Host
+</code></pre><p>With this configuration we are able to retrieve array of complex objects in following way:</p>
+<pre><code class="lang-csharp">var configurationBuilder = new ConfigurationBuilder();
+configurationBuilder.AddDotNetConfig();
+var configurationRoot = configurationBuilder.Build();
+var watchedProcesses = configurationRoot.GetSection(nameof(WatchedProcess)).Get&lt;IList&lt;Json.Appsettings.WatchedProcess&gt;&gt;();
+</code></pre><blockquote><p>NOTE: be sure that your array items have unique index</p>
+</blockquote>
 <h2 id="api">API</h2>
 <p>There are three main ways to access <em>.netconfig</em> values:</p>
 <ul>
