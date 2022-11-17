@@ -151,9 +151,7 @@
 	weak
 [file "src/nuget.config"]
 	url = https://github.com/devlooped/oss/blob/main/src/nuget.config
-	sha = 1537aa96d3c999642d678e1143b09950f235b977
-	etag = 754274e682c3523e3ac0a142ada64abff20551dc73bf16edfbd66415dcf87fd0
-	weak
+	skip
 [file ".github/workflows/includes.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/workflows/includes.yml
 	sha = 5d05e541d7b028d64b044c5b9cc80afa19dc0de0
