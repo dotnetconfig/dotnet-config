@@ -13,6 +13,7 @@ env:
 jobs:
   sync:
     runs-on: windows-latest
+    continue-on-error: true
     steps:
       - name: 🤖 defaults
         uses: devlooped/actions-bot@v1
