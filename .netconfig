@@ -1,6 +1,6 @@
 [file]
 	url = https://github.com/kzu/oss
-	url = https://github.com/devlooped/.github
+	url = https://github.com/clarius/pages
 [file ".netconfig"]
 	url = https://github.com/devlooped/oss/blob/main/.netconfig
 	skip
@@ -9,12 +9,6 @@
 	skip
 [file "readme.md"]
 	url = https://github.com/devlooped/oss/blob/main/readme.md
-	skip
-[file "src/icon.png"]
-	url = https://github.com/devlooped/oss/blob/main/src/icon.png
-	skip
-[file ".github/ISSUE_TEMPLATE/config.yml"]
-	url = https://github.com/devlooped/oss/blob/main/.github/ISSUE_TEMPLATE/config.yml
 	skip
 [file ".editorconfig"]
 	url = https://github.com/devlooped/oss/blob/main/.editorconfig
@@ -25,16 +19,6 @@
 	url = https://github.com/devlooped/oss/blob/main/.gitattributes
 	sha = 0683ee777d7d878d4bf013d7deea352685135a05
 	etag = 7acb32f5fa6d4ccd9c824605a7c2b8538497f0068c165567807d393dcf4d6bb7
-	weak
-[file ".github/FUNDING.yml"]
-	url = https://github.com/devlooped/.github/blob/main/.github/FUNDING.yml
-	sha = 39f4c591716ff50dd035d2fade35e5822489ab7f
-	etag = a944c728facd033bbdfb4ff8d0ef10d0b3a457c277dc499458df0ffc7e6409da
-	weak
-[file ".github/ISSUE_TEMPLATE/bug.md"]
-	url = https://github.com/devlooped/oss/blob/main/.github/ISSUE_TEMPLATE/bug.md
-	sha = 0683ee777d7d878d4bf013d7deea352685135a05
-	etag = 026852ba1f1921f3a043bb5e09cd7a2c3d9a33ec51f48e524dc3a2ab72de3141
 	weak
 [file ".github/dependabot.yml"]
 	url = https://github.com/devlooped/oss/blob/main/.github/dependabot.yml
@@ -127,10 +111,10 @@
 	etag = 2d47e2fc4fdfa3515203d452674566e3df507461f9938f451a06d79deb687d24
 	weak
 [file ".github/workflows/pages.yml"]
-	url = https://github.com/devlooped/.github/blob/main/.github/workflows/pages.yml
+	url = https://github.com/clarius/pages/blob/main/.github/workflows/pages.yml
 	skip
 [file "Gemfile"]
-	url = https://github.com/devlooped/.github/blob/main/Gemfile
+	url = https://github.com/clarius/pages/blob/main/Gemfile
 	sha = f2dc1370469bec1b2d32d82faf659b050cdc7e2a
 	etag = d45832acd078778ffebf260000f6d25172a131f51684744d7e982da2a47170ce
 	weak
@@ -158,7 +142,7 @@
 	etag = c73a2aa293ec204e46771a99b095566082cad7989595ea725e5d76b27fe90894
 	weak
 [file ".github/workflows/sponsor.yml"]
-	url = https://github.com/devlooped/.github/blob/main/.github/workflows/sponsor.yml
+	url = https://github.com/devlooped/oss/blob/main/.github/workflows/sponsor.yml
 	sha = e347e5c7b91aaeb11eff95037c2c0b54206cc976
 	etag = 06319ff741c03cf4cd5113926d490ec09999a85b5a0e0480ce44222db026341a
 	weak
