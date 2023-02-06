@@ -35,7 +35,7 @@ Usage:
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-    <PackageReference Include="ThisAssembly" Version="1.0.9" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="1.2.4" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.59.4" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>
