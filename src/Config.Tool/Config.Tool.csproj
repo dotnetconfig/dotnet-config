@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.
@@ -54,7 +54,7 @@ Other
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="Mono.Options" Version="6.12.0.148" />
-    <PackageReference Include="ThisAssembly" Version="1.0.9" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="1.2.15" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
