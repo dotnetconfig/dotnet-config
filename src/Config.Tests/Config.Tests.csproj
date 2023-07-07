@@ -27,7 +27,7 @@
     <PackageReference Include="netfx-System.Collections.Generic.IEnumerable.Traverse" Version="1.1.0" />
     <PackageReference Include="StrongNamer" Version="0.2.5" />
     <PackageReference Include="Traverse" Version="1.0.1" />
-    <PackageReference Include="xunit" Version="2.4.*" />
+    <PackageReference Include="xunit" Version="2.5.*" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.*" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
     <PackageReference Include="ThisAssembly" Version="1.0.9" PrivateAssets="all" />
