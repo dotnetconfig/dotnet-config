@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Moq" Version="4.18.4" />
+    <PackageReference Include="Moq" Version="4.20.2" />
     <PackageReference Include="netfx-System.Collections.Generic.IEnumerable.Traverse" Version="1.1.0" />
     <PackageReference Include="StrongNamer" Version="0.2.5" />
     <PackageReference Include="Traverse" Version="1.0.1" />
