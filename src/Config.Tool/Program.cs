@@ -30,7 +30,8 @@ namespace DotNetConfig
             var useSystem = false;
             var useGlobal = false;
             var useLocal = false;
-            var path = Directory.GetCurrentDirectory();
+            string? path = default;
+            string? file = default;
             var nameOnly = false;
             string? defaultValue = default;
             string? type = default;
@@ -41,18 +42,17 @@ namespace DotNetConfig
                 { Environment.NewLine },
                 { Environment.NewLine },
                 { "Location (uses all locations by default)" },
-                { "local", "use .netconfig.user file", _ => useLocal = true },
                 { "global", "use global config file", _ => useGlobal = true },
                 { "system", "use system config file", _ => useSystem = true },
-                { "path:", "use given config file or directory", f => path = f },
+                { "local", "use .netconfig.user file", _ => useLocal = true },
+                { "f|file", "use given config file (git config compat)", f => file = f },
+                { "path:", "use given config file or directory", p => path = p },
 
                 { Environment.NewLine },
                 { "Action" },
                 { "get", "get value: name [value-regex]", _ => action = ConfigAction.Get },
                 { "get-all", "get all values: key [value-regex]", _ => action = ConfigAction.GetAll },
                 { "get-regexp", "get values for regexp: name-regex [value-regex]", _ => action = ConfigAction.GetRegexp },
-                { "set", "set value: name value [value-regex]", _ => action = ConfigAction.Set },
-                { "set-all", "set all matches: name value [value-regex]", _ => action = ConfigAction.SetAll },
                 { "replace-all", "replace all matches: name value [value-regex]", _ => action = ConfigAction.SetAll, true },
 
                 //{ "get-urlmatch", "get value specific for the URL: section[.var] URL", _ => action = ConfigAction.Get },
@@ -60,16 +60,19 @@ namespace DotNetConfig
                 { "unset", "remove a variable: name [value-regex]", _ => action = ConfigAction.Unset },
                 { "unset-all", "remove all matches: name [value-regex]", _ => action = ConfigAction.UnsetAll },
 
-                { "remove-section", "remove a section: name", _ => action = ConfigAction.RemoveSection },
+                { "set", "set value: name value [value-regex]", _ => action = ConfigAction.Set },
+                { "set-all", "set all matches: name value [value-regex]", _ => action = ConfigAction.SetAll },
+
                 { "rename-section", "rename section: old-name new-name", _ => action = ConfigAction.RenameSection },
+                { "remove-section", "remove a section: name", _ => action = ConfigAction.RemoveSection },
 
                 { "l|list", "list all", _ => action = ConfigAction.List },
                 { "e|edit", "edit the config file in an editor", _ => action = ConfigAction.Edit },
 
                 { Environment.NewLine },
                 { "Other" },
-                { "default:", "with --get, use default value when missing entry", v => defaultValue = v },
                 { "name-only", "show variable names only", _ => nameOnly = true },
+                { "default:", "with --get, use default value when missing entry", v => defaultValue = v },
                 { "type:", "value is given this type, can be 'boolean', 'datetime' or 'number'", t => type = t },
                 { "debug", "add some extra logging for troubleshooting purposes", _ => debug = true, true },
 
@@ -94,6 +97,12 @@ namespace DotNetConfig
             {
                 return ShowError("Can only specify one config location.");
             }
+
+            if (file != null && !File.Exists(file))
+                return ShowError($"Specified config file {file} not found.");
+
+            // --file overrides --path since it's more specific.
+            path = file ?? path ?? Directory.GetCurrentDirectory();
 
             ConfigLevel? level = null;
             Config config;
