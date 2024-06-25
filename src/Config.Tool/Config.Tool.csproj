@@ -35,7 +35,6 @@ Other
 
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
-    <RuntimeIdentifiers>win-x64;linux-x64</RuntimeIdentifiers>
 
     <AssemblyName>dotnet-config</AssemblyName>
     <RootNamespace>DotNetConfig</RootNamespace>
@@ -55,9 +54,6 @@ Other
     <PackageReference Include="Mono.Options" Version="6.12.0.148" />
     <PackageReference Include="ThisAssembly" Version="1.4.3" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
