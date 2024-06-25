@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.1.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.1.1) (2024-06-25)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.1.0...v1.1.1)
+
+:sparkles: Implemented enhancements:
+
+- Improve docs, add package readme for extensions [\#152](https://github.com/dotnetconfig/dotnet-config/pull/152) (@kzu)
+- Make options and note high compat level with git config [\#151](https://github.com/dotnetconfig/dotnet-config/pull/151) (@kzu)
+
+:bug: Fixed bugs:
+
+- DotNetConfig.CommandLine not compatible with latest prerelease of System.Commandline [\#105](https://github.com/dotnetconfig/dotnet-config/issues/105)
+
 ## [v1.1.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.1.0) (2024-06-25)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.6...v1.1.0)
