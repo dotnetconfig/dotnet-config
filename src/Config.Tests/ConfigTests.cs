@@ -250,6 +250,19 @@ namespace DotNetConfig
         }
 
         [Fact]
+        public void when_setting_variable_then_uses_tab()
+        {
+            var file = Path.GetTempFileName();
+            var config = Config.Build(file);
+
+            config.SetString("section", "subsection", "foo", "bar");
+
+            var line = File.ReadAllLines(file).SkipWhile(x => x[0] == '#' || x[0] == '[').First();
+
+            Assert.Equal('\t', line[0]);
+        }
+
+        [Fact]
         public void when_setting_global_variable_then_writes_global_file()
         {
             Config.GlobalLocation = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString(), ".netconfig");
