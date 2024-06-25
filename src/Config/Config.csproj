@@ -20,7 +20,6 @@ Usage:
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Deterministic>true</Deterministic>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Label="docfx">
@@ -33,18 +32,11 @@ Usage:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="1.2.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="NuGetizer" Version="1.2.2" />
     <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
     <PackageReference Include="ThisAssembly" Version="1.4.3" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.59.4" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\..\readme.md" PackagePath="readme.md" Pack="true" Visible="false" />
   </ItemGroup>
 
 </Project>

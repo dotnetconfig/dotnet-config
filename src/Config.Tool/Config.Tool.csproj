@@ -1,37 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.
-    
-Usage: dotnet config [options]
-
-Location (uses all locations by default)
-      --local                use .netconfig.user file
-      --global               use global config file
-      --system               use system config file
-      --path[=VALUE]         use given config file or directory
-
-Action
-      --get                  get value: name [value-regex]
-      --get-all              get all values: key [value-regex]
-      --get-regexp           get values for regexp: name-regex [value-regex]
-      --set                  set value: name value [value-regex]
-      --set-all              set all matches: name value [value-regex]
-      --add                  add a new variable: name value
-      --unset                remove a variable: name [value-regex]
-      --unset-all            remove all matches: name [value-regex]
-      --remove-section       remove a section: name
-      --rename-section       rename section: old-name new-name
-  -l, --list                 list all
-  -e, --edit                 edit the config file in an editor
-
-Other
-      --default[=VALUE]      with --get, use default value when missing entry
-      --name-only            show variable names only
-      --type[=VALUE]         value is given this type, can be 'boolean', '
-                               datetime' or 'number'
-  -?, -h, --help             Display this help
-</Description>
+    <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
     <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
@@ -52,10 +22,7 @@ Other
 
   <ItemGroup>
     <PackageReference Include="Mono.Options" Version="6.12.0.148" />
-    <PackageReference Include="NuGetizer" Version="1.2.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="NuGetizer" Version="1.2.2" />
     <PackageReference Include="ThisAssembly" Version="1.4.3" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>

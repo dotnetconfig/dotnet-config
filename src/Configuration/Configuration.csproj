@@ -21,14 +21,17 @@ Note: section is required and subsection is optional, just like in dotnet-config
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-    <PackageReference Include="NuGetizer" Version="1.2.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="NuGetizer" Version="1.2.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Config\Config.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="readme.md">
+      <PackagePath>%(Filename)%(Extension)</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
