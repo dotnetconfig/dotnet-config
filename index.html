@@ -428,7 +428,11 @@ automatically populated: arrays, <code>IEnumerable&lt;T&gt;</code>, <code>IColle
 <p>The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
 Installation is the same as for any other dotnet tool: </p>
 <pre><code>&gt; dotnet tool install -g dotnet-config
-</code></pre><p>Reading and writing variables don&#39;t require any special options. The following lines first 
+</code></pre><p>The available options and actions are (for the most part) compatible with the behavior of <code>git config</code>.</p>
+<blockquote><p>When reading and writing from a single file, you can for the most part just use <code>git config</code>
+along with the compatibility option <code>-f|--file</code> specifying the file to read/write from.</p>
+</blockquote>
+<p>Reading and writing variables don&#39;t require any special options. The following lines first 
 write a variable value and then retrieve its value:</p>
 <pre><code>&gt; dotnet config mytool.myvariable myvalue
 &gt; dotnet config mytool.myvariable
@@ -439,29 +443,31 @@ variable, for example.</p>
 <pre><code>Usage: dotnet config [options]
 
 Location (uses all locations by default)
-      --local                use .netconfig.user file
       --global               use global config file
       --system               use system config file
+      --local                use .netconfig.user file
+  -f, --file                 use given config file (git config compat)
       --path[=VALUE]         use given config file or directory
 
 Action
       --get                  get value: name [value-regex]
       --get-all              get all values: key [value-regex]
       --get-regexp           get values for regexp: name-regex [value-regex]
-      --set                  set value: name value [value-regex]
-      --set-all              set all matches: name value [value-regex]
       --add                  add a new variable: name value
       --unset                remove a variable: name [value-regex]
       --unset-all            remove all matches: name [value-regex]
-      --remove-section       remove a section: name
+      --set                  set value: name value [value-regex]
+      --set-all              set all matches: name value [value-regex]
       --rename-section       rename section: old-name new-name
+      --remove-section       remove a section: name
   -l, --list                 list all
   -e, --edit                 edit the config file in an editor
 
 Other
-      --default[=VALUE]      with --get, use default value when missing entry
       --name-only            show variable names only
-      --type[=VALUE]         value is given this type, can be &#39;boolean&#39;, &#39;datetime&#39; or &#39;number&#39;
+      --default[=VALUE]      with --get, use default value when missing entry
+      --type[=VALUE]         value is given this type, can be &#39;boolean&#39;, &#39;
+                               datetime&#39; or &#39;number&#39;
   -?, -h, --help             Display this help
 </code></pre><p>Command line parsing is done with <a href="https://www.nuget.org/packages/mono.options">Mono.Options</a> so 
 all the following variants for arguments are supported: <code>-flag</code>, <code>--flag</code>, <code>/flag</code>, <code>-flag=value</code>, 
