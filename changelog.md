@@ -1,4 +1,22 @@
+# Changelog
 
+## [v1.1.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.1.0) (2024-06-25)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.0.6...v1.1.0)
+
+:sparkles: Implemented enhancements:
+
+- Use nugetizer for packing [\#150](https://github.com/dotnetconfig/dotnet-config/pull/150) (@kzu)
+- Bump to .net6/8 for the CLI [\#148](https://github.com/dotnetconfig/dotnet-config/pull/148) (@kzu)
+
+:hammer: Other:
+
+- .Net 5 reached EOL, please upgrade this tool to use .Net 6 or 8 [\#146](https://github.com/dotnetconfig/dotnet-config/issues/146)
+- Can't save empty/blank values [\#145](https://github.com/dotnetconfig/dotnet-config/issues/145)
+
+:twisted_rightwards_arrows: Merged:
+
+- Add how to work with array of complex objects [\#98](https://github.com/dotnetconfig/dotnet-config/pull/98) (@PadreSVK)
 
 ## [v1.0.6](https://github.com/dotnetconfig/dotnet-config/tree/v1.0.6) (2021-07-30)
 
