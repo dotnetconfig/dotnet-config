@@ -21,6 +21,7 @@
 <b><a href="#cli">CLI</a></b>
 </p>
 
+<!-- #content -->
 # Why
 
 `dotnet-config` (or `.netconfig`) provides a uniform mechanism for 
@@ -339,6 +340,7 @@ You can explore the entire API in the [docs site](https://dotnetconfig.org/api/)
 PM> Install-Package DotNetConfig.Configuration
 ```
 
+<!-- #extensions -->
 Usage (in this example, also chaining other providers):
 
 ```csharp
@@ -365,6 +367,8 @@ You can read both values with:
 string port = config["serve:port"];  // == "8080";
 string timeout = config["security:admin:timeout"];  // == "60";
 ```
+
+<!-- #extensions -->
 
 ### System.CommandLine
 
@@ -543,4 +547,5 @@ all the following variants for arguments are supported: `-flag`, `--flag`, `/fla
 `--flag value`, `/flag value`.
 
 <!-- #cli -->
+<!-- #content -->
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
