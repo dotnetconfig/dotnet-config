@@ -478,6 +478,7 @@ For numbers, the argument/option can be either `long` or `int`. Keep in mind tha
 
 [![Version](https://img.shields.io/nuget/v/dotnet-config.svg?color=royalblue)](https://www.nuget.org/packages/dotnet-config) [![Downloads](https://img.shields.io/nuget/dt/dotnet-config.svg?color=darkmagenta)](https://www.nuget.org/packages/dotnet-config)
 
+<!-- #cli -->
 The command line tool allows you to inspect and modify configuration files used by your dotnet tools. 
 Installation is the same as for any other dotnet tool: 
 
@@ -533,3 +534,6 @@ Command line parsing is done with [Mono.Options](https://www.nuget.org/packages/
 all the following variants for arguments are supported: `-flag`, `--flag`, `/flag`, `-flag=value`, 
 `--flag=value`, `/flag=value`, `-flag:value`, `--flag:value`, `/flag:value`, `-flag value`, 
 `--flag value`, `/flag value`.
+
+<!-- #cli -->
+<!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
