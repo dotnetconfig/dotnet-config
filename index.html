@@ -91,6 +91,7 @@
 <b><a href="#cli">CLI</a></b>
 </p>
 
+<!-- #content -->
 <h1 id="why">Why</h1>
 <p><code>dotnet-config</code> (or <code>.netconfig</code>) provides a uniform mechanism for 
 <a href="https://docs.microsoft.com/en-us/dotnet/core/tools/global-tools">.NET Core tools</a> to store and 
@@ -334,7 +335,8 @@ to the newly updated Config, otherwise, subsequent changes would override prior 
 <h3 id="microsoftextensionsconfiguration">Microsoft.Extensions.Configuration</h3>
 <p><a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/v/DotNetConfig.Configuration.svg?color=royalblue" alt="Version"></a> <a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/dt/DotNetConfig.Configuration.svg?color=darkmagenta" alt="Downloads"></a></p>
 <pre><code>PM&gt; Install-Package DotNetConfig.Configuration
-</code></pre><p>Usage (in this example, also chaining other providers):</p>
+</code></pre><!-- #extensions -->
+<p>Usage (in this example, also chaining other providers):</p>
 <pre><code class="lang-csharp">var config = new ConfigurationBuilder()
     .AddJsonFile(...)
     .AddEnvironmentVariables()
@@ -349,7 +351,8 @@ to the newly updated Config, otherwise, subsequent changes would override prior 
 </code></pre><p>You can read both values with:</p>
 <pre><code class="lang-csharp">string port = config[&quot;serve:port&quot;];  // == &quot;8080&quot;;
 string timeout = config[&quot;security:admin:timeout&quot;];  // == &quot;60&quot;;
-</code></pre><h3 id="systemcommandline">System.CommandLine</h3>
+</code></pre><!-- #extensions -->
+<h3 id="systemcommandline">System.CommandLine</h3>
 <p><a href="https://www.nuget.org/packages/DotNetConfig.CommandLine"><img src="https://img.shields.io/nuget/v/DotNetConfig.CommandLine.svg?color=royalblue" alt="Version"></a> <a href="https://www.nuget.org/packages/DotNetConfig.CommandLine"><img src="https://img.shields.io/nuget/dt/DotNetConfig.CommandLine.svg?color=darkmagenta" alt="Downloads"></a></p>
 <p>Given the explicit goal of making <strong>.netconfig</strong> a first-class citizen among dotnet (global) tools, it offers 
 excelent and seamless integration with <a href="https://www.nuget.org/packages/System.CommandLine">System.CommandLine</a>.</p>
@@ -474,6 +477,7 @@ all the following variants for arguments are supported: <code>-flag</code>, <cod
 <code>--flag=value</code>, <code>/flag=value</code>, <code>-flag:value</code>, <code>--flag:value</code>, <code>/flag:value</code>, <code>-flag value</code>, 
 <code>--flag value</code>, <code>/flag value</code>.</p>
 <!-- #cli -->
+<!-- #content -->
 <!-- include https://github.com/devlooped/sponsors/raw/main/footer.md --></article>
           </div>
           
