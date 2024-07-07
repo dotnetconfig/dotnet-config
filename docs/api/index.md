@@ -96,11 +96,8 @@ configuration level to use for persisting the value, by passing a `ConfigLevel`:
 //[vs "alias"]
 //	comexp = run|community|exp
 
-config = config.AddString("vs", "alias", "comexp", "run|community|exp", ConfigLevel.Global);
+config.AddString("vs", "alias", "comexp", "run|community|exp", ConfigLevel.Global);
 ```
-
-> IMPORTANT: the Config API is immutable, so if you make changes, you should update your reference
-> to the newly updated Config, otherwise, subsequent changes would override prior ones.
 
 You can explore the entire API in the [docs site](https://dotnetconfig.org/api/).
 

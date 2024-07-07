@@ -7,8 +7,8 @@ Usage:
   var config = Config.Build();
   var value = config.GetString("section", "subsection", "variable");
 
-  // Setting values, Config is immutable, so chain calls and update var
-  config = config
+  // Setting values
+  config
     .SetString("section", "subsection", "variable", value)
     .SetBoolean("section", "subsection", "enabled", true);
 </Description>

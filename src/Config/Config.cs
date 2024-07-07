@@ -159,9 +159,9 @@ namespace DotNetConfig
         /// </summary>
         public ConfigLevel? Level =>
             this is AggregateConfig ? null :
-            FilePath == GlobalLocation ? (ConfigLevel?)ConfigLevel.Global :
-            FilePath == SystemLocation ? (ConfigLevel?)ConfigLevel.System :
-            FilePath.EndsWith(UserExtension) ? (ConfigLevel?)ConfigLevel.Local : null;
+            FilePath == GlobalLocation ? ConfigLevel.Global :
+            FilePath == SystemLocation ? ConfigLevel.System :
+            FilePath.EndsWith(UserExtension) ? ConfigLevel.Local : null;
 
         /// <summary>
         /// Gets the section and optional subsection from the configuration.
