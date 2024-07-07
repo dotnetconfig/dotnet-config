@@ -1,5 +1,21 @@
 # Changelog
 
+## [v1.2.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.2.0) (2024-07-07)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.1.1...v1.2.0)
+
+:sparkles: Implemented enhancements:
+
+- Drop immutability which doesn't add any value [\#155](https://github.com/dotnetconfig/dotnet-config/pull/155) (@kzu)
+
+:hammer: Other:
+
+- Tabs vs spaces [\#122](https://github.com/dotnetconfig/dotnet-config/issues/122)
+
+:twisted_rightwards_arrows: Merged:
+
+- Add test that ensures current tab-based behavior [\#153](https://github.com/dotnetconfig/dotnet-config/pull/153) (@kzu)
+
 ## [v1.1.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.1.1) (2024-06-25)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.1.0...v1.1.1)
