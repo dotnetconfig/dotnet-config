@@ -327,11 +327,8 @@ configuration level to use for persisting the value, by passing a <code>ConfigLe
 //[vs &quot;alias&quot;]
 //  comexp = run|community|exp
 
-config = config.AddString(&quot;vs&quot;, &quot;alias&quot;, &quot;comexp&quot;, &quot;run|community|exp&quot;, ConfigLevel.Global);
-</code></pre><blockquote><p>IMPORTANT: the Config API is immutable, so if you make changes, you should update your reference
-to the newly updated Config, otherwise, subsequent changes would override prior ones.</p>
-</blockquote>
-<p>You can explore the entire API in the <a href="https://dotnetconfig.org/api/">docs site</a>.</p>
+config.AddString(&quot;vs&quot;, &quot;alias&quot;, &quot;comexp&quot;, &quot;run|community|exp&quot;, ConfigLevel.Global);
+</code></pre><p>You can explore the entire API in the <a href="https://dotnetconfig.org/api/">docs site</a>.</p>
 <h3 id="microsoftextensionsconfiguration">Microsoft.Extensions.Configuration</h3>
 <p><a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/v/DotNetConfig.Configuration.svg?color=royalblue" alt="Version"></a> <a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/dt/DotNetConfig.Configuration.svg?color=darkmagenta" alt="Downloads"></a></p>
 <pre><code>PM&gt; Install-Package DotNetConfig.Configuration
