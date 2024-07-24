@@ -34,7 +34,7 @@ Usage:
   <ItemGroup>
     <PackageReference Include="NuGetizer" Version="1.2.2" />
     <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-    <PackageReference Include="ThisAssembly" Version="1.4.3" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="1.5.0" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.59.4" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>
