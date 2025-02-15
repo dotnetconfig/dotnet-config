@@ -11,6 +11,9 @@ on:
 jobs:
   includes:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: 🤖 defaults
         uses: devlooped/actions-bot@v1
@@ -31,7 +34,7 @@ jobs:
       - name: ✍ pull request
         uses: peter-evans/create-pull-request@v6
         with:
-          add-paths: '**/*.md'
+          add-paths: '**.md'
           base: main
           branch: markdown-includes
           delete-branch: true
