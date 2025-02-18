@@ -35,7 +35,7 @@ The following heuristics are applied when providing default values:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NuGetizer" Version="1.2.3" />
+    <PackageReference Include="NuGetizer" Version="1.2.4" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
   </ItemGroup>
