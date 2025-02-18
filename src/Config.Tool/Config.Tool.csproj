@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="Mono.Options" Version="6.12.0.148" />
     <PackageReference Include="NuGetizer" Version="1.2.3" />
-    <PackageReference Include="ThisAssembly" Version="1.4.3" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="2.0.11" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>
 
