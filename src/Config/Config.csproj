@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>APIs for handling dotnet-config compatible settings for any dotnet tool.
@@ -34,7 +34,7 @@ Usage:
   <ItemGroup>
     <PackageReference Include="NuGetizer" Version="1.2.4" />
     <PackageReference Include="System.Collections.Immutable" Version="6.0.0" />
-    <PackageReference Include="ThisAssembly" Version="2.0.11" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="2.0.12" PrivateAssets="all" />
     <PackageReference Include="docfx.console" Version="2.59.4" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>

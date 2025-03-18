@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
@@ -23,7 +23,7 @@
   <ItemGroup>
     <PackageReference Include="Mono.Options" Version="6.12.0.148" />
     <PackageReference Include="NuGetizer" Version="1.2.4" />
-    <PackageReference Include="ThisAssembly" Version="2.0.11" PrivateAssets="all" />
+    <PackageReference Include="ThisAssembly" Version="2.0.12" PrivateAssets="all" />
     <PackageReference Include="Polyfill.NET" Version="1.0.12" PrivateAssets="all" />
   </ItemGroup>
 
