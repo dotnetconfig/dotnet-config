@@ -6,7 +6,7 @@ on:
 
 jobs:
   docs:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
@@ -15,11 +15,13 @@ jobs:
         uses: devlooped/actions-dotnet-env@v1
 
       - name: 🙏 build
-        run: dotnet build -p:BuildDocFx=true -p:DOCFX_SOURCE_BRANCH_NAME=main
+        run: |
+          dotnet tool install -g docfx
+          docfx build docs/docfx.json
 
       - name: 🚀 deploy 
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: _site
+          FOLDER: docs/_site
