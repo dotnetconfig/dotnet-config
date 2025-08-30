@@ -4,7 +4,7 @@
     <Description>A global tool for managing hierarchical configurations for dotnet tools, using git config format.</Description>
 
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
 
     <AssemblyName>dotnet-config</AssemblyName>
     <RootNamespace>DotNetConfig</RootNamespace>
