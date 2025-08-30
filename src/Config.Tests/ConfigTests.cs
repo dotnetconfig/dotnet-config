@@ -328,7 +328,7 @@ namespace DotNetConfig
 
             using var reader = new ConfigReader(Path.Combine(path, Config.FileName + ".user"));
 
-            Assert.Single(reader.ReadAllLines().Where(x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz"));
+            Assert.Single(reader.ReadAllLines(), x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz");
         }
 
         [Fact]
@@ -347,7 +347,7 @@ namespace DotNetConfig
 
             using var reader = new ConfigReader(Path.Combine(path, Config.FileName));
 
-            Assert.Single(reader.ReadAllLines().Where(x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz"));
+            Assert.Single(reader.ReadAllLines(), x => x.Kind == LineKind.Variable && x.Variable == "bar" && x.Value == "baz");
         }
 
         [Fact]
@@ -425,11 +425,15 @@ bar = hey");
             Directory.SetCurrentDirectory(Path.GetDirectoryName(Config.GlobalLocation)!);
             var config = Config.Build();
 
-            config.SetString("foo", "bar", "baz");
+            config = config.SetString("foo", "bar", "baz");
+            config = config.SetString("foo", "baz", "catz");
 
             var global = Config.Build(ConfigLevel.Global);
 
             Assert.Equal("baz", global.GetString("foo", "bar"));
+            Assert.Equal("catz", global.GetString("foo", "baz"));
+
+            output.WriteLine(File.ReadAllText(Config.GlobalLocation));
         }
     }
 }

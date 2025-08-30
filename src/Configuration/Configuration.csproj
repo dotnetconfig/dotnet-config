@@ -21,7 +21,7 @@ Note: section is required and subsection is optional, just like in dotnet-config
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-    <PackageReference Include="NuGetizer" Version="1.2.4" />
+    <PackageReference Include="NuGetizer" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
