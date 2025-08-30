@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>dotnet-eventgrid | .netconfig </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="dotnet-eventgrid | .netconfig ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+  
+  <meta property="docfx:rel" content="../">
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,17 +58,17 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -81,46 +81,49 @@
 <h1 id="dotnet-eventgrid">dotnet-eventgrid</h1>
 
 <p><a href="https://nuget.org/packages/dotnet-eventgrid"><img src="https://img.shields.io/nuget/v/dotnet-eventgrid.svg?color=royalblue&amp;label=dotnet-eventgrid" alt="dotnet-eventgrid"></a></p>
-<p><a href="https://github.com/kzu/dotnet-eventgrid">dotnet-eventgrid</a> is a dotnet global tool to 
+<p><a href="https://github.com/kzu/dotnet-eventgrid">dotnet-eventgrid</a> is a dotnet global tool to
 monitor and filter real-time event from Azure EventGrid, delivered through Azure SignalR.</p>
-<p>The tool allows configuring filters so that you can monitor the specific events comming through 
+<p>The tool allows configuring filters so that you can monitor the specific events comming through
 the SignalR connection like:</p>
 <pre><code class="lang-gitconfig">[eventgrid]
-    url = https://events.mygrid.com
-    filter = path=MyApp/**/Login
-    filter = eventType=*System*
-</code></pre><p>You can also specify whether you want to see certain event properties rendered or not in the console:</p>
+	url = https://events.mygrid.com
+	filter = path=MyApp/**/Login
+	filter = eventType=*System*
+</code></pre>
+<p>You can also specify whether you want to see certain event properties rendered or not in the console:</p>
 <pre><code class="lang-gitconfig">[eventgrid]
-    # properties to include in the event rendering
-    include = EventType
-    include = Subject
+	# properties to include in the event rendering
+	include = EventType
+	include = Subject
 
-    # properties to exclude from event rendering
-    exclude = data
-</code></pre><p>The tool is quite awesome in action, and after you have your desired <em>.netconfig</em> in place, you can 
+	# properties to exclude from event rendering
+	exclude = data
+</code></pre>
+<p>The tool is quite awesome in action, and after you have your desired <em>.netconfig</em> in place, you can
 just run <code>eventgrid</code> without parameters and enjoy it right-away:</p>
 <p><img src="https://raw.github.com/kzu/dotnet-eventgrid/master/img/eventgrid.gif" alt="EventGrid tool in action"></p>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/who/dotnet-eventgrid.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/who/dotnet-eventgrid.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -128,13 +131,13 @@ just run <code>eventgrid</code> without parameters and enjoy it right-away:</p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
     <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>

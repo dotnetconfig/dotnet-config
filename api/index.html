@@ -1,30 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>API | .netconfig </title>
+    <title> | .netconfig </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="API | .netconfig ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
+    <meta name="title" content=" | .netconfig ">
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,28 +58,21 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
+        <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h2 id="api">API</h2>
 
+<h2 id="api">API</h2>
 <p>There are three main ways to access <em>.netconfig</em> values:</p>
 <ul>
 <li><a href="#native-api">Native API</a> for direct access to .netconfig values</li>
@@ -90,16 +83,18 @@
 <p><a href="https://www.nuget.org/packages/DotNetConfig"><img src="https://img.shields.io/nuget/v/DotNetConfig.svg?color=royalblue" alt="Version"></a>
 <a href="https://www.nuget.org/packages/DotNetConfig"><img src="https://img.shields.io/nuget/dt/DotNetConfig.svg?color=darkmagenta" alt="Downloads"></a></p>
 <pre><code>PM&gt; Install-Package DotNetConfig
-</code></pre><p>The main usage for .NET tool authors consuming the <a href="https://www.nuget.org/packages/DotNetConfig">DotNetConfig</a> 
-API is to first build a configuration from a specific path (will assume current directory 
+</code></pre>
+<p>The main usage for .NET tool authors consuming the <a href="https://www.nuget.org/packages/DotNetConfig">DotNetConfig</a>
+API is to first build a configuration from a specific path (will assume current directory
 if omitted):</p>
 <pre><code class="lang-csharp">var config = Config.Build();
-</code></pre><p>The resulting configuration will contain the hierarchical variables set in the 
-current directory (or the given path), all its ancestor directories, plus global 
+</code></pre>
+<p>The resulting configuration will contain the hierarchical variables set in the
+current directory (or the given path), all its ancestor directories, plus global
 and system locations.</p>
-<p>When getting values, the supported primitives are exposed as first-class methods 
-for <code>Add</code>, <code>Get</code> and <code>Set</code>, so you get quite a few usability overloads for 
-each of <code>Boolean</code>, <code>DateTime</code>, <code>Number</code> and <code>String</code>, such as <code>AddBoolean</code>, 
+<p>When getting values, the supported primitives are exposed as first-class methods
+for <code>Add</code>, <code>Get</code> and <code>Set</code>, so you get quite a few usability overloads for
+each of <code>Boolean</code>, <code>DateTime</code>, <code>Number</code> and <code>String</code>, such as <code>AddBoolean</code>,
 <code>GetDateTime</code>, <code>GetString</code> or <code>SetNumber</code>:</p>
 <pre><code class="lang-csharp">// reads from:
 // [mytool]
@@ -123,12 +118,14 @@ DateTime? created = config.GetDateTime(&quot;mytool&quot;, &quot;src/file.txt&qu
 if (created == null)
     // Would create the section if it did not previously exist, and add the variable
     config.SetDateTime(&quot;mytool&quot;, &quot;src/file.txt&quot;, &quot;createdOn&quot;, DateTime.Now);
-</code></pre><p>Alternatively you can use the <code>TryGetXXX</code> methods instead, to avoid checking for 
-null return values in cases where the variable (in the requested section and 
+</code></pre>
+<p>Alternatively you can use the <code>TryGetXXX</code> methods instead, to avoid checking for
+null return values in cases where the variable (in the requested section and
 optional subsection) is not found:</p>
 <pre><code class="lang-csharp">if (!config.TryGetDateTime(&quot;mytool&quot;, &quot;src/file.txt&quot;, &quot;createdOn&quot;, out created))
     config.SetDateTime(&quot;mytool&quot;, &quot;src/file.txt&quot;, &quot;createdOn&quot;, DateTime.Now);
-</code></pre><p>Since <code>.netconfig</code> supports multi-valued variables, you can retrieve all entries as 
+</code></pre>
+<p>Since <code>.netconfig</code> supports multi-valued variables, you can retrieve all entries as
 <code>ConfigEntry</code> and inspect or manipulate them granularly:</p>
 <pre><code class="lang-csharp">foreach (ConfigEntry entry in config.GetAll(&quot;proxy&quot;, &quot;url&quot;))
 {
@@ -145,39 +142,45 @@ optional subsection) is not found:</p>
     Console.WriteLine(entry.GetString());
     // entry.GetBoolean(), entry.GetDateTime(), entry.GetNumber()
 }
-</code></pre><p>When writing values (via <code>AddXXX</code> or <code>SetXXX</code>) you can optionally specify the 
+</code></pre>
+<p>When writing values (via <code>AddXXX</code> or <code>SetXXX</code>) you can optionally specify the
 configuration level to use for persisting the value, by passing a <code>ConfigLevel</code>:</p>
-<pre><code class="lang-csharp">// writes on the global .netconfig in the user&#39;s profile
+<pre><code class="lang-csharp">// writes on the global .netconfig in the user's profile
 //[vs &quot;alias&quot;]
-//  comexp = run|community|exp
+//	comexp = run|community|exp
 
 config.AddString(&quot;vs&quot;, &quot;alias&quot;, &quot;comexp&quot;, &quot;run|community|exp&quot;, ConfigLevel.Global);
-</code></pre><p>You can explore the entire API in the <a href="https://dotnetconfig.org/api/">docs site</a>.</p>
+</code></pre>
+<p>You can explore the entire API in the <a href="https://dotnetconfig.org/api/">docs site</a>.</p>
 <h3 id="microsoftextensionsconfiguration">Microsoft.Extensions.Configuration</h3>
 <p><a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/v/DotNetConfig.Configuration.svg?color=royalblue" alt="Version"></a>
 <a href="https://www.nuget.org/packages/DotNetConfig.Configuration"><img src="https://img.shields.io/nuget/dt/DotNetConfig.Configuration.svg?color=darkmagenta" alt="Downloads"></a></p>
 <pre><code>PM&gt; Install-Package DotNetConfig.Configuration
-</code></pre><p>Usage (in this example, also chaining other providers):</p>
+</code></pre>
+<p>Usage (in this example, also chaining other providers):</p>
 <pre><code class="lang-csharp">var config = new ConfigurationBuilder()
     .AddJsonFile(...)
     .AddEnvironmentVariables()
     .AddIniFile(...)
     .AddDotNetConfig();
-</code></pre><p>Given the following .netconfig: </p>
+</code></pre>
+<p>Given the following .netconfig:</p>
 <pre><code class="lang-gitconfig">[serve]
-    port = 8080
+	port = 8080
 
 [security &quot;admin&quot;]
     timeout = 60
-</code></pre><p>You can read both values with:</p>
+</code></pre>
+<p>You can read both values with:</p>
 <pre><code class="lang-csharp">string port = config[&quot;serve:port&quot;];  // == &quot;8080&quot;;
 string timeout = config[&quot;security:admin:timeout&quot;];  // == &quot;60&quot;;
-</code></pre><h3 id="systemcommandline">System.CommandLine</h3>
+</code></pre>
+<h3 id="systemcommandline">System.CommandLine</h3>
 <p><a href="https://www.nuget.org/packages/DotNetConfig.CommandLine"><img src="https://img.shields.io/nuget/v/DotNetConfig.CommandLine.svg?color=royalblue" alt="Version"></a>
 <a href="https://www.nuget.org/packages/DotNetConfig.CommandLine"><img src="https://img.shields.io/nuget/dt/DotNetConfig.CommandLine.svg?color=darkmagenta" alt="Downloads"></a></p>
-<p>Given the explicit goal of making <strong>.netconfig</strong> a first-class citizen among dotnet (global) tools, it offers 
+<p>Given the explicit goal of making <strong>.netconfig</strong> a first-class citizen among dotnet (global) tools, it offers
 excelent and seamless integration with <a href="https://www.nuget.org/packages/System.CommandLine">System.CommandLine</a>.</p>
-<p>Let&#39;s asume you create a CLI app named <code>package</code> which manages your local cache of packages (i.e. NuGet). 
+<p>Let's asume you create a CLI app named <code>package</code> which manages your local cache of packages (i.e. NuGet).
 You might have a couple commands, like <code>download</code> and <code>prune</code>, like so:</p>
 <pre><code class="lang-csharp">var root = new RootCommand
 {
@@ -191,17 +194,19 @@ You might have a couple commands, like <code>download</code> and <code>prune</co
     new Option&lt;int&gt;(&quot;days&quot;)
   },
 }.WithConfigurableDefaults(&quot;package&quot;);
-</code></pre><p>The added <code>WithConfigurableDefaults</code> invocation means that now all arguments and options can have 
+</code></pre>
+<p>The added <code>WithConfigurableDefaults</code> invocation means that now all arguments and options can have
 their default values specified in config, such as:</p>
 <pre><code class="lang-gitconfig">[package]
   id = DotNetConfig
 
 [package &quot;prune&quot;]
   days = 30
-</code></pre><p>Note how the <code>id</code> can be specified at the top level too. The integration will automatically promote 
-configurable values to ancestor sections as long as they have compatible types (both <code>id</code> in <code>download</code> 
+</code></pre>
+<p>Note how the <code>id</code> can be specified at the top level too. The integration will automatically promote
+configurable values to ancestor sections as long as they have compatible types (both <code>id</code> in <code>download</code>
 and <code>prune</code> commands are defined as <code>string</code>).</p>
-<p>Running <code>package -?</code> from the command line will now pull the rendered default values from config, so 
+<p>Running <code>package -?</code> from the command line will now pull the rendered default values from config, so
 you can see what will actually be used if the command is run with no values:</p>
 <pre><code>Usage:
   package [options] [command]
@@ -213,7 +218,8 @@ Options:
 Commands:
   download &lt;id&gt;  [default: DotNetConfig]
   prune &lt;id&gt;     [default: DotNetConfig]
-</code></pre><p>And <code>package prune -?</code> would show:</p>
+</code></pre>
+<p>And <code>package prune -?</code> would show:</p>
 <pre><code>Usage:
   package [options] prune [&lt;id&gt;]
 
@@ -223,16 +229,19 @@ Arguments:
 Options:
   --days &lt;days&gt;   [default: 30]
   -?, -h, --help  Show help and usage information
-</code></pre><p>Since <strong>.netconfig</strong> supports multi-valued variables, it&#39;s great for populating default 
-values for arguments or options that can be specified more than once. By making this 
+</code></pre>
+<p>Since <strong>.netconfig</strong> supports multi-valued variables, it's great for populating default
+values for arguments or options that can be specified more than once. By making this
 simple change to the argument above:</p>
 <pre><code class="lang-csharp">    new Argument&lt;string[]&gt;(&quot;id&quot;)
-</code></pre><p>We can now support a configuration like the following:</p>
+</code></pre>
+<p>We can now support a configuration like the following:</p>
 <pre><code class="lang-gitconfig">[package]
   id = DotNetConfig
   id = Moq
   id = ThisAssembly
-</code></pre><p>And running the command with no <code>id</code> argument will now cause the handler to receive all three. You 
+</code></pre>
+<p>And running the command with no <code>id</code> argument will now cause the handler to receive all three. You
 can also verify that this is the case via <code>download -?</code>, for example:</p>
 <pre><code>Usage:
   package [options] download [&lt;id&gt;...]
@@ -242,31 +251,33 @@ Arguments:
 
 Options:
   -?, -h, --help  Show help and usage information
-</code></pre><p>All the types supported by System.CommandLine for multiple artity arguments and options are 
-automatically populated: arrays, <code>IEnumerable&lt;T&gt;</code>, <code>ICollection&lt;T&gt;</code>, <code>IList&lt;T&gt;</code> and <code>List&lt;T&gt;</code>. </p>
-<p>For numbers, the argument/option can be either <code>long</code> or <code>int</code>. Keep in mind that since numbers in 
+</code></pre>
+<p>All the types supported by System.CommandLine for multiple artity arguments and options are
+automatically populated: arrays, <code>IEnumerable&lt;T&gt;</code>, <code>ICollection&lt;T&gt;</code>, <code>IList&lt;T&gt;</code> and <code>List&lt;T&gt;</code>.</p>
+<p>For numbers, the argument/option can be either <code>long</code> or <code>int</code>. Keep in mind that since numbers in
 <strong>.netconfig</strong> are always <code>long</code>, truncation may occur in the latter case.</p>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/api/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/api/index.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -274,13 +285,13 @@ automatically populated: arrays, <code>IEnumerable&lt;T&gt;</code>, <code>IColle
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
     <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>

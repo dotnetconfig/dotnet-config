@@ -1,15 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sleet | .netconfig </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Sleet | .netconfig ">
-    <meta name="generator" content="docfx 2.59.4.0">
-    
+    <meta name="generator" content="docfx ">
+  
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">  
@@ -17,14 +17,14 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+  
+  <meta property="docfx:rel" content="../">
+  
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -48,7 +48,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -58,17 +58,17 @@
         </div>
       </header>
       <div class="container body-content">
-        
+
         <div id="search-results">
           <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -81,59 +81,62 @@
 <h1 id="sleet">Sleet</h1>
 
 <p><a href="https://nuget.org/packages/sleet"><img src="https://img.shields.io/nuget/v/sleet.svg?color=royalblue&amp;label=sleet" alt="sleet"></a></p>
-<p><a href="https://github.com/emgarten/Sleet">Sleet</a> is a static (serverless) NuGet package 
+<p><a href="https://github.com/emgarten/Sleet">Sleet</a> is a static (serverless) NuGet package
 feed generator, which supports configuration via a JSON file as well as <code>.netconfig</code>.</p>
-<p>All the available <a href="https://github.com/emgarten/Sleet/blob/master/doc/client-settings.md">settings</a> 
-are supported via <code>.netconfig</code>. </p>
+<p>All the available <a href="https://github.com/emgarten/Sleet/blob/master/doc/client-settings.md">settings</a>
+are supported via <code>.netconfig</code>.</p>
 <p>Some examples are:</p>
 <ol>
 <li>Azure Blob Storage-based feed:</li>
 </ol>
 <pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
-    type = azure
-    container = feed
-    connectionString = &quot;DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint=&quot;
-    path = https://yourStorageAccount.blob.core.windows.net/feed/
-</code></pre><ol>
+	type = azure
+	container = feed
+	connectionString = &quot;DefaultEndpointsProtocol=https;AccountName=;AccountKey=;BlobEndpoint=&quot;
+	path = https://yourStorageAccount.blob.core.windows.net/feed/
+</code></pre>
+<ol start="2">
 <li>AWS S3-based feed:</li>
 </ol>
 <pre><code class="lang-gitconfig">[sleet &quot;feed&quot;]
-    type = s3
-    path = https://s3.amazonaws.com/my-bucket-feed/
-    bucketName = my-bucket-feed
-    region = us-west-2
-    accessKeyId = IAM_ACCESS_KEY_ID
-    secretAccessKey = IAM_SECRET_ACCESS_KEY
-</code></pre><ol>
-<li>Local directory feed:
-<code>gitconfig
-[sleet &quot;myLocalFeed&quot;]
- type = local
- path = C:\\myFeed</code></li>
+	type = s3
+	path = https://s3.amazonaws.com/my-bucket-feed/
+	bucketName = my-bucket-feed
+	region = us-west-2
+	accessKeyId = IAM_ACCESS_KEY_ID
+	secretAccessKey = IAM_SECRET_ACCESS_KEY
+</code></pre>
+<ol start="3">
+<li>Local directory feed:</li>
 </ol>
-<p>See the <a href="https://github.com/emgarten/Sleet/blob/master/doc/index.md">docs</a> for all 
-available settings. </p>
+<pre><code class="lang-gitconfig">[sleet &quot;myLocalFeed&quot;]
+	type = local
+	path = C:\\myFeed
+</code></pre>
+<p>See the <a href="https://github.com/emgarten/Sleet/blob/master/doc/index.md">docs</a> for all
+available settings.</p>
+
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/who/sleet.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/dotnetconfig/dotnet-config/blob/main/docs/who/sleet.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -141,13 +144,13 @@ available settings. </p>
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
+
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
     <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.1/dist/dotnetconfig.min.js"></script>
