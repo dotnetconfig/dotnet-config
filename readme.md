@@ -1,9 +1,9 @@
 ![Icon](https://raw.githubusercontent.com/dotnetconfig/dotnet-config/main/docs/img/icon-32.png) dotnet-config
 ============
 
-[![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config) [![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt) [![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg)](https://discord.gg/x4qhjYd) [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config) 
+[![CLI NuGet](https://img.shields.io/nuget/v/dotnet-config.svg?label=nuget.cli&color=royalblue)](https://www.nuget.org/packages/dotnet-config) [![API NuGet](https://img.shields.io/nuget/v/DotNetConfig.svg?label=nuget.api&color=royalblue)](https://www.nuget.org/packages/DotNetConfig) [![Downloads](https://img.shields.io/nuget/dt/DotNetConfig?color=darkmagenta)](https://www.nuget.org/packages/DotNetConfig) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/dotnetconfig/dotnet-config/blob/main/license.txt) [![GitHub](https://img.shields.io/badge/-github-181717.svg?logo=GitHub)](https://github.com/dotnetconfig/dotnet-config) 
 
-[![CI Version](https://img.shields.io/endpoint?url=https://shields.kzu.io/vpre/dotnet-config/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.io/index.json) [![CI Status](https://github.com/dotnetconfig/dotnet-config/workflows/build/badge.svg?branch=main)](https://github.com/dotnetconfig/dotnet-config/actions?query=branch%3Amain+workflow%3Abuild+)
+[![ci](https://img.shields.io/endpoint?url=https://shields.kzu.app/vpre/dotnet-config/main&label=nuget.ci&color=brightgreen)](https://pkg.kzu.app/index.json) [![build](https://github.com/dotnetconfig/dotnet-config/actions/workflows/build.yml/badge.svg)](https://github.com/dotnetconfig/dotnet-config/actions/workflows/build.yml)
 
 <p>
 <b><a href="#why">Why</a></b>
