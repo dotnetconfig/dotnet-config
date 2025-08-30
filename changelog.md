@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.2.1](https://github.com/dotnetconfig/dotnet-config/tree/v1.2.1) (2025-08-30)
+
+[Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.2.0...v1.2.1)
+
+:bug: Fixed bugs:
+
+- When adding .netconfig to Azure Functions, permission denied is thrown [\#102](https://github.com/dotnetconfig/dotnet-config/issues/102)
+
 ## [v1.2.0](https://github.com/dotnetconfig/dotnet-config/tree/v1.2.0) (2024-07-07)
 
 [Full Changelog](https://github.com/dotnetconfig/dotnet-config/compare/v1.1.1...v1.2.0)
